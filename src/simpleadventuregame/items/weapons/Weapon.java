@@ -1,5 +1,8 @@
 package simpleadventuregame.items.weapons;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public abstract class Weapon {
 	private String name;
 	private int id;
@@ -13,6 +16,24 @@ public abstract class Weapon {
 		this.price = price;
 	}
 
+	public static Weapon[] weapons() {
+
+		Weapon[] wList = { new Pistol(), new Sword(), new Rifle() };
+		return wList;
+
+	}
+
+	public static Weapon getWeaponById(int id) {
+
+		for (Weapon w : Weapon.weapons()) {
+			if (w.getId() == id) {
+				return w;
+			}
+		}
+
+		return null;
+
+	}
 
 	public int getId() {
 		return id;
