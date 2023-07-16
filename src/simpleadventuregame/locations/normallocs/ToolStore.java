@@ -10,7 +10,7 @@ import simpleadventuregame.utils.PlayerScanner;
 
 public class ToolStore extends NormalLoc {
 
-//	private Weapon weapon = null;
+	private Weapon weapon = null;
 
 	private String equipmentFormat = " Character :  [%-7s] [%d] [Damage:  %-1d] [Money: %2d] \n";
 
@@ -49,19 +49,19 @@ public class ToolStore extends NormalLoc {
 		return true;
 	}
 
-//	public void printWeapons() {
-//
-//		System.out.println("-----Weapons-----");
-//
-//		Weapon[] weaponlist = weapon.weapons();
-//
-//		for (Weapon weapons : weaponlist) {
-//
-//			System.out.printf(equipmentFormat, weapons.getName(), weapons.getId(), weapons.getDamage(),
-//					weapons.getPrice());
-//		}
-//
-//	}
+	public void printWeapons() {
+
+		System.out.println("-----Weapons-----");
+
+		Weapon[] weaponlist = weapon.weapons();
+
+		for (Weapon weapons : weaponlist) {
+
+			System.out.printf(equipmentFormat, weapons.getName(), weapons.getId(), weapons.getDamage(),
+					weapons.getPrice());
+		}
+
+	}
 
 	public void selectWeaponInToolStore() {
 
@@ -83,19 +83,19 @@ public class ToolStore extends NormalLoc {
 			selectWeaponId = PlayerScanner.intScanner();
 
 		}
-		
+
 		Weapon selectedWeapon = Weapon.getWeaponById(selectWeaponId);
-		
-		if (selectedWeapon!= null) {
+
+		if (selectedWeapon != null) {
 			if (selectedWeapon.getPrice() > getPlayer().getMoney()) {
 				System.out.println("You don't have enough money");
-			}else {
-				System.out.println(" You have purchased "+selectedWeapon.getName());
+			} else {
+				System.out.println(" You have purchased " + selectedWeapon.getName());
 			}
+
 			
 		}
 
-		
 	}
 
 	public void printArmor() {
