@@ -38,7 +38,7 @@ public class ToolStore extends NormalLoc {
 
 			break;
 		case 2:
-			printArmor();
+			selectArmorInToolStore();
 			break;
 		case 3:
 			System.out.println("You exit from Store");
@@ -98,8 +98,18 @@ public class ToolStore extends NormalLoc {
 
 	}
 
-	public void printArmor() {
+	public void selectArmorInToolStore() {
 
+		System.out.println("-----Weapons-----");
+
+		Weapon[] weaponlist = Weapon.weapons();
+
+		for (Weapon weapons : weaponlist) {
+
+			System.out.printf(equipmentFormat, weapons.getName(), weapons.getId(), weapons.getDamage(),
+					weapons.getPrice());
+		}
+		
 	}
 
 }
