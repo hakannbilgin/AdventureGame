@@ -2,6 +2,7 @@ package simpleadventuregame.locations.normallocs;
 
 import simpleadventuregame.game.Player;
 import simpleadventuregame.gamecharacters.GameChar;
+import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.weapons.Pistol;
 import simpleadventuregame.items.weapons.Rifle;
 import simpleadventuregame.items.weapons.Sword;
@@ -49,19 +50,19 @@ public class ToolStore extends NormalLoc {
 		return true;
 	}
 
-	public void printWeapons() {
+//	public void printWeapons() {
+//
+//		System.out.println("-----Weapons-----");
+//
+//		Weapon[] weaponlist = weapon.weapons();
+//
+//		for (Weapon weapons : weaponlist) {
+//
+//			System.out.printf(equipmentFormat, weapons.getName(), weapons.getId(), weapons.getDamage(),
+//					weapons.getPrice());
+//		}
 
-		System.out.println("-----Weapons-----");
-
-		Weapon[] weaponlist = weapon.weapons();
-
-		for (Weapon weapons : weaponlist) {
-
-			System.out.printf(equipmentFormat, weapons.getName(), weapons.getId(), weapons.getDamage(),
-					weapons.getPrice());
-		}
-
-	}
+//	}
 
 	public void selectWeaponInToolStore() {
 
@@ -87,10 +88,13 @@ public class ToolStore extends NormalLoc {
 		Weapon selectedWeapon = Weapon.getWeaponById(selectWeaponId);
 
 		if (selectedWeapon != null) {
-			if (selectedWeapon.getPrice() > getPlayer().getMoney()) {
+			if (selectedWeapon.getPrice() > this.getPlayer().getMoney()) {
 				System.out.println("You don't have enough money");
 			} else {
 				System.out.println(" You have purchased " + selectedWeapon.getName());
+				int balance = this.getPlayer().getMoney() - selectedWeapon.getPrice();
+				this.getPlayer().setMoney(balance);
+				System.out.println("Your current money : " + this.getPlayer().getMoney());
 			}
 
 			
@@ -100,14 +104,14 @@ public class ToolStore extends NormalLoc {
 
 	public void selectArmorInToolStore() {
 
-		System.out.println("-----Weapons-----");
+		System.out.println("-----Armor-----");
 
-		Weapon[] weaponlist = Weapon.weapons();
+		Armor[] armorList = Armor.armors();
 
-		for (Weapon weapons : weaponlist) {
+		for (Armor armors : armorList) {
 
-			System.out.printf(equipmentFormat, weapons.getName(), weapons.getId(), weapons.getDamage(),
-					weapons.getPrice());
+			System.out.printf(equipmentFormat, armors.getName(), armors.getId(), armors.getDamageDodge(),
+					armors.getPrice());
 		}
 		
 	}
