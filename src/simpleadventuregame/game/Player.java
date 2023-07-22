@@ -2,20 +2,30 @@ package simpleadventuregame.game;
 
 public class Player {
 
+	private String charListFormat = " Character :  [%-7s] [Damage:  %-1d] [Health:  %-1d] [Money: %2d] \n";
 	private int id;
 	private int damage;
 	private int health;
 	private int money;
 	private String name;
 	private String charName;
+	private Inventory inventory;
 
 	public Player(String name) {
 		this.name = name;
+		this.inventory= new Inventory();
 
 	}
 
 	public Player() {
 
+	}
+	
+	public void printInfo() {
+		
+		System.out.printf(charListFormat,getInventory().getWeapon().getName(),getDamage(), getHealth(),
+				getMoney());
+		
 	}
 
 	public int getDamage() {
@@ -66,4 +76,13 @@ public class Player {
 		this.id = id;
 	}
 
+	public Inventory getInventory() {
+		return inventory;
+	}
+
+//	public void setInventory(Inventory inventory) {
+//		this.inventory = inventory;
+//	}
+
+	
 }

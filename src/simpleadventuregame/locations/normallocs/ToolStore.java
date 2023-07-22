@@ -91,10 +91,14 @@ public class ToolStore extends NormalLoc {
 			if (selectedWeapon.getPrice() > this.getPlayer().getMoney()) {
 				System.out.println("You don't have enough money");
 			} else {
+//				SATIN ALMA İŞLEMİ 
 				System.out.println(" You have purchased " + selectedWeapon.getName());
 				int balance = this.getPlayer().getMoney() - selectedWeapon.getPrice();
 				this.getPlayer().setMoney(balance);
 				System.out.println("Your current money : " + this.getPlayer().getMoney());
+				this.getPlayer().getInventory().setWeapon(selectedWeapon);
+				System.out.println("Your weapon is"+ getPlayer().getInventory().getWeapon().getName());
+				
 			}
 
 			

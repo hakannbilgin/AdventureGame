@@ -1,8 +1,5 @@
 package simpleadventuregame.items.weapons;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
 public abstract class Weapon {
 	private String name;
 	private int id;

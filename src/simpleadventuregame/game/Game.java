@@ -26,6 +26,7 @@ public class Game {
 		selectChar();
 
 		while (true) {
+			player.printInfo();
 			selectLoc();
 			if (!location.onLocation()) {
 				System.out.println("You died");
