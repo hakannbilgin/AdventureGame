@@ -2,7 +2,7 @@ package simpleadventuregame.game;
 
 public class Player {
 
-	private String charListFormat = " Character :  [%-7s] [Damage:  %-1d] [Health:  %-1d] [Money: %2d] \n";
+	private String charListFormat = " Your current info : Your weapon: [%-7s] Your Armor : [%-7s] [Damage:  %-1d] [Health:  %-1d] [Money: %2d] \n";
 	private int id;
 	private int damage;
 	private int health;
@@ -23,13 +23,13 @@ public class Player {
 	
 	public void printInfo() {
 		
-		System.out.printf(charListFormat,getInventory().getWeapon().getName(),getDamage(), getHealth(),
+		System.out.printf(charListFormat,this.getInventory().getWeapon().getName(),this.getInventory().getArmor().getName(), getDamage(), getHealth(),
 				getMoney());
 		
 	}
 
 	public int getDamage() {
-		return damage;
+		return damage + this.getInventory().getWeapon().getDamage();
 	}
 
 	public void setDamage(int damage) {

@@ -5,6 +5,7 @@ import simpleadventuregame.gamecharacters.GameChar;
 import simpleadventuregame.gamecharacters.Knight;
 import simpleadventuregame.gamecharacters.Samurai;
 import simpleadventuregame.locations.Location;
+import simpleadventuregame.locations.battlelocs.Cave;
 import simpleadventuregame.locations.normallocs.SafeHouse;
 import simpleadventuregame.locations.normallocs.ToolStore;
 import simpleadventuregame.utils.PlayerScanner;
@@ -28,6 +29,11 @@ public class Game {
 		while (true) {
 			player.printInfo();
 			selectLoc();
+			
+			if (location== null) {
+				System.out.println("The game is over, see you again :) ");
+				break;
+			}
 			if (!location.onLocation()) {
 				System.out.println("You died");
 				break;
@@ -78,17 +84,24 @@ public class Game {
 	public void selectLoc() {
 
 		System.out.println("--------------Locations-----------------");
-		System.out.println(" 1- Safe House \n 2- Store");
+		System.out.println(" 0- Exit from game \n 1- Safe House \n 2- Store \n 3- Cave ");
 		System.out.println("Please select your location!");
 		int selectLocation = PlayerScanner.intScanner();
 
 		switch (selectLocation) {
+		case 0:
+			location = null;
+			break;
 		case 1:
 			location = new SafeHouse(player);
 			break;
 		case 2:
 			location = new ToolStore(player);
 			break;
+		case 3:
+			location = new Cave(player);
+			break;
+		
 		default:
 
 			location = new SafeHouse(player);
