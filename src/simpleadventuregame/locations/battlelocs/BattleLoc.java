@@ -5,6 +5,7 @@ import java.util.Random;
 import simpleadventuregame.game.Player;
 import simpleadventuregame.locations.Location;
 import simpleadventuregame.monsters.Monster;
+import simpleadventuregame.utils.PlayerScanner;
 
 public abstract class BattleLoc extends Location {
 
@@ -24,8 +25,13 @@ public abstract class BattleLoc extends Location {
 		int monsterNumber=RandomMonsterCount();
 		System.out.println("Now you are in "+ this.getName());
 		System.out.println("Bheave yourself there are "+ monsterNumber +" "+  this.getMonster().getName()+"'s here.");
-		System.out.println("Fight or Run ");
-		return false;
+		System.out.println("<F>ight or <R>un ");
+		char selectCase = PlayerScanner.StirngToFirstcharScanner();
+		if (selectCase=='F') {
+			System.out.println("Savaş işlemleri");
+		}
+		
+		return true;
 	}
 
 	

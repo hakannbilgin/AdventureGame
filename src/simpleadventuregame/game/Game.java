@@ -6,6 +6,8 @@ import simpleadventuregame.gamecharacters.Knight;
 import simpleadventuregame.gamecharacters.Samurai;
 import simpleadventuregame.locations.Location;
 import simpleadventuregame.locations.battlelocs.Cave;
+import simpleadventuregame.locations.battlelocs.Forest;
+import simpleadventuregame.locations.battlelocs.River;
 import simpleadventuregame.locations.normallocs.SafeHouse;
 import simpleadventuregame.locations.normallocs.ToolStore;
 import simpleadventuregame.utils.PlayerScanner;
@@ -84,7 +86,10 @@ public class Game {
 	public void selectLoc() {
 
 		System.out.println("--------------Locations-----------------");
-		System.out.println(" 0- Exit from game \n 1- Safe House \n 2- Store \n 3- Cave ");
+		System.out.println(" 0- Exit from game \n 1- Safe House \n 2- Store \n 3- Cave \n 4- Forest \n 5- River ");
+		System.out.println("---Cave  : Enemy= Zombie  Award= Food  ---");
+		System.out.println("---Forest: Enemy= Vampire Award= Wood  ---");
+		System.out.println("---River : Enemy= Zombie  Award= Water ---");
 		System.out.println("Please select your location!");
 		int selectLocation = PlayerScanner.intScanner();
 
@@ -101,10 +106,17 @@ public class Game {
 		case 3:
 			location = new Cave(player);
 			break;
+		case 4:
+			location = new Forest(player);
+			break;
+		case 5:
+			location = new River(player);
+			break;
+		
 		
 		default:
 
-			location = new SafeHouse(player);
+			System.out.println("Please enter a valid number");
 		}
 
 //		location.onLocation();

@@ -6,6 +6,7 @@ import simpleadventuregame.items.weapons.Pistol;
 import simpleadventuregame.locations.Location;
 import simpleadventuregame.locations.normallocs.SafeHouse;
 import simpleadventuregame.locations.normallocs.ToolStore;
+import simpleadventuregame.utils.PlayerScanner;
 
 public class deneme {
 
@@ -15,6 +16,8 @@ public class deneme {
 //		ToolStore toolStore =  new ToolStore(null, null);
 //		System.out.println(safeHouse.getName());
 //		System.out.println(toolStore.getName());
+		char a = PlayerScanner.StirngToFirstcharScanner();
+		System.out.println(a);
 		
 }
 }

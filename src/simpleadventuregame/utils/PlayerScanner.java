@@ -19,9 +19,18 @@ public class PlayerScanner {
 		return scanner.nextInt();
 
 	}
+
 	public static String stringScanner() {
-		
+
 		return scanner.next();
 	}
-	
+
+	public static char StirngToFirstcharScanner() {
+
+		char firstChar = stringScanner().charAt(0);
+
+		return firstChar;
+
+	}
+
 }
