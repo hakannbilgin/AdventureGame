@@ -1,11 +1,14 @@
 package simpleadventuregame.game;
 
+import simpleadventuregame.items.weapons.Weapon;
+
 public class Player {
 
 	private String charListFormat = " Your current info : Your weapon: [%-7s] Your Armor : [%-7s] [Damage:  %-1d] [Health:  %-1d] [Money: %2d] \n";
 	private int id;
 	private int damage;
 	private int health;
+	private int defaultHealth;
 	private int money;
 	private String name;
 	private String charName;
@@ -23,13 +26,20 @@ public class Player {
 	
 	public void printInfo() {
 		
-		System.out.printf(charListFormat,this.getInventory().getWeapon().getName(),this.getInventory().getArmor().getName(), getDamage(), getHealth(),
+		System.out.printf(charListFormat,this.getInventory().getWeapon().getName(),this.getInventory().getArmor().getName(), getTotalDamage(), getHealth(),
 				getMoney());
 		
 	}
+	
+	
+	public int getTotalDamage() {
+		
+		return damage + this.getInventory().getWeapon().getDamage();
+	}
+	
 
 	public int getDamage() {
-		return damage + this.getInventory().getWeapon().getDamage();
+		return damage;
 	}
 
 	public void setDamage(int damage) {
@@ -41,6 +51,10 @@ public class Player {
 	}
 
 	public void setHealth(int health) {
+		if (health < 0) {
+			health = 0;
+			
+		}
 		this.health = health;
 	}
 
@@ -84,5 +98,17 @@ public class Player {
 //		this.inventory = inventory;
 //	}
 
-	
+	public Weapon getWeapon() {
+		
+		return this.getInventory().getWeapon();
+		
+	}
+
+	public int getDefaultHealth() {
+		return defaultHealth;
+	}
+
+	public void setDefaultHealth(int defaultHealth) {
+		this.defaultHealth = defaultHealth;
+	}
 }

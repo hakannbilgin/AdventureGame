@@ -77,6 +77,7 @@ public class Game {
 	public void initPlayer(GameChar gameChar) {
 		player.setDamage(gameChar.getDamage());
 		player.setHealth(gameChar.getHealth());
+		player.setDefaultHealth(gameChar.getHealth());
 		player.setMoney(gameChar.getMoney());
 		player.setCharName(gameChar.getName());
 		player.setId(gameChar.getId());
