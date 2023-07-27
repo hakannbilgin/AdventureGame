@@ -14,7 +14,6 @@ import simpleadventuregame.utils.PlayerScanner;
 
 public class Game {
 	private String charListFormat = " Character : [%d] [%-7s] [Damage:  %-1d] [Health:  %-1d] [Money: %2d] \n";
-	private String locationFormat = "Location : [%d] - %s ";
 	private Player player;
 	private Location location;
 

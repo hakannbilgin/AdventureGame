@@ -25,7 +25,7 @@ public class PlayerScanner {
 		return scanner.next();
 	}
 
-	public static char StirngToFirstcharScanner() {
+	public static char StringToFirstcharScanner() {
 
 		char firstChar = stringScanner().charAt(0);
 

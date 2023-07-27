@@ -16,8 +16,8 @@ public class deneme {
 //		ToolStore toolStore =  new ToolStore(null, null);
 //		System.out.println(safeHouse.getName());
 //		System.out.println(toolStore.getName());
-		char a = PlayerScanner.StirngToFirstcharScanner();
-		System.out.println(a);
+//		char a = PlayerScanner.StringToFirstcharScanner();
+//		System.out.println(a);
 		
 }
 }
