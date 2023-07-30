@@ -78,9 +78,9 @@ public abstract class BattleLoc extends Location {
 			if (this.getMonster().getHealth() < this.getPlayer().getHealth()) {
 				System.out.println("Düşmanı yendiniz");
 				System.out.println("You earned " + this.getMonster().getAwardMoney() + "and you earned water" );
-				this.getPlayer().getInventory().setWaterCount();
 				this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getMonster().getAwardMoney());
 				System.out.println("Your current Money" + this.getPlayer().getMoney());
+				
 
 			} else {
 				return false;

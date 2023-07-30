@@ -43,26 +43,28 @@ public class Inventory {
 		return waterCount;
 	}
 
-	public void setWaterCount() {
-		int newcount =waterCount++;
+	
+	
+	public void setWaterCount(int addWater) {
 		
-		this.waterCount=newcount;
+		this.waterCount= waterCount+ addWater;
+		
 	}
 
 	public int getFoodCount() {
 		return foodCount;
 	}
 
-	public void setFoodCount(int foodCount) {
-		this.foodCount = foodCount;
+	public void setFoodCount(int addFood) {
+		this.foodCount = foodCount+ addFood;
 	}
 
 	public int getWoodCount() {
 		return woodCount;
 	}
 
-	public void setWoodCount(int woodCount) {
-		this.woodCount = woodCount;
+	public void setWoodCount(int addWood) {
+		this.woodCount = woodCount + addWood;
 	}
 
 	
