@@ -3,6 +3,7 @@ package simpleadventuregame.locations.battlelocs;
 import java.util.Random;
 
 import simpleadventuregame.game.Player;
+import simpleadventuregame.items.Loot.Award;
 import simpleadventuregame.locations.Location;
 import simpleadventuregame.monsters.Monster;
 import simpleadventuregame.utils.PlayerScanner;
@@ -12,10 +13,10 @@ public abstract class BattleLoc extends Location {
 	private String infoPlayerFormat = " Your current info : Your weapon: [%-7s] Your Armor : [%-7s] [Dodge:  %-1d] [Damage:  %-1d] [Health:  %-1d] [Money: %2d] \n";
 	private String infoMonsterFormat = " Monster info : [Damage:  %-1d] [Health:  %-1d] [Award: %2d] \n";
 	private Monster monster;
-	private String award;
+	private Award award;
 	private int maxMonsterCount;
 
-	public BattleLoc(Player player, String locationName, Monster monster, String award, int maxMonsterCount) {
+	public BattleLoc(Player player, String locationName, Monster monster, Award award, int maxMonsterCount) {
 		super(player, locationName);
 		this.monster = monster;
 		this.award = award;
@@ -77,7 +78,10 @@ public abstract class BattleLoc extends Location {
 
 			if (this.getMonster().getHealth() < this.getPlayer().getHealth()) {
 				System.out.println("Düşmanı yendiniz");
+				
 				System.out.println("You earned " + this.getMonster().getAwardMoney() + "and you earned water" );
+				
+				
 				this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getMonster().getAwardMoney());
 				System.out.println("Your current Money" + this.getPlayer().getMoney());
 				
@@ -122,6 +126,12 @@ public abstract class BattleLoc extends Location {
 		return random.nextInt(this.getMaxMonsterCount()) + 1;
 
 	}
+	
+	public void collectAward() {
+	
+		
+	}
+	
 
 	public Monster getMonster() {
 		return monster;
@@ -131,11 +141,11 @@ public abstract class BattleLoc extends Location {
 		this.monster = monster;
 	}
 
-	public String getAward() {
+	public Award getAward() {
 		return award;
 	}
 
-	public void setAward(String award) {
+	public void setAward(Award award) {
 		this.award = award;
 	}
 
