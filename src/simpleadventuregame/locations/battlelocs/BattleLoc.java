@@ -20,7 +20,7 @@ public abstract class BattleLoc extends Location {
 		super(player, locationName);
 		this.monster = monster;
 		this.award = award;
-		this.maxMonsterCount= maxMonsterCount;
+		this.maxMonsterCount = maxMonsterCount;
 	}
 
 	@Override
@@ -78,13 +78,8 @@ public abstract class BattleLoc extends Location {
 
 			if (this.getMonster().getHealth() < this.getPlayer().getHealth()) {
 				System.out.println("Düşmanı yendiniz");
-				
-				System.out.println("You earned " + this.getMonster().getAwardMoney() + "and you earned water" );
-				
-				
-				this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getMonster().getAwardMoney());
-				System.out.println("Your current Money" + this.getPlayer().getMoney());
-				
+
+				collectAward();
 
 			} else {
 				return false;
@@ -126,12 +121,27 @@ public abstract class BattleLoc extends Location {
 		return random.nextInt(this.getMaxMonsterCount()) + 1;
 
 	}
-	
+
 	public void collectAward() {
-	
-		
+
+		System.out.println(
+				"You earned " + this.getMonster().getAwardMoney() + "and you earned " + this.getAward().getName());
+
+		this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getMonster().getAwardMoney());
+		System.out.println("Your current Money " + this.getPlayer().getMoney());
+
+		if (this.getAward().getId() == 1) {
+			this.getPlayer().getInventory().setFoodCount(1);
+			System.out.println("Your Current Food Count is " + this.getPlayer().getInventory().getFoodCount());
+		} else if (this.getAward().getId() == 2) {
+			this.getPlayer().getInventory().setWaterCount(1);
+			System.out.println("Your Current Water Count is " + this.getPlayer().getInventory().getWaterCount());
+		} else {
+			this.getPlayer().getInventory().setWoodCount(1);
+			System.out.println("Your Current Water Count is " + this.getPlayer().getInventory().getWoodCount());
+		}
+
 	}
-	
 
 	public Monster getMonster() {
 		return monster;

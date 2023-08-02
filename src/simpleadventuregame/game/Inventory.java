@@ -12,15 +12,13 @@ public class Inventory {
 
 	private Weapon weapon;
 	private Armor armor;
-	private int waterCount= 0;
-	private int foodCount=0;
-	private int woodCount=0;
-	
-
+	private int waterCount = 0;
+	private int foodCount = 0;
+	private int woodCount = 0;
 
 	public Inventory() {
 		this.weapon = new Fist();
-		this.armor= new WoodArmor();
+		this.armor = new WoodArmor();
 	}
 
 	public Weapon getWeapon() {
@@ -43,12 +41,10 @@ public class Inventory {
 		return waterCount;
 	}
 
-	
-	
 	public void setWaterCount(int addWater) {
-		
-		this.waterCount= waterCount+ addWater;
-		
+
+		this.waterCount = waterCount + addWater;
+
 	}
 
 	public int getFoodCount() {
@@ -56,7 +52,7 @@ public class Inventory {
 	}
 
 	public void setFoodCount(int addFood) {
-		this.foodCount = foodCount+ addFood;
+		this.foodCount = foodCount + addFood;
 	}
 
 	public int getWoodCount() {
@@ -67,5 +63,4 @@ public class Inventory {
 		this.woodCount = woodCount + addWood;
 	}
 
-	
 }
