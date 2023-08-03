@@ -4,7 +4,9 @@ import simpleadventuregame.items.weapons.Weapon;
 
 public class Player {
 
-	private String charListFormat = " Your current info : Your weapon: [%-7s] Your Armor : [%-7s] [Damage:  %-1d] [Health:  %-1d] [Money: %2d] \n";
+	private String charListFormat = " Your current info : Your weapon: [%-7s] Your Armor : [%-7s] [Damage:  %-1d] [Health:  %-1d] [Money: %2d] [Satiety Level:  %-1d] [Thirst Level:  %-1d] \n";
+	private int satiety = 20;
+	private int thirstLevel = 20;
 	private int id;
 	private int damage;
 	private int health;
@@ -27,7 +29,7 @@ public class Player {
 	public void printInfo() {
 		
 		System.out.printf(charListFormat,this.getInventory().getWeapon().getName(),this.getInventory().getArmor().getName(), getTotalDamage(), getHealth(),
-				getMoney());
+				getMoney(), getSatiety(), getThirstLevel());
 		
 	}
 	
@@ -111,4 +113,25 @@ public class Player {
 	public void setDefaultHealth(int defaultHealth) {
 		this.defaultHealth = defaultHealth;
 	}
+
+	public int getSatiety() {
+		return satiety;
+	}
+
+	public void setSatiety(int satiety) {
+		this.satiety = satiety;
+	}
+
+	public int getThirstLevel() {
+		return thirstLevel;
+	}
+
+	public void setThirstLevel(int thirstLevel) {
+		this.thirstLevel = thirstLevel;
+	}
+	
+	
+	
+	
+	
 }
