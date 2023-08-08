@@ -6,7 +6,7 @@ public class Player {
 
 	private String charListFormat = " Your current info : Your weapon: [%-7s] Your Armor : [%-7s] [Damage:  %-1d] [Health:  %-1d] [Money: %2d] [Satiety Level:  %-1d] [Thirst Level:  %-1d] \n";
 	private int satiety = 20;
-	private int thirstLevel = 20;
+	private int thirstLevel = 0;
 	private int id;
 	private int damage;
 	private int health;

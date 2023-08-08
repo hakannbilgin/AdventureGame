@@ -78,7 +78,9 @@ public abstract class BattleLoc extends Location {
 
 			if (this.getMonster().getHealth() < this.getPlayer().getHealth()) {
 				System.out.println("Düşmanı yendiniz");
-
+				this.getPlayer().setThirstLevel(this.getPlayer().getThirstLevel() + 1);
+				this.getPlayer().setSatiety(this.getPlayer().getSatiety()-1);
+				//TODO IF THIRST LEVEL GETS OVER 20 ADD SOME CONSEQUENCES
 				collectAward();
 
 			} else {
