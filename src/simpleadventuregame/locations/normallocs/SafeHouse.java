@@ -25,6 +25,7 @@ public class SafeHouse extends NormalLoc {
 
 			System.out.println("1 - Drink Water (One water item add -2 point to your Thirst Level");
 			System.out.println("2 - Eat Food (One Food item add +2 point to your Satietry");
+			System.out.println("3 - Craft Room (Crafting new items for your battle)");
 			System.out.println("3 - Exit");
 			System.out.print("Select : ");
 			int selectCase = PlayerScanner.intScanner();
@@ -42,6 +43,9 @@ public class SafeHouse extends NormalLoc {
 				eatFood();
 				break;
 			case 3:
+				eatFood();
+				break;
+			case 4:
 				System.out.println("You exit from Safe House");
 				showMenu = false;
 				break;

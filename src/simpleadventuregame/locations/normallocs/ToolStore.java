@@ -13,7 +13,7 @@ public class ToolStore extends NormalLoc {
 
 	private Weapon weapon = null;
 
-	private String equipmentFormat = " Equipment :  [%-7s] [%d] [Damage:  %-1d] [Money: %2d] \n";
+	private String equipmentFormat = " Equipment :  [%-7s] [%d] [DamageDodge:  %-1d] [Money: %2d] \n";
 
 	public ToolStore(Player player) {
 		super(player, "Store");

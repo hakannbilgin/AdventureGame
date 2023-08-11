@@ -77,7 +77,7 @@ public abstract class BattleLoc extends Location {
 			}
 
 			if (this.getMonster().getHealth() < this.getPlayer().getHealth()) {
-				System.out.println("Düşmanı yendiniz");
+				System.out.println("You killed the enemy");
 				this.getPlayer().setThirstLevel(this.getPlayer().getThirstLevel() + 1);
 				this.getPlayer().setSatiety(this.getPlayer().getSatiety()-1);
 				//TODO IF THIRST LEVEL GETS OVER 20 ADD SOME CONSEQUENCES
@@ -127,7 +127,7 @@ public abstract class BattleLoc extends Location {
 	public void collectAward() {
 
 		System.out.println(
-				"You earned " + this.getMonster().getAwardMoney() + "and you earned " + this.getAward().getName());
+				"You earned " + this.getMonster().getAwardMoney() + " money and you earned " + this.getAward().getName());
 
 		this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getMonster().getAwardMoney());
 		System.out.println("Your current Money " + this.getPlayer().getMoney());

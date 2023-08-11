@@ -7,7 +7,7 @@ import simpleadventuregame.monsters.Zombie;
 public class Cave extends BattleLoc{
 
 	public Cave(Player player) {
-		super(player, "Mağara", new Zombie(), new Food(), 3);
+		super(player, "Cave", new Zombie(), new Food(), 3);
 		// TODO Auto-generated constructor stub
 	}
 

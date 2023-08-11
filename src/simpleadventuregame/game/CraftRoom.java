@@ -1,5 +1,5 @@
 package simpleadventuregame.game;
 
-public class CraftTable {
+public class CraftRoom {
 
 }
