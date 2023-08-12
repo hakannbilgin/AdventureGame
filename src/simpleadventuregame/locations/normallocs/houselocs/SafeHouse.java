@@ -1,6 +1,7 @@
-package simpleadventuregame.locations.normallocs;
+package simpleadventuregame.locations.normallocs.houselocs;
 
 import simpleadventuregame.game.Player;
+import simpleadventuregame.locations.normallocs.NormalLoc;
 import simpleadventuregame.utils.PlayerScanner;
 
 public class SafeHouse extends NormalLoc {
@@ -43,7 +44,7 @@ public class SafeHouse extends NormalLoc {
 				eatFood();
 				break;
 			case 3:
-				eatFood();
+				
 				break;
 			case 4:
 				System.out.println("You exit from Safe House");

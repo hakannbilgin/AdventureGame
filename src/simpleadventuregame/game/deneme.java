@@ -4,8 +4,8 @@ package simpleadventuregame.game;
 
 import simpleadventuregame.items.weapons.Pistol;
 import simpleadventuregame.locations.Location;
-import simpleadventuregame.locations.normallocs.SafeHouse;
 import simpleadventuregame.locations.normallocs.ToolStore;
+import simpleadventuregame.locations.normallocs.houselocs.SafeHouse;
 import simpleadventuregame.utils.PlayerScanner;
 
 public class deneme {

@@ -54,20 +54,6 @@ public class ToolStore extends NormalLoc {
 		return true;
 	}
 
-//	public void printWeapons() {
-//
-//		System.out.println("-----Weapons-----");
-//
-//		Weapon[] weaponlist = weapon.weapons();
-//
-//		for (Weapon weapons : weaponlist) {
-//
-//			System.out.printf(equipmentFormat, weapons.getName(), weapons.getId(), weapons.getDamage(),
-//					weapons.getPrice());
-//		}
-
-//	}
-
 	public void selectWeaponInToolStore() {
 
 		System.out.println("-----Weapons-----");

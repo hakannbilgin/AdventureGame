@@ -8,8 +8,8 @@ import simpleadventuregame.locations.Location;
 import simpleadventuregame.locations.battlelocs.Cave;
 import simpleadventuregame.locations.battlelocs.Forest;
 import simpleadventuregame.locations.battlelocs.River;
-import simpleadventuregame.locations.normallocs.SafeHouse;
 import simpleadventuregame.locations.normallocs.ToolStore;
+import simpleadventuregame.locations.normallocs.houselocs.SafeHouse;
 import simpleadventuregame.utils.PlayerScanner;
 
 public class Game {
@@ -89,7 +89,7 @@ public class Game {
 		System.out.println(" 0- Exit from game \n 1- Safe House \n 2- Store \n 3- Cave \n 4- Forest \n 5- River ");
 		System.out.println("---Cave  : Enemy= Zombie  Award= Food  ---");
 		System.out.println("---Forest: Enemy= Vampire Award= Wood  ---");
-		System.out.println("---River : Enemy= Zombie  Award= Water ---");
+		System.out.println("---River : Enemy= Bear  Award= Water ---");
 		System.out.println("Please select your location!");
 		int selectLocation = PlayerScanner.intScanner();
 

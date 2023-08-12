@@ -15,6 +15,7 @@ public class Inventory {
 	private int waterCount = 0;
 	private int foodCount = 0;
 	private int woodCount = 0;
+	private int ironCount = 0;
 
 	public Inventory() {
 		this.weapon = new Fist();
@@ -61,6 +62,15 @@ public class Inventory {
 
 	public void setWoodCount(int addWood) {
 		this.woodCount = woodCount + addWood;
+	}
+
+	public int getIronCount() {
+		return ironCount;
+	}
+
+	public void setIronCount(int addIron) {
+		this.ironCount = ironCount + addIron;
+
 	}
 
 }
