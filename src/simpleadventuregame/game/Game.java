@@ -9,6 +9,7 @@ import simpleadventuregame.locations.battlelocs.Cave;
 import simpleadventuregame.locations.battlelocs.Forest;
 import simpleadventuregame.locations.battlelocs.River;
 import simpleadventuregame.locations.normallocs.ToolStore;
+import simpleadventuregame.locations.normallocs.houselocs.BlackSmith;
 import simpleadventuregame.locations.normallocs.houselocs.SafeHouse;
 import simpleadventuregame.utils.PlayerScanner;
 
@@ -86,7 +87,7 @@ public class Game {
 	public void selectLoc() {
 
 		System.out.println("--------------Locations-----------------");
-		System.out.println(" 0- Exit from game \n 1- Safe House \n 2- Store \n 3- Cave \n 4- Forest \n 5- River ");
+		System.out.println(" 0- Exit from game \n 1- Safe House \n 2- Store \n 3- BlackSmith \n 4- Cave \n 5- Forest \n 6- River ");
 		System.out.println("---Cave  : Enemy= Zombie  Award= Food  ---");
 		System.out.println("---Forest: Enemy= Vampire Award= Wood  ---");
 		System.out.println("---River : Enemy= Bear  Award= Water ---");
@@ -104,12 +105,15 @@ public class Game {
 			location = new ToolStore(player);
 			break;
 		case 3:
-			location = new Cave(player);
+			location = new BlackSmith(player);
 			break;
 		case 4:
-			location = new Forest(player);
+			location = new Cave(player);
 			break;
 		case 5:
+			location = new Forest(player);
+			break;
+		case 6:
 			location = new River(player);
 			break;
 		

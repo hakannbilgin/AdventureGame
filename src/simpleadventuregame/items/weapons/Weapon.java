@@ -15,7 +15,7 @@ public abstract class Weapon {
 
 	public static Weapon[] weapons() {
 
-		Weapon[] wList = { new Pistol(), new Sword(), new Rifle() };
+		Weapon[] wList = { new Sword(), new Pistol(), new Rifle()};
 		return wList;
 
 	}

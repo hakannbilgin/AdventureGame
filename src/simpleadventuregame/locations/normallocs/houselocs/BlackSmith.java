@@ -8,6 +8,8 @@ import simpleadventuregame.utils.PlayerScanner;
 
 public class BlackSmith extends NormalLoc{
 
+//	private String weaponCraftListformat = " WeaponCraft :  [%-7s] [%d] [Damage:  %-1d] [Money: %2d] \n";
+	
 	public BlackSmith(Player player) {
 		super(player, "BlackSmith");
 		

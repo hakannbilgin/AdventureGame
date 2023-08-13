@@ -13,7 +13,8 @@ public class ToolStore extends NormalLoc {
 
 	private Weapon weapon = null;
 
-	private String equipmentFormat = " Equipment :  [%-7s] [%d] [DamageDodge:  %-1d] [Money: %2d] \n";
+	private String equipmentWeaponFormat = " Equipment :  [%-7s] [%d] [Damage:  %-1d] [Money: %2d] \n";
+	private String equipmentArmorFormat = " Equipment :  [%-7s] [%d] [DamageDodge:  %-1d] [Money: %2d] \n";
 
 	public ToolStore(Player player) {
 		super(player, "Store");
@@ -56,21 +57,14 @@ public class ToolStore extends NormalLoc {
 
 	public void selectWeaponInToolStore() {
 
-		System.out.println("-----Weapons-----");
+		printWeaponInToolStore();
 
-		Weapon[] weaponlist = Weapon.weapons();
-
-		for (Weapon weapons : weaponlist) {
-
-			System.out.printf(equipmentFormat, weapons.getName(), weapons.getId(), weapons.getDamage(),
-					weapons.getPrice());
-		}
 		System.out.println("Please enter '0' to exit");
 
 		System.out.println("Please enter the id of the weapon you have selected : ");
 		int selectWeaponId = PlayerScanner.intScanner();
 
-		while (selectWeaponId < 0 && selectWeaponId > weaponlist.length) {
+		while (selectWeaponId < 0 && selectWeaponId > weapon.weapons().length) {
 			System.out.println(" you entered invalid number, please enter again ! ");
 			selectWeaponId = PlayerScanner.intScanner();
 
@@ -99,22 +93,14 @@ public class ToolStore extends NormalLoc {
 
 	public void selectArmorInToolStore() {
 
-		System.out.println("-----Armor-----");
+		printArmorInToolStore();
 
-		Armor[] armorList = Armor.armors();
-
-		for (Armor armors : armorList) {
-
-			System.out.printf(equipmentFormat, armors.getName(), armors.getId(), armors.getDamageDodge(),
-					armors.getPrice());
-
-		}
 		System.out.println("Please enter '0' to exit");
 
 		System.out.println("Please enter the id of the armor you have selected : ");
 		int selectedArmorId = PlayerScanner.intScanner();
 
-		while (selectedArmorId < 1 && selectedArmorId > armorList.length) {
+		while (selectedArmorId < 1 && selectedArmorId > Armor.armors().length) {
 			System.out.println(" you entered invalid number, please enter again ! ");
 			selectedArmorId = PlayerScanner.intScanner();
 
@@ -141,4 +127,30 @@ public class ToolStore extends NormalLoc {
 
 	}
 
+	public void printWeaponInToolStore() {
+
+		System.out.println("-----Weapons-----");
+
+		Weapon[] weaponlist = Weapon.weapons();
+
+		for (Weapon weapons : weaponlist) {
+
+			System.out.printf(equipmentWeaponFormat, weapons.getName(), weapons.getId(), weapons.getDamage(),
+					weapons.getPrice());
+		}
+	}
+
+	public void printArmorInToolStore() {
+
+		System.out.println("-----Armor-----");
+
+		Armor[] armorList = Armor.armors();
+
+		for (Armor armors : armorList) {
+
+			System.out.printf(equipmentArmorFormat, armors.getName(), armors.getId(), armors.getDamageDodge(),
+					armors.getPrice());
+
+		}
+	}
 }
