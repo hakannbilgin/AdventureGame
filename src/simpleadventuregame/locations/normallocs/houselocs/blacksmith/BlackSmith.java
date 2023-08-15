@@ -1,24 +1,26 @@
 package simpleadventuregame.locations.normallocs.houselocs.blacksmith;
 
-
 import simpleadventuregame.game.Player;
-import simpleadventuregame.locations.Location;
+import simpleadventuregame.items.weapons.Spear;
 import simpleadventuregame.locations.normallocs.NormalLoc;
 import simpleadventuregame.utils.PlayerScanner;
 
-public class BlackSmith extends NormalLoc{
+public class BlackSmith extends NormalLoc {
 
 	private WeaponCraftingTable weaponCraftingTable;
 //	private String weaponCraftListformat = " WeaponCraft :  [%-7s] [%d] [Damage:  %-1d] [Money: %2d] \n";
-	
+
 	public BlackSmith(Player player) {
 		super(player, "BlackSmith");
-		
+
 	}
 
 	@Override
 	public boolean onLocation() {
 		System.out.println("You are in BlackSmith");
+//		this.getPlayer().getInventory().setIronCount(2);
+//		this.getPlayer().getInventory().setWoodCount(2);
+//		this.getPlayer().getInventory().setWaterCount(2);
 		boolean menu = true;
 		while (menu) {
 
@@ -38,7 +40,7 @@ public class BlackSmith extends NormalLoc{
 
 				break;
 			case 2:
-				
+
 				break;
 			case 3:
 				System.out.println("You exit from BlackSmith");
@@ -50,11 +52,9 @@ public class BlackSmith extends NormalLoc{
 		return true;
 	}
 
-
-
 	public boolean weaponCrafting() {
 		System.out.println("You are at Weapon Craft Table");
-		
+
 		boolean menu = true;
 		while (menu) {
 
@@ -70,11 +70,10 @@ public class BlackSmith extends NormalLoc{
 			}
 			switch (selectCase) {
 			case 1:
-				
-
+				craftSpear();
 				break;
 			case 2:
-				
+
 				break;
 			case 3:
 				System.out.println("You leave from Weapon Craft Table");
@@ -85,7 +84,18 @@ public class BlackSmith extends NormalLoc{
 		}
 		return true;
 	}
-	
 
-	
+	public void craftSpear() {
+		if (this.getPlayer().getInventory().getIronCount()>=1 && this.getPlayer().getInventory().getWoodCount()>=2 && this.getPlayer().getInventory().getWaterCount()>=0) {
+			this.getPlayer().getInventory().setWeapon(new Spear());
+			this.getPlayer().getInventory().setIronCount(-1);
+			this.getPlayer().getInventory().setWoodCount(-2);
+			this.getPlayer().getInventory().setWaterCount(-1);
+			System.out.println("-------------------------- \n Spear Crafted \n --------------------");
+			
+		}else {
+			System.out.println("You don't have enough item");
+		}
+	}
+
 }

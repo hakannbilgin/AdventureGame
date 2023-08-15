@@ -5,7 +5,7 @@ import simpleadventuregame.locations.normallocs.NormalLoc;
 import simpleadventuregame.utils.PlayerScanner;
 
 public class SafeHouse extends NormalLoc {
-	private String infoPlayer = " Info :  [Your Health:  %-1d] [Your Hunger Level:  %-1d/20] [Your Thirst Level:  %-1d/20] \n";
+	private String infoPlayer = " Info :  [Your Health:  %-1d] [Your FoodCount:  %-1d] [Your WaterCount:  %-1d] [Your Satietry Level:  %-1d/20] [Your Thirst Level:  %-1d/20] \n";
 
 	public SafeHouse(Player player) {
 		super(player, "Safe House");
@@ -17,12 +17,16 @@ public class SafeHouse extends NormalLoc {
 		System.out.println(" Now you are in the safe house \n Your have been healed, your health is full");
 		this.getPlayer().setHealth(this.getPlayer().getDefaultHealth());
 
-		System.out.println("Informations \n ------------------------");
-		System.out.printf(infoPlayer, this.getPlayer().getHealth(), this.getPlayer().getSatiety(),
-				this.getPlayer().getThirstLevel());
+		
 
 		boolean showMenu = true;
 		while (showMenu) {
+			System.out.println("Informations \n ------------------------");
+			System.out.printf(infoPlayer, this.getPlayer().getHealth(),
+					this.getPlayer().getInventory().getFoodCount(),
+					this.getPlayer().getInventory().getWaterCount(),
+					this.getPlayer().getSatiety(),
+					this.getPlayer().getThirstLevel());
 
 			System.out.println("1 - Drink Water (One water item add -2 point to your Thirst Level");
 			System.out.println("2 - Eat Food (One Food item add +2 point to your Satietry");

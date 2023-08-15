@@ -64,6 +64,7 @@ public class Game {
 			break;
 		case 2:
 			initPlayer(new Knight());
+			break;
 		case 3:
 			initPlayer(new Archer());
 			break;
