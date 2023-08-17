@@ -37,7 +37,7 @@ public abstract class BattleLoc extends Location {
 			return true;
 		}
 
-		if (this.getPlayer().getHealth() <= 0) {
+		if (this.getPlayer().getHealth() <= 0 || this.getPlayer().getSatiety()==0 || this.getPlayer().getThirstLevel()==20) {
 			System.out.println("You died");
 			return false;
 

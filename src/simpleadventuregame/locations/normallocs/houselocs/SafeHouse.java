@@ -17,15 +17,11 @@ public class SafeHouse extends NormalLoc {
 		System.out.println(" Now you are in the safe house \n Your have been healed, your health is full");
 		this.getPlayer().setHealth(this.getPlayer().getDefaultHealth());
 
-		
-
 		boolean showMenu = true;
 		while (showMenu) {
 			System.out.println("Informations \n ------------------------");
-			System.out.printf(infoPlayer, this.getPlayer().getHealth(),
-					this.getPlayer().getInventory().getFoodCount(),
-					this.getPlayer().getInventory().getWaterCount(),
-					this.getPlayer().getSatiety(),
+			System.out.printf(infoPlayer, this.getPlayer().getHealth(), this.getPlayer().getInventory().getFoodCount(),
+					this.getPlayer().getInventory().getWaterCount(), this.getPlayer().getSatiety(),
 					this.getPlayer().getThirstLevel());
 
 			System.out.println("1 - Drink Water (One water item add -2 point to your Thirst Level");
@@ -42,7 +38,6 @@ public class SafeHouse extends NormalLoc {
 			switch (selectCase) {
 			case 1:
 				drinkWater();
-
 				break;
 			case 2:
 				eatFood();
@@ -64,9 +59,11 @@ public class SafeHouse extends NormalLoc {
 	public void drinkWater() {
 		if (this.getPlayer().getThirstLevel() == 0) {
 			System.out.println(
-					"-------------------- \n You can't drink water, yo are not thursty \n --------------------");
+					"-------------------- \n You can't drink water, you are not thursty \n --------------------");
+		} else if (this.getPlayer().getInventory().getWaterCount() == 0) {
+			System.out.println(
+					"-------------------- \\n You can't drink water, you don't have water \\n --------------------");
 		} else {
-
 			this.getPlayer().getInventory().setWaterCount(-1);
 			this.getPlayer().setThirstLevel(this.getPlayer().getThirstLevel() - 2);
 			if (this.getPlayer().getThirstLevel() < 0) {
@@ -78,8 +75,10 @@ public class SafeHouse extends NormalLoc {
 	public void eatFood() {
 		if (this.getPlayer().getSatiety() == 20) {
 			System.out.println("-------------------- \n You can't eat food, yo are not hungry \n --------------------");
+		} else if (this.getPlayer().getInventory().getFoodCount() == 0) {
+			System.out.println(
+					"-------------------- \\n You can't eat food, you don't have food \\n --------------------");
 		} else {
-
 			this.getPlayer().getInventory().setFoodCount(-1);
 			this.getPlayer().setSatiety(this.getPlayer().getSatiety() + 2);
 			if (this.getPlayer().getThirstLevel() > 20) {

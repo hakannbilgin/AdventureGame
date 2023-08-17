@@ -18,11 +18,9 @@ public class BlackSmith extends NormalLoc {
 	@Override
 	public boolean onLocation() {
 		System.out.println("You are in BlackSmith");
-//		this.getPlayer().getInventory().setIronCount(2);
-//		this.getPlayer().getInventory().setWoodCount(2);
-//		this.getPlayer().getInventory().setWaterCount(2);
-		boolean menu = true;
-		while (menu) {
+
+		boolean blackSmithMenu = true;
+		while (blackSmithMenu) {
 
 			System.out.println("1 - Weapon Crafting");
 			System.out.println("2 - Armor Crafting");
@@ -44,7 +42,7 @@ public class BlackSmith extends NormalLoc {
 				break;
 			case 3:
 				System.out.println("You exit from BlackSmith");
-				menu = false;
+				blackSmithMenu = false;
 				break;
 
 			}
@@ -55,8 +53,8 @@ public class BlackSmith extends NormalLoc {
 	public boolean weaponCrafting() {
 		System.out.println("You are at Weapon Craft Table");
 
-		boolean menu = true;
-		while (menu) {
+		boolean weaponCraftMenu = true;
+		while (weaponCraftMenu) {
 
 			System.out.println("1 - Craft Spear");
 			System.out.println("2-  ");
@@ -77,7 +75,7 @@ public class BlackSmith extends NormalLoc {
 				break;
 			case 3:
 				System.out.println("You leave from Weapon Craft Table");
-				menu = false;
+				weaponCraftMenu = false;
 				break;
 
 			}

@@ -25,11 +25,27 @@ public class PlayerScanner {
 		return scanner.next();
 	}
 
+	public static String stringNextLineScanner() {
+
+		return scanner.nextLine();
+	}
+
 	public static char StringToFirstcharScanner() {
 
 		char firstChar = stringScanner().charAt(0);
 
 		return firstChar;
+
+	}
+
+	public static void scannerClose() {
+		scanner.close();
+
+	}
+
+	public static boolean hasnextIntScanner() {
+
+		return scanner.hasNextInt();
 
 	}
 
