@@ -1,6 +1,7 @@
 package simpleadventuregame.locations.normallocs.houselocs.blacksmith;
 
 import simpleadventuregame.game.Player;
+import simpleadventuregame.items.armors.WoodArmor;
 import simpleadventuregame.items.weapons.Spear;
 import simpleadventuregame.locations.normallocs.NormalLoc;
 import simpleadventuregame.utils.PlayerScanner;
@@ -38,7 +39,7 @@ public class BlackSmith extends NormalLoc {
 
 				break;
 			case 2:
-
+				armorCrafting();
 				break;
 			case 3:
 				System.out.println("You exit from BlackSmith");
@@ -84,16 +85,64 @@ public class BlackSmith extends NormalLoc {
 	}
 
 	public void craftSpear() {
-		if (this.getPlayer().getInventory().getIronCount()>=1 && this.getPlayer().getInventory().getWoodCount()>=2 && this.getPlayer().getInventory().getWaterCount()>=0) {
+		if (this.getPlayer().getInventory().getIronCount() >= 1 && this.getPlayer().getInventory().getWoodCount() >= 2
+				&& this.getPlayer().getInventory().getWaterCount() >= 0) {
 			this.getPlayer().getInventory().setWeapon(new Spear());
 			this.getPlayer().getInventory().setIronCount(-1);
 			this.getPlayer().getInventory().setWoodCount(-2);
 			this.getPlayer().getInventory().setWaterCount(-1);
 			System.out.println("-------------------------- \n Spear Crafted \n --------------------");
-			
-		}else {
+
+		} else {
 			System.out.println("You don't have enough item");
 		}
 	}
 
+	public boolean armorCrafting() {
+
+		System.out.println("You are at Armor Craft Table");
+
+		boolean weaponCraftMenu = true;
+		while (weaponCraftMenu) {
+
+			System.out.println("1 - Craft Wood Armor");
+			System.out.println("2-  ");
+			System.out.println("3 - Exit");
+			System.out.print("Select : ");
+			int selectCase = PlayerScanner.intScanner();
+
+			while (selectCase < 0 && selectCase > 3) {
+				System.out.println(" you entered invalid number, please enter again ! ");
+				selectCase = PlayerScanner.intScanner();
+			}
+			switch (selectCase) {
+			case 1:
+				craftWoodArmor();
+				break;
+			case 2:
+
+				break;
+			case 3:
+				System.out.println("You leave from Armor Craft Table");
+				weaponCraftMenu = false;
+				break;
+
+			}
+		}
+		return true;
+	}
+
+	public void craftWoodArmor() {
+		if (this.getPlayer().getInventory().getWoodCount() >= 3
+				&& this.getPlayer().getInventory().getWaterCount() >= 0) {
+			this.getPlayer().getInventory().setArmor(new WoodArmor());
+			this.getPlayer().getInventory().setWoodCount(-3);
+			this.getPlayer().getInventory().setWaterCount(-1);
+			System.out.println("-------------------------- \n Wood Armor Crafted \n --------------------");
+
+		} else {
+			System.out.println("You don't have enough item");
+		}
+
+	}
 }

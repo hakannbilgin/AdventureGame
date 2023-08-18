@@ -131,7 +131,7 @@ public class Game {
 
 			} else {
 				System.out.println("Please enter correct number (between 1- 3)");
-				PlayerScanner.scannerClose();
+//				PlayerScanner.scannerClose();
 			}
 		}
 		System.out.println("Warrior " + player.getName() + " You chose " + player.getCharName()
@@ -249,7 +249,7 @@ System.out.printf(charListFormat, player.getId(), player.getCharName(), player.g
 				PlayerScanner.stringScanner(); // Geçersiz girişi temizle
 			}
 		}
-		PlayerScanner.scannerClose();
+//		PlayerScanner.scannerClose();
 	}
 
 }
