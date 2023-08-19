@@ -119,7 +119,12 @@ public class Player {
 	}
 
 	public void setSatiety(int satiety) {
-		this.satiety = satiety;
+		if(satiety>20) {
+			this.satiety = 20;
+		}
+		else {
+			this.satiety = satiety;
+		}
 	}
 
 	public int getThirstLevel() {
@@ -127,6 +132,9 @@ public class Player {
 	}
 
 	public void setThirstLevel(int thirstLevel) {
+		if (thirstLevel<=0) {
+			this.thirstLevel = 0;
+		}
 		this.thirstLevel = thirstLevel;
 	}
 	

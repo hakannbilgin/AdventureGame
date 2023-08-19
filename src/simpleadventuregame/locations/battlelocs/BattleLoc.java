@@ -37,7 +37,8 @@ public abstract class BattleLoc extends Location {
 			return true;
 		}
 
-		if (this.getPlayer().getHealth() <= 0 || this.getPlayer().getSatiety()==0 || this.getPlayer().getThirstLevel()==20) {
+		if (this.getPlayer().getHealth() <= 0 || this.getPlayer().getSatiety() == 0
+				|| this.getPlayer().getThirstLevel() == 20) {
 			System.out.println("You died");
 			return false;
 
@@ -133,17 +134,16 @@ public abstract class BattleLoc extends Location {
 		System.out.println("Your current Money " + this.getPlayer().getMoney());
 
 		if (this.getAward().getId() == 1) {
-			this.getPlayer().getInventory().setFoodCount(1);
+			this.getPlayer().getInventory().setFoodCount(this.getPlayer().getInventory().getFoodCount() + 1);
 			System.out.println("Your Current Food Count is " + this.getPlayer().getInventory().getFoodCount());
 		} else if (this.getAward().getId() == 2) {
-			this.getPlayer().getInventory().setWaterCount(1);
+			this.getPlayer().getInventory().setWaterCount(this.getPlayer().getInventory().getWaterCount() + 1);
 			System.out.println("Your Current Water Count is " + this.getPlayer().getInventory().getWaterCount());
 		} else if (this.getAward().getId() == 3) {
-
-			this.getPlayer().getInventory().setWoodCount(1);
+			this.getPlayer().getInventory().setWoodCount(this.getPlayer().getInventory().getWoodCount() + 1);
 			System.out.println("Your Current Wood Count is " + this.getPlayer().getInventory().getWoodCount());
 		} else {
-			this.getPlayer().getInventory().setIronCount(1);
+			this.getPlayer().getInventory().setIronCount(this.getPlayer().getInventory().getIronCount() + 1);
 			System.out.println("Your Current Iron Count is " + this.getPlayer().getInventory().getIronCount());
 
 		}

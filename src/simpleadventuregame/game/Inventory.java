@@ -1,7 +1,7 @@
 package simpleadventuregame.game;
 
 import simpleadventuregame.items.armors.Armor;
-import simpleadventuregame.items.armors.WoodArmor;
+import simpleadventuregame.items.armors.OldClothes;
 import simpleadventuregame.items.weapons.Fist;
 import simpleadventuregame.items.weapons.Weapon;
 
@@ -19,7 +19,7 @@ public class Inventory {
 
 	public Inventory() {
 		this.weapon = new Fist();
-		this.armor = new WoodArmor();
+		this.armor = new OldClothes();
 	}
 
 	public Weapon getWeapon() {
@@ -38,38 +38,38 @@ public class Inventory {
 		this.armor = armor;
 	}
 
+	
+
 	public int getWaterCount() {
 		return waterCount;
 	}
 
-	public void setWaterCount(int addWater) {
-
-		this.waterCount = waterCount + addWater;
-
+	public void setWaterCount(int waterCount) {
+		this.waterCount = waterCount;
 	}
 
 	public int getFoodCount() {
 		return foodCount;
 	}
 
-	public void setFoodCount(int addFood) {
-		this.foodCount = foodCount + addFood;
+	public void setFoodCount(int foodCount) {
+		this.foodCount=foodCount;
 	}
 
 	public int getWoodCount() {
 		return woodCount;
 	}
 
-	public void setWoodCount(int addWood) {
-		this.woodCount = woodCount + addWood;
+	public void setWoodCount(int woodCount) {
+		this.woodCount = woodCount;
 	}
 
 	public int getIronCount() {
 		return ironCount;
 	}
 
-	public void setIronCount(int addIron) {
-		this.ironCount = ironCount + addIron;
+	public void setIronCount(int ironCount) {
+		this.ironCount = ironCount;
 
 	}
 

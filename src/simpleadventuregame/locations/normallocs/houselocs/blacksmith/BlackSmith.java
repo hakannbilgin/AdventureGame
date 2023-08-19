@@ -88,10 +88,11 @@ public class BlackSmith extends NormalLoc {
 		if (this.getPlayer().getInventory().getIronCount() >= 1 && this.getPlayer().getInventory().getWoodCount() >= 2
 				&& this.getPlayer().getInventory().getWaterCount() >= 0) {
 			this.getPlayer().getInventory().setWeapon(new Spear());
-			this.getPlayer().getInventory().setIronCount(-1);
-			this.getPlayer().getInventory().setWoodCount(-2);
-			this.getPlayer().getInventory().setWaterCount(-1);
+			this.getPlayer().getInventory().setIronCount(this.getPlayer().getInventory().getIronCount() - 1);
+			this.getPlayer().getInventory().setWoodCount(this.getPlayer().getInventory().getWoodCount() - 2);
+			this.getPlayer().getInventory().setWaterCount(this.getPlayer().getInventory().getWaterCount() - 1);
 			System.out.println("-------------------------- \n Spear Crafted \n --------------------");
+			System.out.println("------------- \n Spear info: [Id: 4] [Damage:  3] [Money: 0 (Craft Item)]   ");
 
 		} else {
 			System.out.println("You don't have enough item");
@@ -138,8 +139,8 @@ public class BlackSmith extends NormalLoc {
 			this.getPlayer().getInventory().setArmor(new WoodArmor());
 			this.getPlayer().getInventory().setWoodCount(-3);
 			this.getPlayer().getInventory().setWaterCount(-1);
-			System.out.println("-------------------------- \n Wood Armor Crafted \n --------------------");
-
+			System.out.println("-------------------------- \n Wood Armor Crafted \n --------------------------");
+			System.out.println("------------- \n Wood Armor info: [4] [DamageDodge:  1]  ");
 		} else {
 			System.out.println("You don't have enough item");
 		}

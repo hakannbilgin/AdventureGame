@@ -62,13 +62,11 @@ public class SafeHouse extends NormalLoc {
 					"-------------------- \n You can't drink water, you are not thursty \n --------------------");
 		} else if (this.getPlayer().getInventory().getWaterCount() == 0) {
 			System.out.println(
-					"-------------------- \\n You can't drink water, you don't have water \\n --------------------");
+					"-------------------- \n You can't drink water, you don't have water \n --------------------");
 		} else {
-			this.getPlayer().getInventory().setWaterCount(-1);
+			this.getPlayer().getInventory().setWaterCount(this.getPlayer().getInventory().getWaterCount() - 1);
 			this.getPlayer().setThirstLevel(this.getPlayer().getThirstLevel() - 2);
-			if (this.getPlayer().getThirstLevel() < 0) {
-				this.getPlayer().setThirstLevel(0);
-			}
+			
 		}
 	}
 
@@ -79,11 +77,9 @@ public class SafeHouse extends NormalLoc {
 			System.out.println(
 					"-------------------- \\n You can't eat food, you don't have food \\n --------------------");
 		} else {
-			this.getPlayer().getInventory().setFoodCount(-1);
+			this.getPlayer().getInventory().setFoodCount(this.getPlayer().getInventory().getFoodCount() -1);
 			this.getPlayer().setSatiety(this.getPlayer().getSatiety() + 2);
-			if (this.getPlayer().getThirstLevel() > 20) {
-				this.getPlayer().setThirstLevel(20);
-			}
+//			
 		}
 
 	}
