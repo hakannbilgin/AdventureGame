@@ -8,6 +8,7 @@ import simpleadventuregame.gamecharacters.Knight;
 import simpleadventuregame.gamecharacters.Samurai;
 import simpleadventuregame.locations.Location;
 import simpleadventuregame.locations.battlelocs.Cave;
+import simpleadventuregame.locations.battlelocs.EnchantedForest;
 import simpleadventuregame.locations.battlelocs.Forest;
 import simpleadventuregame.locations.battlelocs.River;
 import simpleadventuregame.locations.battlelocs.Temple;
@@ -204,16 +205,17 @@ System.out.printf(charListFormat, player.getId(), player.getCharName(), player.g
 		while (true) {
 			System.out.println("--------------Locations-----------------");
 			System.out.println(
-					" 0- Exit from game \n 1- Safe House \n 2- Store \n 3- BlackSmith \n 4- Cave \n 5- Temple \n 6- Forest \n 7- River ");
-			System.out.println("---Cave  : Enemy= Zombie   Award= Food  ---");
-			System.out.println("---Temple: Enemy= Skeleton Award= Iron  ---");
-			System.out.println("---Forest: Enemy= Vampire  Award= Wood  ---");
-			System.out.println("---River : Enemy= Bear     Award= Water ---");
+					" 0- Exit from game \n 1- Safe House \n 2- Store \n 3- BlackSmith \n 4- Cave \n 5- Temple \n 6- Forest \n 7- River \n 8-Enchanted Forest");
+			System.out.println("---Cave  :            Enemy= Zombie   Award= Food  ---");
+			System.out.println("---Temple:            Enemy= Skeleton Award= Iron  ---");
+			System.out.println("---Forest:            Enemy= Vampire  Award= Wood  ---");
+			System.out.println("---River :            Enemy= Bear     Award= Water ---");
+			System.out.println("---Enchanted Forest : Enemy= Elf     Award= Dark Stone (%40change) ---");
 
 			if (PlayerScanner.hasnextIntScanner()) {
 				selectLocation = PlayerScanner.intScanner();
 
-				if (selectLocation >= 0 && selectLocation <= 7) {
+				if (selectLocation >= 0 && selectLocation <= 8) {
 					switch (selectLocation) {
 					case 0:
 						System.out.println("Exiting the program.");
@@ -238,6 +240,9 @@ System.out.printf(charListFormat, player.getId(), player.getCharName(), player.g
 						break;
 					case 7:
 						location = new River(player);
+						break;
+					case 8:
+						location = new EnchantedForest(player);
 						break;
 					}
 					break;

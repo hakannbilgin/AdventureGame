@@ -2,6 +2,7 @@ package simpleadventuregame.locations.battlelocs;
 
 import java.util.Random;
 
+import simpleadventuregame.game.Inventory;
 import simpleadventuregame.game.Player;
 import simpleadventuregame.items.Loot.Award;
 import simpleadventuregame.locations.Location;
@@ -104,9 +105,9 @@ public abstract class BattleLoc extends Location {
 	public void playerStats() {
 
 		System.out.println("Player Informations \n ------------------------");
-		System.out.printf(infoPlayerFormat, this.getPlayer().getInventory().getWeapon().getName(),
-				this.getPlayer().getInventory().getArmor().getName(),
-				this.getPlayer().getInventory().getArmor().getDamageDodge(), this.getPlayer().getTotalDamage(),
+		System.out.printf(infoPlayerFormat, this.getInventory().getWeapon().getName(),
+				this.getInventory().getArmor().getName(),
+				this.getInventory().getArmor().getDamageDodge(), this.getPlayer().getTotalDamage(),
 				this.getPlayer().getHealth(), this.getPlayer().getMoney());
 
 	}
@@ -126,26 +127,30 @@ public abstract class BattleLoc extends Location {
 	}
 
 	public void collectAward() {
-
-		System.out.println("You earned " + this.getMonster().getAwardMoney() + " money and you earned "
-				+ this.getAward().getName());
+		
+		System.out.println("You earned " + this.getMonster().getAwardMoney() + " money");
 
 		this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getMonster().getAwardMoney());
 		System.out.println("Your current Money " + this.getPlayer().getMoney());
 
 		if (this.getAward().getId() == 1) {
-			this.getPlayer().getInventory().setFoodCount(this.getPlayer().getInventory().getFoodCount() + 1);
-			System.out.println("Your Current Food Count is " + this.getPlayer().getInventory().getFoodCount());
+			this.getInventory().setFoodCount(this.getInventory().getFoodCount() + 1);
+			System.out.println("You earned Food. Your Current Food Count is " + this.getInventory().getFoodCount());
 		} else if (this.getAward().getId() == 2) {
-			this.getPlayer().getInventory().setWaterCount(this.getPlayer().getInventory().getWaterCount() + 1);
-			System.out.println("Your Current Water Count is " + this.getPlayer().getInventory().getWaterCount());
+			this.getInventory().setWaterCount(this.getInventory().getWaterCount() + 1);
+			System.out.println("You earned Water. Your Current Water Count is " + this.getInventory().getWaterCount());
 		} else if (this.getAward().getId() == 3) {
-			this.getPlayer().getInventory().setWoodCount(this.getPlayer().getInventory().getWoodCount() + 1);
-			System.out.println("Your Current Wood Count is " + this.getPlayer().getInventory().getWoodCount());
-		} else {
-			this.getPlayer().getInventory().setIronCount(this.getPlayer().getInventory().getIronCount() + 1);
-			System.out.println("Your Current Iron Count is " + this.getPlayer().getInventory().getIronCount());
+			this.getInventory().setWoodCount(this.getInventory().getWoodCount() + 1);
+			System.out.println("You earned Wood. Your Current Wood Count is " + this.getInventory().getWoodCount());
+		} else if (this.getAward().getId() == 4) {
+			this.getInventory().setIronCount(this.getInventory().getIronCount() + 1);
+			System.out.println("You earned Iron. Your Current Iron Count is " + this.getInventory().getIronCount());
 
+		} else {
+			if (this.getAward().isChange()) {
+				this.getInventory().setDarkStone(this.getInventory().getDarkStone() + 1);
+				System.out.println("You earned Dark Stone.Your Current Dark Stone Count is " + this.getInventory().getDarkStone());
+			}
 		}
 
 	}
@@ -173,5 +178,8 @@ public abstract class BattleLoc extends Location {
 	public void setMaxMonsterCount(int maxMonsterCount) {
 		this.maxMonsterCount = maxMonsterCount;
 	}
-
+	public Inventory getInventory() {
+		
+		return this.getPlayer().getInventory();
+	}
 }

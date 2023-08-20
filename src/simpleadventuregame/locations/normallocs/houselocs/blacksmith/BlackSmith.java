@@ -57,7 +57,7 @@ public class BlackSmith extends NormalLoc {
 		boolean weaponCraftMenu = true;
 		while (weaponCraftMenu) {
 
-			System.out.println("1 - Craft Spear");
+			System.out.println("1 - Craft Spear ------- Items to Create :     Iron : 1 Wood: 2 Water: 1 ");
 			System.out.println("2-  ");
 			System.out.println("3 - Exit");
 			System.out.print("Select : ");
@@ -106,7 +106,7 @@ public class BlackSmith extends NormalLoc {
 		boolean weaponCraftMenu = true;
 		while (weaponCraftMenu) {
 
-			System.out.println("1 - Craft Wood Armor");
+			System.out.println("1 - Craft Wood Armor ------- Items to Create : Iron : 0 Wood: 3 Water: 1");
 			System.out.println("2-  ");
 			System.out.println("3 - Exit");
 			System.out.print("Select : ");
@@ -140,7 +140,7 @@ public class BlackSmith extends NormalLoc {
 			this.getPlayer().getInventory().setWoodCount(-3);
 			this.getPlayer().getInventory().setWaterCount(-1);
 			System.out.println("-------------------------- \n Wood Armor Crafted \n --------------------------");
-			System.out.println("------------- \n Wood Armor info: [4] [DamageDodge:  1]  ");
+			System.out.println("------------- \n Wood Armor info: [4] [DamageDodge:  1 (Craft Item) ]  ");
 		} else {
 			System.out.println("You don't have enough item");
 		}

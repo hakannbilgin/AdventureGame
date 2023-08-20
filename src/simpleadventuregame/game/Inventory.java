@@ -7,8 +7,6 @@ import simpleadventuregame.items.weapons.Weapon;
 
 public class Inventory {
 
-//	private int weaponDamage;
-//	private String WeaponName;
 
 	private Weapon weapon;
 	private Armor armor;
@@ -16,6 +14,7 @@ public class Inventory {
 	private int foodCount = 0;
 	private int woodCount = 0;
 	private int ironCount = 0;
+	private int darkStone = 0;
 
 	public Inventory() {
 		this.weapon = new Fist();
@@ -38,8 +37,6 @@ public class Inventory {
 		this.armor = armor;
 	}
 
-	
-
 	public int getWaterCount() {
 		return waterCount;
 	}
@@ -53,7 +50,7 @@ public class Inventory {
 	}
 
 	public void setFoodCount(int foodCount) {
-		this.foodCount=foodCount;
+		this.foodCount = foodCount;
 	}
 
 	public int getWoodCount() {
@@ -71,6 +68,14 @@ public class Inventory {
 	public void setIronCount(int ironCount) {
 		this.ironCount = ironCount;
 
+	}
+
+	public int getDarkStone() {
+		return darkStone;
+	}
+
+	public void setDarkStone(int darkStone) {
+		this.darkStone = darkStone;
 	}
 
 }
