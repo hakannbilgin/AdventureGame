@@ -1,17 +1,15 @@
 package simpleadventuregame.game;
 
-import java.util.Iterator;
-
 import simpleadventuregame.gamecharacters.Archer;
 import simpleadventuregame.gamecharacters.GameChar;
 import simpleadventuregame.gamecharacters.Knight;
 import simpleadventuregame.gamecharacters.Samurai;
 import simpleadventuregame.locations.Location;
 import simpleadventuregame.locations.battlelocs.Cave;
-import simpleadventuregame.locations.battlelocs.EnchantedForest;
-import simpleadventuregame.locations.battlelocs.Forest;
+import simpleadventuregame.locations.battlelocs.NormalForest;
 import simpleadventuregame.locations.battlelocs.River;
 import simpleadventuregame.locations.battlelocs.Temple;
+import simpleadventuregame.locations.battlelocs.darkforests.EnchantedForest;
 import simpleadventuregame.locations.normallocs.ToolStore;
 import simpleadventuregame.locations.normallocs.houselocs.SafeHouse;
 import simpleadventuregame.locations.normallocs.houselocs.blacksmith.BlackSmith;
@@ -49,49 +47,7 @@ public class Game {
 
 	}
 
-//	public void selectChar() {
-//		GameChar[] charList = { new Samurai(), new Knight(), new Archer() };
-//
-//		System.out.println("----------------------------------------------------");
-//
-//		for (GameChar gameChar : charList) {
-//
-//			System.out.printf(charListFormat, gameChar.getId(), gameChar.getName(), gameChar.getDamage(),
-//					gameChar.getHealth(), gameChar.getMoney());
-//		}
-//		System.out.println("---------------------------------------------------- \n Select : ");
-//		int selectChar = PlayerScanner.intScanner();
 
-//		while (selectChar>0 && selectChar >4) {
-//			switch (selectChar) {
-//			case 1:
-//				initPlayer(new Samurai());
-//				break;
-//			case 2:
-//				initPlayer(new Knight());
-//				break;
-//			case 3:
-//				initPlayer(new Archer());
-//				break;
-//			}
-//		}
-//		switch (selectChar) {
-//		case 1:
-//			initPlayer(new Samurai());
-//			break;
-//		case 2:
-//			initPlayer(new Knight());
-//			break;
-//		case 3:
-//			initPlayer(new Archer());
-//			break;
-//		}
-//
-//		System.out.println("Warrior " + player.getName() + " You chose " + player.getCharName()
-//				+ " character for your path and your power list");
-//		System.out.printf(charListFormat, player.getId(), player.getCharName(), player.getDamage(), player.getHealth(),
-//				player.getMoney());
-//	}
 
 	public void selectChar2() {
 
@@ -136,9 +92,9 @@ public class Game {
 			}
 		}
 		System.out.println("Warrior " + player.getName() + " You chose " + player.getCharName()
-		+ " character for your path and your power list");
-System.out.printf(charListFormat, player.getId(), player.getCharName(), player.getDamage(), player.getHealth(),
-		player.getMoney());
+				+ " character for your path and your power list");
+		System.out.printf(charListFormat, player.getId(), player.getCharName(), player.getDamage(), player.getHealth(),
+				player.getMoney());
 	}
 
 	public void initPlayer(GameChar gameChar) {
@@ -151,66 +107,21 @@ System.out.printf(charListFormat, player.getId(), player.getCharName(), player.g
 
 	}
 
-//	public void selectLoc() {
-//
-//		System.out.println("--------------Locations-----------------");
-//		System.out.println(
-//				" 0- Exit from game \n 1- Safe House \n 2- Store \n 3- BlackSmith \n 4- Cave \n 5- Temple \n 6- Forest \n 7- River ");
-//		System.out.println("---Cave  : Enemy= Zombie   Award= Food  ---");
-//		System.out.println("---Temple: Enemy= Skeleton Award= Iron  ---");
-//		System.out.println("---Forest: Enemy= Vampire  Award= Wood  ---");
-//		System.out.println("---River : Enemy= Bear     Award= Water ---");
-//
-//		System.out.println("Please select your location!");
-//
-//		int selectLocation = PlayerScanner.intScanner();
-//
-//		switch (selectLocation) {
-//		case 0:
-//			location = null;
-//			break;
-//		case 1:
-//			location = new SafeHouse(player);
-//			break;
-//		case 2:
-//			location = new ToolStore(player);
-//			break;
-//		case 3:
-//			location = new BlackSmith(player);
-//			break;
-//		case 4:
-//			location = new Cave(player);
-//			break;
-//		case 5:
-//			location = new Temple(player);
-//			break;
-//		case 6:
-//			location = new Forest(player);
-//			break;
-//		case 7:
-//			location = new River(player);
-//			break;
-//
-//		default:
-//
-//			System.out.println("Please enter a valid number");
-//		}
-//
-////		location.onLocation();
-//
-//	}
+
 
 	public void selectLoc2() {
 		int selectLocation;
 		while (true) {
 			System.out.println("--------------Locations-----------------");
 			System.out.println(
-					" 0- Exit from game \n 1- Safe House \n 2- Store \n 3- BlackSmith \n 4- Cave \n 5- Temple \n 6- Forest \n 7- River \n 8-Enchanted Forest");
+					" 0- Exit from game \n 1- Safe House \n 2- Store \n 3- BlackSmith \n 4- Cave \n 5- Temple \n 6- Forest \n 7- River \n 8- Enchanted Forest");
+			System.out.println("9- Dead Forest");
 			System.out.println("---Cave  :            Enemy= Zombie   Award= Food  ---");
 			System.out.println("---Temple:            Enemy= Skeleton Award= Iron  ---");
-			System.out.println("---Forest:            Enemy= Vampire  Award= Wood  ---");
+			System.out.println("---Normal Forest:     Enemy= Vampire  Award= Wood  ---");
 			System.out.println("---River :            Enemy= Bear     Award= Water ---");
-			System.out.println("---Enchanted Forest : Enemy= Elf     Award= Dark Stone (%40change) ---");
+			System.out.println("---Enchanted Forest:  Enemy= Elf      Award= Dark Stone (%40change) ---");
+			System.out.println("---Dead Forest        Enemy= Spirit   Award= Diamond");
 
 			if (PlayerScanner.hasnextIntScanner()) {
 				selectLocation = PlayerScanner.intScanner();
@@ -236,7 +147,7 @@ System.out.printf(charListFormat, player.getId(), player.getCharName(), player.g
 						location = new Temple(player);
 						break;
 					case 6:
-						location = new Forest(player);
+						location = new NormalForest(player);
 						break;
 					case 7:
 						location = new River(player);
@@ -244,6 +155,10 @@ System.out.printf(charListFormat, player.getId(), player.getCharName(), player.g
 					case 8:
 						location = new EnchantedForest(player);
 						break;
+					case 9:
+						location = new EnchantedForest(player);
+						break;
+						
 					}
 					break;
 				} else {

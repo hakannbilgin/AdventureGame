@@ -1,8 +1,8 @@
 package simpleadventuregame.locations.normallocs.houselocs.blacksmith;
 
 import simpleadventuregame.game.Player;
-import simpleadventuregame.items.armors.WoodArmor;
-import simpleadventuregame.items.weapons.Spear;
+import simpleadventuregame.items.armors.blacksmitharmors.WoodArmor;
+import simpleadventuregame.items.weapons.blacksmithweapons.Spear;
 import simpleadventuregame.locations.normallocs.NormalLoc;
 import simpleadventuregame.utils.PlayerScanner;
 

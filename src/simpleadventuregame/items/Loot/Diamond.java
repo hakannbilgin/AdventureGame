@@ -2,23 +2,18 @@ package simpleadventuregame.items.Loot;
 
 import simpleadventuregame.monsters.Monster;
 
-public class Water extends Award {
+public class Diamond extends Award{
 
-	public Water() {
-		super(2,"Water");
-		
+	public Diamond() {
+		super(6, "Diomand");
+		// TODO Auto-generated constructor stub
 	}
+
 
 	@Override
 	public boolean isChange(Monster monster) {
-		// TODO Auto-generated method stub
+		
 		return true;
 	}
-
-	
-
-	
-
-	
 
 }

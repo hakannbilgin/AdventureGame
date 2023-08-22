@@ -15,6 +15,7 @@ public class Inventory {
 	private int woodCount = 0;
 	private int ironCount = 0;
 	private int darkStone = 0;
+	private int diamondCount= 0;
 
 	public Inventory() {
 		this.weapon = new Fist();
@@ -78,4 +79,13 @@ public class Inventory {
 		this.darkStone = darkStone;
 	}
 
+	public int getDiamondCount() {
+		return diamondCount;
+	}
+
+	public void setDiamondCount(int diamondCount) {
+		this.diamondCount = diamondCount;
+	}
+
+	
 }
