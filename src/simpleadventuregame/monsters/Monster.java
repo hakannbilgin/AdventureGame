@@ -1,18 +1,34 @@
 package simpleadventuregame.monsters;
 
-public class Monster {
+import simpleadventuregame.items.Loot.Award;
+
+public abstract class Monster {
 
 	private int id;
 	private String name;
+	private Award award;
+	private Award extraAward;
 	private int damage;
 	private int health;
 	private int awardMoney;
 	private int defaultHealth;
 
-	public Monster(int id, String name, int damage, int health, int awardMoney) {
+	public Monster(int id, String name, Award award, int damage, int health, int awardMoney) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.award = award;
+		this.damage = damage;
+		this.health = health;
+		this.defaultHealth = health;
+		this.awardMoney = awardMoney;
+	}
+	public Monster(int id, String name, Award award, Award extraAward, int damage, int health, int awardMoney) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.award = award;
+		this.extraAward= extraAward;
 		this.damage = damage;
 		this.health = health;
 		this.defaultHealth = health;
@@ -69,5 +85,32 @@ public class Monster {
 	public void setDefaulHealth(int defaulHealth) {
 		this.defaultHealth = defaulHealth;
 	}
+
+	public Award getAward() {
+		return award;
+	}
+
+	public void setAward(Award award) {
+		this.award = award;
+	}
+
+	public Award extraAwardWihtLocation(int locationId) {
+		System.out.println("monster" + locationId);
+		if (this.getExtraAward().isChange(locationId)) {
+			return getExtraAward();
+		}
+		return null;
+		
+	}
+//	public abstract Award extraAwardWihtLocation(int locationId);
+
+	public Award getExtraAward() {
+		return extraAward;
+	}
+
+	public void setExtraAward(Award extraAward) {
+		this.extraAward = extraAward;
+	}
+	
 
 }

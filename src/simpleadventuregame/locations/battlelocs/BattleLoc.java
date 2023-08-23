@@ -4,7 +4,6 @@ import java.util.Random;
 
 import simpleadventuregame.game.Inventory;
 import simpleadventuregame.game.Player;
-import simpleadventuregame.items.Loot.Award;
 import simpleadventuregame.locations.Location;
 import simpleadventuregame.monsters.Monster;
 import simpleadventuregame.utils.PlayerScanner;
@@ -14,13 +13,13 @@ public abstract class BattleLoc extends Location {
 	private String infoPlayerFormat = " Your current info : Your weapon: [%-7s] Your Armor : [%-7s] [Dodge:  %-1d] [Damage:  %-1d] [Health:  %-1d] [Money: %2d] \n";
 	private String infoMonsterFormat = " Monster info : [Damage:  %-1d] [Health:  %-1d] [Award: %2d] \n";
 	private Monster monster;
-	private Award award;
+//	private Award award;
 	private int maxMonsterCount;
 
-	public BattleLoc(Player player, String locationName, Monster monster, Award award, int maxMonsterCount) {
-		super(player, locationName);
+	public BattleLoc(int id, Player player, String locationName, Monster monster, int maxMonsterCount) {
+		super(id, player, locationName);
 		this.monster = monster;
-		this.award = award;
+//		this.award = award;
 		this.maxMonsterCount = maxMonsterCount;
 	}
 
@@ -84,7 +83,7 @@ public abstract class BattleLoc extends Location {
 				this.getPlayer().setSatiety(this.getPlayer().getSatiety() - 1);
 				// TODO IF THIRST LEVEL GETS OVER 20 ADD SOME CONSEQUENCES
 //				collectAward();
-				collectAward2(this.getAward().getId(), this.getAward().getChange());
+				collectAward2(this.getMonster().getAward().getId());
 
 			} else {
 				return false;
@@ -126,37 +125,37 @@ public abstract class BattleLoc extends Location {
 
 	}
 
-	public void collectAward() {
+//	public void collectAward() {
+//
+//		System.out.println("You earned " + this.getMonster().getAwardMoney() + " money");
+//
+//		this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getMonster().getAwardMoney());
+//		System.out.println("Your current Money " + this.getPlayer().getMoney());
+//
+//		if (this.getAward().getId() == 1) {
+//			this.getInventory().setFoodCount(this.getInventory().getFoodCount() + 1);
+//			System.out.println("You earned Food. Your Current Food Count is " + this.getInventory().getFoodCount());
+//		} else if (this.getAward().getId() == 2) {
+//			this.getInventory().setWaterCount(this.getInventory().getWaterCount() + 1);
+//			System.out.println("You earned Water. Your Current Water Count is " + this.getInventory().getWaterCount());
+//		} else if (this.getAward().getId() == 3) {
+//			this.getInventory().setWoodCount(this.getInventory().getWoodCount() + 1);
+//			System.out.println("You earned Wood. Your Current Wood Count is " + this.getInventory().getWoodCount());
+//		} else if (this.getAward().getId() == 4) {
+//			this.getInventory().setIronCount(this.getInventory().getIronCount() + 1);
+//			System.out.println("You earned Iron. Your Current Iron Count is " + this.getInventory().getIronCount());
+//
+//		} else {
+//			if (this.getAward().isChange(monster)) {
+//				this.getInventory().setDarkStone(this.getInventory().getDarkStone() + 1);
+//				System.out.println(
+//						"You earned Dark Stone.Your Current Dark Stone Count is " + this.getInventory().getDarkStone());
+//			}
+//		}
+//
+//	}
 
-		System.out.println("You earned " + this.getMonster().getAwardMoney() + " money");
-
-		this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getMonster().getAwardMoney());
-		System.out.println("Your current Money " + this.getPlayer().getMoney());
-
-		if (this.getAward().getId() == 1) {
-			this.getInventory().setFoodCount(this.getInventory().getFoodCount() + 1);
-			System.out.println("You earned Food. Your Current Food Count is " + this.getInventory().getFoodCount());
-		} else if (this.getAward().getId() == 2) {
-			this.getInventory().setWaterCount(this.getInventory().getWaterCount() + 1);
-			System.out.println("You earned Water. Your Current Water Count is " + this.getInventory().getWaterCount());
-		} else if (this.getAward().getId() == 3) {
-			this.getInventory().setWoodCount(this.getInventory().getWoodCount() + 1);
-			System.out.println("You earned Wood. Your Current Wood Count is " + this.getInventory().getWoodCount());
-		} else if (this.getAward().getId() == 4) {
-			this.getInventory().setIronCount(this.getInventory().getIronCount() + 1);
-			System.out.println("You earned Iron. Your Current Iron Count is " + this.getInventory().getIronCount());
-
-		} else {
-			if (this.getAward().isChange(monster)) {
-				this.getInventory().setDarkStone(this.getInventory().getDarkStone() + 1);
-				System.out.println(
-						"You earned Dark Stone.Your Current Dark Stone Count is " + this.getInventory().getDarkStone());
-			}
-		}
-
-	}
-
-	public void collectAward2(int awardId, int awardChange) {
+	public void collectAward2(int awardId) {
 		System.out.println("You earned " + this.getMonster().getAwardMoney() + " money");
 
 		this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getMonster().getAwardMoney());
@@ -180,18 +179,40 @@ public abstract class BattleLoc extends Location {
 			System.out.println("You earned Iron. Your Current Iron Count is " + this.getInventory().getIronCount());
 			break;
 		case 5:
-			if (this.getAward().isChange(monster)) {
+			if (this.getMonster().getAward().isChange(this.getId())) {
 				this.getInventory().setDarkStone(this.getInventory().getDarkStone() + 1);
 				System.out.println(
 						"You earned Dark Stone.Your Current Dark Stone Count is " + this.getInventory().getDarkStone());
 			}
 			break;
 		case 6:
-			if (this.getAward().isChange(monster)) {
+			if (this.getMonster().getAward().isChange(this.getId())) {
 				this.getInventory().setDiamondCount(this.getInventory().getDiamondCount() + 1);
 				System.out.println(
 						"You earned Diamond.Your Current Diamond Count is " + this.getInventory().getDiamondCount());
 			}
+			break;
+		}
+
+		this.collectExtraAward(getId());
+	}
+
+	public void collectExtraAward(int locationId) {
+
+		switch (locationId) {
+		case 8:
+
+			break;
+		case 9:
+
+			if (this.getMonster().extraAwardWihtLocation(getId()) != null) {
+				this.getInventory().setFoodCount(this.getInventory().getFoodCount() + 1);
+				System.out.println("You earned extra award --- Food");
+				System.out.println("Your current food count is: " + this.getInventory().getFoodCount());
+			}
+			break;
+
+		default:
 			break;
 		}
 
@@ -205,13 +226,13 @@ public abstract class BattleLoc extends Location {
 		this.monster = monster;
 	}
 
-	public Award getAward() {
-		return award;
-	}
-
-	public void setAward(Award award) {
-		this.award = award;
-	}
+//	public Award getAward() {
+//		return award;
+//	}
+//
+//	public void setAward(Award award) {
+//		this.award = award;
+//	}
 
 	public int getMaxMonsterCount() {
 		return maxMonsterCount;

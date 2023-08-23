@@ -8,7 +8,7 @@ public class SafeHouse extends NormalLoc {
 	private String infoPlayer = " Info :  [Your Health:  %-1d] [Your FoodCount:  %-1d] [Your WaterCount:  %-1d] [Your Satietry Level:  %-1d/20] [Your Thirst Level:  %-1d/20] \n";
 
 	public SafeHouse(Player player) {
-		super(player, "Safe House");
+		super(1 ,player, "Safe House");
 		// TODO Auto-generated constructor stub
 	}
 

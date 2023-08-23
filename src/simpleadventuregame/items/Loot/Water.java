@@ -1,7 +1,5 @@
 package simpleadventuregame.items.Loot;
 
-import simpleadventuregame.monsters.Monster;
-
 public class Water extends Award {
 
 	public Water() {
@@ -10,7 +8,7 @@ public class Water extends Award {
 	}
 
 	@Override
-	public boolean isChange(Monster monster) {
+	public boolean isChange(int locationId) {
 		// TODO Auto-generated method stub
 		return true;
 	}

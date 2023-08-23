@@ -5,8 +5,8 @@ import simpleadventuregame.locations.Location;
 
 public abstract class NormalLoc extends Location{
 
-	public NormalLoc(Player player, String locationName) {
-		super(player, locationName);
+	public NormalLoc(int id, Player player, String locationName) {
+		super(id, player, locationName);
 		
 	}
 

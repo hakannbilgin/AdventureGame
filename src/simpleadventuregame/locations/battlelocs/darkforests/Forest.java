@@ -1,14 +1,13 @@
 package simpleadventuregame.locations.battlelocs.darkforests;
 
 import simpleadventuregame.game.Player;
-import simpleadventuregame.items.Loot.Award;
 import simpleadventuregame.locations.battlelocs.BattleLoc;
 import simpleadventuregame.monsters.Monster;
 
 public abstract class Forest extends BattleLoc {
 
-	public Forest(Player player, String locationName, Monster monster, Award award, int maxMonsterCount) {
-		super(player, locationName, monster, award, maxMonsterCount);
+	public Forest(int id,Player player, String locationName, Monster monster, int maxMonsterCount) {
+		super(id, player, locationName, monster, maxMonsterCount);
 		// TODO Auto-generated constructor stub
 	}
 

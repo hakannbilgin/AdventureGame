@@ -14,7 +14,7 @@ public class Inventory {
 	private int foodCount = 0;
 	private int woodCount = 0;
 	private int ironCount = 0;
-	private int darkStone = 0;
+	private int darkStone = 1;
 	private int diamondCount= 0;
 
 	public Inventory() {

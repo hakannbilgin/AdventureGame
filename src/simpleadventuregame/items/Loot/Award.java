@@ -1,8 +1,5 @@
 package simpleadventuregame.items.Loot;
 
-import simpleadventuregame.locations.battlelocs.BattleLoc;
-import simpleadventuregame.monsters.Monster;
-
 /*
  * 
  * TODO : need to use this class for extra awards
@@ -12,7 +9,7 @@ public abstract class Award {
 
 	private int id;
 	private String name;
-	private int change;
+	private int chance;
 
 	public String getName() {
 		return name;
@@ -36,13 +33,16 @@ public abstract class Award {
 		this.id = id;
 	}
 
-	public int getChange() {
-		return change;
+	public int getChance() {
+		return chance;
 	}
 
-	public void setChange(int change) {
-		this.change = change;
+	public void setChance(int chance) {
+		this.chance = chance;
 	}
+	
+	
 
-	public abstract boolean isChange(Monster monster);
+	public abstract boolean isChange(int locationId);
+	
 }

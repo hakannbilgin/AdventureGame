@@ -1,20 +1,14 @@
 package simpleadventuregame.locations.battlelocs.darkforests;
 
 import simpleadventuregame.game.Player;
-import simpleadventuregame.items.Loot.Diamond;
+import simpleadventuregame.locations.battlelocs.BattleLoc;
 import simpleadventuregame.monsters.Spirit;
 
-public class DeadForest extends Forest{
+public class DeadForest extends BattleLoc{
 
 	public DeadForest(Player player) {
-		super(player, "Dead Forest", new Spirit(), new Diamond(),2);
-		// TODO Auto-generated constructor stub
+		super(9,player, "Dead Forest", new Spirit(),2);
+		
 	}
-
-	
-
-	
-
-	
 
 }

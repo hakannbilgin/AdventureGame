@@ -6,10 +6,12 @@ public abstract class Location {
 
 	private Player player;
 	private String name;
+	private int id;
 	
 	
-	public Location(Player player, String locationName) {
+	public Location(int id, Player player, String locationName) {
 //		super();
+		this.id = id;
 		this.player = player;
 		this.name = locationName;
 	}
@@ -36,6 +38,19 @@ public abstract class Location {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	
 	
 }
