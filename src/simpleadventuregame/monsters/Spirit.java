@@ -8,18 +8,10 @@ public class Spirit extends Monster {
 	
 	
 	public Spirit() {
-		super(6, "Spirit", new Diamond(),new Food(), 5, 5, 16);
+		super(6, "Spirit", new Diamond(),new Food(), 14, 20, 17);
 		// TODO Auto-generated constructor stub
 	}
 
-//	@Override
-//	public Award extraAwardWihtLocation(int locationId) {
-//
-//		if (this.getExtraAward().isChange(locationId)) {
-//			return getExtraAward();
-//		}
-//		return null;
-//
-//	}
+
 
 }

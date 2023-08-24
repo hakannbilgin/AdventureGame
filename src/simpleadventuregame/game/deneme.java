@@ -2,7 +2,7 @@ package simpleadventuregame.game;
 
 
 
-import simpleadventuregame.items.weapons.Pistol;
+import simpleadventuregame.items.weapons.LongSword;
 import simpleadventuregame.locations.Location;
 import simpleadventuregame.locations.normallocs.ToolStore;
 import simpleadventuregame.locations.normallocs.houselocs.SafeHouse;

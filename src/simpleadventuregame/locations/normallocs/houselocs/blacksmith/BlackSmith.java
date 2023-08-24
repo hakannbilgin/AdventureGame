@@ -1,6 +1,7 @@
 package simpleadventuregame.locations.normallocs.houselocs.blacksmith;
 
 import simpleadventuregame.game.Player;
+import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.armors.blacksmitharmors.IronArmor;
 import simpleadventuregame.items.armors.blacksmitharmors.WoodArmor;
 import simpleadventuregame.items.weapons.blacksmithweapons.Spear;
@@ -10,6 +11,7 @@ import simpleadventuregame.utils.PlayerScanner;
 public class BlackSmith extends NormalLoc {
 
 	private WeaponCraftingTable weaponCraftingTable;
+	private ArmorCraftingTable armorCraftingTable;
 //	private String weaponCraftListformat = " WeaponCraft :  [%-7s] [%d] [Damage:  %-1d] [Money: %2d] \n";
 
 	public BlackSmith(Player player) {
@@ -59,6 +61,7 @@ public class BlackSmith extends NormalLoc {
 		while (weaponCraftMenu) {
 
 			System.out.println("1 - Craft Spear ------- Items to Create :     Iron : 1 Wood: 2 Water: 1 ");
+			System.out.println("1 - Craft Spear ------- Items to Create :     Iron : 1 Wood: 2 Water: 1 ");
 			System.out.println("2-  ");
 			System.out.println("3 - Exit");
 			System.out.print("Select : ");
@@ -99,7 +102,6 @@ public class BlackSmith extends NormalLoc {
 			System.out.println("You don't have enough item");
 		}
 	}
-	
 
 	public boolean armorCrafting() {
 
@@ -139,8 +141,8 @@ public class BlackSmith extends NormalLoc {
 		if (this.getPlayer().getInventory().getWoodCount() >= 3
 				&& this.getPlayer().getInventory().getWaterCount() >= 0) {
 			this.getPlayer().getInventory().setArmor(new WoodArmor());
-			this.getPlayer().getInventory().setWoodCount( this.getPlayer().getInventory().getWoodCount()  - 3);
-			this.getPlayer().getInventory().setWaterCount( this.getPlayer().getInventory().getWaterCount() - 1);
+			this.getPlayer().getInventory().setWoodCount(this.getPlayer().getInventory().getWoodCount() - 3);
+			this.getPlayer().getInventory().setWaterCount(this.getPlayer().getInventory().getWaterCount() - 1);
 			System.out.println("-------------------------- \n Wood Armor Crafted \n --------------------------");
 			System.out.println("------------- \n Wood Armor info: [4] [DamageDodge:  1 (Craft Item) ]  ");
 		} else {
@@ -151,9 +153,9 @@ public class BlackSmith extends NormalLoc {
 	public void craftIronArmor() {
 		if (this.getPlayer().getInventory().getIronCount() >= 3 && this.getPlayer().getInventory().getWoodCount() >= 1
 				&& this.getPlayer().getInventory().getWaterCount() >= 2) {
-			this.getPlayer().getInventory().setArmor(new IronArmor() );
+			this.getPlayer().getInventory().setArmor(new IronArmor());
 			this.getPlayer().getInventory().setIronCount(this.getPlayer().getInventory().getIronCount() - 3);
-			this.getPlayer().getInventory().setWoodCount(this.getPlayer().getInventory().getWoodCount()  - 1);
+			this.getPlayer().getInventory().setWoodCount(this.getPlayer().getInventory().getWoodCount() - 1);
 			this.getPlayer().getInventory().setWaterCount(this.getPlayer().getInventory().getWaterCount() - 2);
 			System.out.println("-------------------------- \n Iron Armor Crafted \n --------------------------");
 			System.out.println("------------- \n Iron Armor info: [5] [DamageDodge:  6 (Craft Item) ]  ");
@@ -161,4 +163,5 @@ public class BlackSmith extends NormalLoc {
 			System.out.println("You don't have enough item");
 		}
 	}
+
 }

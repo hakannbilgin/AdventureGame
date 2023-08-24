@@ -5,7 +5,7 @@ import simpleadventuregame.items.Loot.DarkStone;
 public class Elf extends Monster{
 
 	public Elf() {
-		super(5, "Elf", new DarkStone(), 0, 1, 14);
+		super(5, "Elf", new DarkStone(), 11, 17, 15);
 		
 	}
 

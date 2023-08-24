@@ -19,7 +19,7 @@ public abstract class Armor {
 	
 	public static Armor[] armors() {
 
-		Armor[] aList = { new LightArmor(), new NormalArmor(), new ShinyArmor() };
+		Armor[] aList = { new LightArmor(), new NormalArmor(), new ShinyArmor() , new MagicalArmor() };
 		return aList;
 
 	}
