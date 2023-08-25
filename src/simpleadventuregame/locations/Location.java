@@ -1,6 +1,6 @@
 package simpleadventuregame.locations;
 
-import simpleadventuregame.game.Player;
+import simpleadventuregame.game.gameitems.Player;
 
 public abstract class Location {
 

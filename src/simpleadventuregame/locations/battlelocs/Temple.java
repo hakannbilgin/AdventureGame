@@ -1,6 +1,6 @@
 package simpleadventuregame.locations.battlelocs;
 
-import simpleadventuregame.game.Player;
+import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.monsters.Skeleton;
 
 public class Temple extends BattleLoc{

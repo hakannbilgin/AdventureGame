@@ -1,4 +1,4 @@
-package simpleadventuregame.game;
+package simpleadventuregame.game.gameitems;
 
 import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.armors.OldClothes;
@@ -14,7 +14,7 @@ public class Inventory {
 	private int foodCount = 0;
 	private int woodCount = 0;
 	private int ironCount = 0;
-	private int darkStone = 1;
+	private int darkStone = 0;
 	private int diamondCount= 0;
 
 	public Inventory() {

@@ -2,8 +2,8 @@ package simpleadventuregame.locations.battlelocs;
 
 import java.util.Random;
 
-import simpleadventuregame.game.Inventory;
-import simpleadventuregame.game.Player;
+import simpleadventuregame.game.gameitems.Inventory;
+import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.locations.Location;
 import simpleadventuregame.monsters.Monster;
 import simpleadventuregame.utils.PlayerScanner;
@@ -201,7 +201,11 @@ public abstract class BattleLoc extends Location {
 
 		switch (locationId) {
 		case 8:
-
+			if (this.getMonster().extraAwardWihtLocation(getId()) != null) {
+				this.getInventory().setWaterCount(this.getInventory().getWaterCount() + 1);
+				System.out.println("You earned extra award --- Food");
+				System.out.println("Your current food count is: " + this.getInventory().getWaterCount());
+			}
 			break;
 		case 9:
 

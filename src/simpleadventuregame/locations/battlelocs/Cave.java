@@ -1,6 +1,6 @@
 package simpleadventuregame.locations.battlelocs;
 
-import simpleadventuregame.game.Player;
+import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.monsters.Zombie;
 
 public class Cave extends BattleLoc{

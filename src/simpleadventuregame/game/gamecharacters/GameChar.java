@@ -1,4 +1,4 @@
-package simpleadventuregame.gamecharacters;
+package simpleadventuregame.game.gamecharacters;
 
 public abstract class GameChar {
 	private int id;

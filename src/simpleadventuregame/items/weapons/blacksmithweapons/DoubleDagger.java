@@ -2,11 +2,11 @@ package simpleadventuregame.items.weapons.blacksmithweapons;
 
 import simpleadventuregame.items.weapons.Weapon;
 
-public class Spear extends Weapon{
+public class DoubleDagger extends Weapon {
 
-	public Spear() {
-		super("Spear", 5, 9, 0);
-		
+	public DoubleDagger() {
+		super("Double Dagger", 4, 2, 0);
+
 	}
 
 }

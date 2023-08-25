@@ -1,4 +1,4 @@
-package simpleadventuregame.game;
+package simpleadventuregame.game.gameitems;
 
 import simpleadventuregame.items.weapons.Weapon;
 

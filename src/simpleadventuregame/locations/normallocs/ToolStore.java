@@ -1,7 +1,7 @@
 package simpleadventuregame.locations.normallocs;
 
-import simpleadventuregame.game.Player;
-import simpleadventuregame.gamecharacters.GameChar;
+import simpleadventuregame.game.gamecharacters.GameChar;
+import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.weapons.LongSword;
 import simpleadventuregame.items.weapons.IronPala;
@@ -17,7 +17,7 @@ public class ToolStore extends NormalLoc {
 	private String equipmentArmorFormat = " Equipment :  [%-7s] [%d] [DamageDodge:  %-1d] [Money: %2d] \n";
 
 	public ToolStore(Player player) {
-		super(2,player, "Store");
+		super(2, player, "Store");
 
 	}
 

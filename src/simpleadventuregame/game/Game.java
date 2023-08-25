@@ -1,10 +1,11 @@
 package simpleadventuregame.game;
 
-import simpleadventuregame.gamecharacters.Archer;
-import simpleadventuregame.gamecharacters.GameChar;
-import simpleadventuregame.gamecharacters.Knight;
-import simpleadventuregame.gamecharacters.Samurai;
-import simpleadventuregame.gamecharacters.SpearMan;
+import simpleadventuregame.game.gamecharacters.Archer;
+import simpleadventuregame.game.gamecharacters.GameChar;
+import simpleadventuregame.game.gamecharacters.Knight;
+import simpleadventuregame.game.gamecharacters.Samurai;
+import simpleadventuregame.game.gamecharacters.SpearMan;
+import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.locations.Location;
 import simpleadventuregame.locations.battlelocs.Cave;
 import simpleadventuregame.locations.battlelocs.NormalForest;
@@ -124,8 +125,10 @@ public class Game {
 			System.out.println("---Temple:           (ID=5) Enemy= Skeleton Award= Iron  ---");
 			System.out.println("---Normal Forest:    (ID=6) Enemy= Vampire  Award= Wood  ---");
 			System.out.println("---River :           (ID=7) Enemy= Bear     Award= Water ---");
-			System.out.println("---Enchanted Forest: (ID=8) Enemy= Elf      Award= Dark Stone (%40change) ---");
-			System.out.println("---Dead Forest       (ID=9) Enemy= Spirit   Award= Diamond");
+			System.out.println(
+					"---Enchanted Forest: (ID=8) Enemy= Elf      Award= Dark Stone (%40change) + Water (%70change) ---");
+			System.out.println(
+					"---Dead Forest       (ID=9) Enemy= Spirit   Award= Diamond(%80chance) + Food(%70change) ");
 
 			if (PlayerScanner.hasnextIntScanner()) {
 				selectLocation = PlayerScanner.intScanner();
@@ -162,6 +165,7 @@ public class Game {
 					case 9:
 						if (this.getPlayer().getInventory().getDarkStone() >= 1) {
 							location = new DeadForest(player);
+							this.getPlayer().getInventory().setDarkStone(this.getPlayer().getInventory().getDarkStone() - 1);
 						} else {
 							System.out.println("You can't enter the Dark Forest because you don't have Dark Stone");
 							continue;

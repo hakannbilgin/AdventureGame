@@ -9,8 +9,14 @@ public class Water extends Award {
 
 	@Override
 	public boolean isChange(int locationId) {
-		// TODO Auto-generated method stub
-		return true;
+		if (locationId == 8){
+			this.setChance(70);
+			int lootChange = (int) (Math.random() * 100);
+
+			return lootChange <= this.getChance();	
+		}else {
+			return false;
+		}
 	}
 
 	

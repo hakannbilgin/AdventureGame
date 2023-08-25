@@ -1,6 +1,6 @@
 package simpleadventuregame.locations.normallocs.houselocs;
 
-import simpleadventuregame.game.Player;
+import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.locations.normallocs.NormalLoc;
 import simpleadventuregame.utils.PlayerScanner;
 

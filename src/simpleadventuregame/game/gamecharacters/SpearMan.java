@@ -1,4 +1,4 @@
-package simpleadventuregame.gamecharacters;
+package simpleadventuregame.game.gamecharacters;
 
 public class SpearMan extends GameChar {
 

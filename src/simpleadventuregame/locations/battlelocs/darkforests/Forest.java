@@ -1,6 +1,6 @@
 package simpleadventuregame.locations.battlelocs.darkforests;
 
-import simpleadventuregame.game.Player;
+import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.locations.battlelocs.BattleLoc;
 import simpleadventuregame.monsters.Monster;
 
