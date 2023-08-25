@@ -13,6 +13,7 @@ import simpleadventuregame.locations.battlelocs.River;
 import simpleadventuregame.locations.battlelocs.Temple;
 import simpleadventuregame.locations.battlelocs.darkforests.DeadForest;
 import simpleadventuregame.locations.battlelocs.darkforests.EnchantedForest;
+import simpleadventuregame.locations.battlelocs.darkforests.ForestArea;
 import simpleadventuregame.locations.normallocs.ToolStore;
 import simpleadventuregame.locations.normallocs.houselocs.SafeHouse;
 import simpleadventuregame.locations.normallocs.houselocs.blacksmith.BlackSmith;
@@ -37,7 +38,7 @@ public class Game {
 		while (true) {
 			player.printInfo();
 
-			selectLoc3();
+			selectLoc4();
 
 			if (location == null) {
 
@@ -165,7 +166,8 @@ public class Game {
 					case 9:
 						if (this.getPlayer().getInventory().getDarkStone() >= 1) {
 							location = new DeadForest(player);
-							this.getPlayer().getInventory().setDarkStone(this.getPlayer().getInventory().getDarkStone() - 1);
+							this.getPlayer().getInventory()
+									.setDarkStone(this.getPlayer().getInventory().getDarkStone() - 1);
 						} else {
 							System.out.println("You can't enter the Dark Forest because you don't have Dark Stone");
 							continue;
@@ -199,6 +201,66 @@ public class Game {
 
 	public void setLocation(Location location) {
 		this.location = location;
+	}
+
+	public void selectLoc4() {
+		int selectLocation;
+		returnToMainMenu = true;
+		while (returnToMainMenu) {
+			System.out.println("--------------Locations-----------------");
+			System.out.println(
+					" 0- Exit from game \n 1- Safe House \n 2- Store \n 3- BlackSmith \n 4- Cave \n 5- Temple \n 6- Forest \n 7- River \n 8- Enchanted Forest");
+			System.out.println("9- Dead Forest");
+			System.out.println("---Cave  :           (ID=4) Enemy= Zombie   Award= Food  ---");
+			System.out.println("---Temple:           (ID=5) Enemy= Skeleton Award= Iron  ---");
+			System.out.println("---Normal Forest:    (ID=6) Enemy= Vampire  Award= Wood  ---");
+			System.out.println("---River :           (ID=7) Enemy= Bear     Award= Water ---");
+			System.out.println("---Forest Area:      (ID=10) This area has 2 dangerous battleLocs ");
+
+			if (PlayerScanner.hasnextIntScanner()) {
+				selectLocation = PlayerScanner.intScanner();
+
+				if (selectLocation >= 0 && selectLocation <= 8) {
+					switch (selectLocation) {
+					case 0:
+						System.out.println("Exiting the program.");
+						return;
+					case 1:
+						location = new SafeHouse(player);
+						break;
+					case 2:
+						location = new ToolStore(player);
+						break;
+					case 3:
+						location = new BlackSmith(player);
+						break;
+					case 4:
+						location = new Cave(player);
+						break;
+					case 5:
+						location = new Temple(player);
+						break;
+					case 6:
+						location = new NormalForest(player);
+						break;
+					case 7:
+						location = new River(player);
+						break;
+					case 8:
+						location = new ForestArea(player);
+						break;
+
+					}
+					break;
+				} else {
+					System.out.println("Please enter a valid number between 0 and 8.");
+				}
+			} else {
+				System.out.println("Please enter a valid number.");
+				PlayerScanner.stringScanner();
+			}
+		}
+
 	}
 
 }

@@ -10,8 +10,8 @@ import simpleadventuregame.utils.PlayerScanner;
 
 public class BlackSmith extends NormalLoc {
 
-	private WeaponCraftingTable weaponCraftingTable;
-	private ArmorCraftingTable armorCraftingTable;
+//	private WeaponCraftingTable weaponCraftingTable;
+//	private ArmorCraftingTable armorCraftingTable;
 //	private String weaponCraftListformat = " WeaponCraft :  [%-7s] [%d] [Damage:  %-1d] [Money: %2d] \n";
 
 	public BlackSmith(Player player) {
@@ -60,7 +60,7 @@ public class BlackSmith extends NormalLoc {
 		boolean weaponCraftMenu = true;
 		while (weaponCraftMenu) {
 
-			System.out.println("1 - Craft Double Dagger   Damage: 2  ----- Items to Create :     Iron : 1 Wood: 2 Water: 1 ");
+			System.out.println("1 - Craft Double Dagger   Damage: 2  ----- Items to Create :     Iron : 2 Wood: 4 Water: 1 ");
 			System.out.println("2 - Craft Spear           Damager:9  ----- Items to Create :     Iron : 4 Wood: 2 Water: 1 ");
 			System.out.println("3-  ");
 			System.out.println("4 - Exit");
@@ -92,14 +92,14 @@ public class BlackSmith extends NormalLoc {
 	}
 
 	public void craftDoubleDagger() {
-		if (this.getPlayer().getInventory().getIronCount() >= 1 && this.getPlayer().getInventory().getWoodCount() >= 2
+		if (this.getPlayer().getInventory().getIronCount() >= 2 && this.getPlayer().getInventory().getWoodCount() >= 4
 				&& this.getPlayer().getInventory().getWaterCount() >= 1) {
 			this.getPlayer().getInventory().setWeapon(new DoubleDagger());
-			this.getPlayer().getInventory().setIronCount(this.getPlayer().getInventory().getIronCount() - 1);
-			this.getPlayer().getInventory().setWoodCount(this.getPlayer().getInventory().getWoodCount() - 2);
+			this.getPlayer().getInventory().setIronCount(this.getPlayer().getInventory().getIronCount() - 2);
+			this.getPlayer().getInventory().setWoodCount(this.getPlayer().getInventory().getWoodCount() - 4);
 			this.getPlayer().getInventory().setWaterCount(this.getPlayer().getInventory().getWaterCount() - 1);
 			System.out.println("-------------------------- \n Double Dagger Crafted \n --------------------");
-			System.out.println("------------- \n Spear info: [Id: 4] [Damage:  3] [Money: 0 (Craft Item)]   ");
+			System.out.println("------------- \n Spear info: [Id: 4] [Damage:  4] [Money: 0 (Craft Item)]   ");
 
 		} else {
 			System.out.println("You don't have enough item");
@@ -114,7 +114,7 @@ public class BlackSmith extends NormalLoc {
 			this.getPlayer().getInventory().setWoodCount(this.getPlayer().getInventory().getWoodCount() - 2);
 			this.getPlayer().getInventory().setWaterCount(this.getPlayer().getInventory().getWaterCount() - 1);
 			System.out.println("-------------------------- \n Spear Crafted \n --------------------");
-			System.out.println("------------- \n Spear info: [Id: 5] [Damage:  9] [Money: 0 (Craft Item)]   ");
+			System.out.println("------------- \n Spear info: [Id: 5] [Damage:  6] [Money: 0 (Craft Item)]   ");
 
 		} else {
 			System.out.println("You don't have enough item");
@@ -160,27 +160,27 @@ public class BlackSmith extends NormalLoc {
 	}
 
 	public void craftWoodArmor() {
-		if (this.getPlayer().getInventory().getWoodCount() >= 3
-				&& this.getPlayer().getInventory().getWaterCount() >= 0) {
+		if (this.getPlayer().getInventory().getWoodCount() >= 5
+				&& this.getPlayer().getInventory().getWaterCount() >= 1) {
 			this.getPlayer().getInventory().setArmor(new WoodArmor());
-			this.getPlayer().getInventory().setWoodCount(this.getPlayer().getInventory().getWoodCount() - 3);
+			this.getPlayer().getInventory().setWoodCount(this.getPlayer().getInventory().getWoodCount() - 5);
 			this.getPlayer().getInventory().setWaterCount(this.getPlayer().getInventory().getWaterCount() - 1);
 			System.out.println("-------------------------- \n Wood Armor Crafted \n --------------------------");
-			System.out.println("------------- \n Wood Armor info: [4] [DamageDodge:  1 (Craft Item) ]  ");
+			System.out.println("------------- \n Wood Armor info: [4] [DamageDodge:  5 (Craft Item) ]  ");
 		} else {
 			System.out.println("You don't have enough item");
 		}
 	}
 
 	public void craftIronArmor() {
-		if (this.getPlayer().getInventory().getIronCount() >= 3 && this.getPlayer().getInventory().getWoodCount() >= 1
+		if (this.getPlayer().getInventory().getIronCount() >= 4 && this.getPlayer().getInventory().getWoodCount() >= 2
 				&& this.getPlayer().getInventory().getWaterCount() >= 2) {
 			this.getPlayer().getInventory().setArmor(new IronArmor());
-			this.getPlayer().getInventory().setIronCount(this.getPlayer().getInventory().getIronCount() - 3);
-			this.getPlayer().getInventory().setWoodCount(this.getPlayer().getInventory().getWoodCount() - 1);
+			this.getPlayer().getInventory().setIronCount(this.getPlayer().getInventory().getIronCount() - 4);
+			this.getPlayer().getInventory().setWoodCount(this.getPlayer().getInventory().getWoodCount() - 2);
 			this.getPlayer().getInventory().setWaterCount(this.getPlayer().getInventory().getWaterCount() - 2);
 			System.out.println("-------------------------- \n Iron Armor Crafted \n --------------------------");
-			System.out.println("------------- \n Iron Armor info: [5] [DamageDodge:  6 (Craft Item) ]  ");
+			System.out.println("------------- \n Iron Armor info: [5] [DamageDodge:  8 (Craft Item) ]  ");
 		} else {
 			System.out.println("You don't have enough item");
 		}

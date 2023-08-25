@@ -5,7 +5,7 @@ import simpleadventuregame.items.weapons.Weapon;
 public class Spear extends Weapon{
 
 	public Spear() {
-		super("Spear", 5, 9, 0);
+		super("Spear", 5, 6, 0);
 		
 	}
 

@@ -1,11 +1,7 @@
 package simpleadventuregame.locations.normallocs;
 
-import simpleadventuregame.game.gamecharacters.GameChar;
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.items.armors.Armor;
-import simpleadventuregame.items.weapons.LongSword;
-import simpleadventuregame.items.weapons.IronPala;
-import simpleadventuregame.items.weapons.ShortSword;
 import simpleadventuregame.items.weapons.Weapon;
 import simpleadventuregame.utils.PlayerScanner;
 
