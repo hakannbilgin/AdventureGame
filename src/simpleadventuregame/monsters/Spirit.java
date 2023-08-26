@@ -1,7 +1,7 @@
 package simpleadventuregame.monsters;
 
-import simpleadventuregame.items.Loot.Diamond;
-import simpleadventuregame.items.Loot.Food;
+import simpleadventuregame.items.Loot.craftingloot.Diamond;
+import simpleadventuregame.items.Loot.craftingloot.Food;
 
 public class Spirit extends Monster {
 

@@ -1,7 +1,7 @@
 package simpleadventuregame.monsters;
 
 
-import simpleadventuregame.items.Loot.Iron;
+import simpleadventuregame.items.Loot.craftingloot.Iron;
 
 public class Vampire extends Monster{
 

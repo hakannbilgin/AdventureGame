@@ -1,4 +1,6 @@
-package simpleadventuregame.items.Loot;
+package simpleadventuregame.items.Loot.craftingloot;
+
+import simpleadventuregame.items.Loot.Award;
 
 public class Wood extends Award {
 

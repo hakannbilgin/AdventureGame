@@ -1,6 +1,6 @@
 package simpleadventuregame.monsters;
 
-import simpleadventuregame.items.Loot.Food;
+import simpleadventuregame.items.Loot.craftingloot.Food;
 
 public class Zombie extends Monster{
 

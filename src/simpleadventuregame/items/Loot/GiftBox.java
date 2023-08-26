@@ -1,17 +1,17 @@
 package simpleadventuregame.items.Loot;
 
-public class Diamond extends Award {
+public class GiftBox extends Award{
 
-	public Diamond() {
-		super(6, "Diomand");
+	public GiftBox() {
+		super(7, "Gift Box");
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public boolean isChange(int locationId) {
-
-		if (locationId == 9) {
-			this.setChance(80);
+		
+		if (locationId == 11) {
+			this.setChance(60);
 			int lootChange = (int) (Math.random() * 100);
 
 			return lootChange <= this.getChance();

@@ -1,6 +1,6 @@
 package simpleadventuregame.monsters;
 
-import simpleadventuregame.items.Loot.Water;
+import simpleadventuregame.items.Loot.craftingloot.Water;
 
 public class Bear extends Monster{
 

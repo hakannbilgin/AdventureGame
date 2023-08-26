@@ -1,7 +1,7 @@
 package simpleadventuregame.monsters;
 
-import simpleadventuregame.items.Loot.DarkStone;
-import simpleadventuregame.items.Loot.Water;
+import simpleadventuregame.items.Loot.craftingloot.DarkStone;
+import simpleadventuregame.items.Loot.craftingloot.Water;
 
 public class Elf extends Monster{
 
