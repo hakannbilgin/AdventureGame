@@ -192,6 +192,13 @@ public abstract class BattleLoc extends Location {
 						"You earned Diamond.Your Current Diamond Count is " + this.getInventory().getDiamondCount());
 			}
 			break;
+		case 7:
+			if (this.getMonster().getAward().isChange(this.getId())) {
+				//TODO: GİFTBOX KAZANMA SİSTEMİ YAZ. BUNU SAFE HOUSE İÇİNDE AÇABİLSİN.
+				System.out.println(
+						"You earned Gift Box.Your Current GiftBox Count is " + this.getInventory().getDiamondCount());
+			}
+			break;
 		}
 
 		this.collectExtraAward(getId());

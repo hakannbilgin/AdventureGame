@@ -1,23 +1,17 @@
 package simpleadventuregame.items.Loot;
 
-public class GiftBox extends Award{
+public abstract class GiftBox extends Award{
 
-	public GiftBox() {
-		super(7, "Gift Box");
+	public GiftBox(int id, String name) {
+		super(id, name);
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public boolean isChange(int locationId) {
-		
-		if (locationId == 11) {
-			this.setChance(60);
-			int lootChange = (int) (Math.random() * 100);
-
-			return lootChange <= this.getChance();
-		} else {
-			return false;
-		}
-	}
-
+	
+	public abstract Award openBox();
+	
+	public abstract void awardsInBox();
+	
+	
+	
 }
