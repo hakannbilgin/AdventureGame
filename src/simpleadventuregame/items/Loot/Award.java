@@ -1,13 +1,15 @@
 package simpleadventuregame.items.Loot;
 
+import simpleadventuregame.items.Item;
+
 /*
  * 
  * TODO : need to use this class for extra awards
  * 
  */
-public abstract class Award {
+public abstract class Award extends Item{
 
-	private int id;
+//	private int id;
 	private String name;
 	private int chance;
 
@@ -17,7 +19,7 @@ public abstract class Award {
 
 	public Award(int id, String name) {
 
-		this.id = id;
+		this.setId(id);
 		this.name = name;
 	}
 
@@ -25,13 +27,13 @@ public abstract class Award {
 		this.name = name;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+//	public int getId() {
+//		return id;
+//	}
+//
+//	public void setId(int id) {
+//		this.id = id;
+//	}
 
 	public int getChance() {
 		return chance;

@@ -1,17 +1,18 @@
 package simpleadventuregame.locations;
 
+import simpleadventuregame.game.AbstractEntity;
 import simpleadventuregame.game.gameitems.Player;
 
-public abstract class Location {
+public abstract class Location extends AbstractEntity<Integer> {
 
 	private Player player;
 	private String name;
-	private int id;
+//	private int id;
 	
 	
 	public Location(int id, Player player, String locationName) {
 //		super();
-		this.id = id;
+		this.setId(id);
 		this.player = player;
 		this.name = locationName;
 	}
@@ -41,15 +42,15 @@ public abstract class Location {
 
 
 
-	public int getId() {
-		return id;
-	}
-
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
+//	public int getId() {
+//		return id;
+//	}
+//
+//
+//
+//	public void setId(int id) {
+//		this.id = id;
+//	}
 	
 	
 	

@@ -1,14 +1,19 @@
 package simpleadventuregame.locations.normallocs.houselocs;
 
+import java.util.ArrayList;
+
 import simpleadventuregame.game.gameitems.Player;
+import simpleadventuregame.items.Item;
+import simpleadventuregame.items.Loot.GiftBox;
 import simpleadventuregame.locations.normallocs.NormalLoc;
 import simpleadventuregame.utils.PlayerScanner;
 
 public class SafeHouse extends NormalLoc {
 	private String infoPlayer = " Info :  [Your Health:  %-1d] [Your FoodCount:  %-1d] [Your WaterCount:  %-1d] [Your Satietry Level:  %-1d/20] [Your Thirst Level:  %-1d/20] \n";
+	private String infoGiftBoxListFormat = " Item :  [%-11s] [Id :%d] \n";
 
 	public SafeHouse(Player player) {
-		super(1 ,player, "Safe House");
+		super(1, player, "Safe House");
 		// TODO Auto-generated constructor stub
 	}
 
@@ -26,8 +31,8 @@ public class SafeHouse extends NormalLoc {
 
 			System.out.println("1 - Drink Water (One water item add -2 point to your Thirst Level");
 			System.out.println("2 - Eat Food (One Food item add +2 point to your Satietry");
-//			System.out.println("3 - Craft Room (Crafting new items for your battle)");
-			System.out.println("3 - Exit");
+			System.out.println("3 - Open a box from Your inventory");
+			System.out.println("4 - Exit");
 			System.out.print("Select : ");
 			int selectCase = PlayerScanner.intScanner();
 
@@ -42,10 +47,10 @@ public class SafeHouse extends NormalLoc {
 			case 2:
 				eatFood();
 				break;
-//			case 3:
-//				
-//				break;
 			case 3:
+				infoGiftBox();
+				break;
+			case 4:
 				System.out.println("You exit from Safe House");
 				showMenu = false;
 				break;
@@ -66,7 +71,7 @@ public class SafeHouse extends NormalLoc {
 		} else {
 			this.getPlayer().getInventory().setWaterCount(this.getPlayer().getInventory().getWaterCount() - 1);
 			this.getPlayer().setThirstLevel(this.getPlayer().getThirstLevel() - 2);
-			
+
 		}
 	}
 
@@ -77,9 +82,26 @@ public class SafeHouse extends NormalLoc {
 			System.out.println(
 					"-------------------- \\n You can't eat food, you don't have food \\n --------------------");
 		} else {
-			this.getPlayer().getInventory().setFoodCount(this.getPlayer().getInventory().getFoodCount() -1);
+			this.getPlayer().getInventory().setFoodCount(this.getPlayer().getInventory().getFoodCount() - 1);
 			this.getPlayer().setSatiety(this.getPlayer().getSatiety() + 2);
 //			
+		}
+
+	}
+
+	public void openBoxInSafeHouse() {
+
+	}
+
+	public void infoGiftBox() {
+
+		if (getPlayer().getInventory().getGiftboxChest().isEmpty()) {
+			System.out.println(" You Don't have any GiftBox, You need to kill boss to gain GfitBox");
+		} else {
+			for (GiftBox giftBox : getPlayer().getInventory().getGiftboxChest()) {
+				System.out.printf(infoGiftBoxListFormat, giftBox.getName(), giftBox.getId());
+				;
+			}
 		}
 
 	}

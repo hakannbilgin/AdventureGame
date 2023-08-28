@@ -1,14 +1,16 @@
 package simpleadventuregame.items.weapons;
 
-public abstract class Weapon {
+import simpleadventuregame.items.Item;
+
+public abstract class Weapon extends Item{
 	private String name;
-	private int id;
+//	private int id;
 	private int damage;
 	private int price;
 
 	public Weapon(String name, int id, int damage, int price) {
 		this.name = name;
-		this.id = id;
+		this.setId(id);
 		this.damage = damage;
 		this.price = price;
 	}
@@ -32,13 +34,13 @@ public abstract class Weapon {
 
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+//	public int getId() {
+//		return id;
+//	}
+//
+//	public void setId(int id) {
+//		this.id = id;
+//	}
 
 	public int getDamage() {
 		return damage;

@@ -6,7 +6,7 @@ public class TrollArmor extends Armor{
 
 	public TrollArmor() {
 		super("Troll Armor", 7, 13, 0);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 }

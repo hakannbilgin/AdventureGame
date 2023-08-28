@@ -1,7 +1,9 @@
 package simpleadventuregame.game.gamecharacters;
 
-public abstract class GameChar {
-	private int id;
+import simpleadventuregame.game.AbstractEntity;
+
+public abstract class GameChar extends AbstractEntity<Integer> {
+//	private int id;
 	private String name;
 	private int damage;
 	private int health;
@@ -9,7 +11,7 @@ public abstract class GameChar {
 	
 	public GameChar(int id,String name,int damage, int health, int money) {
 		//super();
-		this.id=id;
+		this.setId(id);
 		this.name=name;
 		this.damage = damage;
 		this.health = health;
@@ -48,13 +50,13 @@ public abstract class GameChar {
 		this.name = name;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+//	public int getId() {
+//		return id;
+//	}
+//
+//	public void setId(int id) {
+//		this.id = id;
+//	}
 
 	
 	

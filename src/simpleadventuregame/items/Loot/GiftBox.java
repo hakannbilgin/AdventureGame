@@ -1,5 +1,7 @@
 package simpleadventuregame.items.Loot;
 
+import simpleadventuregame.items.Item;
+
 public abstract class GiftBox extends Award{
 
 	public GiftBox(int id, String name) {
@@ -8,7 +10,8 @@ public abstract class GiftBox extends Award{
 	}
 
 	
-	public abstract Award openBox();
+	
+	public abstract Item openBox();
 	
 	public abstract void awardsInBox();
 	

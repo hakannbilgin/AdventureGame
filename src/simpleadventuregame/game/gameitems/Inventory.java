@@ -1,13 +1,17 @@
 package simpleadventuregame.game.gameitems;
 
+import java.util.ArrayList;
+
+import simpleadventuregame.items.Loot.GiftBox;
+import simpleadventuregame.items.Loot.TrollBox;
 import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.armors.OldClothes;
 import simpleadventuregame.items.weapons.Fist;
 import simpleadventuregame.items.weapons.Weapon;
 
 public class Inventory {
-
-
+	
+	private ArrayList<GiftBox> giftboxChest = new ArrayList<GiftBox>();
 	private Weapon weapon;
 	private Armor armor;
 	private int waterCount = 0;
@@ -20,7 +24,31 @@ public class Inventory {
 	public Inventory() {
 		this.weapon = new Fist();
 		this.armor = new OldClothes();
+		giftboxChest.add(new TrollBox());
 	}
+
+	
+	public void addGiftBoxToChest(GiftBox giftBox) {
+		
+		giftboxChest.add(giftBox);
+		
+	}
+	
+	public void deleteGiftBoxFromChest(GiftBox giftBox) {
+		
+		for (GiftBox giftBox2 : giftboxChest) {
+			if (giftBox == giftBox2) {
+				giftboxChest.remove(giftBox);
+			};
+		}
+
+	}
+	
+	
+	public ArrayList<GiftBox> getGiftboxChest() {
+		return giftboxChest;
+	}
+
 
 	public Weapon getWeapon() {
 		return weapon;
