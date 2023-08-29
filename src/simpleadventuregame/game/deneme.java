@@ -48,17 +48,17 @@ public class deneme {
 //		TrollArmor armor = new TrollArmor();
 //		System.out.println(armor.getId());
 		
-		Player player = new Player();
+//		Player player = new Player();
 	
 //		trollbox.awardsInBox();
-		
-		Inventory inventory = new Inventory();
-		inventory.addGiftBoxToChest(trollbox);
-		
-	SafeHouse house = new SafeHouse(player);
-	house.getPlayer().getInventory().addGiftBoxToChest(trollbox);
-	
-	house.infoGiftBox();
+//		
+//		Inventory inventory = new Inventory();
+//		inventory.addGiftBoxToChest(trollbox);
+//		
+//	SafeHouse house = new SafeHouse(player);
+//	house.getPlayer().getInventory().addGiftBoxToChest(trollbox);
+//	
+//	house.infoGiftBox();
 		
 		
 		

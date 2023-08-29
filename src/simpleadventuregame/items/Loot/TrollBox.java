@@ -21,7 +21,7 @@ public class TrollBox extends GiftBox {
 	
 
 	public TrollBox() {
-		super(7, "Gift Box");
+		super(7, "Troll Box");
 
 	}
 

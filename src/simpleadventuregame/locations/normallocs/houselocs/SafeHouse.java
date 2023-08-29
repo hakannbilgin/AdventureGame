@@ -1,20 +1,30 @@
 package simpleadventuregame.locations.normallocs.houselocs;
 
-import java.util.ArrayList;
-
+import simpleadventuregame.game.gameitems.Inventory;
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.items.Item;
+import simpleadventuregame.items.Loot.Award;
 import simpleadventuregame.items.Loot.GiftBox;
+import simpleadventuregame.items.Loot.TrollBox;
+import simpleadventuregame.items.Loot.craftingloot.DarkStone;
+import simpleadventuregame.items.Loot.craftingloot.Diamond;
+import simpleadventuregame.items.Loot.craftingloot.Food;
+import simpleadventuregame.items.Loot.craftingloot.Iron;
+import simpleadventuregame.items.Loot.craftingloot.Water;
+import simpleadventuregame.items.Loot.craftingloot.Wood;
+import simpleadventuregame.items.armors.Armor;
+import simpleadventuregame.items.armors.BossArmors.TrollArmor;
 import simpleadventuregame.locations.normallocs.NormalLoc;
 import simpleadventuregame.utils.PlayerScanner;
 
 public class SafeHouse extends NormalLoc {
 	private String infoPlayer = " Info :  [Your Health:  %-1d] [Your FoodCount:  %-1d] [Your WaterCount:  %-1d] [Your Satietry Level:  %-1d/20] [Your Thirst Level:  %-1d/20] \n";
 	private String infoGiftBoxListFormat = " Item :  [%-11s] [Id :%d] \n";
+	private TrollBox trollBox;
 
 	public SafeHouse(Player player) {
 		super(1, player, "Safe House");
-		// TODO Auto-generated constructor stub
+
 	}
 
 	@Override
@@ -48,7 +58,7 @@ public class SafeHouse extends NormalLoc {
 				eatFood();
 				break;
 			case 3:
-				infoGiftBox();
+				openBoxInSafeHouse();
 				break;
 			case 4:
 				System.out.println("You exit from Safe House");
@@ -91,19 +101,106 @@ public class SafeHouse extends NormalLoc {
 
 	public void openBoxInSafeHouse() {
 
+		infoGiftBox();
+
+		boolean openBoxMenu = true;
+		while (openBoxMenu) {
+
+			System.out.println("------------ \n Do you want to Open a box \n ------------");
+			System.out.println(" 1 - Open a Troll Box \n 2-   \n 3- Exit ");
+
+			System.out.print("Select : ");
+
+			int selectCase = PlayerScanner.intScanner();
+
+			while (selectCase < 0 && selectCase > 3) {
+				System.out.println(" you entered invalid number, please enter again ! ");
+				selectCase = PlayerScanner.intScanner();
+			}
+			System.out.println("Burada1");
+			if (selectCase == 1) {
+				System.out.println("Burada2");
+				this.openTrollBox();
+				return;
+			} else if (selectCase == 2) {
+				System.out.println("Burada 3");
+				return;
+			} else if (selectCase == 3) {
+				System.out.println("You exit from Safe House");
+				System.out.println("Burada 4");
+				openBoxMenu = false;
+				return;
+			}
+
+		}
+	}
+
+	public void openTrollBox() {
+		System.out.println("Burada5");
+		System.out.println(this.getPlayer().getInventory().getGiftboxChest());
+		if (this.getPlayer().getInventory().getGiftboxChest().contains(new TrollBox())) {
+			System.out.println("YOU ARE COLLECTING YOUR BOX");
+			this.collectBoxAward(trollBox.openBox());
+
+		}
+		
+
 	}
 
 	public void infoGiftBox() {
 
 		if (getPlayer().getInventory().getGiftboxChest().isEmpty()) {
-			System.out.println(" You Don't have any GiftBox, You need to kill boss to gain GfitBox");
+			System.out.println(" You Don't have any GiftBox, You need to kill boss to gain GiftBox");
 		} else {
 			for (GiftBox giftBox : getPlayer().getInventory().getGiftboxChest()) {
 				System.out.printf(infoGiftBoxListFormat, giftBox.getName(), giftBox.getId());
-				;
+
 			}
 		}
 
+	}
+
+	public void collectBoxAward(Item item) {
+
+		if (item instanceof Award && item.getId() == 1) {
+
+			getInventory().setFoodCount(getInventory().getFoodCount() + 1);
+			System.out
+					.println("You gained Food from Box and your current Food Count is" + getInventory().getFoodCount());
+
+		} else if (item instanceof Award && item.getId() == 2) {
+			getInventory().setWaterCount(getInventory().getWaterCount() + 1);
+			System.out.println(
+					"You gained Food from Box and your current Water Count is" + getInventory().getWaterCount());
+		} else if (item instanceof Award && item.getId() == 3) {
+			getInventory().setWoodCount(this.getPlayer().getInventory().getWoodCount() + 1);
+			System.out
+					.println("You gained Food from Box and your current Wood Count is" + getInventory().getWoodCount());
+		} else if (item instanceof Award && item.getId() == 4) {
+			getInventory().setIronCount(getInventory().getIronCount() + 1);
+			System.out
+					.println("You gained Food from Box and your current Iron Count is" + getInventory().getIronCount());
+		} else if (item instanceof Award && item.getId() == 5) {
+			getInventory().setDarkStone(getInventory().getDarkStone() + 1);
+			System.out.println(
+					"You gained Food from Box and your current DarkStone Count is" + getInventory().getDarkStone());
+		} else if (item instanceof Award && item.getId() == 6) {
+			getInventory().setDiamondCount(getInventory().getDiamondCount() + 1);
+			System.out.println(
+					"You gained Food from Box and your current Diamond Count is" + getInventory().getDiamondCount());
+
+		} else if (item instanceof Armor && item.getId() == 7) {
+			getInventory().setArmor(new TrollArmor());
+
+			System.out.println("You gained Troll Armor");
+
+		}
+
+	}
+
+	public Inventory getInventory() {
+
+		return this.getPlayer().getInventory();
 	}
 
 }
