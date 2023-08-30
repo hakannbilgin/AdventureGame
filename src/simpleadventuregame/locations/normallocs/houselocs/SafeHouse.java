@@ -4,14 +4,8 @@ import simpleadventuregame.game.gameitems.Inventory;
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.items.Item;
 import simpleadventuregame.items.Loot.Award;
-import simpleadventuregame.items.Loot.GiftBox;
-import simpleadventuregame.items.Loot.TrollBox;
-import simpleadventuregame.items.Loot.craftingloot.DarkStone;
-import simpleadventuregame.items.Loot.craftingloot.Diamond;
-import simpleadventuregame.items.Loot.craftingloot.Food;
-import simpleadventuregame.items.Loot.craftingloot.Iron;
-import simpleadventuregame.items.Loot.craftingloot.Water;
-import simpleadventuregame.items.Loot.craftingloot.Wood;
+import simpleadventuregame.items.Loot.boxes.ElfKingBox;
+import simpleadventuregame.items.Loot.boxes.GiftBox;
 import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.armors.BossArmors.TrollArmor;
 import simpleadventuregame.locations.normallocs.NormalLoc;
@@ -19,8 +13,9 @@ import simpleadventuregame.utils.PlayerScanner;
 
 public class SafeHouse extends NormalLoc {
 	private String infoPlayer = " Info :  [Your Health:  %-1d] [Your FoodCount:  %-1d] [Your WaterCount:  %-1d] [Your Satietry Level:  %-1d/20] [Your Thirst Level:  %-1d/20] \n";
-	private String infoGiftBoxListFormat = " Item :  [%-11s] [Id :%d] \n";
-	private TrollBox trollBox;
+	private String infoTrollBoxListFormat = " Item :  [%-11s] [Id :%d] [Count:  %-1d]   \n";
+	private ElfKingBox elfKingBox = new ElfKingBox();
+	private GiftBox giftBox;
 
 	public SafeHouse(Player player) {
 		super(1, player, "Safe House");
@@ -58,7 +53,7 @@ public class SafeHouse extends NormalLoc {
 				eatFood();
 				break;
 			case 3:
-				openBoxInSafeHouse();
+				openBoxInSafeHouse2();
 				break;
 			case 4:
 				System.out.println("You exit from Safe House");
@@ -99,65 +94,109 @@ public class SafeHouse extends NormalLoc {
 
 	}
 
-	public void openBoxInSafeHouse() {
+//	public void openBoxInSafeHouse() {
+//
+//		
+//		if (infoGiftBox()==true) {
+//			
+//		}
+//
+//		boolean openBoxMenu = true;
+//		while (openBoxMenu) {
+//
+//			System.out.println("------------ \n Do you want to Open a box \n ------------");
+//			System.out.println(" 1 - Open a Troll Box \n 2-   \n 3- Exit ");
+//
+//			System.out.print("Select : ");
+//
+//			int selectCase = PlayerScanner.intScanner();
+//
+//			while (selectCase < 0 && selectCase > 3) {
+//				System.out.println(" you entered invalid number, please enter again ! ");
+//				selectCase = PlayerScanner.intScanner();
+//			}
+//			System.out.println("Burada1");
+//			if (selectCase == 1) {
+//				System.out.println("Burada2");
+//				this.openTrollBox();
+//				return;
+//			} else if (selectCase == 2) {
+//				System.out.println("Burada 3");
+//				return;
+//			} else if (selectCase == 3) {
+//				System.out.println("You exit from Safe House");
+//				System.out.println("Burada 4");
+//				openBoxMenu = false;
+//				return;
+//			}
+//
+//		}
+//	}
 
-		infoGiftBox();
+	public void openBoxInSafeHouse2() {
 
-		boolean openBoxMenu = true;
-		while (openBoxMenu) {
+		if (infoGiftBox() == true) {
+			boolean openBoxMenu = true;
+			while (openBoxMenu) {
 
-			System.out.println("------------ \n Do you want to Open a box \n ------------");
-			System.out.println(" 1 - Open a Troll Box \n 2-   \n 3- Exit ");
+				System.out.println("------------ \n Do you want to Open a box \n ------------");
+				System.out.println(" 1 - Open a Elf King Box \n 2-   \n 3- Exit ");
 
-			System.out.print("Select : ");
+				System.out.print("Select : ");
 
-			int selectCase = PlayerScanner.intScanner();
+				int selectCase = PlayerScanner.intScanner();
 
-			while (selectCase < 0 && selectCase > 3) {
-				System.out.println(" you entered invalid number, please enter again ! ");
-				selectCase = PlayerScanner.intScanner();
+				while (selectCase < 0 && selectCase > 3) {
+					System.out.println(" you entered invalid number, please enter again ! ");
+					selectCase = PlayerScanner.intScanner();
+				}
+
+				switch (selectCase) {
+				case 1:
+					openTrollBox();
+					break;
+				case 2:
+
+					break;
+				case 3:
+					System.out.println("You exit from Safe House");
+					openBoxMenu = false;
+					break;
+
+				}
+
 			}
-			System.out.println("Burada1");
-			if (selectCase == 1) {
-				System.out.println("Burada2");
-				this.openTrollBox();
-				return;
-			} else if (selectCase == 2) {
-				System.out.println("Burada 3");
-				return;
-			} else if (selectCase == 3) {
-				System.out.println("You exit from Safe House");
-				System.out.println("Burada 4");
-				openBoxMenu = false;
-				return;
-			}
-
 		}
+
 	}
 
 	public void openTrollBox() {
-		System.out.println("Burada5");
-		System.out.println(this.getPlayer().getInventory().getGiftboxChest());
-		if (this.getPlayer().getInventory().getGiftboxChest().contains(new TrollBox())) {
-			System.out.println("YOU ARE COLLECTING YOUR BOX");
-			this.collectBoxAward(trollBox.openBox());
 
+		if (this.getInventory().getBoxChest().getElfKingBoxCount() > 0) {
+			System.out.println("YOU ARE COLLECTING YOUR BOX");
+			this.getInventory().getBoxChest()
+					.setTrollBoxCount(this.getInventory().getBoxChest().getElfKingBoxCount() - 1);
+			this.collectBoxAward(elfKingBox.openBox());
+
+		} else {
+			System.out.println("You don't have any Elf King's box");
 		}
-		
 
 	}
 
-	public void infoGiftBox() {
-
-		if (getPlayer().getInventory().getGiftboxChest().isEmpty()) {
+	public boolean infoGiftBox() {
+		if (this.getInventory().getBoxChest().getTotalBoxCount() == 0) {
 			System.out.println(" You Don't have any GiftBox, You need to kill boss to gain GiftBox");
+			return false;
 		} else {
-			for (GiftBox giftBox : getPlayer().getInventory().getGiftboxChest()) {
-				System.out.printf(infoGiftBoxListFormat, giftBox.getName(), giftBox.getId());
+			for (int i = 0; i < this.getInventory().getBoxChest().getTotalBoxCount(); i++) {
+
+				System.out.printf(infoTrollBoxListFormat, elfKingBox.getName(), elfKingBox.getId(),
+						this.getInventory().getBoxChest().getElfKingBoxCount());
 
 			}
+			return true;
 		}
-
 	}
 
 	public void collectBoxAward(Item item) {

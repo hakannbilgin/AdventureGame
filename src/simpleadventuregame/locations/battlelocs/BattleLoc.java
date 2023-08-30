@@ -196,7 +196,7 @@ public abstract class BattleLoc extends Location {
 			if (this.getMonster().getAward().isChange(this.getId())) {
 				//TODO: GİFTBOX KAZANMA SİSTEMİ YAZ. BUNU SAFE HOUSE İÇİNDE AÇABİLSİN.
 				System.out.println(
-						"You earned Gift Box.Your Current GiftBox Count is " + this.getInventory().getDiamondCount());
+						"You earned Gift Box.Your Current GiftBox - Elf King Box Count is " + this.getInventory().getBoxChest().getElfKingBoxCount());
 			}
 			break;
 		}
@@ -210,8 +210,8 @@ public abstract class BattleLoc extends Location {
 		case 8:
 			if (this.getMonster().extraAwardWihtLocation(getId()) != null) {
 				this.getInventory().setWaterCount(this.getInventory().getWaterCount() + 1);
-				System.out.println("You earned extra award --- Food");
-				System.out.println("Your current food count is: " + this.getInventory().getWaterCount());
+				System.out.println("You earned extra award --- wATER");
+				System.out.println("Your current Water count is: " + this.getInventory().getWaterCount());
 			}
 			break;
 		case 9:

@@ -8,7 +8,7 @@ import java.util.Arrays;
 import simpleadventuregame.game.gameitems.Inventory;
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.items.Loot.Award;
-import simpleadventuregame.items.Loot.TrollBox;
+import simpleadventuregame.items.Loot.boxes.ElfKingBox;
 import simpleadventuregame.items.Loot.craftingloot.Diamond;
 import simpleadventuregame.items.Loot.craftingloot.Food;
 import simpleadventuregame.items.Loot.craftingloot.Iron;
@@ -33,7 +33,7 @@ public class deneme {
 //		int boxAwardChance = (int) (Math.random() * 100);
 //		System.out.println(boxAwardChance);
 		
-		TrollBox trollbox = new TrollBox();
+		ElfKingBox trollbox = new ElfKingBox();
 //		Award award = trollbox.getTrollBoxAward().get(1);
 //		System.out.println(award.getName());
 		

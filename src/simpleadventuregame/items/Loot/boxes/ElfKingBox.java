@@ -1,4 +1,4 @@
-package simpleadventuregame.items.Loot;
+package simpleadventuregame.items.Loot.boxes;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,13 +14,13 @@ import simpleadventuregame.items.Loot.craftingloot.Water;
 import simpleadventuregame.items.Loot.craftingloot.Wood;
 import simpleadventuregame.items.armors.BossArmors.TrollArmor;
 
-public class TrollBox extends GiftBox {
+public class ElfKingBox extends GiftBox {
 
-	private String trollBoxAwardsFormat = " Item :  [%-11s] [Id :%d] \n";
+	private String elfKingAwardsFormat = " Item :  [%-11s] [Id :%d] \n";
 	private ArrayList<Item> trollBoxAward = new ArrayList<Item>();
 	
 
-	public TrollBox() {
+	public ElfKingBox() {
 		super(7, "Troll Box");
 
 	}
@@ -41,6 +41,9 @@ public class TrollBox extends GiftBox {
 	@Override
 	public Item openBox() {
 
+		this.awardsInBox();
+		System.out.println("-----THE BOX IS OPENING-----");
+		
 		int boxAwardChance = (int) (Math.random() * 100);
 
 		if (boxAwardChance >= 0 && boxAwardChance <= 20) {
@@ -86,7 +89,7 @@ public class TrollBox extends GiftBox {
 		trollBoxAward.add(6, new TrollArmor());
 		
 		for (Item item : trollBoxAward) {
-			System.out.printf(trollBoxAwardsFormat, item.getName(), item.getId());;
+			System.out.printf(elfKingAwardsFormat, item.getName(), item.getId());;
 		}
 
 	}

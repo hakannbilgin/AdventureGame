@@ -18,8 +18,8 @@ public class ForestArea extends Location {
 		while (forestMenu) {
 			System.out.println(
 					"-----You are at the Forest Area----- \n -*-*-*- You choose Forest BattleLocations -*-*-*-");
-			System.out.println("1 - Enchanted Forest");
-			System.out.println("2 - Dark Forest");
+			System.out.println("1 - Enchanted Forest \n 2- Dark Forest \n 3-      \n 4- Elf King's House ");
+			
 			System.out.println(
 					"---Enchanted Forest: (ID=8) Enemy= Elf      Award= Dark Stone (%40change) + Water (%70change) ---");
 			System.out.println(
@@ -49,8 +49,17 @@ public class ForestArea extends Location {
 					continue;
 				}
 				break;
-
 			case 3:
+
+				if (this.getPlayer().getInventory().getDarkStone() >= 1) {
+					new DeadForest(getPlayer()).onLocation();
+					this.getPlayer().getInventory().setDarkStone(this.getPlayer().getInventory().getDarkStone() - 1);
+				} else {
+					System.out.println("You can't enter the Dark Forest because you don't have Dark Stone");
+					continue;
+				}
+				break;
+			case 4:
 				System.out.println("You exit from Forest Area");
 				forestMenu = false;
 				break;

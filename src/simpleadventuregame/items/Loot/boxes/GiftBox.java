@@ -1,6 +1,7 @@
-package simpleadventuregame.items.Loot;
+package simpleadventuregame.items.Loot.boxes;
 
 import simpleadventuregame.items.Item;
+import simpleadventuregame.items.Loot.Award;
 
 public abstract class GiftBox extends Award{
 
