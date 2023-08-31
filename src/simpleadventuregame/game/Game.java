@@ -209,8 +209,7 @@ public class Game {
 		while (returnToMainMenu) {
 			System.out.println("--------------Locations-----------------");
 			System.out.println(
-					" 0- Exit from game \n 1- Safe House \n 2- Store \n 3- BlackSmith \n 4- Cave \n 5- Temple \n 6- Forest \n 7- River \n 8- Enchanted Forest");
-			System.out.println("9- Dead Forest");
+					" 0- Exit from game \n 1- Safe House \n 2- Store \n 3- BlackSmith \n 4- Cave \n 5- Temple \n 6- Forest \n 7- River \n 8- Forest Area");
 			System.out.println("---Cave  :           (ID=4) Enemy= Zombie   Award= Food  ---");
 			System.out.println("---Temple:           (ID=5) Enemy= Skeleton Award= Iron  ---");
 			System.out.println("---Normal Forest:    (ID=6) Enemy= Vampire  Award= Wood  ---");

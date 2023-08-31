@@ -17,6 +17,7 @@ public class Inventory {
 	private int ironCount = 0;
 	private int darkStone = 0;
 	private int diamondCount= 0;
+	private int emeraldCount =0;
 
 	public Inventory() {
 		this.weapon = new Fist();
@@ -116,6 +117,16 @@ public class Inventory {
 
 	public BoxChest getBoxChest() {
 		return boxChest;
+	}
+
+
+	public int getEmeraldCount() {
+		return emeraldCount;
+	}
+
+
+	public void setEmeraldCount(int emeraldCount) {
+		this.emeraldCount = emeraldCount;
 	}
 
 

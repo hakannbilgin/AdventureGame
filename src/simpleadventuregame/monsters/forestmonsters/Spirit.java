@@ -10,7 +10,7 @@ public class Spirit extends Monster {
 	
 	public Spirit() {
 		super(6, "Spirit", new Diamond(),new Food(), 14, 18, 17);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 
