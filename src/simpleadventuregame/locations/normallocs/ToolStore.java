@@ -20,6 +20,7 @@ public class ToolStore extends NormalLoc {
 	@Override
 	public boolean onLocation() {
 		System.out.println("-----Welcome to the store !-----");
+		
 		boolean showMenu = true;
 		while (showMenu) {
 

@@ -7,7 +7,7 @@ import simpleadventuregame.items.weapons.Weapon;
 
 public class Inventory {
 	
-//	private ArrayList<GiftBox> giftboxChest = new ArrayList<GiftBox>();
+
 	private BoxChest boxChest;
 	private Weapon weapon;
 	private Armor armor;
@@ -22,31 +22,9 @@ public class Inventory {
 	public Inventory() {
 		this.weapon = new Fist();
 		this.armor = new OldClothes();
-//		giftboxChest.add(new TrollBox());
+
 		this.boxChest = new BoxChest();
 	}
-
-	
-//	public void addGiftBoxToChest(GiftBox giftBox) {
-//		
-//		giftboxChest.add(giftBox);
-//		
-//	}
-	
-//	public void deleteGiftBoxFromChest(GiftBox giftBox) {
-//		
-//		for (GiftBox giftBox2 : giftboxChest) {
-//			if (giftBox == giftBox2) {
-//				giftboxChest.remove(giftBox);
-//			};
-//		}
-//
-//	}
-	
-	
-//	public ArrayList<GiftBox> getGiftboxChest() {
-//		return giftboxChest;
-//	}
 
 
 	public Weapon getWeapon() {

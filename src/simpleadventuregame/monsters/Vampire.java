@@ -1,12 +1,12 @@
 package simpleadventuregame.monsters;
 
 
-import simpleadventuregame.items.Loot.craftingloot.Iron;
+import simpleadventuregame.items.Loot.craftingloot.Wood;
 
 public class Vampire extends Monster{
 
 	public Vampire() {
-		super(2, "Vampire",new Iron(), 4, 14, 7);
+		super(2, "Vampire",new Wood(), 4, 14, 7);
 		
 	}
 
