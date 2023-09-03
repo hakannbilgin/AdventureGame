@@ -5,7 +5,6 @@ import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.items.Item;
 import simpleadventuregame.items.Loot.Award;
 import simpleadventuregame.items.Loot.boxes.ElfKingBox;
-import simpleadventuregame.items.Loot.boxes.GiftBox;
 import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.armors.BossArmors.TrollArmor;
 import simpleadventuregame.locations.normallocs.NormalLoc;
@@ -13,9 +12,9 @@ import simpleadventuregame.utils.PlayerScanner;
 
 public class SafeHouse extends NormalLoc {
 	private String infoPlayer = " Info :  [Your Health:  %-1d] [Your FoodCount:  %-1d] [Your WaterCount:  %-1d] [Your Satietry Level:  %-1d/20] [Your Thirst Level:  %-1d/20] \n";
-	private String infoTrollBoxListFormat = " Item :  [%-11s] [Id :%d] [Count:  %-1d]   \n";
+//	private String infoTrollBoxListFormat = " Item :  [%-11s] [Id :%d] [Count:  %-1d]   \n";
 	private ElfKingBox elfKingBox = new ElfKingBox();
-	private GiftBox giftBox;
+	
 
 	public SafeHouse(Player player) {
 		super(1, player, "Safe House");
@@ -189,14 +188,10 @@ public class SafeHouse extends NormalLoc {
 			System.out.println(" You Don't have any GiftBox, You need to kill boss to gain GiftBox");
 			return false;
 		} else {
-			for (int i = 0; i < this.getInventory().getBoxChest().getTotalBoxCount(); i++) {
+			System.out.println("Elf King Box : " + this.getInventory().getBoxChest().getElfKingBoxCount());
 
-				System.out.printf(infoTrollBoxListFormat, elfKingBox.getName(), elfKingBox.getId(),
-						this.getInventory().getBoxChest().getElfKingBoxCount());
-
-			}
-			return true;
 		}
+		return true;
 	}
 
 	public void collectBoxAward(Item item) {
