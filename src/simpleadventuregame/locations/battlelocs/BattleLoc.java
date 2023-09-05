@@ -78,14 +78,8 @@ public abstract class BattleLoc extends Location {
 			}
 
 			if (this.getMonster().getHealth() < this.getPlayer().getHealth()) {
-				System.out.println("You killed the enemy");
-				this.getPlayer().getPlayerLevel().gainExperience(this.getMonster().getAwardExperience());
-				System.out.println("Your current exp is: " + this.getPlayer().getPlayerLevel().getCurrentExperience() +  "/50");
-				this.getPlayer().setThirstLevel(this.getPlayer().getThirstLevel() + 1);
-				this.getPlayer().setSatiety(this.getPlayer().getSatiety() - 1);
-				// TODO IF THIRST LEVEL GETS OVER 20 ADD SOME CONSEQUENCES
-//				collectAward();
-				collectAward2(this.getMonster().getAward().getId());
+
+				this.afterBattle();
 
 			} else {
 				return false;
@@ -102,6 +96,20 @@ public abstract class BattleLoc extends Location {
 		System.out.println(this.getMonster().getName() + "'s Health : " + this.getMonster().getHealth());
 		System.out.println("---------------------");
 
+	}
+
+	public void afterBattle() {
+		System.out.println("You killed the enemy");
+		this.getPlayer().getPlayerLevel().gainExperience(this.getMonster().getAwardExperience());
+		if (this.getPlayer().getPlayerLevel().checkLevelUp()) {
+			this.levelUpAward();
+		}
+		System.out.println("Your current exp is: " + this.getPlayer().getPlayerLevel().getCurrentExperience() + "/50");
+		this.getPlayer().setThirstLevel(this.getPlayer().getThirstLevel() + 1);
+		this.getPlayer().setSatiety(this.getPlayer().getSatiety() - 1);
+		// TODO IF THIRST LEVEL GETS OVER 20 ADD SOME CONSEQUENCES
+//		collectAward();
+		collectAward2(this.getMonster().getAward().getId());
 	}
 
 	public void playerStats() {
@@ -126,36 +134,6 @@ public abstract class BattleLoc extends Location {
 		return random.nextInt(this.getMaxMonsterCount()) + 1;
 
 	}
-
-//	public void collectAward() {
-//
-//		System.out.println("You earned " + this.getMonster().getAwardMoney() + " money");
-//
-//		this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getMonster().getAwardMoney());
-//		System.out.println("Your current Money " + this.getPlayer().getMoney());
-//
-//		if (this.getAward().getId() == 1) {
-//			this.getInventory().setFoodCount(this.getInventory().getFoodCount() + 1);
-//			System.out.println("You earned Food. Your Current Food Count is " + this.getInventory().getFoodCount());
-//		} else if (this.getAward().getId() == 2) {
-//			this.getInventory().setWaterCount(this.getInventory().getWaterCount() + 1);
-//			System.out.println("You earned Water. Your Current Water Count is " + this.getInventory().getWaterCount());
-//		} else if (this.getAward().getId() == 3) {
-//			this.getInventory().setWoodCount(this.getInventory().getWoodCount() + 1);
-//			System.out.println("You earned Wood. Your Current Wood Count is " + this.getInventory().getWoodCount());
-//		} else if (this.getAward().getId() == 4) {
-//			this.getInventory().setIronCount(this.getInventory().getIronCount() + 1);
-//			System.out.println("You earned Iron. Your Current Iron Count is " + this.getInventory().getIronCount());
-//
-//		} else {
-//			if (this.getAward().isChange(monster)) {
-//				this.getInventory().setDarkStone(this.getInventory().getDarkStone() + 1);
-//				System.out.println(
-//						"You earned Dark Stone.Your Current Dark Stone Count is " + this.getInventory().getDarkStone());
-//			}
-//		}
-//
-//	}
 
 	public void collectAward2(int awardId) {
 		System.out.println("You earned " + this.getMonster().getAwardMoney() + " money");
@@ -196,9 +174,9 @@ public abstract class BattleLoc extends Location {
 			break;
 		case 7:
 			if (this.getMonster().getAward().isChange(this.getId())) {
-				//TODO: GİFTBOX KAZANMA SİSTEMİ YAZ. BUNU SAFE HOUSE İÇİNDE AÇABİLSİN.
-				System.out.println(
-						"You earned Gift Box.Your Current GiftBox - Elf King Box Count is " + this.getInventory().getBoxChest().getElfKingBoxCount());
+				// TODO: GİFTBOX KAZANMA SİSTEMİ YAZ. BUNU SAFE HOUSE İÇİNDE AÇABİLSİN.
+				System.out.println("You earned Gift Box.Your Current GiftBox - Elf King Box Count is "
+						+ this.getInventory().getBoxChest().getElfKingBoxCount());
 			}
 			break;
 		}
@@ -228,6 +206,13 @@ public abstract class BattleLoc extends Location {
 		default:
 			break;
 		}
+
+	}
+
+	public void levelUpAward() {
+		System.out.println("Your health is increased from " + this.getPlayer().getDefaultHealth() + " to " + (this.getPlayer().getDefaultHealth()+2));
+		this.getPlayer().setDefaultHealth(this.getPlayer().getDefaultHealth() + 2);
+		this.getPlayer().setHealth(this.getPlayer().getDefaultHealth());
 
 	}
 

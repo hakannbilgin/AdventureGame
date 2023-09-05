@@ -151,7 +151,11 @@ public class Player {
 //	}
 	
 	
-	
+	public void healthByLevel() {
+		
+		
+		
+	}
 	
 	
 	

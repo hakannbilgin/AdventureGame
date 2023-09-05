@@ -16,9 +16,11 @@ public abstract class Level {
 
 	public abstract void loseExperience(int experiencePoints);
 
-	public abstract void checkLevelUp();
+	public abstract boolean checkLevelUp();
 
 	public abstract void levelUp();
+	
+	
 
 //	public void gainExperience(int experiencePoints) {
 //		currentExperience += experiencePoints;

@@ -11,8 +11,6 @@ public class PlayerLevel extends Level {
 	public void gainExperience(int experiencePoints) {
 		this.setCurrentExperience(this.getCurrentExperience() + experiencePoints);
 
-		checkLevelUp();
-
 	}
 
 	@Override
@@ -28,14 +26,17 @@ public class PlayerLevel extends Level {
 	}
 
 	@Override
-	public void checkLevelUp() {
+	public boolean checkLevelUp() {
 
 		if (getCurrentExperience() >= getMaxLevelExperience()) {
 
 			if (!(this.getCurrentLevel() >= this.getMaxLevel())) {
 				levelUp();
+				return true;
+
 			}
 		}
+		return false;
 
 	}
 
@@ -43,9 +44,10 @@ public class PlayerLevel extends Level {
 	public void levelUp() {
 
 		this.setCurrentLevel(getCurrentLevel() + 1);
-		this.setCurrentExperience(getCurrentExperience()-50);
-		System.out.println("Level Up! Now Your Level is :--  " + this.getCurrentLevel()+ " -- ");
+		this.setCurrentExperience(getCurrentExperience() - 50);
+		System.out.println("Level Up! Now Your Level is :--  " + this.getCurrentLevel() + " -- ");
 
 	}
+
 
 }

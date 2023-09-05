@@ -23,7 +23,8 @@ public class MonsterLevel extends Level {
 	}
 
 	@Override
-	public void checkLevelUp() {
+	public boolean checkLevelUp() {
+		return false;
 		
 		
 	}
