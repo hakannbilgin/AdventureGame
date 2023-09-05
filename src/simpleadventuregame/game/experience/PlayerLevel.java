@@ -9,7 +9,7 @@ public class PlayerLevel extends Level {
 
 	@Override
 	public void gainExperience(int experiencePoints) {
-		setCurrentExperience(getCurrentExperience() + experiencePoints);
+		this.setCurrentExperience(this.getCurrentExperience() + experiencePoints);
 
 		checkLevelUp();
 
@@ -18,9 +18,9 @@ public class PlayerLevel extends Level {
 	@Override
 	public void loseExperience(int experiencePoints) {
 
-		setCurrentExperience(getCurrentExperience() - experiencePoints);
+		this.setCurrentExperience(this.getCurrentExperience() - experiencePoints);
 
-		if (getCurrentExperience() < 0) {
+		if (this.getCurrentExperience() < 0) {
 
 			setCurrentExperience(0);
 		}
@@ -31,7 +31,10 @@ public class PlayerLevel extends Level {
 	public void checkLevelUp() {
 
 		if (getCurrentExperience() >= getMaxLevelExperience()) {
-			levelUp();
+
+			if (!(this.getCurrentLevel() >= this.getMaxLevel())) {
+				levelUp();
+			}
 		}
 
 	}
@@ -39,7 +42,9 @@ public class PlayerLevel extends Level {
 	@Override
 	public void levelUp() {
 
-		System.out.println("Level Up!");
+		this.setCurrentLevel(getCurrentLevel() + 1);
+		this.setCurrentExperience(getCurrentExperience()-50);
+		System.out.println("Level Up! Now Your Level is :--  " + this.getCurrentLevel()+ " -- ");
 
 	}
 

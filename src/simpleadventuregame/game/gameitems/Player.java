@@ -1,5 +1,6 @@
 package simpleadventuregame.game.gameitems;
 
+import simpleadventuregame.game.experience.PlayerLevel;
 import simpleadventuregame.items.weapons.Weapon;
 
 public class Player {
@@ -15,10 +16,13 @@ public class Player {
 	private String name;
 	private String charName;
 	private Inventory inventory;
+	private PlayerLevel playerLevel;
 
 	public Player(String name) {
 		this.name = name;
 		this.inventory= new Inventory();
+		this.playerLevel = new PlayerLevel();
+		
 
 	}
 
@@ -137,6 +141,15 @@ public class Player {
 		}
 		this.thirstLevel = thirstLevel;
 	}
+
+	public PlayerLevel getPlayerLevel() {
+		return playerLevel;
+	}
+
+//	public void setPlayerLevel(PlayerLevel playerLevel) {
+//		this.playerLevel = playerLevel;
+//	}
+	
 	
 	
 	

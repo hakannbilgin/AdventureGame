@@ -79,6 +79,8 @@ public abstract class BattleLoc extends Location {
 
 			if (this.getMonster().getHealth() < this.getPlayer().getHealth()) {
 				System.out.println("You killed the enemy");
+				this.getPlayer().getPlayerLevel().gainExperience(this.getMonster().getAwardExperience());
+				System.out.println("Your current exp is: " + this.getPlayer().getPlayerLevel().getCurrentExperience() +  "/50");
 				this.getPlayer().setThirstLevel(this.getPlayer().getThirstLevel() + 1);
 				this.getPlayer().setSatiety(this.getPlayer().getSatiety() - 1);
 				// TODO IF THIRST LEVEL GETS OVER 20 ADD SOME CONSEQUENCES

@@ -12,8 +12,9 @@ public abstract class Monster {
 	private int health;
 	private int awardMoney;
 	private int defaultHealth;
+	private int awardExperience;
 
-	public Monster(int id, String name, Award award, int damage, int health, int awardMoney) {
+	public Monster(int id, String name, Award award, int damage, int health, int awardMoney,int awardExperience) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -22,8 +23,9 @@ public abstract class Monster {
 		this.health = health;
 		this.defaultHealth = health;
 		this.awardMoney = awardMoney;
+		this.awardExperience = awardExperience;
 	}
-	public Monster(int id, String name, Award award, Award extraAward, int damage, int health, int awardMoney) {
+	public Monster(int id, String name, Award award, Award extraAward, int damage, int health, int awardMoney, int awardExperience) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -33,6 +35,7 @@ public abstract class Monster {
 		this.health = health;
 		this.defaultHealth = health;
 		this.awardMoney = awardMoney;
+		this.awardExperience = awardExperience;
 	}
 
 	public int getId() {
@@ -111,6 +114,14 @@ public abstract class Monster {
 	public void setExtraAward(Award extraAward) {
 		this.extraAward = extraAward;
 	}
+	public int getAwardExperience() {
+		return awardExperience;
+	}
+	public void setAwardExperience(int awardExperience) {
+		this.awardExperience = awardExperience;
+	}
 	
 
+	
+	
 }
