@@ -13,7 +13,7 @@ public class ArmorCraftingTable {
 	Player player;
 	
 	public ArmorCraftingTable(Player player) {
-		this.player = new Player();
+		this.player = player;
 	}
 //	
 //	public void armorCraftList() {

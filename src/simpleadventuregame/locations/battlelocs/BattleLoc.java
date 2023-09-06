@@ -108,7 +108,7 @@ public abstract class BattleLoc extends Location {
 		this.getPlayer().setThirstLevel(this.getPlayer().getThirstLevel() + 1);
 		this.getPlayer().setSatiety(this.getPlayer().getSatiety() - 1);
 		// TODO IF THIRST LEVEL GETS OVER 20 ADD SOME CONSEQUENCES
-//		collectAward();
+
 		collectAward2(this.getMonster().getAward().getId());
 	}
 

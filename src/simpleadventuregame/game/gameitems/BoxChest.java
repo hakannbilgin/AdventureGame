@@ -2,11 +2,7 @@ package simpleadventuregame.game.gameitems;
 
 public class BoxChest {
 
-	private int trollBoxCount=1;
-	
-	
-	
-	
+	private int trollBoxCount = 0;
 
 	public int getElfKingBoxCount() {
 		return trollBoxCount;
@@ -18,6 +14,6 @@ public class BoxChest {
 
 	public int getTotalBoxCount() {
 		return getElfKingBoxCount();
-	}	
-	
+	}
+
 }

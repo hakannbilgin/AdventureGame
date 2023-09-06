@@ -7,7 +7,7 @@ import simpleadventuregame.items.weapons.Weapon;
 
 public class Inventory {
 	
-
+	private ElixirChest elixirChest;
 	private BoxChest boxChest;
 	private Weapon weapon;
 	private Armor armor;
@@ -22,7 +22,7 @@ public class Inventory {
 	public Inventory() {
 		this.weapon = new Fist();
 		this.armor = new OldClothes();
-
+		this.elixirChest= new ElixirChest();
 		this.boxChest = new BoxChest();
 	}
 
@@ -106,6 +106,16 @@ public class Inventory {
 	public void setEmeraldCount(int emeraldCount) {
 		this.emeraldCount = emeraldCount;
 	}
+
+
+	public ElixirChest getElixirChest() {
+		return elixirChest;
+	}
+
+
+//	public void setElixirChest(ElixirChest elixirChest) {
+//		this.elixirChest = elixirChest;
+//	}
 
 
 //	public void setBoxChest(BoxChest boxChest) {
