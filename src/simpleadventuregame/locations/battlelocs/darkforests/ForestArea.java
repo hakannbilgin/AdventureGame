@@ -2,6 +2,7 @@ package simpleadventuregame.locations.battlelocs.darkforests;
 
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.locations.Location;
+import simpleadventuregame.locations.normallocs.MagicalElfStore;
 import simpleadventuregame.utils.PlayerScanner;
 
 public class ForestArea extends Location {
@@ -18,14 +19,16 @@ public class ForestArea extends Location {
 		while (forestMenu) {
 			System.out.println(
 					"-----You are at the Forest Area----- \n -*-*-*- You choose Forest BattleLocations -*-*-*-");
-			System.out.println("1 - Enchanted Forest \n 2- Dark Forest \n 3- Dark Forest  \n 4- Elf King's House ");
+			System.out.println("1 - Enchanted Forest \n 2- Dark Forest \n 3- Dark Forest  \n 4- Elf King's House \n 5- Magical Elf Store");
 			
 			System.out.println(
 					"---Enchanted Forest: (ID=8) Enemy= Elf      Award= Dark Stone (%40change) + Water (%70change) ---");
 			System.out.println(
 					"---Dead Forest       (ID=9) Enemy= Spirit   Award= Diamond(%60chance) + Food(%70change) ");
-			System.out.println("---Dark Forest       (ID=9) Enemy= Dark Elf   Award= Elf Stone(%40chance) + Emerald(%20change)");
-			System.out.println("4 - Exit");
+			System.out.println("---Dark Forest       (ID=12) Enemy= Dark Elf   Award= Elf Stone(%40chance) + Emerald(%20change)");
+			System.out.println("---Elf King Place    (ID=11) Enemy= Elf King   Award=  + ");
+			System.out.println("5 - Elf Store (ID=13) ");
+			System.out.println("6- Exit from Forest Area");
 
 			System.out.print("Select : ");
 
@@ -65,6 +68,9 @@ public class ForestArea extends Location {
 
 				break;
 			case 5:
+				 new MagicalElfStore(getPlayer()).onLocation();
+				break;
+			case 6:
 				System.out.println("You exit from Forest Area");
 				forestMenu = false;
 				break;

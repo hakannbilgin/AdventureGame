@@ -3,7 +3,7 @@ package simpleadventuregame.items.elixir;
 public class HealthElixir extends Elixir {
 
 	public HealthElixir() {
-		super(1, "Healh Elixir (+5 health)");
+		super(1, "Healh Elixir (+5 health)",10);
 		// TODO Auto-generated constructor stub
 	}
 
