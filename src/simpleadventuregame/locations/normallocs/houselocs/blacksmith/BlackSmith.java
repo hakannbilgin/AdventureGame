@@ -59,7 +59,7 @@ public class BlackSmith extends NormalLoc {
 
 		boolean weaponCraftMenu = true;
 		while (weaponCraftMenu) {
-
+			this.getPlayer().printDetailedInfo();
 			System.out.println(
 					"1 - Craft Double Dagger   Damage: 2      ----- Items to Create :     Iron    : 2 Wood: 4  Water: 1 ");
 			System.out.println(

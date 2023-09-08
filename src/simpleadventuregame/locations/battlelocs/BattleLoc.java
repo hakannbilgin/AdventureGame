@@ -5,6 +5,10 @@ import java.util.Random;
 import simpleadventuregame.game.gameitems.Inventory;
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.locations.Location;
+import simpleadventuregame.locations.battlelocs.darkforests.ForestArea;
+import simpleadventuregame.locations.normallocs.ToolStore;
+import simpleadventuregame.locations.normallocs.houselocs.SafeHouse;
+import simpleadventuregame.locations.normallocs.houselocs.blacksmith.BlackSmith;
 import simpleadventuregame.monsters.Monster;
 import simpleadventuregame.utils.PlayerScanner;
 
@@ -51,6 +55,9 @@ public abstract class BattleLoc extends Location {
 	public boolean combat(int monsterNumber) {
 
 		for (int i = 1; i <= monsterNumber; i++) {
+			if (this.getInventory().getElixirChest().getTotalElixirCount() > 0) {
+				this.useElixirInCombat();
+			}
 			this.getMonster().setHealth(this.getMonster().getDefaulHealth());
 			playerStats();
 			monsterStats(i);
@@ -87,6 +94,60 @@ public abstract class BattleLoc extends Location {
 		}
 
 		return true;
+
+	}
+
+	public void useElixirInCombat() {
+
+		this.getPlayer().printElixirChestInfo();
+		System.out.println("Do you want to use any elixir? /n ---(1) Health Elixir (2)Medical Elixir (3) -No-");
+		int selectLocation;
+		boolean elixirMenu = true;
+		while (elixirMenu) {
+
+			if (PlayerScanner.hasnextIntScanner()) {
+				selectLocation = PlayerScanner.intScanner();
+
+				if (selectLocation >= 0 && selectLocation <= 3) {
+					switch (selectLocation) {
+					case 0:
+						System.out.println("Exiting the program.");
+						return;
+					case 1:
+						if (this.getInventory().getElixirChest().getHealthElixirCount() > 0) {
+							this.getPlayer().setHealth(this.getPlayer().getDefaultHealth() + 5);
+							System.out.println(
+									"You used Health Elixir. Now your health increased + 5 point for just one fight ");
+							this.getInventory().getElixirChest().setHealthElixirCount(
+									this.getInventory().getElixirChest().getHealthElixirCount() - 1);
+						} else {
+							System.out.println("You don't have any Health Elixir");
+						}
+
+						break;
+					case 2:
+						if (this.getInventory().getElixirChest().getMedicalElixirCount() > 0) {
+							this.getPlayer().setHealth(this.getPlayer().getDefaultHealth());
+							System.out.println("You used Medical Elixir. You have been healed ");
+							this.getInventory().getElixirChest().setMedicalElixirCount(
+									this.getInventory().getElixirChest().getMedicalElixirCount() - 1);
+						} else {
+							System.out.println("You don't have any Medical Elixir");
+						}
+
+						break;
+					case 3:
+						System.out.println("You didn't use any elixir");
+						return;
+					}
+				} else {
+					System.out.println("Please enter a valid number between 0 and 3.");
+				}
+			} else {
+				System.out.println("Please enter a valid number.");
+				PlayerScanner.stringScanner();
+			}
+		}
 
 	}
 
@@ -210,7 +271,8 @@ public abstract class BattleLoc extends Location {
 	}
 
 	public void levelUpAward() {
-		System.out.println("Your health is increased from " + this.getPlayer().getDefaultHealth() + " to " + (this.getPlayer().getDefaultHealth()+2));
+		System.out.println("Your health is increased from " + this.getPlayer().getDefaultHealth() + " to "
+				+ (this.getPlayer().getDefaultHealth() + 2));
 		this.getPlayer().setDefaultHealth(this.getPlayer().getDefaultHealth() + 2);
 		this.getPlayer().setHealth(this.getPlayer().getDefaultHealth());
 

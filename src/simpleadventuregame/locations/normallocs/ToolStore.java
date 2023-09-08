@@ -23,7 +23,7 @@ public class ToolStore extends NormalLoc {
 		
 		boolean showMenu = true;
 		while (showMenu) {
-
+			this.getPlayer().printDetailedInfo();
 			System.out.println("1 - Weapons");
 			System.out.println("2 - Armors");
 			System.out.println("3 - Exit");
