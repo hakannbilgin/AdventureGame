@@ -2,8 +2,8 @@ package simpleadventuregame.game.gameitems;
 
 public class ElixirChest {
 
-	private int healthElixirCount = 0;
-	private int medicalElixirCount = 0;
+	private int healthElixirCount = 5;
+	private int medicalElixirCount = 5;
 	private int totalElixirCount = 0;
 
 

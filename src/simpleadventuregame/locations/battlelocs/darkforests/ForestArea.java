@@ -20,7 +20,7 @@ public class ForestArea extends Location {
 			System.out.println(
 					"-----You are at the Forest Area----- \n -*-*-*- You choose Forest BattleLocations -*-*-*-");
 			System.out.println(
-					"1 - Enchanted Forest \n 2- Dark Forest \n 3- Dark Forest  \n 4- Elf King's House \n 5- Magical Elf Store \n 6- Exit from Forest Area");
+					"1 - Enchanted Forest \n 2- Dead Forest \n 3- Dark Forest  \n 4- Elf King's House \n 5- Magical Elf Store \n 6- Exit from Forest Area");
 
 			System.out.println(
 					"---Enchanted Forest: (ID=8) Enemy= Elf      Award= Dark Stone (%40change) + Water (%70change) ---");

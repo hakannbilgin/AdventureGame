@@ -27,7 +27,7 @@ public class MagicalElfStore extends NormalLoc {
 			this.getPlayer().setMoney(500);
 			System.out.println("1 - Elixirs");
 			System.out.println("2 - ");
-			System.out.println("3 - ");
+			System.out.println("3 - Exit from Aurae's Magical Elf Store ");
 			System.out.print("Select : ");
 			int selectCase = PlayerScanner.intScanner();
 

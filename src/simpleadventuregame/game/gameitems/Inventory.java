@@ -18,6 +18,7 @@ public class Inventory {
 	private int darkStone = 0;
 	private int diamondCount= 0;
 	private int emeraldCount =0;
+	private int elfStoneCount = 0;
 
 	public Inventory() {
 		this.weapon = new Fist();
@@ -110,6 +111,16 @@ public class Inventory {
 
 	public ElixirChest getElixirChest() {
 		return elixirChest;
+	}
+
+
+	public int getElfStoneCount() {
+		return elfStoneCount;
+	}
+
+
+	public void setElfStoneCount(int elfStoneCount) {
+		this.elfStoneCount = elfStoneCount;
 	}
 
 

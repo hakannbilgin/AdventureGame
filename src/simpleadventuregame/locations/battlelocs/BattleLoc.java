@@ -39,6 +39,9 @@ public abstract class BattleLoc extends Location {
 		if ((selectCase == 'F' || selectCase == 'f') && combat(monsterNumber)) {
 			System.out.println("You killed all monsters in " + this.getName());
 			return true;
+		} else {
+			System.out.println("You run from the battle and you lost 2 experience point");
+			this.getPlayer().getPlayerLevel().loseExperience(5);
 		}
 
 		if (this.getPlayer().getHealth() <= 0 || this.getPlayer().getSatiety() == 0
@@ -100,11 +103,10 @@ public abstract class BattleLoc extends Location {
 	public void useElixirInCombat() {
 
 		this.getPlayer().printElixirChestInfo();
-		System.out.println("Do you want to use any elixir? /n ---(1) Health Elixir (2)Medical Elixir (3) -No-");
 		int selectLocation;
 		boolean elixirMenu = true;
 		while (elixirMenu) {
-
+			System.out.println("Do you want to use any elixir? /n ---(1) Health Elixir (2)Medical Elixir (3) -No-");
 			if (PlayerScanner.hasnextIntScanner()) {
 				selectLocation = PlayerScanner.intScanner();
 
@@ -123,7 +125,6 @@ public abstract class BattleLoc extends Location {
 						} else {
 							System.out.println("You don't have any Health Elixir");
 						}
-
 						break;
 					case 2:
 						if (this.getInventory().getElixirChest().getMedicalElixirCount() > 0) {
@@ -235,7 +236,12 @@ public abstract class BattleLoc extends Location {
 			break;
 		case 7:
 			if (this.getMonster().getAward().isChange(this.getId())) {
-				// TODO: GİFTBOX KAZANMA SİSTEMİ YAZ. BUNU SAFE HOUSE İÇİNDE AÇABİLSİN.
+				System.out.println("You earned Gift Box.Your Current GiftBox - Elf King Box Count is "
+						+ this.getInventory().getBoxChest().getElfKingBoxCount());
+			}
+			break;
+		case 8:
+			if (this.getMonster().getAward().isChange(this.getId())) {
 				System.out.println("You earned Gift Box.Your Current GiftBox - Elf King Box Count is "
 						+ this.getInventory().getBoxChest().getElfKingBoxCount());
 			}
@@ -251,7 +257,7 @@ public abstract class BattleLoc extends Location {
 		case 8:
 			if (this.getMonster().extraAwardWihtLocation(getId()) != null) {
 				this.getInventory().setWaterCount(this.getInventory().getWaterCount() + 1);
-				System.out.println("You earned extra award --- wATER");
+				System.out.println("You earned extra award --- Water");
 				System.out.println("Your current Water count is: " + this.getInventory().getWaterCount());
 			}
 			break;
