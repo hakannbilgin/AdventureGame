@@ -174,7 +174,7 @@ public class SafeHouse extends NormalLoc {
 		if (this.getInventory().getBoxChest().getElfKingBoxCount() > 0) {
 			System.out.println("YOU ARE COLLECTING YOUR BOX");
 			this.getInventory().getBoxChest()
-					.setTrollBoxCount(this.getInventory().getBoxChest().getElfKingBoxCount() - 1);
+					.setElfKingBoxCount(this.getInventory().getBoxChest().getElfKingBoxCount() - 1);
 			this.collectBoxAward(elfKingBox.openBox());
 
 		} else {

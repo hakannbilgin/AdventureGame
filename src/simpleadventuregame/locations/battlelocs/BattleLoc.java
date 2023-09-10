@@ -4,11 +4,12 @@ import java.util.Random;
 
 import simpleadventuregame.game.gameitems.Inventory;
 import simpleadventuregame.game.gameitems.Player;
+import simpleadventuregame.items.Loot.Award;
 import simpleadventuregame.locations.Location;
 import simpleadventuregame.locations.battlelocs.darkforests.ForestArea;
-import simpleadventuregame.locations.normallocs.ToolStore;
 import simpleadventuregame.locations.normallocs.houselocs.SafeHouse;
 import simpleadventuregame.locations.normallocs.houselocs.blacksmith.BlackSmith;
+import simpleadventuregame.locations.normallocs.storelocs.ToolStore;
 import simpleadventuregame.monsters.Monster;
 import simpleadventuregame.utils.PlayerScanner;
 
@@ -196,6 +197,13 @@ public abstract class BattleLoc extends Location {
 		return random.nextInt(this.getMaxMonsterCount()) + 1;
 
 	}
+	
+	
+	private void collectAwardNew(Award award) {
+	    this.getInventory().addAward(award);
+	    System.out.println("You earned " + award.getName() + ". Your current " + award.getName() + " Count is " );
+	}
+	
 
 	public void collectAward2(int awardId) {
 		System.out.println("You earned " + this.getMonster().getAwardMoney() + " money");
@@ -236,13 +244,22 @@ public abstract class BattleLoc extends Location {
 			break;
 		case 7:
 			if (this.getMonster().getAward().isChange(this.getId())) {
-				System.out.println("You earned Gift Box.Your Current GiftBox - Elf King Box Count is "
-						+ this.getInventory().getBoxChest().getElfKingBoxCount());
+				this.getInventory().setElfStoneCount(this.getInventory().getElfStoneCount() + 1);
+				System.out.println("You earned Elf Stone.Your Current Elf Stone Count is "
+						+ this.getInventory().getElfStoneCount());
 			}
 			break;
-		case 8:
+		case 9:
 			if (this.getMonster().getAward().isChange(this.getId())) {
-				System.out.println("You earned Gift Box.Your Current GiftBox - Elf King Box Count is "
+				this.getInventory().setGoblinKeyCount(this.getInventory().getGoblinKeyCount() + 1);
+				System.out.println("You earned Goblin Key.Your Current Goblin Key Count is "
+						+ this.getInventory().getGoblinKeyCount());
+			}
+			break;
+		case 10:
+			if (this.getMonster().getAward().isChange(this.getId())) {
+				this.getInventory().getBoxChest().setElfKingBoxCount(this.getInventory().getBoxChest().getElfKingBoxCount() + 1);
+				System.out.println("You earned Gift Box- Elf King's Box.Your Current Gift Box- Elf King's Box Count is "
 						+ this.getInventory().getBoxChest().getElfKingBoxCount());
 			}
 			break;

@@ -1,4 +1,4 @@
-package simpleadventuregame.locations.normallocs;
+package simpleadventuregame.locations.normallocs.storelocs;
 
 import simpleadventuregame.game.gameitems.Inventory;
 import simpleadventuregame.game.gameitems.Player;
@@ -6,6 +6,7 @@ import simpleadventuregame.items.elixir.Elixir;
 import simpleadventuregame.items.elixir.HealthElixir;
 import simpleadventuregame.items.elixir.MedicalElixir;
 import simpleadventuregame.items.weapons.Weapon;
+import simpleadventuregame.locations.normallocs.NormalLoc;
 import simpleadventuregame.utils.PlayerScanner;
 
 public class MagicalElfStore extends NormalLoc {

@@ -1,11 +1,17 @@
 package simpleadventuregame.game.gameitems;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import simpleadventuregame.items.Loot.Award;
 import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.armors.OldClothes;
 import simpleadventuregame.items.weapons.Fist;
 import simpleadventuregame.items.weapons.Weapon;
 
 public class Inventory {
+	
+	private List<Award> awardsInInventory;
 	
 	private ElixirChest elixirChest;
 	private BoxChest boxChest;
@@ -19,13 +25,46 @@ public class Inventory {
 	private int diamondCount= 0;
 	private int emeraldCount =0;
 	private int elfStoneCount = 0;
+	private int goblinKeyCount = 0;
 
 	public Inventory() {
 		this.weapon = new Fist();
 		this.armor = new OldClothes();
 		this.elixirChest= new ElixirChest();
 		this.boxChest = new BoxChest();
+		this.awardsInInventory = new ArrayList<>();
 	}
+
+
+	
+	public void addAward(Award award) {
+        // Envantore öğe eklemek için bu metodu kullanabiliriz.
+		awardsInInventory.add(award);
+    }
+
+    public void removeAward(Award award) {
+        // Envantordan öğe çıkarmak için bu metodu kullanabiliriz.
+    	awardsInInventory.remove(award);
+    }
+
+    public List<Award> getItems() {
+        // Envantordaki tüm öğeleri almak için bu metodu kullanabiliriz.
+        return awardsInInventory;
+    }
+	
+	
+	
+	
+	public List<Award> getAwardsInInventory() {
+		return awardsInInventory;
+	}
+
+
+
+//	public void setAwardsInInventory(List<Award> awardsInInventory) {
+//		this.awardsInInventory = awardsInInventory;
+//	}
+
 
 
 	public Weapon getWeapon() {
@@ -122,6 +161,17 @@ public class Inventory {
 	public void setElfStoneCount(int elfStoneCount) {
 		this.elfStoneCount = elfStoneCount;
 	}
+
+
+	public int getGoblinKeyCount() {
+		return goblinKeyCount;
+	}
+
+
+	public void setGoblinKeyCount(int goblinKeyCount) {
+		this.goblinKeyCount = goblinKeyCount;
+	}
+
 
 
 //	public void setElixirChest(ElixirChest elixirChest) {

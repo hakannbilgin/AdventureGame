@@ -1,6 +1,7 @@
-package simpleadventuregame.monsters;
+package simpleadventuregame.monsters.beginnerlocmonsters;
 
 import simpleadventuregame.items.Loot.craftingloot.Iron;
+import simpleadventuregame.monsters.Monster;
 
 public class Skeleton extends Monster{
 

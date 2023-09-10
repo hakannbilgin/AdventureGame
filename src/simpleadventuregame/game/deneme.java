@@ -17,8 +17,8 @@ import simpleadventuregame.items.armors.BossArmors.TrollArmor;
 import simpleadventuregame.items.elixir.HealthElixir;
 import simpleadventuregame.items.weapons.LongSword;
 import simpleadventuregame.locations.Location;
-import simpleadventuregame.locations.normallocs.ToolStore;
 import simpleadventuregame.locations.normallocs.houselocs.SafeHouse;
+import simpleadventuregame.locations.normallocs.storelocs.ToolStore;
 import simpleadventuregame.utils.PlayerScanner;
 
 public class deneme {

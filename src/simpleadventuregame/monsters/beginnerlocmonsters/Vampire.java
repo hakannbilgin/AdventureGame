@@ -1,7 +1,8 @@
-package simpleadventuregame.monsters;
+package simpleadventuregame.monsters.beginnerlocmonsters;
 
 
 import simpleadventuregame.items.Loot.craftingloot.Wood;
+import simpleadventuregame.monsters.Monster;
 
 public class Vampire extends Monster{
 

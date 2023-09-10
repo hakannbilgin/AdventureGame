@@ -1,7 +1,8 @@
-package simpleadventuregame.locations.battlelocs;
+package simpleadventuregame.locations.battlelocs.beginnerbattlelocs;
 
 import simpleadventuregame.game.gameitems.Player;
-import simpleadventuregame.monsters.Vampire;
+import simpleadventuregame.locations.battlelocs.BattleLoc;
+import simpleadventuregame.monsters.beginnerlocmonsters.Vampire;
 
 public class NormalForest extends BattleLoc {
 

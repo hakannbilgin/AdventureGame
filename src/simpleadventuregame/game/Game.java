@@ -7,16 +7,16 @@ import simpleadventuregame.game.gamecharacters.Samurai;
 import simpleadventuregame.game.gamecharacters.SpearMan;
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.locations.Location;
-import simpleadventuregame.locations.battlelocs.Cave;
-import simpleadventuregame.locations.battlelocs.NormalForest;
-import simpleadventuregame.locations.battlelocs.River;
-import simpleadventuregame.locations.battlelocs.Temple;
+import simpleadventuregame.locations.battlelocs.beginnerbattlelocs.Cave;
+import simpleadventuregame.locations.battlelocs.beginnerbattlelocs.NormalForest;
+import simpleadventuregame.locations.battlelocs.beginnerbattlelocs.River;
+import simpleadventuregame.locations.battlelocs.beginnerbattlelocs.Temple;
 import simpleadventuregame.locations.battlelocs.darkforests.DeadForest;
 import simpleadventuregame.locations.battlelocs.darkforests.EnchantedForest;
 import simpleadventuregame.locations.battlelocs.darkforests.ForestArea;
-import simpleadventuregame.locations.normallocs.ToolStore;
 import simpleadventuregame.locations.normallocs.houselocs.SafeHouse;
 import simpleadventuregame.locations.normallocs.houselocs.blacksmith.BlackSmith;
+import simpleadventuregame.locations.normallocs.storelocs.ToolStore;
 import simpleadventuregame.utils.PlayerScanner;
 
 public class Game {

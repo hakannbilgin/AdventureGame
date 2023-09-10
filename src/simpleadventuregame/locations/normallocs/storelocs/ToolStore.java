@@ -1,8 +1,9 @@
-package simpleadventuregame.locations.normallocs;
+package simpleadventuregame.locations.normallocs.storelocs;
 
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.weapons.Weapon;
+import simpleadventuregame.locations.normallocs.NormalLoc;
 import simpleadventuregame.utils.PlayerScanner;
 
 public class ToolStore extends NormalLoc {

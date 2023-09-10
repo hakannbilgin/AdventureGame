@@ -21,7 +21,7 @@ public class ElfKingBox extends GiftBox {
 	
 
 	public ElfKingBox() {
-		super(8, "Troll Box");
+		super(10, "Troll Box");
 
 	}
 
