@@ -172,7 +172,8 @@ public abstract class BattleLoc extends Location {
 		this.getPlayer().setSatiety(this.getPlayer().getSatiety() - 1);
 		// TODO IF THIRST LEVEL GETS OVER 20 ADD SOME CONSEQUENCES
 
-		collectAward2(this.getMonster().getAward().getId());
+//		collectAward2(this.getMonster().getAward().getId());
+		collectAwardNew(this.getMonster().getAward());
 	}
 
 	public void playerStats() {
@@ -197,13 +198,21 @@ public abstract class BattleLoc extends Location {
 		return random.nextInt(this.getMaxMonsterCount()) + 1;
 
 	}
-	
-	
+
 	private void collectAwardNew(Award award) {
-	    this.getInventory().addAward(award);
-	    System.out.println("You earned " + award.getName() + ". Your current " + award.getName() + " Count is " );
+		System.out.println("You earned " + this.getMonster().getAwardMoney() + " money");
+
+		this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getMonster().getAwardMoney());
+		System.out.println("Your current Money " + this.getPlayer().getMoney());
+
+		if (this.getMonster().getAward().isChange(this.getId())) {
+			this.getInventory().addAwardItem(award);
+			System.out.println("You earned " + award.getName() + ". Your current " + award.getName() + " Count is: "
+					+ this.getInventory().getFoodCount());
+		}
+
+		this.collectExtraAward(getId());
 	}
-	
 
 	public void collectAward2(int awardId) {
 		System.out.println("You earned " + this.getMonster().getAwardMoney() + " money");
@@ -258,7 +267,8 @@ public abstract class BattleLoc extends Location {
 			break;
 		case 10:
 			if (this.getMonster().getAward().isChange(this.getId())) {
-				this.getInventory().getBoxChest().setElfKingBoxCount(this.getInventory().getBoxChest().getElfKingBoxCount() + 1);
+				this.getInventory().getBoxChest()
+						.setElfKingBoxCount(this.getInventory().getBoxChest().getElfKingBoxCount() + 1);
 				System.out.println("You earned Gift Box- Elf King's Box.Your Current Gift Box- Elf King's Box Count is "
 						+ this.getInventory().getBoxChest().getElfKingBoxCount());
 			}

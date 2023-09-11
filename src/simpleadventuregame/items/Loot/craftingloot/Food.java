@@ -17,7 +17,7 @@ public class Food extends Award{
 
 			return lootChange <= this.getChance();	
 		}else {
-			return false;
+			return true;
 		}
 		
 	}

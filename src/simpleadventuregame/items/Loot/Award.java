@@ -10,22 +10,24 @@ import simpleadventuregame.items.Item;
 public abstract class Award extends Item{
 
 //	private int id;
-	private String name;
+//	private String name;
 	private int chance;
+	
 
-	public String getName() {
-		return name;
-	}
+	
 
 	public Award(int id, String name) {
 
 		this.setId(id);
-		this.name = name;
+		this.setName(name);
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
+//	public String getName() {
+//		return name;
+//	}
+//	public void setName(String name) {
+//		this.name = name;
+//	}
 
 //	public int getId() {
 //		return id;

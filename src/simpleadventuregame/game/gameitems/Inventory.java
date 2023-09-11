@@ -11,14 +11,15 @@ import simpleadventuregame.items.weapons.Weapon;
 
 public class Inventory {
 	
-	private List<Award> awardsInInventory;
-	
+	private List<Award> awardsInInventory =new ArrayList<>();;
+	private AwardCounter awardCounter;
 	private ElixirChest elixirChest;
 	private BoxChest boxChest;
 	private Weapon weapon;
 	private Armor armor;
+	private int foodCount = getawardItemsInInventoryById(1);
 	private int waterCount = 0;
-	private int foodCount = 0;
+//	private int foodCount = 0;
 	private int woodCount = 0;
 	private int ironCount = 0;
 	private int darkStone = 0;
@@ -32,27 +33,37 @@ public class Inventory {
 		this.armor = new OldClothes();
 		this.elixirChest= new ElixirChest();
 		this.boxChest = new BoxChest();
-		this.awardsInInventory = new ArrayList<>();
+//		this.awardsInInventory = new ArrayList<>();
 	}
 
 
 	
-	public void addAward(Award award) {
-        // Envantore öğe eklemek için bu metodu kullanabiliriz.
+	public void addAwardItem(Award award) {
+       
 		awardsInInventory.add(award);
     }
 
-    public void removeAward(Award award) {
-        // Envantordan öğe çıkarmak için bu metodu kullanabiliriz.
+    public void removeAwardItem(Award award) {
+       
     	awardsInInventory.remove(award);
     }
 
-    public List<Award> getItems() {
-        // Envantordaki tüm öğeleri almak için bu metodu kullanabiliriz.
+    public List<Award> getAwardItems() {
         return awardsInInventory;
     }
 	
-	
+    public int getawardItemsInInventoryById(int id) {
+        int count = 0;
+       System.out.println("++++++++++++++ DÖNGÜ ÖNCESİ ***************");
+        for (Award award : awardsInInventory) {
+        	System.out.println(award.getId() + "++++++++");
+            if (award.getId() == id) {
+                count += count+ 1;
+            }
+        }
+        
+        return count;
+    }
 	
 	
 	public List<Award> getAwardsInInventory() {
@@ -171,6 +182,18 @@ public class Inventory {
 	public void setGoblinKeyCount(int goblinKeyCount) {
 		this.goblinKeyCount = goblinKeyCount;
 	}
+
+
+
+	public AwardCounter getAwardCounter() {
+		return awardCounter;
+	}
+
+
+
+//	public void setAwardCounter(AwardCounter awardCounter) {
+//		this.awardCounter = awardCounter;
+//	}
 
 
 

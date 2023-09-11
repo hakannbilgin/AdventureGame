@@ -3,13 +3,13 @@ package simpleadventuregame.items.weapons;
 import simpleadventuregame.items.Item;
 
 public abstract class Weapon extends Item{
-	private String name;
+//	private String name;
 //	private int id;
 	private int damage;
 	private int price;
 
 	public Weapon(String name, int id, int damage, int price) {
-		this.name = name;
+		this.setName(name);
 		this.setId(id);
 		this.damage = damage;
 		this.price = price;
@@ -58,12 +58,12 @@ public abstract class Weapon extends Item{
 		this.price = price;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
+//	public String getName() {
+//		return name;
+//	}
+//
+//	public void setName(String name) {
+//		this.name = name;
+//	}
 
 }

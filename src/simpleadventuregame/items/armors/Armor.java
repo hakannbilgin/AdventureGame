@@ -4,7 +4,7 @@ import simpleadventuregame.items.Item;
 
 public abstract class Armor extends Item{
 
-	private String name;
+//	private String name;
 //	private int id;
 	private int damageDodge;
 	private int price;
@@ -12,7 +12,7 @@ public abstract class Armor extends Item{
 	
 	public Armor(String name, int id, int damageDodge, int price) {
 		super();
-		this.name = name;
+		this.setName(name);
 		this.setId(id);
 		this.damageDodge = damageDodge;
 		this.price = price;
@@ -39,12 +39,12 @@ public abstract class Armor extends Item{
 	}
 	
 	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+//	public String getName() {
+//		return name;
+//	}
+//	public void setName(String name) {
+//		this.name = name;
+//	}
 //	public int getId() {
 //		return id;
 //	}
