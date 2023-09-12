@@ -11,13 +11,18 @@ public class Food extends Award{
 
 	@Override
 	public boolean isChange(int locationId) {
-		if (locationId == 9){
+		if (locationId == 4){
+			this.setChance(100);
+			int lootChange = (int) (Math.random() * 100);
+
+			return lootChange <= this.getChance();	
+		}else if (locationId == 9) {
 			this.setChance(70);
 			int lootChange = (int) (Math.random() * 100);
 
 			return lootChange <= this.getChance();	
-		}else {
-			return true;
+		}else{
+			return false;
 		}
 		
 	}

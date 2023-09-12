@@ -98,13 +98,23 @@ public abstract class Monster {
 	}
 
 	public Award extraAwardWihtLocation(int locationId) {
-		System.out.println("monster" + locationId);
+		
 		if (this.getExtraAward().isChange(locationId)) {
 			return getExtraAward();
 		}
 		return null;
 		
 	}
+	
+public boolean extraAwardWihtLocation1(int locationId) {
+		
+		if (this.getExtraAward().isChange(locationId)) {
+			return true;
+		}
+		return false;
+		
+	}
+	
 //	public abstract Award extraAwardWihtLocation(int locationId);
 
 	public Award getExtraAward() {

@@ -11,12 +11,17 @@ public class Water extends Award {
 
 	@Override
 	public boolean isChange(int locationId) {
-		if (locationId == 8){
-			this.setChance(70);
+		if (locationId == 7){
+			this.setChance(100);
 			int lootChange = (int) (Math.random() * 100);
 
 			return lootChange <= this.getChance();	
-		}else {
+		}else if (locationId == 8) {
+			this.setChance(70);
+			int lootChange = (int) (Math.random() * 100);
+
+			return lootChange <= this.getChance();
+		} else {
 			return false;
 		}
 	}

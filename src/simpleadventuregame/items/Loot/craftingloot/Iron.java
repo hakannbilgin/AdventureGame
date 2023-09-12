@@ -11,8 +11,14 @@ public class Iron extends Award{
 
 	@Override
 	public boolean isChange(int locationId) {
-		// TODO Auto-generated method stub
-		return true;
+		if (locationId == 5){
+			this.setChance(100);
+			int lootChange = (int) (Math.random() * 100);
+
+			return lootChange <= this.getChance();	
+		}else{
+			return false;
+		}
 	}
 
 	

@@ -208,100 +208,113 @@ public abstract class BattleLoc extends Location {
 		if (this.getMonster().getAward().isChange(this.getId())) {
 			this.getInventory().addAwardItem(award);
 			System.out.println("You earned " + award.getName() + ". Your current " + award.getName() + " Count is: "
-					+ this.getInventory().getFoodCount());
+					+ this.getInventory().getawardItemsInInventoryById(this.getMonster().getAward().getId()));
 		}
-
-		this.collectExtraAward(getId());
+		if (this.getMonster().getExtraAward() != null) {
+			this.collectExtraAwardNew(getId());
+		}
 	}
 
-	public void collectAward2(int awardId) {
-		System.out.println("You earned " + this.getMonster().getAwardMoney() + " money");
+	public void collectExtraAwardNew(int locationId) {
 
-		this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getMonster().getAwardMoney());
-		System.out.println("Your current Money " + this.getPlayer().getMoney());
+		if (this.getMonster().extraAwardWihtLocation1(locationId)) {
+			System.out.println("You earned extra award ---" + this.getMonster().getExtraAward().getName());
+			System.out.println("Your current " + this.getMonster().getExtraAward().getName() + " count is: "
+					+ this.getInventory().getawardItemsInInventoryById(this.getMonster().getAward().getId()));
 
-		switch (awardId) {
-		case 1:
-			this.getInventory().setFoodCount(this.getInventory().getFoodCount() + 1);
-			System.out.println("You earned Food. Your Current Food Count is " + this.getInventory().getFoodCount());
-			break;
-		case 2:
-			this.getInventory().setWaterCount(this.getInventory().getWaterCount() + 1);
-			System.out.println("You earned Water. Your Current Water Count is " + this.getInventory().getWaterCount());
-			break;
-		case 3:
-			this.getInventory().setWoodCount(this.getInventory().getWoodCount() + 1);
-			System.out.println("You earned Wood. Your Current Wood Count is " + this.getInventory().getWoodCount());
-			break;
-		case 4:
-			this.getInventory().setIronCount(this.getInventory().getIronCount() + 1);
-			System.out.println("You earned Iron. Your Current Iron Count is " + this.getInventory().getIronCount());
-			break;
-		case 5:
-			if (this.getMonster().getAward().isChange(this.getId())) {
-				this.getInventory().setDarkStone(this.getInventory().getDarkStone() + 1);
-				System.out.println(
-						"You earned Dark Stone.Your Current Dark Stone Count is " + this.getInventory().getDarkStone());
-			}
-			break;
-		case 6:
-			if (this.getMonster().getAward().isChange(this.getId())) {
-				this.getInventory().setDiamondCount(this.getInventory().getDiamondCount() + 1);
-				System.out.println(
-						"You earned Diamond.Your Current Diamond Count is " + this.getInventory().getDiamondCount());
-			}
-			break;
-		case 7:
-			if (this.getMonster().getAward().isChange(this.getId())) {
-				this.getInventory().setElfStoneCount(this.getInventory().getElfStoneCount() + 1);
-				System.out.println("You earned Elf Stone.Your Current Elf Stone Count is "
-						+ this.getInventory().getElfStoneCount());
-			}
-			break;
-		case 9:
-			if (this.getMonster().getAward().isChange(this.getId())) {
-				this.getInventory().setGoblinKeyCount(this.getInventory().getGoblinKeyCount() + 1);
-				System.out.println("You earned Goblin Key.Your Current Goblin Key Count is "
-						+ this.getInventory().getGoblinKeyCount());
-			}
-			break;
-		case 10:
-			if (this.getMonster().getAward().isChange(this.getId())) {
-				this.getInventory().getBoxChest()
-						.setElfKingBoxCount(this.getInventory().getBoxChest().getElfKingBoxCount() + 1);
-				System.out.println("You earned Gift Box- Elf King's Box.Your Current Gift Box- Elf King's Box Count is "
-						+ this.getInventory().getBoxChest().getElfKingBoxCount());
-			}
-			break;
-		}
-
-		this.collectExtraAward(getId());
-	}
-
-	public void collectExtraAward(int locationId) {
-
-		switch (locationId) {
-		case 8:
-			if (this.getMonster().extraAwardWihtLocation(getId()) != null) {
-				this.getInventory().setWaterCount(this.getInventory().getWaterCount() + 1);
-				System.out.println("You earned extra award --- Water");
-				System.out.println("Your current Water count is: " + this.getInventory().getWaterCount());
-			}
-			break;
-		case 9:
-
-			if (this.getMonster().extraAwardWihtLocation(getId()) != null) {
-				this.getInventory().setFoodCount(this.getInventory().getFoodCount() + 1);
-				System.out.println("You earned extra award --- Food");
-				System.out.println("Your current food count is: " + this.getInventory().getFoodCount());
-			}
-			break;
-
-		default:
-			break;
+			this.getInventory().addAwardItem(this.getMonster().getExtraAward());
 		}
 
 	}
+
+//	public void collectAward2(int awardId) {
+//		System.out.println("You earned " + this.getMonster().getAwardMoney() + " money");
+//
+//		this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getMonster().getAwardMoney());
+//		System.out.println("Your current Money " + this.getPlayer().getMoney());
+//
+//		switch (awardId) {
+//		case 1:
+//			this.getInventory().setFoodCount(this.getInventory().getFoodCount() + 1);
+//			System.out.println("You earned Food. Your Current Food Count is " + this.getInventory().getFoodCount());
+//			break;
+//		case 2:
+//			this.getInventory().setWaterCount(this.getInventory().getWaterCount() + 1);
+//			System.out.println("You earned Water. Your Current Water Count is " + this.getInventory().getWaterCount());
+//			break;
+//		case 3:
+//			this.getInventory().setWoodCount(this.getInventory().getWoodCount() + 1);
+//			System.out.println("You earned Wood. Your Current Wood Count is " + this.getInventory().getWoodCount());
+//			break;
+//		case 4:
+//			this.getInventory().setIronCount(this.getInventory().getIronCount() + 1);
+//			System.out.println("You earned Iron. Your Current Iron Count is " + this.getInventory().getIronCount());
+//			break;
+//		case 5:
+//			if (this.getMonster().getAward().isChange(this.getId())) {
+//				this.getInventory().setDarkStone(this.getInventory().getDarkStone() + 1);
+//				System.out.println(
+//						"You earned Dark Stone.Your Current Dark Stone Count is " + this.getInventory().getDarkStone());
+//			}
+//			break;
+//		case 6:
+//			if (this.getMonster().getAward().isChange(this.getId())) {
+//				this.getInventory().setDiamondCount(this.getInventory().getDiamondCount() + 1);
+//				System.out.println(
+//						"You earned Diamond.Your Current Diamond Count is " + this.getInventory().getDiamondCount());
+//			}
+//			break;
+//		case 7:
+//			if (this.getMonster().getAward().isChange(this.getId())) {
+//				this.getInventory().setElfStoneCount(this.getInventory().getElfStoneCount() + 1);
+//				System.out.println("You earned Elf Stone.Your Current Elf Stone Count is "
+//						+ this.getInventory().getElfStoneCount());
+//			}
+//			break;
+//		case 9:
+//			if (this.getMonster().getAward().isChange(this.getId())) {
+//				this.getInventory().setGoblinKeyCount(this.getInventory().getGoblinKeyCount() + 1);
+//				System.out.println("You earned Goblin Key.Your Current Goblin Key Count is "
+//						+ this.getInventory().getGoblinKeyCount());
+//			}
+//			break;
+//		case 10:
+//			if (this.getMonster().getAward().isChange(this.getId())) {
+//				this.getInventory().getBoxChest()
+//						.setElfKingBoxCount(this.getInventory().getBoxChest().getElfKingBoxCount() + 1);
+//				System.out.println("You earned Gift Box- Elf King's Box.Your Current Gift Box- Elf King's Box Count is "
+//						+ this.getInventory().getBoxChest().getElfKingBoxCount());
+//			}
+//			break;
+//		}
+//
+//		this.collectExtraAward(getId());
+//	}
+
+//	public void collectExtraAward(int locationId) {
+//
+//		switch (locationId) {
+//		case 8:
+//			if (this.getMonster().extraAwardWihtLocation(getId()) != null) {
+//				this.getInventory().setWaterCount(this.getInventory().getWaterCount() + 1);
+//				System.out.println("You earned extra award --- Water");
+//				System.out.println("Your current Water count is: " + this.getInventory().getWaterCount());
+//			}
+//			break;
+//		case 9:
+//
+//			if (this.getMonster().extraAwardWihtLocation(getId()) != null) {
+//				this.getInventory().setFoodCount(this.getInventory().getFoodCount() + 1);
+//				System.out.println("You earned extra award --- Food");
+//				System.out.println("Your current food count is: " + this.getInventory().getFoodCount());
+//			}
+//			break;
+//
+//		default:
+//			break;
+//		}
+//
+//	}
 
 	public void levelUpAward() {
 		System.out.println("Your health is increased from " + this.getPlayer().getDefaultHealth() + " to "

@@ -12,12 +12,17 @@ public class Wood extends Award {
 
 	@Override
 	public boolean isChange(int locationId) {
-		if (locationId == 12) {
+		if (locationId == 6) {
+			this.setChance(100);
+			int lootChange = (int) (Math.random() * 100);
+
+			return lootChange <= this.getChance();
+		} else if (locationId == 12) {
 			this.setChance(70);
 			int lootChange = (int) (Math.random() * 100);
 
 			return lootChange <= this.getChance();
-		} else {
+		}else{
 			return false;
 		}
 	}

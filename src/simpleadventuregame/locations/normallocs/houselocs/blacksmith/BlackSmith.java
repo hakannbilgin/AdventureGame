@@ -17,9 +17,9 @@ public class BlackSmith extends NormalLoc {
 
 	@Override
 	public boolean onLocation() {
-		this.getPlayer().getInventory().setWaterCount(500);
-		this.getPlayer().getInventory().setWoodCount(500);
-		this.getPlayer().getInventory().setIronCount(500);
+//		this.getPlayer().getInventory().setWaterCount(500);
+//		this.getPlayer().getInventory().setWoodCount(500);
+//		this.getPlayer().getInventory().setIronCount(500);
 		System.out.println("You are in BlackSmith");
 		weaponCraftingTable = new WeaponCraftingTable(getPlayer());
 		armorCraftingTable = new ArmorCraftingTable(getPlayer());
