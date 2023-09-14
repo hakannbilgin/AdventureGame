@@ -11,7 +11,7 @@ import simpleadventuregame.items.weapons.Weapon;
 
 public class Inventory {
 
-	private List<Award> awardsInInventory = new ArrayList<>();;
+	private List<Award> battleLocAwardsInInventory = new ArrayList<>();;
 	private AwardCounter awardCounter;
 	private ElixirChest elixirChest;
 	private BoxChest boxChest;
@@ -32,44 +32,44 @@ public class Inventory {
 		this.armor = new OldClothes();
 		this.elixirChest = new ElixirChest();
 		this.boxChest = new BoxChest();
-//		this.awardsInInventory = new ArrayList<>();
 	}
 
-	public void addAwardItem(Award award) {
-		awardsInInventory.add(award);
+	public void addBattleLocAwardItem(Award award) {
+		battleLocAwardsInInventory.add(award);
 		this.countAward(award.getId());
 
 	}
 
-	public void removeAwardItem(Award award) {
+//	public void removeBattleLocAwardItem(Award award) {
+//
+//		battleLocAwardsInInventory.remove(award);
+//		this.countAward(award.getId());
+//	}
 
-		awardsInInventory.remove(award);
-	}
-
-	public List<Award> getAwardItems() {
-		return awardsInInventory;
-	}
-
+	
 	public int getawardItemsInInventoryById(int id) {
 		int count = 0;
 
-		for (Award award : awardsInInventory) {
+		for (Award award : battleLocAwardsInInventory) {
 
 			if (award.getId() == id) {
-				count += count + 1;
-				
+				count = count + 1;
+				System.out.println("Count : " + count);
+
 			}
 		}
 
 		return count;
 	}
 
-	public List<Award> getAwardsInInventory() {
-		return awardsInInventory;
+	
+
+	public List<Award> getBattleLocAwardsInInventory() {
+		return battleLocAwardsInInventory;
 	}
 
-//	public void setAwardsInInventory(List<Award> awardsInInventory) {
-//		this.awardsInInventory = awardsInInventory;
+//	public void setBattleLocAwardsInInventory(List<Award> battleLocAwardsInInventory) {
+//		this.battleLocAwardsInInventory = battleLocAwardsInInventory;
 //	}
 
 	public void countAward(int awardId) {
@@ -77,30 +77,57 @@ public class Inventory {
 		switch (awardId) {
 		case 1:
 			this.setFoodCount(this.getFoodCount() + 1);
+//			this.setFoodCount(this.getawardItemsInInventoryById(awardId));
 			break;
 		case 2:
 			this.setWaterCount(this.getWaterCount() + 1);
+//			this.setWaterCount(this.getawardItemsInInventoryById(awardId));
 			break;
 		case 3:
 			this.setWoodCount(this.getWoodCount() + 1);
+//			this.setWoodCount(this.getawardItemsInInventoryById(awardId));
+
 			break;
 		case 4:
 			this.setIronCount(this.getIronCount() + 1);
+//			this.setIronCount(this.getawardItemsInInventoryById(awardId));
+
 			break;
 		case 5:
 			this.setDarkStone(this.getDarkStone() + 1);
+//			this.setDarkStone(this.getawardItemsInInventoryById(awardId));
 			break;
 		case 6:
 			this.setDiamondCount(this.getDiamondCount() + 1);
+//			this.setDiamondCount(this.getawardItemsInInventoryById(awardId));
 			break;
 		case 7:
 			this.setElfStoneCount(this.getElfStoneCount() + 1);
+//			this.setElfStoneCount(this.getawardItemsInInventoryById(awardId));
+			break;
+		case 8:
+			this.setEmeraldCount(this.getEmeraldCount() + 1);
+//			this.setEmeraldCount(this.getawardItemsInInventoryById(awardId));
 			break;
 		case 9:
 			this.setGoblinKeyCount(this.getGoblinKeyCount() + 1);
+//			this.setGoblinKeyCount(this.getawardItemsInInventoryById(awardId));
 			break;
 		case 10:
 			this.getBoxChest().setElfKingBoxCount(this.getBoxChest().getElfKingBoxCount() + 1);
+//			this.getBoxChest().setElfKingBoxCount(this.getawardItemsInInventoryById(awardId));
+			break;
+		case 11:
+			this.getElixirChest().setHealthElixirCount(this.getElixirChest().getHealthElixirCount() + 1);
+//			this.getElixirChest().setHealthElixirCount(this.getawardItemsInInventoryById(awardId));
+			break;
+		case 12:
+			this.getElixirChest().setMedicalElixirCount(this.getElixirChest().getMedicalElixirCount() + 1);
+//			this.getElixirChest().setMedicalElixirCount(this.getawardItemsInInventoryById(awardId));
+			break;
+		case 13:
+			this.getElixirChest().setMedicalElixirCount(this.getElixirChest().getMedicalElixirCount() + 1);
+//			this.getElixirChest().setMedicalElixirCount(this.getawardItemsInInventoryById(awardId));
 			break;
 		}
 
@@ -218,5 +245,7 @@ public class Inventory {
 //	public void setBoxChest(BoxChest boxChest) {
 //		this.boxChest = boxChest;
 //	}
+	
+	
 
 }

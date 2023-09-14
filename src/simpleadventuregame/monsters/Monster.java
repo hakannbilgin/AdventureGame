@@ -14,7 +14,7 @@ public abstract class Monster {
 	private int defaultHealth;
 	private int awardExperience;
 
-	public Monster(int id, String name, Award award, int damage, int health, int awardMoney,int awardExperience) {
+	public Monster(int id, String name, Award award, int damage, int health, int awardMoney, int awardExperience) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -25,12 +25,14 @@ public abstract class Monster {
 		this.awardMoney = awardMoney;
 		this.awardExperience = awardExperience;
 	}
-	public Monster(int id, String name, Award award, Award extraAward, int damage, int health, int awardMoney, int awardExperience) {
+
+	public Monster(int id, String name, Award award, Award extraAward, int damage, int health, int awardMoney,
+			int awardExperience) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.award = award;
-		this.extraAward= extraAward;
+		this.extraAward = extraAward;
 		this.damage = damage;
 		this.health = health;
 		this.defaultHealth = health;
@@ -98,23 +100,23 @@ public abstract class Monster {
 	}
 
 	public Award extraAwardWihtLocation(int locationId) {
-		
+
 		if (this.getExtraAward().isChange(locationId)) {
 			return getExtraAward();
 		}
 		return null;
-		
+
 	}
-	
-public boolean extraAwardWihtLocation1(int locationId) {
-		
+
+	public boolean extraAwardWihtLocation1(int locationId) {
+
 		if (this.getExtraAward().isChange(locationId)) {
 			return true;
 		}
 		return false;
-		
+
 	}
-	
+
 //	public abstract Award extraAwardWihtLocation(int locationId);
 
 	public Award getExtraAward() {
@@ -124,14 +126,13 @@ public boolean extraAwardWihtLocation1(int locationId) {
 	public void setExtraAward(Award extraAward) {
 		this.extraAward = extraAward;
 	}
+
 	public int getAwardExperience() {
 		return awardExperience;
 	}
+
 	public void setAwardExperience(int awardExperience) {
 		this.awardExperience = awardExperience;
 	}
-	
 
-	
-	
 }

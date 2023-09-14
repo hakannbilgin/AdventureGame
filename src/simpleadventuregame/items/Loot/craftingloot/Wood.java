@@ -5,9 +5,10 @@ import simpleadventuregame.items.Loot.Award;
 public class Wood extends Award {
 
 	private int woodChange;
+
 	public Wood() {
-		super(3,"Wood");
-		
+		super(3, "Wood");
+
 	}
 
 	@Override
@@ -22,7 +23,7 @@ public class Wood extends Award {
 			int lootChange = (int) (Math.random() * 100);
 
 			return lootChange <= this.getChance();
-		}else{
+		} else {
 			return false;
 		}
 	}
@@ -34,7 +35,5 @@ public class Wood extends Award {
 	public void setWoodChange(int woodChange) {
 		this.woodChange = woodChange;
 	}
-
-	
 
 }

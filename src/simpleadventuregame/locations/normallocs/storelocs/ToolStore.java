@@ -21,7 +21,7 @@ public class ToolStore extends NormalLoc {
 	@Override
 	public boolean onLocation() {
 		System.out.println("-----Welcome to the store !-----");
-		
+
 		this.getPlayer().setMoney(5000);
 		boolean showMenu = true;
 		while (showMenu) {

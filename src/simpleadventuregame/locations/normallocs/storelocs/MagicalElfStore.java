@@ -131,10 +131,13 @@ public class MagicalElfStore extends NormalLoc {
 					System.out.println("You don't have enough money");
 				} else {
 //					SATIN ALMA İŞLEMİ 
-					System.out.println(" You have purchased " + selectedElixir.getName());
+//					System.out.println(" You have purchased " + selectedElixir.getName());
 					int balance = this.getPlayer().getMoney() - selectedElixir.getPrice();
 					this.getPlayer().setMoney(balance);
-					this.purchaseElixirInElfStore(selectElixirId);
+//					this.purchaseElixirInElfStore(selectElixirId);
+					this.getPlayer().getInventory().addBattleLocAwardItem(selectedElixir);
+					System.out.println("You Purchased " + selectedElixir.getName() + ". Your current " + selectedElixir.getName() + " Count is: "
+							+ this.getInventory().getawardItemsInInventoryById(selectedElixir.getId()));
 					System.out.println("Your current money : " + this.getPlayer().getMoney());
 
 				}
@@ -144,25 +147,25 @@ public class MagicalElfStore extends NormalLoc {
 
 	}
 
-	public void purchaseElixirInElfStore(int elixirId) {
-
-		switch (elixirId) {
-		case 1:
-			this.getInventory().getElixirChest()
-					.setHealthElixirCount(this.getInventory().getElixirChest().getHealthElixirCount() + 1);
-			System.out.println("Your Elixir count is: " + this.getInventory().getElixirChest().getHealthElixirCount());
-			break;
-		case 2:
-			this.getInventory().getElixirChest()
-					.setMedicalElixirCount(this.getInventory().getElixirChest().getMedicalElixirCount() + 1);
-			System.out.println(
-					"Your medical Elixir count is: " + this.getInventory().getElixirChest().getMedicalElixirCount());
-			break;
-
-		default:
-			break;
-		}
-	}
+//	public void purchaseElixirInElfStore(int elixirId) {
+//
+//		switch (elixirId) {
+//		case 1:
+//			this.getInventory().getElixirChest()
+//					.setHealthElixirCount(this.getInventory().getElixirChest().getHealthElixirCount() + 1);
+//			System.out.println("Your Elixir count is: " + this.getInventory().getElixirChest().getHealthElixirCount());
+//			break;
+//		case 2:
+//			this.getInventory().getElixirChest()
+//					.setMedicalElixirCount(this.getInventory().getElixirChest().getMedicalElixirCount() + 1);
+//			System.out.println(
+//					"Your medical Elixir count is: " + this.getInventory().getElixirChest().getMedicalElixirCount());
+//			break;
+//
+//		default:
+//			break;
+//		}
+//	}
 
 	public Inventory getInventory() {
 
