@@ -7,7 +7,7 @@ import simpleadventuregame.monsters.Monster;
 public class ElfKing extends Monster {
 
 	public ElfKing() {
-		super(7, "Elf King", new ElfKingBox(), new Diamond(), 20, 20, 20,5);
+		super(7, "Elf King", new ElfKingBox(), new Diamond(), 20, 20, 20,5,4);
 		
 	}
 

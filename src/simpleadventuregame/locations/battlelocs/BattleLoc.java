@@ -62,7 +62,7 @@ public abstract class BattleLoc extends Location {
 			if (this.getInventory().getElixirChest().getTotalElixirCount() > 0) {
 				this.useElixirInCombat();
 			}
-			this.getMonster().setHealth(this.getMonster().getDefaulHealth());
+			this.getMonster().setHealth(this.getMonster().getDefaultHealth());
 			playerStats();
 			monsterStats(i);
 
@@ -225,19 +225,17 @@ public abstract class BattleLoc extends Location {
 
 	
 
-	public void afterHitInfo() {
-		System.out.println("---------------------");
-		System.out.println("Your Health : " + this.getPlayer().getHealth());
-		System.out.println(this.getMonster().getName() + "'s Health : " + this.getMonster().getHealth());
-		System.out.println("---------------------");
-
-	}
+	
 
 	public void afterBattle() {
 		System.out.println("You killed the enemy");
 		this.getPlayer().getPlayerLevel().gainExperience(this.getMonster().getAwardExperience());
 		if (this.getPlayer().getPlayerLevel().checkLevelUp()) {
-			this.levelUpAward();
+			this.playerLevelUpAward();
+		}
+		this.getMonster().getMonsterLevel().gainExperience(this.getMonster().getBattleExperience());
+		if (this.getMonster().getMonsterLevel().checkLevelUp()) {
+			this.monsterLevelUpChanges();
 		}
 		System.out.println("Your current exp is: " + this.getPlayer().getPlayerLevel().getCurrentExperience() + "/50");
 		this.getPlayer().setThirstLevel(this.getPlayer().getThirstLevel() + 1);
@@ -246,6 +244,14 @@ public abstract class BattleLoc extends Location {
 
 //		collectAward2(this.getMonster().getAward().getId());
 		collectAwardNew(this.getMonster().getAward());
+	}
+	
+	public void afterHitInfo() {
+		System.out.println("---------------------");
+		System.out.println("Your Health : " + this.getPlayer().getHealth());
+		System.out.println(this.getMonster().getName() + "'s Health : " + this.getMonster().getHealth());
+		System.out.println("---------------------");
+
 	}
 
 	public void playerStats() {
@@ -388,12 +394,19 @@ public abstract class BattleLoc extends Location {
 //
 //	}
 
-	public void levelUpAward() {
+	public void playerLevelUpAward() {
 		System.out.println("Your health is increased from " + this.getPlayer().getDefaultHealth() + " to "
 				+ (this.getPlayer().getDefaultHealth() + 2));
 		this.getPlayer().setDefaultHealth(this.getPlayer().getDefaultHealth() + 2);
 		this.getPlayer().setHealth(this.getPlayer().getDefaultHealth());
 
+	}
+	
+	public void monsterLevelUpChanges() {
+		
+		this.getMonster().setDefaultHealth(this.getMonster().getDefaultHealth() + 2);
+		this.getMonster().setHealth(this.getMonster().getDefaultHealth());
+		
 	}
 
 	public Monster getMonster() {

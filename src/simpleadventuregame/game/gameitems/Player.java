@@ -1,9 +1,10 @@
 package simpleadventuregame.game.gameitems;
 
+import simpleadventuregame.game.AbstractEntity;
 import simpleadventuregame.game.experience.PlayerLevel;
 import simpleadventuregame.items.weapons.Weapon;
 
-public class Player {
+public class Player extends AbstractEntity<Integer> {
 
 	private String charListFormat = " Your current info : Your weapon: [%-7s] Your Armor : [%-7s] [Damage:  %-1d] [Health:  %-1d] [Money: %2d] [Satiety Level:  %-1d] [Thirst Level:  %-1d] \n";
 	private String playerInventoryFormat = "Inventory info : [Water Count:  %-1d] [Food Count:  %-1d] [Wood Count:  %-1d] [Iron Count:  %-1d] [Dark Stone:  %-1d] [Diamond Count:  %-1d] [Emerand Count:  %-1d] \n";
@@ -12,7 +13,7 @@ public class Player {
 
 	private int satiety = 20;
 	private int thirstLevel = 0;
-	private int id;
+//	private int id;
 	private int damage;
 	private int health;
 	private int defaultHealth;
@@ -122,13 +123,13 @@ public class Player {
 		this.charName = charName;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+//	public int getId() {
+//		return id;
+//	}
+//
+//	public void setId(int id) {
+//		this.id = id;
+//	}
 
 	public Inventory getInventory() {
 		return inventory;

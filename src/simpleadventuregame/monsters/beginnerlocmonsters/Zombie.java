@@ -6,7 +6,7 @@ import simpleadventuregame.monsters.Monster;
 public class Zombie extends Monster{
 
 	public Zombie() {
-		super(1, "Zombie",new Food(), 3, 10,4,2);
+		super(1, "Zombie",new Food(), 3, 10,4,2,5);
 		// TODO Auto-generated constructor stub
 	}
 

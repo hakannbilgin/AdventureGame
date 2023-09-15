@@ -1,10 +1,12 @@
 package simpleadventuregame.monsters;
 
+import simpleadventuregame.game.AbstractEntity;
+import simpleadventuregame.game.experience.MonsterLevel;
 import simpleadventuregame.items.Loot.Award;
 
-public abstract class Monster {
+public abstract class Monster extends AbstractEntity<Integer> {
 
-	private int id;
+//	private int id;
 	private String name;
 	private Award award;
 	private Award extraAward;
@@ -13,10 +15,14 @@ public abstract class Monster {
 	private int awardMoney;
 	private int defaultHealth;
 	private int awardExperience;
+	private int battleExperience;
+	private MonsterLevel monsterLevel;
 
-	public Monster(int id, String name, Award award, int damage, int health, int awardMoney, int awardExperience) {
+	public Monster(int id, String name, Award award, int damage, int health, int awardMoney, int awardExperience,
+			int battleExperience) {
 		super();
-		this.id = id;
+//		this.id = id;
+		this.setId(id);
 		this.name = name;
 		this.award = award;
 		this.damage = damage;
@@ -24,12 +30,15 @@ public abstract class Monster {
 		this.defaultHealth = health;
 		this.awardMoney = awardMoney;
 		this.awardExperience = awardExperience;
+		this.battleExperience = battleExperience;
+		this.monsterLevel = new MonsterLevel();
 	}
 
 	public Monster(int id, String name, Award award, Award extraAward, int damage, int health, int awardMoney,
-			int awardExperience) {
+			int awardExperience, int battleExperience) {
 		super();
-		this.id = id;
+//		this.id = id;
+		this.setId(id);
 		this.name = name;
 		this.award = award;
 		this.extraAward = extraAward;
@@ -38,15 +47,17 @@ public abstract class Monster {
 		this.defaultHealth = health;
 		this.awardMoney = awardMoney;
 		this.awardExperience = awardExperience;
+		this.battleExperience = battleExperience;
+		this.monsterLevel = new MonsterLevel();
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+//	public int getId() {
+//		return id;
+//	}
+//
+//	public void setId(int id) {
+//		this.id = id;
+//	}
 
 	public String getName() {
 		return name;
@@ -83,12 +94,13 @@ public abstract class Monster {
 		this.awardMoney = awardMoney;
 	}
 
-	public int getDefaulHealth() {
+	
+	public int getDefaultHealth() {
 		return defaultHealth;
 	}
 
-	public void setDefaulHealth(int defaulHealth) {
-		this.defaultHealth = defaulHealth;
+	public void setDefaultHealth(int defaultHealth) {
+		this.defaultHealth = defaultHealth;
 	}
 
 	public Award getAward() {
@@ -117,8 +129,6 @@ public abstract class Monster {
 
 	}
 
-//	public abstract Award extraAwardWihtLocation(int locationId);
-
 	public Award getExtraAward() {
 		return extraAward;
 	}
@@ -133,6 +143,22 @@ public abstract class Monster {
 
 	public void setAwardExperience(int awardExperience) {
 		this.awardExperience = awardExperience;
+	}
+
+	public MonsterLevel getMonsterLevel() {
+		return monsterLevel;
+	}
+
+	public void setMonsterLevel(MonsterLevel monsterLevel) {
+		this.monsterLevel = monsterLevel;
+	}
+
+	public int getBattleExperience() {
+		return battleExperience;
+	}
+
+	public void setBattleExperience(int battleExperience) {
+		this.battleExperience = battleExperience;
 	}
 
 }
