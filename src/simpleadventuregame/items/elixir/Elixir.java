@@ -14,7 +14,7 @@ public abstract class Elixir extends Award {
 
 	public static Elixir[] elixirs() {
 
-		Elixir[] eList = { new HealthElixir(), new MedicalElixir()};
+		Elixir[] eList = { new HealthElixir(), new MedicalElixir(), new BlockElixir()};
 		return eList;
 
 	}

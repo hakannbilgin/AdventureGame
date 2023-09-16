@@ -111,8 +111,9 @@ public class MagicalElfStore extends NormalLoc {
 	public void selectElixirInElfStore1() {
 
 		System.out.println(
-				"1 - (ID=1) Health Elixir(5Health) gives 5 extra health to your base health while you are in battle(one time).");
-		System.out.println("2 - (ID=2) Medical Elixir :  full your health when your health is low.");
+				"1 - (ID=11) (Price: 10 ) Health Elixir(5Health) gives 5 extra health to your base health while you are in battle(one time).");
+		System.out.println("12 - (ID=2) (Price: 15 ) Medical Elixir :  full your health when your health is low.");
+		System.out.println("13- (ID=3) (Price: 15 ) Block Elixir :  It blocks monster attack in battle(one time)");
 		System.out.println("Please enter '0' to exit");
 
 		System.out.println("Please enter the id of the elixir you have selected : ");

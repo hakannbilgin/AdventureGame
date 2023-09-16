@@ -18,6 +18,7 @@ public abstract class BattleLoc extends Location {
 	private String infoPlayerFormat = " Your current info : Your weapon: [%-7s] Your Armor : [%-7s] [Dodge:  %-1d] [Damage:  %-1d] [Health:  %-1d] [Money: %2d] \n";
 	private String infoMonsterFormat = " Monster info : [Damage:  %-1d] [Health:  %-1d] [Award: %2d] \n";
 	private Monster monster;
+	private boolean blockElixirUse=false;
 //	private Award award;
 	private int maxMonsterCount;
 
@@ -33,7 +34,7 @@ public abstract class BattleLoc extends Location {
 		int monsterNumber = RandomMonsterCount();
 		System.out.println("Now you are in " + this.getName());
 		System.out
-				.println("Bheave yourself there are " + monsterNumber + " " + this.getMonster().getName() + "'s here.");
+				.println("Bheave yourself there are "+ monsterNumber + "  (" +  this.getMonster().getMonsterLevel().getCurrentLevel()+".Lvl) "+ this.getMonster().getName() + "'s here.");
 		System.out.println("<F>ight or <R>un ");
 		char selectCase = PlayerScanner.StringToFirstcharScanner();
 
@@ -71,19 +72,7 @@ public abstract class BattleLoc extends Location {
 				char selectCombat = PlayerScanner.StringToFirstcharScanner();
 				if (selectCombat == 'H' || selectCombat == 'h') {
 					this.hitInCombat();
-//					System.out.println("You hit " + getMonster().getName());
-//					this.getMonster().setHealth(this.monster.getHealth() - this.getPlayer().getTotalDamage());
-//					afterHitInfo();
-//					if (this.getMonster().getHealth() > 0) {
-//						System.out.println(this.getMonster().getName() + " hit you");
-//						int monsterDamage = this.getMonster().getDamage()
-//								- this.getPlayer().getInventory().getArmor().getDamageDodge();
-//						if (monsterDamage < 0) {
-//							monsterDamage = 0;
-//						}
-//						this.getPlayer().setHealth(this.getPlayer().getHealth() - monsterDamage);
-//						afterHitInfo();
-//					}
+
 				} else {
 					return false;
 				}
@@ -108,13 +97,25 @@ public abstract class BattleLoc extends Location {
 		this.getMonster().setHealth(this.monster.getHealth() - this.getPlayer().getTotalDamage());
 		afterHitInfo();
 		if (this.getMonster().getHealth() > 0) {
-			System.out.println(this.getMonster().getName() + " hit you");
-			int monsterDamage = this.getMonster().getDamage()
-					- this.getPlayer().getInventory().getArmor().getDamageDodge();
-			if (monsterDamage < 0) {
-				monsterDamage = 0;
+			if (!blockElixirUse) {
+				System.out.println(this.getMonster().getName() + " hit you");
+				int monsterDamage = this.getMonster().getDamage()
+						- this.getPlayer().getInventory().getArmor().getDamageDodge();
+				if (monsterDamage < 0) {
+					monsterDamage = 0;
+				}
+				this.getPlayer().setHealth(this.getPlayer().getHealth() - monsterDamage);
+			}else {
+				System.out.println("You used block Elixir monster couldn't hit you.");
 			}
-			this.getPlayer().setHealth(this.getPlayer().getHealth() - monsterDamage);
+			
+//			System.out.println(this.getMonster().getName() + " hit you");
+//			int monsterDamage = this.getMonster().getDamage()
+//					- this.getPlayer().getInventory().getArmor().getDamageDodge();
+//			if (monsterDamage < 0) {
+//				monsterDamage = 0;
+//			}
+//			this.getPlayer().setHealth(this.getPlayer().getHealth() - monsterDamage);
 			afterHitInfo();
 	}
 	}
@@ -157,58 +158,16 @@ public abstract class BattleLoc extends Location {
 
 						break;
 					case 3:
-						System.out.println("You didn't use any elixir");
-						return;
-					}
-				} else {
-					System.out.println("Please enter a valid number between 0 and 3.");
-				}
-			} else {
-				System.out.println("Please enter a valid number.");
-				PlayerScanner.stringScanner();
-			}
-		}
-
-	}
-	
-	public void useElixirInCombatNew() {
-
-		this.getPlayer().printElixirChestInfo();
-		int selectElixir;
-		boolean elixirMenu = true;
-		while (elixirMenu) {
-			System.out.println("Do you want to use any elixir? /n ---(1) Health Elixir (2)Medical Elixir (3) -No-");
-			if (PlayerScanner.hasnextIntScanner()) {
-				selectElixir = PlayerScanner.intScanner();
-
-				if (selectElixir >= 0 && selectElixir <= 3) {
-					switch (selectElixir) {
-					case 0:
-						System.out.println("Exiting the program.");
-						return;
-					case 1:
-						if (this.getInventory().getElixirChest().getHealthElixirCount() > 0) {
-							this.getPlayer().setHealth(this.getPlayer().getDefaultHealth() + 5);
-							System.out.println(
-									"You used Health Elixir. Now your health increased + 5 point for just one fight ");
-							this.getInventory().getElixirChest().setHealthElixirCount(
-									this.getInventory().getElixirChest().getHealthElixirCount() - 1);
-						} else {
-							System.out.println("You don't have any Health Elixir");
-						}
-						break;
-					case 2:
-						if (this.getInventory().getElixirChest().getMedicalElixirCount() > 0) {
-							this.getPlayer().setHealth(this.getPlayer().getDefaultHealth());
-							System.out.println("You used Medical Elixir. You have been healed ");
-							this.getInventory().getElixirChest().setMedicalElixirCount(
-									this.getInventory().getElixirChest().getMedicalElixirCount() - 1);
+						if (this.getInventory().getElixirChest().getBlockElixirCount() > 0) {
+							
+							this.getInventory().getElixirChest().setBlockElixirCount(
+									this.getInventory().getElixirChest().getBlockElixirCount() - 1);
 						} else {
 							System.out.println("You don't have any Medical Elixir");
 						}
 
 						break;
-					case 3:
+					case 4:
 						System.out.println("You didn't use any elixir");
 						return;
 					}
@@ -222,10 +181,6 @@ public abstract class BattleLoc extends Location {
 		}
 
 	}
-
-	
-
-	
 
 	public void afterBattle() {
 		System.out.println("You killed the enemy");
