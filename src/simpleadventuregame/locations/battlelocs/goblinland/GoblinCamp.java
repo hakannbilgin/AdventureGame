@@ -3,12 +3,13 @@ package simpleadventuregame.locations.battlelocs.goblinland;
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.locations.battlelocs.BattleLoc;
 import simpleadventuregame.monsters.Monster;
+import simpleadventuregame.monsters.goblinlandmonsters.LittleGoblin;
 
 public class GoblinCamp extends BattleLoc {
 
-	public GoblinCamp(int id, Player player, String locationName, Monster monster, int maxMonsterCount) {
-		super(id, player, locationName, monster, maxMonsterCount);
-		// TODO Auto-generated constructor stub
+	public GoblinCamp(Player player) {
+		super(16, player, "Goblin Camp", new LittleGoblin(), 5);
+		
 	}
 
 }
