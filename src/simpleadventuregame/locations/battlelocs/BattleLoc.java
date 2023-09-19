@@ -184,21 +184,27 @@ public abstract class BattleLoc extends Location {
 
 	public void afterBattle() {
 		System.out.println("You killed the enemy");
-		this.getPlayer().getPlayerLevel().gainExperience(this.getMonster().getAwardExperience());
-		if (this.getPlayer().getPlayerLevel().checkLevelUp()) {
-			this.playerLevelUpAward();
-		}
-		this.getMonster().getMonsterLevel().gainExperience(this.getMonster().getBattleExperience());
-		if (this.getMonster().getMonsterLevel().checkLevelUp()) {
-			this.monsterLevelUpChanges();
-		}
-		System.out.println("Your current exp is: " + this.getPlayer().getPlayerLevel().getCurrentExperience() + "/50");
-		this.getPlayer().setThirstLevel(this.getPlayer().getThirstLevel() + 1);
-		this.getPlayer().setSatiety(this.getPlayer().getSatiety() - 1);
-		// TODO IF THIRST LEVEL GETS OVER 20 ADD SOME CONSEQUENCES
+		if (this.getPlayer().getPlayerLevel().getCurrentLevel()<3) {
+			this.getPlayer().getPlayerLevel().gainExperience(this.getMonster().getAwardExperience());
+			if (this.getPlayer().getPlayerLevel().checkLevelUp()) {
+				this.playerLevelUpAward();
+			}
+			this.getMonster().getMonsterLevel().gainExperience(this.getMonster().getBattleExperience());
+			if (this.getMonster().getMonsterLevel().checkLevelUp()) {
+				this.monsterLevelUpChanges();
+			}
+			System.out.println("Your current exp is: " + this.getPlayer().getPlayerLevel().getCurrentExperience() + "/50");
+			this.getPlayer().setThirstLevel(this.getPlayer().getThirstLevel() + 1);
+			this.getPlayer().setSatiety(this.getPlayer().getSatiety() - 1);
+			// TODO IF THIRST LEVEL GETS OVER 20 ADD SOME CONSEQUENCES
 
-//		collectAward2(this.getMonster().getAward().getId());
-		collectAwardNew(this.getMonster().getAward());
+//			collectAward2(this.getMonster().getAward().getId());
+			collectAwardNew(this.getMonster().getAward());
+		}else {
+			System.out.println("");
+		}
+		
+		
 	}
 	
 	public void afterHitInfo() {

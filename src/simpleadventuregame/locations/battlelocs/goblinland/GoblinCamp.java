@@ -2,7 +2,6 @@ package simpleadventuregame.locations.battlelocs.goblinland;
 
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.locations.battlelocs.BattleLoc;
-import simpleadventuregame.monsters.Monster;
 import simpleadventuregame.monsters.goblinlandmonsters.LittleGoblin;
 
 public class GoblinCamp extends BattleLoc {

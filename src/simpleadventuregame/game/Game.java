@@ -7,12 +7,7 @@ import simpleadventuregame.game.gamecharacters.Samurai;
 import simpleadventuregame.game.gamecharacters.SpearMan;
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.locations.Location;
-import simpleadventuregame.locations.battlelocs.beginnerbattlelocs.Cave;
-import simpleadventuregame.locations.battlelocs.beginnerbattlelocs.NormalForest;
-import simpleadventuregame.locations.battlelocs.beginnerbattlelocs.River;
-import simpleadventuregame.locations.battlelocs.beginnerbattlelocs.Temple;
-import simpleadventuregame.locations.battlelocs.darkforests.DeadForest;
-import simpleadventuregame.locations.battlelocs.darkforests.EnchantedForest;
+import simpleadventuregame.locations.battlelocs.beginnerbattlelocs.BeginnerBattleArea;
 import simpleadventuregame.locations.battlelocs.darkforests.ForestArea;
 import simpleadventuregame.locations.battlelocs.goblinland.GoblinLandArea;
 import simpleadventuregame.locations.normallocs.houselocs.SafeHouse;
@@ -136,14 +131,17 @@ public class Game {
 		returnToMainMenu = true;
 		while (returnToMainMenu) {
 			System.out.println("--------------Locations-----------------");
+//			System.out.println(
+//					" 0- Exit from game \n 1- Safe House \n 2- Store \n 3- BlackSmith \n 4- Cave \n 5- Temple \n 6- Forest \n 7- River \n 8- Forest Area");
 			System.out.println(
-					" 0- Exit from game \n 1- Safe House \n 2- Store \n 3- BlackSmith \n 4- Cave \n 5- Temple \n 6- Forest \n 7- River \n 8- Forest Area");
-			System.out.println("---Cave  :            (ID=4) Enemy= Zombie   Award= Food  ---");
-			System.out.println("---Temple:            (ID=5) Enemy= Skeleton Award= Iron  ---");
-			System.out.println("---Normal Forest:     (ID=6) Enemy= Vampire  Award= Wood  ---");
-			System.out.println("---River :            (ID=7) Enemy= Bear     Award= Water ---");
-			System.out.println("---Forest Area:       (ID=10) This area has 4 dangerous battleLocs ");
-			System.out.println("---Goblin Land Area:  (ID=10) This area has 2 dangerous battleLocs ");
+					" 0- Exit from game \n 1- Safe House \n 2- Store \n 3- BlackSmith \n 4- Beginner Battle Area \n 5- Forest Area \n 6- GoblinLand Area");
+//			System.out.println("---Cave  :            (ID=4) Enemy= Zombie   Award= Food  ---");
+//			System.out.println("---Temple:            (ID=5) Enemy= Skeleton Award= Iron  ---");
+//			System.out.println("---Normal Forest:     (ID=6) Enemy= Vampire  Award= Wood  ---");
+//			System.out.println("---River :            (ID=7) Enemy= Bear     Award= Water ---");
+			System.out.println("---Beginner Battle Area:   (ID=10) This area has 4 dangerous battleLocs ");
+			System.out.println("---Forest Area:            (ID=10) This area has 4 dangerous battleLocs ");
+			System.out.println("---Goblin Land Area:       (ID=10) This area has 2 dangerous battleLocs ");
 
 			if (PlayerScanner.hasnextIntScanner()) {
 				selectLocation = PlayerScanner.intScanner();
@@ -162,26 +160,34 @@ public class Game {
 					case 3:
 						location = new BlackSmith(player);
 						break;
+//					case 4:
+//						location = new Cave(player);
+//						break;
+//					case 5:
+//						location = new Temple(player);
+//						break;
+//					case 6:
+//						location = new NormalForest(player);
+//						break;
+//					case 7:
+//						location = new River(player);
+//						break;
+//					case 8:
+//						location = new ForestArea(player);
+//						break;
+//					case 9:
+//						location = new GoblinLandArea(player);
+//						break;
 					case 4:
-						location = new Cave(player);
+						location = new BeginnerBattleArea(player);
 						break;
 					case 5:
-						location = new Temple(player);
-						break;
-					case 6:
-						location = new NormalForest(player);
-						break;
-					case 7:
-						location = new River(player);
-						break;
-					case 8:
 						location = new ForestArea(player);
 						break;
-
-					case 9:
+					case 6:
 						location = new GoblinLandArea(player);
 						break;
-
+						
 					}
 					break;
 				} else {

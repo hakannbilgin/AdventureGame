@@ -26,6 +26,7 @@ public class Inventory {
 	private int emeraldCount = 0;
 	private int elfStoneCount = 0;
 	private int goblinKeyCount = 0;
+	private int steelCount = 0;
 
 	public Inventory() {
 		this.weapon = new Fist();
@@ -46,7 +47,6 @@ public class Inventory {
 //		this.countAward(award.getId());
 //	}
 
-	
 	public int getawardItemsInInventoryById(int id) {
 		int count = 0;
 
@@ -61,8 +61,6 @@ public class Inventory {
 
 		return count;
 	}
-
-	
 
 	public List<Award> getBattleLocAwardsInInventory() {
 		return battleLocAwardsInInventory;
@@ -128,6 +126,9 @@ public class Inventory {
 		case 13:
 			this.getElixirChest().setMedicalElixirCount(this.getElixirChest().getMedicalElixirCount() + 1);
 //			this.getElixirChest().setMedicalElixirCount(this.getawardItemsInInventoryById(awardId));
+			break;
+		case 14:
+			this.setSteelCount(this.getSteelCount() + 1);
 			break;
 		}
 
@@ -234,6 +235,14 @@ public class Inventory {
 		return awardCounter;
 	}
 
+	public int getSteelCount() {
+		return steelCount;
+	}
+
+	public void setSteelCount(int steelCount) {
+		this.steelCount = steelCount;
+	}
+
 //	public void setAwardCounter(AwardCounter awardCounter) {
 //		this.awardCounter = awardCounter;
 //	}
@@ -245,7 +254,5 @@ public class Inventory {
 //	public void setBoxChest(BoxChest boxChest) {
 //		this.boxChest = boxChest;
 //	}
-	
-	
 
 }

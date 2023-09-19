@@ -21,7 +21,13 @@ public class Food extends Award{
 			int lootChange = (int) (Math.random() * 100);
 
 			return lootChange <= this.getChance();	
-		}else{
+		}else if (locationId == 17) {
+			this.setChance(70);
+			int lootChange = (int) (Math.random() * 100);
+
+			return lootChange <= this.getChance();
+		}
+		else{
 			return false;
 		}
 		
