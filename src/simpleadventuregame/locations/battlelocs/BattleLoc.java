@@ -79,7 +79,7 @@ public abstract class BattleLoc extends Location {
 			}
 
 			if (this.getMonster().getHealth() < this.getPlayer().getHealth()) {
-
+				
 				this.afterBattle();
 
 			} else {
