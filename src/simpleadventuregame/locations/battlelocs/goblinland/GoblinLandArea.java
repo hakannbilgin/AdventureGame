@@ -24,12 +24,14 @@ public class GoblinLandArea extends Location {
 			System.out.println(
 					"-----You are at the Goblin Land Area----- \n -*-*-*- You choose GoblinLand BattleLocations -*-*-*-");
 			System.out.println(
-					"1 - Goblin Camp \n 2- Goblin Cave \n 3- Exit from Forest Area  \n 4-  \n 5-  \n 6- ");
+					"1 - Goblin Camp \n 2- Goblin Cave \n 3- Orc's Mine  \n 4-   \n 5-  \n 6- Exit from Forest Area ");
 
 			System.out.println(
 					"---Goblin Camp : (ID=16) Enemy= Little Goblin      Award= Emerald (%80change) + Water (%70change) ---");
 			System.out.println(
-					"---Goblin Cave : (ID=17) Enemy= Mountain Goblin      Award= Steel (%80change) + Food  (%70change) ---");
+					"---Goblin Cave : (ID=17) Enemy= Mountain Goblin    Award= Steel (%80change) + Food  (%70change) ---");
+			System.out.println(
+					"---Orc's Mine  : (ID=18) Enemy= Orc                Award= HammerParts (%80change) + Water  (%70change) ---");
 
 			System.out.print("Select : ");
 
@@ -48,6 +50,15 @@ public class GoblinLandArea extends Location {
 				new GoblinCave(getPlayer()).onLocation();
 				break;
 			case 3:
+				new OrcsMine(getPlayer()).onLocation();
+				break;
+			case 4:
+
+				break;
+			case 5:
+
+				break;
+			case 6:
 
 				System.out.println("You exit from Forest Area");
 				forestMenu = false;

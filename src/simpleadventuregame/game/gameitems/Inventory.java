@@ -6,6 +6,8 @@ import java.util.List;
 import simpleadventuregame.items.Loot.Award;
 import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.armors.OldClothes;
+import simpleadventuregame.items.tools.Tool;
+import simpleadventuregame.items.tools.UselessStick;
 import simpleadventuregame.items.weapons.Fist;
 import simpleadventuregame.items.weapons.Weapon;
 
@@ -17,6 +19,7 @@ public class Inventory {
 	private BoxChest boxChest;
 	private Weapon weapon;
 	private Armor armor;
+	private Tool tool;
 	private int foodCount = 0;
 	private int waterCount = 0;
 	private int woodCount = 0;
@@ -27,12 +30,14 @@ public class Inventory {
 	private int elfStoneCount = 0;
 	private int goblinKeyCount = 0;
 	private int steelCount = 0;
+	private int hammerPartsCount= 0;
 
 	public Inventory() {
 		this.weapon = new Fist();
 		this.armor = new OldClothes();
 		this.elixirChest = new ElixirChest();
 		this.boxChest = new BoxChest();
+		this.tool= new UselessStick();
 	}
 
 	public void addBattleLocAwardItem(Award award) {
@@ -130,6 +135,10 @@ public class Inventory {
 		case 14:
 			this.setSteelCount(this.getSteelCount() + 1);
 			break;
+		case 15:
+			this.setHammerPartsCount(this.getHammerPartsCount() + 1);
+			break;
+			
 		}
 
 	}
@@ -242,6 +251,23 @@ public class Inventory {
 	public void setSteelCount(int steelCount) {
 		this.steelCount = steelCount;
 	}
+
+	public Tool getTool() {
+		return tool;
+	}
+
+	public void setTool(Tool tool) {
+		this.tool = tool;
+	}
+
+	public int getHammerPartsCount() {
+		return hammerPartsCount;
+	}
+
+	public void setHammerPartsCount(int hammerPartsCount) {
+		this.hammerPartsCount = hammerPartsCount;
+	}
+	
 
 //	public void setAwardCounter(AwardCounter awardCounter) {
 //		this.awardCounter = awardCounter;

@@ -26,7 +26,12 @@ public class Water extends Award {
 			int lootChange = (int) (Math.random() * 100);
 
 			return lootChange <= this.getChance();
-		}else {
+		}else if (locationId == 18) {
+			this.setChance(70);
+			int lootChange = (int) (Math.random() * 100);
+
+			return lootChange <= this.getChance();
+		} else {
 			return false;
 		}
 	}
