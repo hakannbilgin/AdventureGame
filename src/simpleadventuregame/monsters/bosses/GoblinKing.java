@@ -1,6 +1,5 @@
 package simpleadventuregame.monsters.bosses;
 
-import simpleadventuregame.items.Loot.Award;
 import simpleadventuregame.items.Loot.boxes.GoblinKingBox;
 import simpleadventuregame.items.Loot.craftingloot.Steel;
 import simpleadventuregame.monsters.Monster;

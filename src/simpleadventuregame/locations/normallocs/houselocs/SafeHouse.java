@@ -139,7 +139,7 @@ public class SafeHouse extends NormalLoc {
 			while (openBoxMenu) {
 
 				System.out.println("------------ \n Do you want to Open a box \n ------------");
-				System.out.println(" 1 - Open a Elf King Box \n 2-   \n 3- Exit ");
+				System.out.println(" 1 - Open a Elf King Box \n 2- Goblin King Box  \n 3- Exit ");
 
 				System.out.print("Select : ");
 
@@ -155,7 +155,7 @@ public class SafeHouse extends NormalLoc {
 					openTrollBox();
 					break;
 				case 2:
-
+					openGoblinKingBox();
 					break;
 				case 3:
 					System.out.println("You exit from Safe House");
@@ -229,6 +229,42 @@ public class SafeHouse extends NormalLoc {
 			System.out.println("You gained Troll Armor");
 
 		}
+		
+		public void collectBoxAward2(Item item) {
+
+			if (item instanceof Award && item.getId() == 1) {
+
+				getInventory().setFoodCount(getInventory().getFoodCount() + 1);
+				System.out
+						.println("You gained Food from Box and your current Food Count is" + getInventory().getFoodCount());
+
+			} else if (item instanceof Award && item.getId() == 2) {
+				getInventory().setWaterCount(getInventory().getWaterCount() + 1);
+				System.out.println(
+						"You gained Food from Box and your current Water Count is" + getInventory().getWaterCount());
+			} else if (item instanceof Award && item.getId() == 3) {
+				getInventory().setWoodCount(this.getPlayer().getInventory().getWoodCount() + 1);
+				System.out
+						.println("You gained Food from Box and your current Wood Count is" + getInventory().getWoodCount());
+			} else if (item instanceof Award && item.getId() == 4) {
+				getInventory().setIronCount(getInventory().getIronCount() + 1);
+				System.out
+						.println("You gained Food from Box and your current Iron Count is" + getInventory().getIronCount());
+			} else if (item instanceof Award && item.getId() == 5) {
+				getInventory().setDarkStone(getInventory().getDarkStone() + 1);
+				System.out.println(
+						"You gained Food from Box and your current DarkStone Count is" + getInventory().getDarkStone());
+			} else if (item instanceof Award && item.getId() == 6) {
+				getInventory().setDiamondCount(getInventory().getDiamondCount() + 1);
+				System.out.println(
+						"You gained Food from Box and your current Diamond Count is" + getInventory().getDiamondCount());
+
+			} else if (item instanceof Armor && item.getId() == 7) {
+				getInventory().setArmor(new TrollArmor());
+
+				System.out.println("You gained Troll Armor");
+
+			}
 
 	}
 

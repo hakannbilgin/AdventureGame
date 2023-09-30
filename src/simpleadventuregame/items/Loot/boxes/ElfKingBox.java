@@ -16,8 +16,8 @@ import simpleadventuregame.items.armors.BossArmors.TrollArmor;
 
 public class ElfKingBox extends GiftBox {
 
-	private String elfKingAwardsFormat = " Item :  [%-11s] [Id :%d] \n";
-	private ArrayList<Item> trollBoxAward = new ArrayList<Item>();
+//	private String elfKingAwardsFormat = " Item :  [%-11s] [Id :%d] \n";
+//	private ArrayList<Item> trollBoxAward = new ArrayList<Item>();
 	
 
 	public ElfKingBox() {
@@ -28,7 +28,7 @@ public class ElfKingBox extends GiftBox {
 	@Override
 	public boolean isChange(int locationId) {
 
-		if (locationId == 11) {
+		if (locationId == 19) {
 			this.setChance(60);
 			int lootChange = (int) (Math.random() * 100);
 
@@ -80,26 +80,26 @@ public class ElfKingBox extends GiftBox {
 
 	@Override
 	public void awardsInBox() {
-		trollBoxAward.add(0, new Water());
-		trollBoxAward.add(1, new Food());
-		trollBoxAward.add(2, new Wood());
-		trollBoxAward.add(3, new Iron());
-		trollBoxAward.add(4, new DarkStone());
-		trollBoxAward.add(5, new Diamond());
-		trollBoxAward.add(6, new TrollArmor());
+		getBoxAward().add(0, new Water());
+		getBoxAward().add(1, new Food());
+		getBoxAward().add(2, new Wood());
+		getBoxAward().add(3, new Iron());
+		getBoxAward().add(4, new DarkStone());
+		getBoxAward().add(5, new Diamond());
+		getBoxAward().add(6, new TrollArmor());
 		
-		for (Item item : trollBoxAward) {
-			System.out.printf(elfKingAwardsFormat, item.getName(), item.getId());;
+		for (Item item : getBoxAward()) {
+			System.out.printf(getAwardsFormat(), item.getName(), item.getId());;
 		}
 
 	}
 
 	public ArrayList<Item> getTrollBoxAward() {
-		return trollBoxAward;
+		return this.getBoxAward();
 	}
 
-	public void setTrollBoxAward(ArrayList<Item> trollBoxAward) {
-		this.trollBoxAward = trollBoxAward;
-	}
+//	public void setTrollBoxAward(ArrayList<Item> trollBoxAward) {
+//		this.trollBoxAward = trollBoxAward;
+//	}
 
 }

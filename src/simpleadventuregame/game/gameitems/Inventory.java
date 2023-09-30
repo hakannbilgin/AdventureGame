@@ -3,6 +3,7 @@ package simpleadventuregame.game.gameitems;
 import java.util.ArrayList;
 import java.util.List;
 
+import simpleadventuregame.items.Item;
 import simpleadventuregame.items.Loot.Award;
 import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.armors.OldClothes;
@@ -13,7 +14,8 @@ import simpleadventuregame.items.weapons.Weapon;
 
 public class Inventory {
 
-	private List<Award> battleLocAwardsInInventory = new ArrayList<>();;
+	private List<Award> battleLocAwardsInInventory = new ArrayList<>();
+	private List<Item> boxAwardsInInventory = new ArrayList<>();
 	private AwardCounter awardCounter;
 	private ElixirChest elixirChest;
 	private BoxChest boxChest;
@@ -46,12 +48,6 @@ public class Inventory {
 
 	}
 
-//	public void removeBattleLocAwardItem(Award award) {
-//
-//		battleLocAwardsInInventory.remove(award);
-//		this.countAward(award.getId());
-//	}
-
 	public int getawardItemsInInventoryById(int id) {
 		int count = 0;
 
@@ -67,6 +63,11 @@ public class Inventory {
 		return count;
 	}
 
+	public void addBoxAwardItem() {
+		
+	}
+	
+	
 	public List<Award> getBattleLocAwardsInInventory() {
 		return battleLocAwardsInInventory;
 	}
