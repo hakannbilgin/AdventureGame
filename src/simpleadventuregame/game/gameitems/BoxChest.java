@@ -2,22 +2,33 @@ package simpleadventuregame.game.gameitems;
 
 public class BoxChest {
 
-	private int ElfKingBoxCount = 0;
+	private int elfKingBoxCount = 0;
+	private int goblinKingBoxCount = 0;
 
 	private int totalBoxCount = 0;
 
 	public int getTotalBoxCount() {
 
-		totalBoxCount = getElfKingBoxCount();
+		totalBoxCount = getElfKingBoxCount() + getGoblinKingBoxCount();
 		return totalBoxCount;
 	}
 
 	public int getElfKingBoxCount() {
-		return ElfKingBoxCount;
+		return elfKingBoxCount;
 	}
 
 	public void setElfKingBoxCount(int elfKingBoxCount) {
-		ElfKingBoxCount = elfKingBoxCount;
+		this.elfKingBoxCount = elfKingBoxCount;
 	}
+
+	public int getGoblinKingBoxCount() {
+		return goblinKingBoxCount;
+	}
+
+	public void setGoblinKingBoxCount(int goblinKingBoxCount) {
+		this.goblinKingBoxCount = goblinKingBoxCount;
+	}
+
+	
 
 }

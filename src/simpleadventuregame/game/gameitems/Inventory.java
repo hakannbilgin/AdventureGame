@@ -63,8 +63,8 @@ public class Inventory {
 		return count;
 	}
 
-	public void addBoxAwardItem() {
-		
+	public void addBoxAwardItem(Item item) {
+		this.countAward(item.getId());
 	}
 	
 	
@@ -138,6 +138,9 @@ public class Inventory {
 			break;
 		case 15:
 			this.setHammerPartsCount(this.getHammerPartsCount() + 1);
+			break;
+		case 16:
+			this.getBoxChest().setGoblinKingBoxCount(this.getBoxChest().getGoblinKingBoxCount()+ 1);;
 			break;
 			
 		}
@@ -268,6 +271,14 @@ public class Inventory {
 	public void setHammerPartsCount(int hammerPartsCount) {
 		this.hammerPartsCount = hammerPartsCount;
 	}
+
+	public List<Item> getBoxAwardsInInventory() {
+		return boxAwardsInInventory;
+	}
+
+	public void setBoxAwardsInInventory(List<Item> boxAwardsInInventory) {
+		this.boxAwardsInInventory = boxAwardsInInventory;
+	}
 	
 
 //	public void setAwardCounter(AwardCounter awardCounter) {
@@ -281,5 +292,6 @@ public class Inventory {
 //	public void setBoxChest(BoxChest boxChest) {
 //		this.boxChest = boxChest;
 //	}
-
+	
+	
 }
