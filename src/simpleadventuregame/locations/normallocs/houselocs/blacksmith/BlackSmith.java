@@ -61,11 +61,11 @@ public class BlackSmith extends NormalLoc {
 		while (weaponCraftMenu) {
 			this.getPlayer().printDetailedInfo();
 			System.out.println(
-					"1 - Craft Double Dagger   Damage: 2      ----- Items to Create :     Iron    : 2 Wood: 4  Water: 1 ");
+					"1 - Craft Double Dagger   Damage: 4      ----- Items to Create :     Iron    : 2 Wood: 4  Water: 1 ");
 			System.out.println(
-					"2 - Craft Spear           Damage: 9      ----- Items to Create :     Iron    : 4 Wood: 2  Water: 1 ");
+					"2 - Craft Spear           Damage: 6      ----- Items to Create :     Iron    : 4 Wood: 2  Water: 1 ");
 			System.out.println(
-					"3 - Diamond Sword         Damage: 11     ----- Items to Create :     Diamond : 2 Iron: 3  Water: 1 ");
+					"3 - Elf's First Sword     Damage: 9      ----- Items to Create :     Diamond : 2 Iron: 4  Water: 1 ");
 			System.out.println("3-  ");
 			System.out.println("4 - Exit");
 			System.out.print("Select : ");
@@ -83,7 +83,7 @@ public class BlackSmith extends NormalLoc {
 				weaponCraftingTable.craftSpear();
 				break;
 			case 3:
-				weaponCraftingTable.craftDiamondSword();
+				weaponCraftingTable.craftElfsFirstSword();
 				break;
 			case 4:
 				System.out.println("You leave from Weapon Craft Table");

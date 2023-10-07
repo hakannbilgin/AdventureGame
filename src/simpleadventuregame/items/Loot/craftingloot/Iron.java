@@ -16,6 +16,11 @@ public class Iron extends Award{
 			int lootChange = (int) (Math.random() * 100);
 
 			return lootChange <= this.getChance();	
+		}else if (locationId == 16) {
+			this.setChance(80);
+			int lootChange = (int) (Math.random() * 100);
+
+			return lootChange <= this.getChance();
 		}else{
 			return false;
 		}

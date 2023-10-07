@@ -15,7 +15,7 @@ import simpleadventuregame.items.Loot.craftingloot.Iron;
 import simpleadventuregame.items.Loot.craftingloot.Water;
 import simpleadventuregame.items.armors.BossArmors.TrollArmor;
 import simpleadventuregame.items.elixir.HealthElixir;
-import simpleadventuregame.items.weapons.LongSword;
+import simpleadventuregame.items.weapons.toolstoreweapons.LongSword;
 import simpleadventuregame.locations.Location;
 import simpleadventuregame.locations.normallocs.houselocs.SafeHouse;
 import simpleadventuregame.locations.normallocs.storelocs.ToolStore;

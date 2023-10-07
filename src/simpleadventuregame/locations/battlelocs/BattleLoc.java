@@ -126,11 +126,11 @@ public abstract class BattleLoc extends Location {
 		int selectLocation;
 		boolean elixirMenu = true;
 		while (elixirMenu) {
-			System.out.println("Do you want to use any elixir? /n ---(1) Health Elixir (2)Medical Elixir (3) -No-");
+			System.out.println("Do you want to use any elixir? /n ---(1) Health Elixir (2)Medical Elixir (3) Block Elixir (4) -No-");
 			if (PlayerScanner.hasnextIntScanner()) {
 				selectLocation = PlayerScanner.intScanner();
 
-				if (selectLocation >= 0 && selectLocation <= 3) {
+				if (selectLocation >= 0 && selectLocation <= 4) {
 					switch (selectLocation) {
 					case 0:
 						System.out.println("Exiting the program.");
@@ -162,8 +162,9 @@ public abstract class BattleLoc extends Location {
 							
 							this.getInventory().getElixirChest().setBlockElixirCount(
 									this.getInventory().getElixirChest().getBlockElixirCount() - 1);
+							blockElixirUse=true;
 						} else {
-							System.out.println("You don't have any Medical Elixir");
+							System.out.println("You don't have any Block Elixir");
 						}
 
 						break;
@@ -172,7 +173,7 @@ public abstract class BattleLoc extends Location {
 						return;
 					}
 				} else {
-					System.out.println("Please enter a valid number between 0 and 3.");
+					System.out.println("Please enter a valid number between 0 and 4.");
 				}
 			} else {
 				System.out.println("Please enter a valid number.");

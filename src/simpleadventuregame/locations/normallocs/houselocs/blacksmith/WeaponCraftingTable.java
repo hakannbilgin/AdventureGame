@@ -2,7 +2,7 @@ package simpleadventuregame.locations.normallocs.houselocs.blacksmith;
 
 import simpleadventuregame.game.gameitems.Inventory;
 import simpleadventuregame.game.gameitems.Player;
-import simpleadventuregame.items.weapons.blacksmithweapons.DiamondSword;
+import simpleadventuregame.items.weapons.blacksmithweapons.ElfsFirstSword;
 import simpleadventuregame.items.weapons.blacksmithweapons.DoubleDagger;
 import simpleadventuregame.items.weapons.blacksmithweapons.Spear;
 
@@ -49,15 +49,15 @@ public class WeaponCraftingTable {
 		}
 	}
 	
-	public void craftDiamondSword() {
+	public void craftElfsFirstSword() {
 		if (getInventory().getDiamondCount() >= 2 && getInventory().getIronCount() >= 3
 				&& getInventory().getWaterCount() >= 1) {
-			getInventory().setWeapon(new DiamondSword());
+			getInventory().setWeapon(new ElfsFirstSword());
 			getInventory().setDiamondCount(getInventory().getDiamondCount() - 2);
-			getInventory().setIronCount(getInventory().getIronCount() - 3);
+			getInventory().setIronCount(getInventory().getIronCount() - 4);
 			getInventory().setWaterCount(getInventory().getWaterCount() - 1);
-			System.out.println("-------------------------- \n Diamond Sword Crafted \n --------------------------");
-			System.out.println("------------- \n Diamond Sword info: [Id:7] [Damage:  11] [Money: 0 (Craft Item)] ");
+			System.out.println("-------------------------- \n Elf's First Sword Crafted \n --------------------------");
+			System.out.println("------------- \n Elf's First Sword info: [Id:7] [Damage:  9] [Money: 0 (Craft Item)] ");
 		} else {
 			System.out.println("You don't have enough item");
 		}

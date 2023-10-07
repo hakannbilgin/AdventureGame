@@ -2,6 +2,7 @@ package simpleadventuregame.locations.normallocs.storelocs;
 
 import simpleadventuregame.game.gameitems.Inventory;
 import simpleadventuregame.game.gameitems.Player;
+import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.elixir.Elixir;
 import simpleadventuregame.items.elixir.HealthElixir;
 import simpleadventuregame.items.elixir.MedicalElixir;
@@ -12,11 +13,15 @@ import simpleadventuregame.utils.PlayerScanner;
 public class MagicalElfStore extends NormalLoc {
 //	private HealthElixir healthElixir;
 //	private MedicalElixir medicalElixir;
+	
+	private String equipmentWeaponFormat = " Equipment :  [%-7s] [%d] [Damage:  %-1d] [Money: %2d] \n";
+	private String equipmentArmorFormat = " Equipment :  [%-7s] [%d] [DamageDodge:  %-1d] [Money: %2d] \n";
 
 	public MagicalElfStore(Player player) {
 		super(13, player, "Aurae's Magical Elf Store");
 
 	}
+	
 
 	@Override
 	public boolean onLocation() {
@@ -27,7 +32,7 @@ public class MagicalElfStore extends NormalLoc {
 		while (showMenu) {
 			this.getPlayer().setMoney(500);
 			System.out.println("1 - Elixirs");
-			System.out.println("2 - ");
+			System.out.println("2 - Weapons");
 			System.out.println("3 - Exit from Aurae's Magical Elf Store ");
 			System.out.print("Select : ");
 			int selectCase = PlayerScanner.intScanner();
@@ -53,6 +58,102 @@ public class MagicalElfStore extends NormalLoc {
 		return true;
 	}
 
+
+
+	public void selectElixirInElfStore1() {
+
+		System.out.println(
+				"1 - (ID=11) (Price: 10 ) Health Elixir(5Health) gives 5 extra health to your base health while you are in battle(one time).");
+		System.out.println("12 - (ID=2) (Price: 15 ) Medical Elixir :  full your health when your health is low.");
+		System.out.println("13- (ID=3) (Price: 15 ) Block Elixir :  It blocks monster attack in battle(one time)");
+		System.out.println("Please enter '0' to exit");
+
+		System.out.println("Please enter the id of the elixir you have selected : ");
+		int selectElixirId = PlayerScanner.intScanner();
+
+		while (selectElixirId < 0 && selectElixirId > Elixir.elixirs().length) {
+			System.out.println(" you entered invalid number, please enter again ! ");
+			selectElixirId = PlayerScanner.intScanner();
+
+		}
+		if (selectElixirId != 0) {
+			Elixir selectedElixir = Elixir.getElixirById(selectElixirId);
+
+			if (selectedElixir != null) {
+				if (selectedElixir.getPrice() > this.getPlayer().getMoney()) {
+					System.out.println("You don't have enough money");
+				} else {
+//					SATIN ALMA İŞLEMİ 
+//					System.out.println(" You have purchased " + selectedElixir.getName());
+					int balance = this.getPlayer().getMoney() - selectedElixir.getPrice();
+					this.getPlayer().setMoney(balance);
+//					this.purchaseElixirInElfStore(selectElixirId);
+					this.getPlayer().getInventory().addBattleLocAwardItem(selectedElixir);
+					System.out.println("You Purchased " + selectedElixir.getName() + ". Your current " + selectedElixir.getName() + " Count is: "
+							+ this.getInventory().getawardItemsInInventoryById(selectedElixir.getId()));
+					System.out.println("Your current money : " + this.getPlayer().getMoney());
+
+				}
+
+			}
+		}
+
+	}
+
+
+	public void selectWeaponInMagicalElfStore() {
+
+		printWeaponInToolStore();
+
+		System.out.println("Please enter '0' to exit");
+
+		System.out.println("Please enter the id of the weapon you have selected : ");
+		int selectWeaponId = PlayerScanner.intScanner();
+
+		while (selectWeaponId < 0 && selectWeaponId > Weapon.weaponsInMagicalElfStore().length) {
+			System.out.println(" you entered invalid number, please enter again ! ");
+			selectWeaponId = PlayerScanner.intScanner();
+
+		}
+		if (selectWeaponId != 0) {
+			Weapon selectedWeapon = Weapon.getWeaponInMagicalStoreById(selectWeaponId);
+
+			if (selectedWeapon != null) {
+				if (selectedWeapon.getPrice() > this.getPlayer().getMoney()) {
+					System.out.println("You don't have enough money");
+				} else {
+//					SATIN ALMA İŞLEMİ 
+					System.out.println(" You have purchased " + selectedWeapon.getName());
+					int balance = this.getPlayer().getMoney() - selectedWeapon.getPrice();
+					this.getPlayer().setMoney(balance);
+					System.out.println("Your current money : " + this.getPlayer().getMoney());
+					this.getPlayer().getInventory().setWeapon(selectedWeapon);
+					System.out.println("Your weapon is" + getPlayer().getInventory().getWeapon().getName());
+
+				}
+
+			}
+		}
+
+	}
+	
+	public void printWeaponInToolStore() {
+
+		System.out.println("-----Weapons-----");
+
+		Weapon[] weaponlist = Weapon.weaponsInMagicalElfStore();
+
+		for (Weapon weapons : weaponlist) {
+
+			System.out.printf(equipmentWeaponFormat, weapons.getName(), weapons.getId(), weapons.getDamage(),
+					weapons.getPrice());
+		}
+	}
+	public Inventory getInventory() {
+
+		return this.getPlayer().getInventory();
+	}
+	
 //	public void selectElixirInElfStore() {
 //
 //		boolean elixirtMenu = true;
@@ -107,47 +208,6 @@ public class MagicalElfStore extends NormalLoc {
 //		}
 //
 //	}
-
-	public void selectElixirInElfStore1() {
-
-		System.out.println(
-				"1 - (ID=11) (Price: 10 ) Health Elixir(5Health) gives 5 extra health to your base health while you are in battle(one time).");
-		System.out.println("12 - (ID=2) (Price: 15 ) Medical Elixir :  full your health when your health is low.");
-		System.out.println("13- (ID=3) (Price: 15 ) Block Elixir :  It blocks monster attack in battle(one time)");
-		System.out.println("Please enter '0' to exit");
-
-		System.out.println("Please enter the id of the elixir you have selected : ");
-		int selectElixirId = PlayerScanner.intScanner();
-
-		while (selectElixirId < 0 && selectElixirId > Elixir.elixirs().length) {
-			System.out.println(" you entered invalid number, please enter again ! ");
-			selectElixirId = PlayerScanner.intScanner();
-
-		}
-		if (selectElixirId != 0) {
-			Elixir selectedElixir = Elixir.getElixirById(selectElixirId);
-
-			if (selectedElixir != null) {
-				if (selectedElixir.getPrice() > this.getPlayer().getMoney()) {
-					System.out.println("You don't have enough money");
-				} else {
-//					SATIN ALMA İŞLEMİ 
-//					System.out.println(" You have purchased " + selectedElixir.getName());
-					int balance = this.getPlayer().getMoney() - selectedElixir.getPrice();
-					this.getPlayer().setMoney(balance);
-//					this.purchaseElixirInElfStore(selectElixirId);
-					this.getPlayer().getInventory().addBattleLocAwardItem(selectedElixir);
-					System.out.println("You Purchased " + selectedElixir.getName() + ". Your current " + selectedElixir.getName() + " Count is: "
-							+ this.getInventory().getawardItemsInInventoryById(selectedElixir.getId()));
-					System.out.println("Your current money : " + this.getPlayer().getMoney());
-
-				}
-
-			}
-		}
-
-	}
-
 //	public void purchaseElixirInElfStore(int elixirId) {
 //
 //		switch (elixirId) {
@@ -167,10 +227,5 @@ public class MagicalElfStore extends NormalLoc {
 //			break;
 //		}
 //	}
-
-	public Inventory getInventory() {
-
-		return this.getPlayer().getInventory();
-	}
 
 }

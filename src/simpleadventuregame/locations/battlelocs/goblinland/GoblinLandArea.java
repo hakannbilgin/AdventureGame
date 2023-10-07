@@ -2,12 +2,6 @@ package simpleadventuregame.locations.battlelocs.goblinland;
 
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.locations.Location;
-import simpleadventuregame.locations.battlelocs.darkforests.AbandonedForest;
-import simpleadventuregame.locations.battlelocs.darkforests.DarkForest;
-import simpleadventuregame.locations.battlelocs.darkforests.DeadForest;
-import simpleadventuregame.locations.battlelocs.darkforests.ElfKingPlace;
-import simpleadventuregame.locations.battlelocs.darkforests.EnchantedForest;
-import simpleadventuregame.locations.normallocs.storelocs.MagicalElfStore;
 import simpleadventuregame.utils.PlayerScanner;
 
 public class GoblinLandArea extends Location {
@@ -27,7 +21,7 @@ public class GoblinLandArea extends Location {
 					"1 - Goblin Camp \n 2- Goblin Cave \n 3- Orc's Mine  \n 4-   \n 5-  \n 6- Exit from Forest Area ");
 
 			System.out.println(
-					"---Goblin Camp : (ID=16) Enemy= Little Goblin      Award= Emerald (%80change) + Water (%70change) ---");
+					"---Goblin Camp : (ID=16) Enemy= Little Goblin      Award= Emerald (%80change) + Iron (%800change) ---");
 			System.out.println(
 					"---Goblin Cave : (ID=17) Enemy= Mountain Goblin    Award= Steel (%80change) + Food  (%70change) ---");
 			System.out.println(

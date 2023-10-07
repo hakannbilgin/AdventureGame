@@ -8,7 +8,7 @@ import simpleadventuregame.utils.PlayerScanner;
 
 public class ToolStore extends NormalLoc {
 
-	private Weapon weapon = null;
+//	private Weapon weapon = null;
 
 	private String equipmentWeaponFormat = " Equipment :  [%-7s] [%d] [Damage:  %-1d] [Money: %2d] \n";
 	private String equipmentArmorFormat = " Equipment :  [%-7s] [%d] [DamageDodge:  %-1d] [Money: %2d] \n";
@@ -63,13 +63,13 @@ public class ToolStore extends NormalLoc {
 		System.out.println("Please enter the id of the weapon you have selected : ");
 		int selectWeaponId = PlayerScanner.intScanner();
 
-		while (selectWeaponId < 0 && selectWeaponId > weapon.weapons().length) {
+		while (selectWeaponId < 0 && selectWeaponId > Weapon.weaponsInToolStore().length) {
 			System.out.println(" you entered invalid number, please enter again ! ");
 			selectWeaponId = PlayerScanner.intScanner();
 
 		}
 		if (selectWeaponId != 0) {
-			Weapon selectedWeapon = Weapon.getWeaponById(selectWeaponId);
+			Weapon selectedWeapon = Weapon.getWeaponInToolStoreById(selectWeaponId);
 
 			if (selectedWeapon != null) {
 				if (selectedWeapon.getPrice() > this.getPlayer().getMoney()) {
@@ -130,7 +130,7 @@ public class ToolStore extends NormalLoc {
 
 		System.out.println("-----Weapons-----");
 
-		Weapon[] weaponlist = Weapon.weapons();
+		Weapon[] weaponlist = Weapon.weaponsInToolStore();
 
 		for (Weapon weapons : weaponlist) {
 

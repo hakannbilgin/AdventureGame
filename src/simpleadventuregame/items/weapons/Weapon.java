@@ -1,6 +1,11 @@
 package simpleadventuregame.items.weapons;
 
 import simpleadventuregame.items.Item;
+import simpleadventuregame.items.weapons.magicalelfstore.HiddenSword;
+import simpleadventuregame.items.weapons.toolstoreweapons.DarkSword;
+import simpleadventuregame.items.weapons.toolstoreweapons.IronPala;
+import simpleadventuregame.items.weapons.toolstoreweapons.LongSword;
+import simpleadventuregame.items.weapons.toolstoreweapons.ShortSword;
 
 public abstract class Weapon extends Item{
 //	private String name;
@@ -15,16 +20,35 @@ public abstract class Weapon extends Item{
 		this.price = price;
 	}
 
-	public static Weapon[] weapons() {
+	public static Weapon[] weaponsInToolStore() {
 
 		Weapon[] wList = { new ShortSword(), new LongSword(), new IronPala(), new DarkSword()};
 		return wList;
 
 	}
 
-	public static Weapon getWeaponById(int id) {
+	public static Weapon getWeaponInToolStoreById(int id) {
 
-		for (Weapon w : Weapon.weapons()) {
+		for (Weapon w : Weapon.weaponsInToolStore()) {
+			if (w.getId() == id) {
+				return w;
+			}
+		}
+
+		return null;
+
+	}
+	
+	public static Weapon[] weaponsInMagicalElfStore() {
+
+		Weapon[] wList = { new HiddenSword()};
+		return wList;
+
+	}
+
+	public static Weapon getWeaponInMagicalStoreById(int id) {
+
+		for (Weapon w : Weapon.weaponsInToolStore()) {
 			if (w.getId() == id) {
 				return w;
 			}
