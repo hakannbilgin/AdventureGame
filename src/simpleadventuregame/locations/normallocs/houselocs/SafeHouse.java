@@ -8,13 +8,14 @@ import simpleadventuregame.items.Loot.boxes.ElfKingBox;
 import simpleadventuregame.items.Loot.boxes.GoblinKingBox;
 import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.armors.BossArmors.TrollArmor;
+import simpleadventuregame.items.weapons.Weapon;
 import simpleadventuregame.locations.normallocs.NormalLoc;
 import simpleadventuregame.utils.PlayerScanner;
 
 public class SafeHouse extends NormalLoc {
 	private String infoPlayer = " Info :  [Your Health:  %-1d] [Your FoodCount:  %-1d] [Your WaterCount:  %-1d] [Your Satietry Level:  %-1d/20] [Your Thirst Level:  %-1d/20] \n";
 //	private String infoTrollBoxListFormat = " Item :  [%-11s] [Id :%d] [Count:  %-1d]   \n";
-	 
+
 	private ElfKingBox elfKingBox = new ElfKingBox();
 	private GoblinKingBox goblinKingBox = new GoblinKingBox();
 
@@ -90,49 +91,9 @@ public class SafeHouse extends NormalLoc {
 		} else {
 			this.getPlayer().getInventory().setFoodCount(this.getPlayer().getInventory().getFoodCount() - 1);
 			this.getPlayer().setSatiety(this.getPlayer().getSatiety() + 2);
-//			
 		}
 
 	}
-
-//	public void openBoxInSafeHouse() {
-//
-//		
-//		if (infoGiftBox()==true) {
-//			
-//		}
-//
-//		boolean openBoxMenu = true;
-//		while (openBoxMenu) {
-//
-//			System.out.println("------------ \n Do you want to Open a box \n ------------");
-//			System.out.println(" 1 - Open a Troll Box \n 2-   \n 3- Exit ");
-//
-//			System.out.print("Select : ");
-//
-//			int selectCase = PlayerScanner.intScanner();
-//
-//			while (selectCase < 0 && selectCase > 3) {
-//				System.out.println(" you entered invalid number, please enter again ! ");
-//				selectCase = PlayerScanner.intScanner();
-//			}
-//			System.out.println("Burada1");
-//			if (selectCase == 1) {
-//				System.out.println("Burada2");
-//				this.openTrollBox();
-//				return;
-//			} else if (selectCase == 2) {
-//				System.out.println("Burada 3");
-//				return;
-//			} else if (selectCase == 3) {
-//				System.out.println("You exit from Safe House");
-//				System.out.println("Burada 4");
-//				openBoxMenu = false;
-//				return;
-//			}
-//
-//		}
-//	}
 
 	public void openBoxInSafeHouse2() {
 
@@ -181,35 +142,35 @@ public class SafeHouse extends NormalLoc {
 		}
 		return true;
 	}
-	
+
 	public void openElfKingBox() {
 
 		if (this.getInventory().getBoxChest().getElfKingBoxCount() > 0) {
 			System.out.println("YOU ARE COLLECTING YOUR BOX");
 			this.getInventory().getBoxChest()
 					.setElfKingBoxCount(this.getInventory().getBoxChest().getElfKingBoxCount() - 1);
-			this.collectBoxAward2(elfKingBox.openBox());
+			this.collectBoxAward(elfKingBox.openBox());
 
 		} else {
 			System.out.println("You don't have any Elf King's box");
 		}
 
 	}
-	
+
 	public void openGoblinKingBox() {
 		if (this.getInventory().getBoxChest().getElfKingBoxCount() > 0) {
 			System.out.println("YOU ARE COLLECTING YOUR BOX");
 			this.getInventory().getBoxChest()
 					.setElfKingBoxCount(this.getInventory().getBoxChest().getElfKingBoxCount() - 1);
-			this.collectBoxAward2(elfKingBox.openBox());
+			this.collectBoxAward(goblinKingBox.openBox());
 
 		} else {
 			System.out.println("You don't have any Elf King's box");
 		}
-		
+
 	}
-	
-	public void collectBoxAward2(Item item) {
+
+	public void collectBoxAward(Item item) {
 
 		if (item instanceof Award) {
 
@@ -220,8 +181,16 @@ public class SafeHouse extends NormalLoc {
 
 			System.out.println("You gained " + item.getName());
 
+		} else if (item instanceof Weapon) {
+			getInventory().setWeapon((Weapon) item);
+			System.out.println("You gained " + item.getName());
 		}
 
+	}
+
+	public Inventory getInventory() {
+
+		return this.getPlayer().getInventory();
 	}
 
 //	public void collectBoxAward(Item item) {
@@ -260,11 +229,44 @@ public class SafeHouse extends NormalLoc {
 //
 //		}
 //	}
-	
 
-	public Inventory getInventory() {
-
-		return this.getPlayer().getInventory();
-	}
+//	public void openBoxInSafeHouse() {
+//
+//		
+//		if (infoGiftBox()==true) {
+//			
+//		}
+//
+//		boolean openBoxMenu = true;
+//		while (openBoxMenu) {
+//
+//			System.out.println("------------ \n Do you want to Open a box \n ------------");
+//			System.out.println(" 1 - Open a Troll Box \n 2-   \n 3- Exit ");
+//
+//			System.out.print("Select : ");
+//
+//			int selectCase = PlayerScanner.intScanner();
+//
+//			while (selectCase < 0 && selectCase > 3) {
+//				System.out.println(" you entered invalid number, please enter again ! ");
+//				selectCase = PlayerScanner.intScanner();
+//			}
+//			System.out.println("Burada1");
+//			if (selectCase == 1) {
+//				System.out.println("Burada2");
+//				this.openTrollBox();
+//				return;
+//			} else if (selectCase == 2) {
+//				System.out.println("Burada 3");
+//				return;
+//			} else if (selectCase == 3) {
+//				System.out.println("You exit from Safe House");
+//				System.out.println("Burada 4");
+//				openBoxMenu = false;
+//				return;
+//			}
+//
+//		}
+//	}
 
 }

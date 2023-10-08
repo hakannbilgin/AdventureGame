@@ -14,6 +14,7 @@ import simpleadventuregame.items.Loot.craftingloot.Steel;
 import simpleadventuregame.items.Loot.craftingloot.Water;
 import simpleadventuregame.items.Loot.craftingloot.Wood;
 import simpleadventuregame.items.armors.BossArmors.TrollArmor;
+import simpleadventuregame.items.weapons.bossweapons.GoblinSword;
 
 public class GoblinKingBox extends GiftBox{
 
@@ -81,7 +82,7 @@ public class GoblinKingBox extends GiftBox{
 		getBoxAward().add(3, new GoblinKey());
 		getBoxAward().add(4, new Emerald());
 		getBoxAward().add(5, new Steel());
-		getBoxAward().add(6, new TrollArmor());
+		getBoxAward().add(6, new GoblinSword());
 		
 		for (Item item : getBoxAward()) {
 			System.out.printf(getAwardsFormat(), item.getName(), item.getId());;

@@ -1,7 +1,8 @@
 package simpleadventuregame.items.weapons;
 
 import simpleadventuregame.items.Item;
-import simpleadventuregame.items.weapons.magicalelfstore.HiddenSword;
+import simpleadventuregame.items.weapons.goblinlandStoreweapons.UglyOrcSword;
+import simpleadventuregame.items.weapons.magicalelfstoreweapons.HiddenSword;
 import simpleadventuregame.items.weapons.toolstoreweapons.DarkSword;
 import simpleadventuregame.items.weapons.toolstoreweapons.IronPala;
 import simpleadventuregame.items.weapons.toolstoreweapons.LongSword;
@@ -57,6 +58,28 @@ public abstract class Weapon extends Item{
 		return null;
 
 	}
+	
+	
+	public static Weapon[] weaponsInGoblinLandStore() {
+
+		Weapon[] wList = { new UglyOrcSword()};
+		return wList;
+
+	}
+
+	public static Weapon getWeaponInGoblinLandStoreById(int id) {
+
+		for (Weapon w : Weapon.weaponsInToolStore()) {
+			if (w.getId() == id) {
+				return w;
+			}
+		}
+
+		return null;
+
+	}
+
+	
 
 //	public int getId() {
 //		return id;
