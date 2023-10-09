@@ -1,6 +1,10 @@
 package simpleadventuregame.items.armors;
 
 import simpleadventuregame.items.Item;
+import simpleadventuregame.items.armors.toolstorearmors.LightArmor;
+import simpleadventuregame.items.armors.toolstorearmors.MagicalArmor;
+import simpleadventuregame.items.armors.toolstorearmors.NormalArmor;
+import simpleadventuregame.items.armors.toolstorearmors.ShinyArmor;
 
 public abstract class Armor extends Item{
 

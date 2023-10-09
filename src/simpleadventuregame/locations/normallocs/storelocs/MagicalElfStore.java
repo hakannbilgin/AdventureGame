@@ -103,7 +103,7 @@ public class MagicalElfStore extends NormalLoc {
 
 	public void selectWeaponInMagicalElfStore() {
 
-		printWeaponInToolStore();
+		printWeaponInMagicalElfStore();
 
 		System.out.println("Please enter '0' to exit");
 
@@ -137,9 +137,9 @@ public class MagicalElfStore extends NormalLoc {
 
 	}
 	
-	public void printWeaponInToolStore() {
+	public void printWeaponInMagicalElfStore() {
 
-		System.out.println("-----Weapons-----");
+		System.out.println("----- Magical Elf Store Weapons-----");
 
 		Weapon[] weaponlist = Weapon.weaponsInMagicalElfStore();
 

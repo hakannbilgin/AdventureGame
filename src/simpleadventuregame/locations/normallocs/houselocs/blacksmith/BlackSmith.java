@@ -61,13 +61,15 @@ public class BlackSmith extends NormalLoc {
 		while (weaponCraftMenu) {
 			this.getPlayer().printDetailedInfo();
 			System.out.println(
-					"1 - Craft Double Dagger   Damage: 4      ----- Items to Create :     Iron    : 2 Wood: 4  Water: 1 ");
+					"1 - Craft Double Dagger   Damage: 4      ----- Items to Create :     Iron    : 2 Wood:  4  Water: 1 ");
 			System.out.println(
-					"2 - Craft Spear           Damage: 6      ----- Items to Create :     Iron    : 4 Wood: 2  Water: 1 ");
+					"2 - Craft Spear           Damage: 6      ----- Items to Create :     Iron    : 4 Wood:  2  Water: 1 ");
 			System.out.println(
-					"3 - Elf's First Sword     Damage: 9      ----- Items to Create :     Diamond : 2 Iron: 4  Water: 1 ");
-			System.out.println("3-  ");
-			System.out.println("4 - Exit");
+					"3 - Elf's First Sword     Damage: 8      ----- Items to Create :     Diamond : 1 Iron:  4  Water: 1 ");
+			System.out.println(
+					"4 - Diamond Sword         Damage: 14     ----- Items to Create :     Diamond : 2 Steel: 3  Water: 2 ");
+			System.out.println("5- Exit ");
+//			System.out.println("6 - Exit");
 			System.out.print("Select : ");
 			int selectCase = PlayerScanner.intScanner();
 
@@ -86,6 +88,10 @@ public class BlackSmith extends NormalLoc {
 				weaponCraftingTable.craftElfsFirstSword();
 				break;
 			case 4:
+				weaponCraftingTable.craftDiamondSword();
+				break;
+				
+			case 5:
 				System.out.println("You leave from Weapon Craft Table");
 				weaponCraftMenu = false;
 				break;
@@ -103,7 +109,7 @@ public class BlackSmith extends NormalLoc {
 		while (weaponCraftMenu) {
 
 			System.out.println(
-					"1 - Craft Wood Armor           Dodge:1             ---- Items to Create : Iron : 0  Wood: 3  Water:  1 ");
+					"1 - Craft Wood Armor           Dodge:2             ---- Items to Create : Iron : 0  Wood: 4  Water:  1 ");
 			System.out.println(
 					"2-  Craft Iron Armor           Dodge:6             ---- Items to Create : Iron : 3  Wood: 1  Water:  2 ");
 			System.out.println(

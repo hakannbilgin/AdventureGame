@@ -50,14 +50,29 @@ public class WeaponCraftingTable {
 	}
 	
 	public void craftElfsFirstSword() {
-		if (getInventory().getDiamondCount() >= 2 && getInventory().getIronCount() >= 3
+		if (getInventory().getDiamondCount() >= 1 && getInventory().getIronCount() >= 4
 				&& getInventory().getWaterCount() >= 1) {
 			getInventory().setWeapon(new ElfsFirstSword());
-			getInventory().setDiamondCount(getInventory().getDiamondCount() - 2);
+			getInventory().setDiamondCount(getInventory().getDiamondCount() - 1);
 			getInventory().setIronCount(getInventory().getIronCount() - 4);
 			getInventory().setWaterCount(getInventory().getWaterCount() - 1);
 			System.out.println("-------------------------- \n Elf's First Sword Crafted \n --------------------------");
-			System.out.println("------------- \n Elf's First Sword info: [Id:7] [Damage:  9] [Money: 0 (Craft Item)] ");
+			System.out.println("------------- \n Elf's First Sword info: [Id:7] [Damage:  8] [Money: 0 (Craft Item)] ");
+		} else {
+			System.out.println("You don't have enough item");
+		}
+		
+	}
+	
+	public void craftDiamondSword() {
+		if (getInventory().getDiamondCount() >= 2 && getInventory().getSteelCount() >= 3
+				&& getInventory().getWaterCount() >= 2) {
+			getInventory().setWeapon(new ElfsFirstSword());
+			getInventory().setDiamondCount(getInventory().getDiamondCount() - 2);
+			getInventory().setIronCount(getInventory().getSteelCount() - 3);
+			getInventory().setWaterCount(getInventory().getWaterCount() - 2);
+			System.out.println("-------------------------- \n Diamond Sword Crafted \n --------------------------");
+			System.out.println("------------- \n Diamond Sword info: [Id:9] [Damage:  14] [Money: 0 (Craft Item)] ");
 		} else {
 			System.out.println("You don't have enough item");
 		}
