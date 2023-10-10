@@ -31,9 +31,10 @@ public class MagicalElfStore extends NormalLoc {
 		boolean showMenu = true;
 		while (showMenu) {
 			this.getPlayer().setMoney(500);
-			System.out.println("1 - Elixirs");
-			System.out.println("2 - Weapons");
-			System.out.println("3 - Exit from Aurae's Magical Elf Store ");
+			System.out.println("1 - Elixirs ");
+			System.out.println("2 - Weapons ");
+			System.out.println("3 - Armors ");
+			System.out.println("4 - Exit from Aurae's Magical Elf Store ");
 			System.out.print("Select : ");
 			int selectCase = PlayerScanner.intScanner();
 
@@ -43,12 +44,15 @@ public class MagicalElfStore extends NormalLoc {
 			}
 			switch (selectCase) {
 			case 1:
-				selectElixirInElfStore1();
+				selectElixirInElfStore();
 				break;
 			case 2:
-
+				selectWeaponInMagicalElfStore();
 				break;
 			case 3:
+				
+				break;
+			case 4:
 				System.out.println("You exit from Aurae's Magical Elf Store");
 				showMenu = false;
 				break;
@@ -60,7 +64,7 @@ public class MagicalElfStore extends NormalLoc {
 
 
 
-	public void selectElixirInElfStore1() {
+	public void selectElixirInElfStore() {
 
 		System.out.println(
 				"1 - (ID=11) (Price: 10 ) Health Elixir(5Health) gives 5 extra health to your base health while you are in battle(one time).");
@@ -149,6 +153,58 @@ public class MagicalElfStore extends NormalLoc {
 					weapons.getPrice());
 		}
 	}
+	
+	public void selectArmorInMagicalArmorStore() {
+
+		printArmorInMagicalElfStore();
+
+		System.out.println("Please enter '0' to exit");
+
+		System.out.println("Please enter the id of the armor you have selected : ");
+		int selectedArmorId = PlayerScanner.intScanner();
+
+		while (selectedArmorId < 1 && selectedArmorId > Armor.armorsInMagicalElfStore().length) {
+			System.out.println(" you entered invalid number, please enter again ! ");
+			selectedArmorId = PlayerScanner.intScanner();
+
+		}
+		if (selectedArmorId != 0) {
+			Armor selectedArmor = Armor.getArmorInMagcalElfStoreById(selectedArmorId);
+
+			if (selectedArmor != null) {
+				if (selectedArmor.getPrice() > this.getPlayer().getMoney()) {
+					System.out.println("You don't have enough money");
+				} else {
+//					SATIN ALMA İŞLEMİ 
+					System.out.println(" You have purchased " + selectedArmor.getName());
+					int balance = this.getPlayer().getMoney() - selectedArmor.getPrice();
+					this.getPlayer().setMoney(balance);
+					System.out.println("Your current money : " + this.getPlayer().getMoney());
+					this.getPlayer().getInventory().setArmor(selectedArmor);
+					System.out.println("Your armor is" + getPlayer().getInventory().getArmor().getName());
+
+				}
+
+			}
+		}
+
+	}
+	
+	public void printArmorInMagicalElfStore() {
+
+		System.out.println("----- Magical Elf Store Armors-----");
+
+		Armor[] armorList = Armor.armorsInMagicalElfStore();
+
+		for (Armor armors : armorList) {
+
+			System.out.printf(equipmentArmorFormat, armors.getName(), armors.getId(), armors.getDamageDodge(),
+					armors.getPrice());
+
+		}
+	}
+	
+	
 	public Inventory getInventory() {
 
 		return this.getPlayer().getInventory();

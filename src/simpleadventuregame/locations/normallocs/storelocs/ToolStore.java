@@ -99,13 +99,13 @@ public class ToolStore extends NormalLoc {
 		System.out.println("Please enter the id of the armor you have selected : ");
 		int selectedArmorId = PlayerScanner.intScanner();
 
-		while (selectedArmorId < 1 && selectedArmorId > Armor.armors().length) {
+		while (selectedArmorId < 1 && selectedArmorId > Armor.armorsInToolStore().length) {
 			System.out.println(" you entered invalid number, please enter again ! ");
 			selectedArmorId = PlayerScanner.intScanner();
 
 		}
 		if (selectedArmorId != 0) {
-			Armor selectedArmor = Armor.getArmorById(selectedArmorId);
+			Armor selectedArmor = Armor.getArmorInToolStoreById(selectedArmorId);
 
 			if (selectedArmor != null) {
 				if (selectedArmor.getPrice() > this.getPlayer().getMoney()) {
@@ -143,7 +143,7 @@ public class ToolStore extends NormalLoc {
 
 		System.out.println("-----Armor-----");
 
-		Armor[] armorList = Armor.armors();
+		Armor[] armorList = Armor.armorsInToolStore();
 
 		for (Armor armors : armorList) {
 

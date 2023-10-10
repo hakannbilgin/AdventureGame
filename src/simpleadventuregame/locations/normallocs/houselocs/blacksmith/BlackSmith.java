@@ -113,7 +113,7 @@ public class BlackSmith extends NormalLoc {
 			System.out.println(
 					"2-  Craft Iron Armor           Dodge:6             ---- Items to Create : Iron : 3  Wood: 1  Water:  2 ");
 			System.out.println(
-					"3-  Craft Blue Spirit Armor    Dodge:11            ---  Items to Create : Diamond:1 Iron: 2  Water:  2 ");
+					"3-  Craft Green Elf Armor      Dodge:11            ---- Items to Create : Diamond:1 Iron: 3  Water:  2 ");
 			System.out.println("4 - Exit");
 			System.out.print("Select : ");
 			int selectCase = PlayerScanner.intScanner();
@@ -130,7 +130,7 @@ public class BlackSmith extends NormalLoc {
 				armorCraftingTable.craftIronArmor();
 				break;
 			case 3:
-				armorCraftingTable.craftBlueSpiritArmor();
+				armorCraftingTable.craftGreenElfArmor();
 				break;
 			case 4:
 				System.out.println("You leave from Armor Craft Table");

@@ -1,6 +1,7 @@
 package simpleadventuregame.items.armors;
 
 import simpleadventuregame.items.Item;
+import simpleadventuregame.items.armors.magicalelfstorearmors.BlueSpiritArmor;
 import simpleadventuregame.items.armors.toolstorearmors.LightArmor;
 import simpleadventuregame.items.armors.toolstorearmors.MagicalArmor;
 import simpleadventuregame.items.armors.toolstorearmors.NormalArmor;
@@ -23,16 +24,16 @@ public abstract class Armor extends Item{
 	}
 	
 	
-	public static Armor[] armors() {
+	public static Armor[] armorsInToolStore() {
 
 		Armor[] aList = { new LightArmor(), new NormalArmor(), new ShinyArmor() , new MagicalArmor() };
 		return aList;
 
 	}
 	
-	public static Armor getArmorById(int id) {
+	public static Armor getArmorInToolStoreById(int id) {
 
-		for (Armor a : Armor.armors()) {
+		for (Armor a : Armor.armorsInToolStore()) {
 			if (a.getId() == id) {
 				return a;
 			}
@@ -41,6 +42,48 @@ public abstract class Armor extends Item{
 		return null;
 
 	}
+	
+	
+	
+	public static Armor[] armorsInMagicalElfStore() {
+
+		Armor[] aList = { new BlueSpiritArmor() };
+		return aList;
+
+	}
+	
+	public static Armor getArmorInMagcalElfStoreById(int id) {
+
+		for (Armor a : Armor.armorsInMagicalElfStore()) {
+			if (a.getId() == id) {
+				return a;
+			}
+		}
+
+		return null;
+
+	}
+	
+	public static Armor[] armorsInGoblinStore() {
+
+		Armor[] aList = {  };
+		return aList;
+
+	}
+	
+	public static Armor getArmorInGoblinStoreById(int id) {
+
+		for (Armor a : Armor.armorsInGoblinStore()) {
+			if (a.getId() == id) {
+				return a;
+			}
+		}
+
+		return null;
+
+	}
+	
+	
 	
 	
 //	public String getName() {

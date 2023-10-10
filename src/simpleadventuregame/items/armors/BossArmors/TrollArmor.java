@@ -5,7 +5,7 @@ import simpleadventuregame.items.armors.Armor;
 public class TrollArmor extends Armor{
 
 	public TrollArmor() {
-		super("Troll Armor", 7, 13, 0);
+		super("Troll Armor", 7, 12, 0);
 		
 	}
 

@@ -2,7 +2,7 @@ package simpleadventuregame.locations.normallocs.houselocs.blacksmith;
 
 import simpleadventuregame.game.gameitems.Inventory;
 import simpleadventuregame.game.gameitems.Player;
-import simpleadventuregame.items.armors.blacksmitharmors.BlueSpiritArmor;
+import simpleadventuregame.items.armors.blacksmitharmors.GreenElfArmor;
 import simpleadventuregame.items.armors.blacksmitharmors.IronArmor;
 import simpleadventuregame.items.armors.blacksmitharmors.WoodArmor;
 
@@ -48,14 +48,14 @@ public class ArmorCraftingTable {
 		}
 	}
 
-	public void craftBlueSpiritArmor() {
+	public void craftGreenElfArmor() {
 		if (getInventory().getDiamondCount() >= 1 && getInventory().getIronCount() >= 2
 				&& getInventory().getWaterCount() >= 2) {
-			getInventory().setArmor(new BlueSpiritArmor());
+			getInventory().setArmor(new GreenElfArmor());
 			getInventory().setDiamondCount(getInventory().getDiamondCount() - 1);
-			getInventory().setIronCount(getInventory().getIronCount() - 2);
+			getInventory().setIronCount(getInventory().getIronCount() - 3);
 			getInventory().setWaterCount(getInventory().getWaterCount() - 2);
-			System.out.println("-------------------------- \n Blue Spirit Armor Crafted \n --------------------------");
+			System.out.println("-------------------------- \n Green Elf Armor Crafted \n --------------------------");
 			System.out.println("------------- \n Iron Armor info: [8] [DamageDodge:  8 (Craft Item) ]  ");
 		} else {
 			System.out.println("You don't have enough item");
