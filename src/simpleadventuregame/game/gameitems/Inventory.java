@@ -1,6 +1,7 @@
 package simpleadventuregame.game.gameitems;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import simpleadventuregame.items.Item;
@@ -16,6 +17,7 @@ public class Inventory {
 
 	private List<Award> battleLocAwardsInInventory = new ArrayList<>();
 	private List<Item> boxAwardsInInventory = new ArrayList<>();
+	private HashMap<String, Tool> toolBox  = new HashMap<String, Tool>();
 	private AwardCounter awardCounter;
 	private ElixirChest elixirChest;
 	private BoxChest boxChest;
@@ -279,6 +281,15 @@ public class Inventory {
 	public void setBoxAwardsInInventory(List<Item> boxAwardsInInventory) {
 		this.boxAwardsInInventory = boxAwardsInInventory;
 	}
+
+	public HashMap<String, Tool> getToolBox() {
+		return toolBox;
+	}
+
+	public void setToolBox(HashMap<String, Tool> toolBox) {
+		this.toolBox = toolBox;
+	}
+	
 	
 
 //	public void setAwardCounter(AwardCounter awardCounter) {

@@ -2,7 +2,7 @@ package simpleadventuregame.locations.battlelocs.goblinland;
 
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.locations.Location;
-import simpleadventuregame.locations.normallocs.storelocs.UglyGoblinsStore;
+import simpleadventuregame.locations.normallocs.storelocs.UglyGoblinStore;
 import simpleadventuregame.utils.PlayerScanner;
 
 public class GoblinLandArea extends Location {
@@ -54,7 +54,7 @@ public class GoblinLandArea extends Location {
 				new GoblinKingPlace(getPlayer()).onLocation();
 				break;
 			case 5:
-				new UglyGoblinsStore(getPlayer()).onLocation();
+				new UglyGoblinStore(getPlayer()).onLocation();
 				break;
 			case 6:
 

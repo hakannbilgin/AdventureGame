@@ -30,7 +30,7 @@ public class MagicalElfStore extends NormalLoc {
 		this.getPlayer().printDetailedInfo();
 		boolean showMenu = true;
 		while (showMenu) {
-			this.getPlayer().setMoney(500);
+//			this.getPlayer().setMoney(500);
 			System.out.println("1 - Elixirs ");
 			System.out.println("2 - Weapons ");
 			System.out.println("3 - Armors ");
@@ -50,7 +50,7 @@ public class MagicalElfStore extends NormalLoc {
 				selectWeaponInMagicalElfStore();
 				break;
 			case 3:
-				
+				selectArmorInMagicalElfStore();
 				break;
 			case 4:
 				System.out.println("You exit from Aurae's Magical Elf Store");
@@ -154,7 +154,7 @@ public class MagicalElfStore extends NormalLoc {
 		}
 	}
 	
-	public void selectArmorInMagicalArmorStore() {
+	public void selectArmorInMagicalElfStore() {
 
 		printArmorInMagicalElfStore();
 

@@ -60,14 +60,14 @@ public abstract class Weapon extends Item{
 	}
 	
 	
-	public static Weapon[] weaponsInGoblinLandStore() {
+	public static Weapon[] weaponsInGoblinStore() {
 
 		Weapon[] wList = { new UglyOrcSword()};
 		return wList;
 
 	}
 
-	public static Weapon getWeaponInGoblinLandStoreById(int id) {
+	public static Weapon getWeaponInGoblinStoreById(int id) {
 
 		for (Weapon w : Weapon.weaponsInToolStore()) {
 			if (w.getId() == id) {

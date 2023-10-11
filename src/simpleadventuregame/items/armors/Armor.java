@@ -1,6 +1,7 @@
 package simpleadventuregame.items.armors;
 
 import simpleadventuregame.items.Item;
+import simpleadventuregame.items.armors.goblinstorearmors.SteelHeartArmor;
 import simpleadventuregame.items.armors.magicalelfstorearmors.BlueSpiritArmor;
 import simpleadventuregame.items.armors.toolstorearmors.LightArmor;
 import simpleadventuregame.items.armors.toolstorearmors.MagicalArmor;
@@ -66,7 +67,7 @@ public abstract class Armor extends Item{
 	
 	public static Armor[] armorsInGoblinStore() {
 
-		Armor[] aList = {  };
+		Armor[] aList = { new SteelHeartArmor() };
 		return aList;
 
 	}
