@@ -17,7 +17,7 @@ public class Inventory {
 
 	private List<Award> battleLocAwardsInInventory = new ArrayList<>();
 	private List<Item> boxAwardsInInventory = new ArrayList<>();
-	private HashMap<String, Tool> toolBox  = new HashMap<String, Tool>();
+	private HashMap<String, Tool> toolBox  = new HashMap<String, Tool>(); //TODO
 	private AwardCounter awardCounter;
 	private ElixirChest elixirChest;
 	private BoxChest boxChest;
@@ -34,7 +34,8 @@ public class Inventory {
 	private int elfStoneCount = 0;
 	private int goblinKeyCount = 0;
 	private int steelCount = 0;
-	private int hammerPartsCount= 0;
+//	private int hammerPartsCount= 0;
+	private int toolPartsCount = 0;
 
 	public Inventory() {
 		this.weapon = new Fist();
@@ -139,7 +140,8 @@ public class Inventory {
 			this.setSteelCount(this.getSteelCount() + 1);
 			break;
 		case 15:
-			this.setHammerPartsCount(this.getHammerPartsCount() + 1);
+//			this.setHammerPartsCount(this.getHammerPartsCount() + 1);
+			this.setToolPartsCount(this.getToolPartsCount() + 1);
 			break;
 		case 16:
 			this.getBoxChest().setGoblinKingBoxCount(this.getBoxChest().getGoblinKingBoxCount()+ 1);;
@@ -266,12 +268,13 @@ public class Inventory {
 		this.tool = tool;
 	}
 
-	public int getHammerPartsCount() {
-		return hammerPartsCount;
+	
+	public int getToolPartsCount() {
+		return toolPartsCount;
 	}
 
-	public void setHammerPartsCount(int hammerPartsCount) {
-		this.hammerPartsCount = hammerPartsCount;
+	public void setToolPartsCount(int toolPartsCount) {
+		this.toolPartsCount = toolPartsCount;
 	}
 
 	public List<Item> getBoxAwardsInInventory() {

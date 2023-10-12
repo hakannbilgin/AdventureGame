@@ -2,10 +2,10 @@ package simpleadventuregame.items.Loot.craftingloot;
 
 import simpleadventuregame.items.Loot.Award;
 
-public class HammerParts extends Award{
+public class ToolParts extends Award{
 
-	public HammerParts() {
-		super(15, "Hammer Parts");
+	public ToolParts() {
+		super(15, "Tool Parts");
 		// TODO Auto-generated constructor stub
 	}
 
