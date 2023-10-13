@@ -39,6 +39,7 @@ public class SafeHouse extends NormalLoc {
 			System.out.println("1 - Drink Water (One water item add -2 point to your Thirst Level");
 			System.out.println("2 - Eat Food (One Food item add +2 point to your Satietry");
 			System.out.println("3 - Open a box from Your inventory");
+			System.out.println("4 - Clean the broken Tool -  (You will have useless stick(Only Useable for ---))");
 			System.out.println("4 - Exit");
 			System.out.print("Select : ");
 			int selectCase = PlayerScanner.intScanner();

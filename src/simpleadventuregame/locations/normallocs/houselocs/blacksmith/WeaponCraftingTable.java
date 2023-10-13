@@ -68,6 +68,7 @@ public class WeaponCraftingTable {
 		if (getInventory().getDiamondCount() >= 2 && getInventory().getSteelCount() >= 3
 				&& getInventory().getWaterCount() >= 2) {
 			getInventory().setWeapon(new ElfsFirstSword());
+			getInventory().getTool().setUseCount(this.getInventory().getTool().getUseCount() - 1);
 			getInventory().setDiamondCount(getInventory().getDiamondCount() - 2);
 			getInventory().setIronCount(getInventory().getSteelCount() - 3);
 			getInventory().setWaterCount(getInventory().getWaterCount() - 2);

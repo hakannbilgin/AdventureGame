@@ -97,7 +97,14 @@ public class BlackSmith extends NormalLoc {
 				weaponCraftingTable.craftElfsFirstSword();
 				break;
 			case 4:
-				weaponCraftingTable.craftDiamondSword();
+				if (this.getPlayer().getInventory().getTool().getId() != 1) {
+					System.out.println("You need true tool to craft this item");
+				} else if (this.getPlayer().getInventory().getTool().getUseCount() <= 0) {
+					System.out.println("Your tool is broken, craft new tool");
+				} else {
+					weaponCraftingTable.craftDiamondSword();
+				}
+
 				break;
 
 			case 5:
@@ -160,12 +167,9 @@ public class BlackSmith extends NormalLoc {
 		boolean weaponCraftMenu = true;
 		while (weaponCraftMenu) {
 
-			System.out.println(
-					"1 - Craft Hammer  (Use Count : 5) ");
-			System.out.println(
-					"2-  Craft Iron Armor           Dodge:6             ---- Items to Create : Iron : 3  Wood: 1  Water:  2 ");
-			System.out.println(
-					"3-  Craft Green Elf Armor      Dodge:11            ---- Items to Create : Diamond:1 Iron: 3  Water:  2 ");
+			System.out.println("1 - Craft Hammer  (Use Count : 5) ");
+			System.out.println("2-   ");
+			System.out.println("3-   ");
 			System.out.println("4 - Exit");
 			System.out.print("Select : ");
 			int selectCase = PlayerScanner.intScanner();
@@ -176,13 +180,13 @@ public class BlackSmith extends NormalLoc {
 			}
 			switch (selectCase) {
 			case 1:
-				armorCraftingTable.craftWoodArmor();
+				toolCraftingTable.craftHammer();
 				break;
 			case 2:
-				armorCraftingTable.craftIronArmor();
+
 				break;
 			case 3:
-				armorCraftingTable.craftGreenElfArmor();
+
 				break;
 			case 4:
 				System.out.println("You leave from Armor Craft Table");
