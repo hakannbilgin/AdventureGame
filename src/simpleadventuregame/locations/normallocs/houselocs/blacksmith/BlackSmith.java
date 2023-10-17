@@ -26,10 +26,9 @@ public class BlackSmith extends NormalLoc {
 //		armorCraftingTable = new ArmorCraftingTable(getPlayer());
 		boolean blackSmithMenu = true;
 		while (blackSmithMenu) {
-
-			System.out.println("1 - Weapon Crafting");
-			System.out.println("2 - Armor Crafting");
-			System.out.println("3 - Craft Tools");
+			System.out.println("1 - Craft Tools");
+			System.out.println("2 - Weapon Crafting");
+			System.out.println("3 - Armor Crafting");	
 			System.out.println("4 - Exit");
 			System.out.print("Select : ");
 			int selectCase = PlayerScanner.intScanner();
@@ -40,16 +39,17 @@ public class BlackSmith extends NormalLoc {
 			}
 			switch (selectCase) {
 			case 1:
-
-				weaponCrafting();
+				toolCrafting();
+				
 
 				break;
 			case 2:
-//				armorCraftingTable = new ArmorCraftingTable(getPlayer());
-				armorCrafting();
+				weaponCrafting();
 				break;
 			case 3:
-				toolCrafting();
+				
+//				armorCraftingTable = new ArmorCraftingTable(getPlayer());
+				armorCrafting();
 				break;
 
 			case 4:
@@ -61,6 +61,46 @@ public class BlackSmith extends NormalLoc {
 		}
 		return true;
 	}
+	
+	public boolean toolCrafting() {
+
+		toolCraftingTable = new ToolCraftingTable(getPlayer());
+		System.out.println("You are at Tool Craft Table");
+
+		boolean weaponCraftMenu = true;
+		while (weaponCraftMenu) {
+
+			System.out.println("1 -Craft Wood Hammer   ----- Items to Create :                 Iron   : 0   Wood :  4  Water: 1  (Use Count : 5) Non-Repariable");
+			System.out.println("2- Craft Wood Armor    ----- Items to Create :                 Iron   : 2   Wood :  2  Water: 1  (Use Count : 5) Non-Repariable");
+			System.out.println("3- Craft Steel Hammer  ----- Items to Create :   Qualified Tool Parts : 3   Steel:  1  Iron : 1  (Use Count : 5) Repairable ");
+			System.out.println("4 - Exit");
+			System.out.print("Select : ");
+			int selectCase = PlayerScanner.intScanner();
+
+			while (selectCase < 0 && selectCase > 4) {
+				System.out.println(" you entered invalid number, please enter again ! ");
+				selectCase = PlayerScanner.intScanner();
+			}
+			switch (selectCase) {
+			case 1:
+				
+				break;
+			case 2:
+
+				break;
+			case 3:
+				toolCraftingTable.craftSteelHammer();
+				break;
+			case 4:
+				System.out.println("You leave from Tool Craft Table");
+				weaponCraftMenu = false;
+				break;
+
+			}
+		}
+		return true;
+	}
+	
 
 	public boolean weaponCrafting() {
 		weaponCraftingTable = new WeaponCraftingTable(getPlayer());
@@ -97,7 +137,7 @@ public class BlackSmith extends NormalLoc {
 				weaponCraftingTable.craftElfsFirstSword();
 				break;
 			case 4:
-				if (this.getPlayer().getInventory().getTool().getId() != 1) {
+				if (this.getPlayer().getInventory().getTool().getId() != 3) {
 					System.out.println("You need true tool to craft this item");
 				} else if (this.getPlayer().getInventory().getTool().getUseCount() <= 0) {
 					System.out.println("Your tool is broken, craft new tool");
@@ -159,43 +199,6 @@ public class BlackSmith extends NormalLoc {
 		return true;
 	}
 
-	public boolean toolCrafting() {
-
-		toolCraftingTable = new ToolCraftingTable(getPlayer());
-		System.out.println("You are at Tool Craft Table");
-
-		boolean weaponCraftMenu = true;
-		while (weaponCraftMenu) {
-
-			System.out.println("1 - Craft Hammer  (Use Count : 5) ");
-			System.out.println("2-   ");
-			System.out.println("3-   ");
-			System.out.println("4 - Exit");
-			System.out.print("Select : ");
-			int selectCase = PlayerScanner.intScanner();
-
-			while (selectCase < 0 && selectCase > 4) {
-				System.out.println(" you entered invalid number, please enter again ! ");
-				selectCase = PlayerScanner.intScanner();
-			}
-			switch (selectCase) {
-			case 1:
-				toolCraftingTable.craftHammer();
-				break;
-			case 2:
-
-				break;
-			case 3:
-
-				break;
-			case 4:
-				System.out.println("You leave from Armor Craft Table");
-				weaponCraftMenu = false;
-				break;
-
-			}
-		}
-		return true;
-	}
+	
 
 }

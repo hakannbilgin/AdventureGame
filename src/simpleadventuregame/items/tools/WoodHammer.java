@@ -1,10 +1,10 @@
 package simpleadventuregame.items.tools;
 
-public class Hammer extends Tool {
+public class WoodHammer extends Tool {
 
-	public Hammer() {
-		super("Hammer", 1, 5);
-
+	public WoodHammer() {
+		super("Wood Armor", 1, 5 , false);
+		
 	}
 
 	@Override
@@ -19,7 +19,13 @@ public class Hammer extends Tool {
 				
 			}
 		}
+		
+	}
 
+	@Override
+	public void repair() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
