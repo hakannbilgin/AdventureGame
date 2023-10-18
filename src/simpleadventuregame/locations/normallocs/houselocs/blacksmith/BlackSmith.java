@@ -26,10 +26,11 @@ public class BlackSmith extends NormalLoc {
 //		armorCraftingTable = new ArmorCraftingTable(getPlayer());
 		boolean blackSmithMenu = true;
 		while (blackSmithMenu) {
-			System.out.println("1 - Craft Tools");
-			System.out.println("2 - Weapon Crafting");
-			System.out.println("3 - Armor Crafting");	
-			System.out.println("4 - Exit");
+			System.out.println("1 - General Crafting ");
+			System.out.println("2 - Craft Tools");
+			System.out.println("3 - Weapon Crafting");
+			System.out.println("4 - Armor Crafting");
+			System.out.println("5 - Exit");
 			System.out.print("Select : ");
 			int selectCase = PlayerScanner.intScanner();
 
@@ -39,20 +40,23 @@ public class BlackSmith extends NormalLoc {
 			}
 			switch (selectCase) {
 			case 1:
-				toolCrafting();
-				
+				generalCrafting();
 
 				break;
 			case 2:
-				weaponCrafting();
+				toolCrafting();
+
 				break;
 			case 3:
-				
+				weaponCrafting();
+				break;
+			case 4:
+
 //				armorCraftingTable = new ArmorCraftingTable(getPlayer());
 				armorCrafting();
 				break;
 
-			case 4:
+			case 5:
 				System.out.println("You exit from BlackSmith");
 				blackSmithMenu = false;
 				break;
@@ -61,18 +65,18 @@ public class BlackSmith extends NormalLoc {
 		}
 		return true;
 	}
-	
-	public boolean toolCrafting() {
+
+	public boolean generalCrafting() {
 
 		toolCraftingTable = new ToolCraftingTable(getPlayer());
-		System.out.println("You are at Tool Craft Table");
+		System.out.println("You are at General Craft Table");
 
 		boolean weaponCraftMenu = true;
 		while (weaponCraftMenu) {
 
-			System.out.println("1 -Craft Wood Hammer   ----- Items to Create :                 Iron   : 0   Wood :  4  Water: 1  (Use Count : 5) Non-Repariable");
-			System.out.println("2- Craft Wood Armor    ----- Items to Create :                 Iron   : 2   Wood :  2  Water: 1  (Use Count : 5) Non-Repariable");
-			System.out.println("3- Craft Steel Hammer  ----- Items to Create :   Qualified Tool Parts : 3   Steel:  1  Iron : 1  (Use Count : 5) Repairable ");
+			System.out.println("1 -  ----- Items to Create :                 ");
+			System.out.println("2 -  ----- Items to Create :                 ");
+			System.out.println("3 -  ----- Items to Create :                 ");
 			System.out.println("4 - Exit");
 			System.out.print("Select : ");
 			int selectCase = PlayerScanner.intScanner();
@@ -83,10 +87,52 @@ public class BlackSmith extends NormalLoc {
 			}
 			switch (selectCase) {
 			case 1:
-				
+
 				break;
 			case 2:
 
+				break;
+			case 3:
+
+				break;
+			case 4:
+				System.out.println("You leave from General Craft Table");
+				weaponCraftMenu = false;
+				break;
+
+			}
+		}
+		return true;
+	}
+
+	public boolean toolCrafting() {
+
+		toolCraftingTable = new ToolCraftingTable(getPlayer());
+		System.out.println("You are at Tool Craft Table");
+
+		boolean weaponCraftMenu = true;
+		while (weaponCraftMenu) {
+
+			System.out.println(
+					"1 -Craft Wood Hammer   ----- Items to Create :                 Iron   : 0   Wood :  4  Water: 1  (Use Count : 5) Non-Repariable");
+			System.out.println(
+					"2- Craft Wood Armor    ----- Items to Create :                 Iron   : 2   Wood :  2  Water: 1  (Use Count : 5) Non-Repariable");
+			System.out.println(
+					"3- Craft Steel Hammer  ----- Items to Create :   Qualified Tool Parts : 3   Steel:  1  Iron : 1  (Use Count : 5) Repairable ");
+			System.out.println("4 - Exit");
+			System.out.print("Select : ");
+			int selectCase = PlayerScanner.intScanner();
+
+			while (selectCase < 0 && selectCase > 4) {
+				System.out.println(" you entered invalid number, please enter again ! ");
+				selectCase = PlayerScanner.intScanner();
+			}
+			switch (selectCase) {
+			case 1:
+				toolCraftingTable.craftWoodHammer();
+				break;
+			case 2:
+				toolCraftingTable.craftIronHammer();
 				break;
 			case 3:
 				toolCraftingTable.craftSteelHammer();
@@ -100,7 +146,6 @@ public class BlackSmith extends NormalLoc {
 		}
 		return true;
 	}
-	
 
 	public boolean weaponCrafting() {
 		weaponCraftingTable = new WeaponCraftingTable(getPlayer());
@@ -122,7 +167,7 @@ public class BlackSmith extends NormalLoc {
 			System.out.print("Select : ");
 			int selectCase = PlayerScanner.intScanner();
 
-			while (selectCase < 0 && selectCase > 3) {
+			while (selectCase < 0 && selectCase > 4) {
 				System.out.println(" you entered invalid number, please enter again ! ");
 				selectCase = PlayerScanner.intScanner();
 			}
@@ -198,7 +243,5 @@ public class BlackSmith extends NormalLoc {
 		}
 		return true;
 	}
-
-	
 
 }

@@ -17,9 +17,9 @@ public abstract class Award extends Item{
 	
 
 	public Award(int id, String name) {
-
-		this.setId(id);
-		this.setName(name);
+		super(name, id);
+//		this.setId(id);
+//		this.setName(name);
 	}
 
 //	public String getName() {

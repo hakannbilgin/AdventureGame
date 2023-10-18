@@ -15,8 +15,9 @@ public abstract class Weapon extends Item{
 	private int price;
 
 	public Weapon(String name, int id, int damage, int price) {
-		this.setName(name);
-		this.setId(id);
+//		this.setName(name);
+//		this.setId(id);
+		super(name, id);
 		this.damage = damage;
 		this.price = price;
 	}

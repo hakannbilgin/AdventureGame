@@ -6,6 +6,12 @@ public abstract class Item extends AbstractEntity<Integer> {
 
 	private String name;
 
+	public Item(String name, int id) {
+		
+		this.name = name;
+		this.setId(id);
+	}
+
 	public String getName() {
 		return name;
 	}

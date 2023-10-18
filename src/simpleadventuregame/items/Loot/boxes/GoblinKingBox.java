@@ -8,7 +8,7 @@ import simpleadventuregame.items.Loot.craftingloot.Diamond;
 import simpleadventuregame.items.Loot.craftingloot.ElfStone;
 import simpleadventuregame.items.Loot.craftingloot.Emerald;
 import simpleadventuregame.items.Loot.craftingloot.Food;
-import simpleadventuregame.items.Loot.craftingloot.GoblinKey;
+import simpleadventuregame.items.Loot.craftingloot.GoblinKeyParts;
 import simpleadventuregame.items.Loot.craftingloot.Iron;
 import simpleadventuregame.items.Loot.craftingloot.Steel;
 import simpleadventuregame.items.Loot.craftingloot.Water;
@@ -79,7 +79,7 @@ public class GoblinKingBox extends GiftBox{
 		getBoxAward().add(0, new Water());
 		getBoxAward().add(1, new Diamond());
 		getBoxAward().add(2, new ElfStone());
-		getBoxAward().add(3, new GoblinKey());
+		getBoxAward().add(3, new GoblinKeyParts());
 		getBoxAward().add(4, new Emerald());
 		getBoxAward().add(5, new Steel());
 		getBoxAward().add(6, new GoblinSword());

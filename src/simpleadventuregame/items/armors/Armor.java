@@ -17,9 +17,9 @@ public abstract class Armor extends Item{
 	
 	
 	public Armor(String name, int id, int damageDodge, int price) {
-		super();
-		this.setName(name);
-		this.setId(id);
+		super(name, id);
+//		this.setName(name);
+//		this.setId(id);
 		this.damageDodge = damageDodge;
 		this.price = price;
 	}
