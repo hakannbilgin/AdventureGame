@@ -11,7 +11,7 @@ import simpleadventuregame.locations.battlelocs.beginnerbattlelocs.BeginnerBattl
 import simpleadventuregame.locations.battlelocs.darkforests.ForestArea;
 import simpleadventuregame.locations.battlelocs.goblinland.GoblinLandArea;
 import simpleadventuregame.locations.normallocs.houselocs.SafeHouse;
-import simpleadventuregame.locations.normallocs.houselocs.blacksmith.BlackSmith;
+import simpleadventuregame.locations.normallocs.houselocs.blacksmith.normalBlackSmith.BlackSmith;
 import simpleadventuregame.locations.normallocs.storelocs.ToolStore;
 import simpleadventuregame.utils.PlayerScanner;
 

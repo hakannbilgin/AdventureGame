@@ -24,7 +24,7 @@ public class SteelHammer extends Tool {
 
 	@Override
 	public void repair() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

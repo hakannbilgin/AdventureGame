@@ -8,7 +8,7 @@ import simpleadventuregame.items.Loot.Award;
 import simpleadventuregame.locations.Location;
 import simpleadventuregame.locations.battlelocs.darkforests.ForestArea;
 import simpleadventuregame.locations.normallocs.houselocs.SafeHouse;
-import simpleadventuregame.locations.normallocs.houselocs.blacksmith.BlackSmith;
+import simpleadventuregame.locations.normallocs.houselocs.blacksmith.normalBlackSmith.BlackSmith;
 import simpleadventuregame.locations.normallocs.storelocs.ToolStore;
 import simpleadventuregame.monsters.Monster;
 import simpleadventuregame.utils.PlayerScanner;

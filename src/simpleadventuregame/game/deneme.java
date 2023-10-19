@@ -3,25 +3,8 @@ package simpleadventuregame.game;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
-
-import simpleadventuregame.game.gameitems.Inventory;
-import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.items.Item;
-import simpleadventuregame.items.Loot.Award;
-import simpleadventuregame.items.Loot.boxes.ElfKingBox;
-import simpleadventuregame.items.Loot.craftingloot.Diamond;
-import simpleadventuregame.items.Loot.craftingloot.Food;
-import simpleadventuregame.items.Loot.craftingloot.Iron;
-import simpleadventuregame.items.Loot.craftingloot.Water;
-import simpleadventuregame.items.armors.BossArmors.TrollArmor;
-import simpleadventuregame.items.elixir.HealthElixir;
 import simpleadventuregame.items.generalitems.keys.GoblinKey;
-import simpleadventuregame.items.weapons.toolstoreweapons.LongSword;
-import simpleadventuregame.locations.Location;
-import simpleadventuregame.locations.normallocs.houselocs.SafeHouse;
-import simpleadventuregame.locations.normallocs.storelocs.ToolStore;
-import simpleadventuregame.utils.PlayerScanner;
 
 public class deneme {
 	
@@ -35,18 +18,14 @@ public class deneme {
 		goblinKeys.add(new GoblinKey());
 		
 //		System.out.println(goblinKeys.contains(new GoblinKey().getId()));
-		getawardItemsInInventoryById(1);
+		removeObjectfromInventory(1);
 		System.out.println("Burada 2");
 
 		System.out.println(goblinKeys.isEmpty());
 		
-		
-		
-
-		
 }
 	
-	public static boolean getawardItemsInInventoryById(int id) {
+	public static boolean removeObjectfromInventory(int id) {
 		
 
 		for (Item item : goblinKeys) {

@@ -1,4 +1,4 @@
-package simpleadventuregame.locations.normallocs.houselocs.blacksmith;
+package simpleadventuregame.locations.normallocs.houselocs.blacksmith.normalBlackSmith;
 
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.locations.normallocs.NormalLoc;
