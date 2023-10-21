@@ -5,21 +5,33 @@ import simpleadventuregame.items.Item;
 public abstract class Tool extends Item {
 
 	private int useCount = 0;
+	private int defaultUseCount;
 	private boolean repairable;
 	//TODO:ADD TOOL LEVEL
 
-	public Tool(String name, int id, int useCount , boolean repairable) {
+	public Tool(String name, int id, int useCount ,int defaultUseCount,  boolean repairable) {
 		super(name,id);
 //		this.setName(name);
 //		this.setId(id);
 		this.useCount = useCount;
+		this.defaultUseCount= defaultUseCount;
 		this.repairable = repairable;
 	}
 
 //	TODO: ADD MORE MOTHOD TO USE TOOLS	
 	public abstract void use();
 	
-	public abstract void repair();
+//	public abstract void repair();
+	
+	public void repair() {
+		if (repairable) {
+			this.setUseCount(this.getDefaultUseCount());
+			System.out.println("Your tool repaired.");
+		}
+		
+		
+	}
+	
 	
 
 	public int getUseCount() {
@@ -36,6 +48,14 @@ public abstract class Tool extends Item {
 
 	public void setRepairable(boolean repairable) {
 		this.repairable = repairable;
+	}
+
+	public int getDefaultUseCount() {
+		return defaultUseCount;
+	}
+
+	public void setDefaultUseCount(int defaultUseCount) {
+		this.defaultUseCount = defaultUseCount;
 	}
 	
 }

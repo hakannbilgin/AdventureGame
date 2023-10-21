@@ -3,7 +3,7 @@ package simpleadventuregame.items.tools;
 public class SteelHammer extends Tool {
 
 	public SteelHammer() {
-		super("Steel Hammer", 3, 5, false);
+		super("Steel Hammer", 3, 5,5, false);
 
 	}
 
@@ -22,10 +22,10 @@ public class SteelHammer extends Tool {
 
 	}
 
-	@Override
-	public void repair() {
-		
-		
-	}
+//	@Override
+//	public void repair() {
+//		
+//		
+//	}
 
 }

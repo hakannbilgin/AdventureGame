@@ -2,10 +2,10 @@ package simpleadventuregame.items.Loot.craftingloot;
 
 import simpleadventuregame.items.Loot.Award;
 
-public class GoblinKeyParts extends Award {
+public class KeyParts extends Award {
 
-	public GoblinKeyParts() {
-		super(9, "Goblin Key");
+	public KeyParts() {
+		super(9, "Key Parts");
 		// TODO Auto-generated constructor stub
 	}
 

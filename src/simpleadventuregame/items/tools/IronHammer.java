@@ -3,7 +3,7 @@ package simpleadventuregame.items.tools;
 public class IronHammer extends Tool{
 
 	public IronHammer( ) {
-		super("Iron Hammer", 2, 5, false);
+		super("Iron Hammer", 2, 5,5, false);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -22,10 +22,10 @@ public class IronHammer extends Tool{
 		
 	}
 
-	@Override
-	public void repair() {
-		// TODO Auto-generated method stub
-		
-	}
+//	@Override
+//	public void repair() {
+//		// TODO Auto-generated method stub
+//		
+//	}
 
 }

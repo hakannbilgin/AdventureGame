@@ -4,7 +4,7 @@ public class UselessStick extends Tool {
 
 	public UselessStick() {
 
-		super("Useless Stick", -2 , 999, false);
+		super("Useless Stick", -2 , 999,999, false);
 
 	}
 
@@ -13,10 +13,10 @@ public class UselessStick extends Tool {
 
 	}
 
-	@Override
-	public void repair() {
-		// TODO Auto-generated method stub
-		
-	}
+//	@Override
+//	public void repair() {
+//		// TODO Auto-generated method stub
+//		
+//	}
 
 }

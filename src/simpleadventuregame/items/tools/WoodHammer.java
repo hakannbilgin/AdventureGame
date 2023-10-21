@@ -3,7 +3,7 @@ package simpleadventuregame.items.tools;
 public class WoodHammer extends Tool {
 
 	public WoodHammer() {
-		super("Wood Armor", 1, 5 , false);
+		super("Wood Armor", 1, 5 ,5, false);
 		
 	}
 
@@ -15,17 +15,17 @@ public class WoodHammer extends Tool {
 				System.out.println("You used " + this.getName() + " and " + this.getUseCount() + " use left.");
 
 			} else {
-				System.out.println("Your tool is broken. You can't use it anymore.  Craft new one");
+				System.out.println("Your tool is broken. You can't use it anymore.  Craft new one or repair it");
 				
 			}
 		}
 		
 	}
 
-	@Override
-	public void repair() {
-		// TODO Auto-generated method stub
-		
-	}
+//	@Override
+//	public void repair() {
+//		// TODO Auto-generated method stub
+//		
+//	}
 
 }

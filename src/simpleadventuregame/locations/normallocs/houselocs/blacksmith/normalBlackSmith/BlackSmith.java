@@ -9,6 +9,7 @@ public class BlackSmith extends NormalLoc {
 	private WeaponCraftingTable weaponCraftingTable;
 	private ArmorCraftingTable armorCraftingTable;
 	private ToolCraftingTable toolCraftingTable;
+	private GeneralCraftingTable generalCraftingTable;
 //	private String weaponCraftListformat = " WeaponCraft :  [%-7s] [%d] [Damage:  %-1d] [Money: %2d] \n";
 
 	public BlackSmith(Player player) {
@@ -18,9 +19,7 @@ public class BlackSmith extends NormalLoc {
 
 	@Override
 	public boolean onLocation() {
-//		this.getPlayer().getInventory().setWaterCount(500);
-//		this.getPlayer().getInventory().setWoodCount(500);
-//		this.getPlayer().getInventory().setIronCount(500);
+
 		System.out.println("You are in BlackSmith");
 //		weaponCraftingTable = new WeaponCraftingTable(getPlayer());
 //		armorCraftingTable = new ArmorCraftingTable(getPlayer());
@@ -34,7 +33,7 @@ public class BlackSmith extends NormalLoc {
 			System.out.print("Select : ");
 			int selectCase = PlayerScanner.intScanner();
 
-			while (selectCase < 0 && selectCase > 4) {
+			while (selectCase < 0 && selectCase > 6) {
 				System.out.println(" you entered invalid number, please enter again ! ");
 				selectCase = PlayerScanner.intScanner();
 			}
@@ -68,7 +67,7 @@ public class BlackSmith extends NormalLoc {
 
 	public boolean generalCrafting() {
 
-		toolCraftingTable = new ToolCraftingTable(getPlayer());
+		generalCraftingTable = new GeneralCraftingTable(getPlayer());
 		System.out.println("You are at General Craft Table");
 
 		boolean weaponCraftMenu = true;

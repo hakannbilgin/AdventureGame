@@ -2,6 +2,7 @@ package simpleadventuregame.locations.battlelocs.goblinland;
 
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.locations.Location;
+import simpleadventuregame.locations.normallocs.houselocs.blacksmith.goblinblacksmith.GoblinBlackSmith;
 import simpleadventuregame.locations.normallocs.storelocs.UglyGoblinStore;
 import simpleadventuregame.utils.PlayerScanner;
 
@@ -19,7 +20,7 @@ public class GoblinLandArea extends Location {
 			System.out.println(
 					"-----You are at the Goblin Land Area----- \n -*-*-*- You choose GoblinLand BattleLocations -*-*-*-");
 			System.out.println(
-					"1 - Goblin Camp \n 2- Goblin Cave \n 3- Orc's Mine  \n 4- Goblin King's Place  \n 5- Ugly Goblin Store  \n 6- Exit from Forest Area ");
+					"1 - Goblin Camp \n 2- Goblin Cave \n 3- Orc's Mine  \n 4- Goblin King's Place  \n 5- Ugly Goblin Store  \n 6- Goblin BlackSmith \n 7- Exit from Forest Area ");
 
 			System.out.println(
 					"---Goblin Camp       : (ID=16) Enemy= Little Goblin       Award= Emerald (%80change) + Iron (%80change) ---");
@@ -30,12 +31,13 @@ public class GoblinLandArea extends Location {
 			System.out.println(
 					"---Goblin King Place : (ID=19) Enemy= Goblin King(Boss)   Award= GoblinKing Box (%80change) + Steel  (%70change) ---");
 			System.out.println("---Ugly Goblin Place : (ID=20) Enemy= Safe Place          Purchase Equipments ");
+			System.out.println("---Goblin Black Smith        : (ID=21) Create stuffs, equipments and armors");
 
 			System.out.print("Select : ");
 
 			int selectCase = PlayerScanner.intScanner();
 
-			while (selectCase < 0 && selectCase > 7) {
+			while (selectCase < 0 && selectCase > 8) {
 				System.out.println(" you entered invalid number, please enter again ! ");
 				selectCase = PlayerScanner.intScanner();
 			}
@@ -57,6 +59,10 @@ public class GoblinLandArea extends Location {
 				new UglyGoblinStore(getPlayer()).onLocation();
 				break;
 			case 6:
+
+				new GoblinBlackSmith(getPlayer()).onLocation();
+				break;
+			case 7:
 
 				System.out.println("You exit from Forest Area");
 				forestMenu = false;

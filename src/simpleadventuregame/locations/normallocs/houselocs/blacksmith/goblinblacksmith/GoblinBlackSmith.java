@@ -5,6 +5,8 @@ import simpleadventuregame.locations.normallocs.NormalLoc;
 import simpleadventuregame.utils.PlayerScanner;
 
 public class GoblinBlackSmith extends NormalLoc{
+	
+	private GeneralCraftingTableGoblinBlackSmith generalCraftingTableGoblinBlackSmith;
 
 	public GoblinBlackSmith( Player player) {
 		super(21, player, "Goblin BlackSmith");
@@ -13,12 +15,8 @@ public class GoblinBlackSmith extends NormalLoc{
 
 	@Override
 	public boolean onLocation() {
-//		this.getPlayer().getInventory().setWaterCount(500);
-//		this.getPlayer().getInventory().setWoodCount(500);
-//		this.getPlayer().getInventory().setIronCount(500);
+
 		System.out.println("You are in Goblin BlackSmith");
-//		weaponCraftingTable = new WeaponCraftingTable(getPlayer());
-//		armorCraftingTable = new ArmorCraftingTable(getPlayer());
 		boolean blackSmithMenu = true;
 		while (blackSmithMenu) {
 			System.out.println("1 - General Crafting ");
@@ -29,13 +27,13 @@ public class GoblinBlackSmith extends NormalLoc{
 			System.out.print("Select : ");
 			int selectCase = PlayerScanner.intScanner();
 
-			while (selectCase < 0 && selectCase > 4) {
+			while (selectCase < 0 && selectCase > 6) {
 				System.out.println(" you entered invalid number, please enter again ! ");
 				selectCase = PlayerScanner.intScanner();
 			}
 			switch (selectCase) {
 			case 1:
-				
+				generalCraftingInGoblinBlackSmith();
 				break;
 			case 2:
 		
@@ -57,6 +55,47 @@ public class GoblinBlackSmith extends NormalLoc{
 		return true;
 	}
 
-	
+	public boolean generalCraftingInGoblinBlackSmith() {
 
+		generalCraftingTableGoblinBlackSmith = new GeneralCraftingTableGoblinBlackSmith(getPlayer());
+		System.out.println("You are at General Craft Table");
+
+		boolean weaponCraftMenu = true;
+		while (weaponCraftMenu) {
+
+			System.out.println("1 -  ----- Items to Create :                 ");
+			System.out.println("2 -  ----- Items to Create :                 ");
+			System.out.println("3 -  ----- Items to Create :                 ");
+			System.out.println("4 - Exit");
+			System.out.print("Select : ");
+			int selectCase = PlayerScanner.intScanner();
+//TODO:MENÜDE SAYIYI GİRDİKTEN SONRA DOĞRU TOOL YOK DİYOR AMA GENE DE GİRİYOR. GİRMESİNİ ENGELLEYEREK MENÜYÜ TEKRAR DÖNDÜRMESİNİ İSTİYORUM. 
+			while (selectCase < 0 && selectCase > 4) {
+				System.out.println(" you entered invalid number, please enter again ! ");
+				selectCase = PlayerScanner.intScanner();
+			}
+			if (this.getPlayer().getInventory().getTool().getId() < 3 ) {
+				System.out.println("You don't have true tool to create");
+			}
+			switch (selectCase) {
+			case 1:
+				generalCraftingTableGoblinBlackSmith.craftGoblinKey();
+				break;
+			case 2:
+
+				break;
+			case 3:
+
+				break;
+			case 4:
+				System.out.println("You leave from General Craft Table");
+				weaponCraftMenu = false;
+				break;
+
+			}
+		}
+		return true;
+	}
+
+	
 }
