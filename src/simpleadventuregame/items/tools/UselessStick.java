@@ -9,7 +9,8 @@ public class UselessStick extends Tool {
 	}
 
 	@Override
-	public void use() {
+	public boolean use() {
+		return true;
 
 	}
 

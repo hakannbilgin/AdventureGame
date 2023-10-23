@@ -59,34 +59,50 @@ public class GoblinBlackSmith extends NormalLoc{
 
 		generalCraftingTableGoblinBlackSmith = new GeneralCraftingTableGoblinBlackSmith(getPlayer());
 		System.out.println("You are at General Craft Table");
+		this.getPlayer().getInventory().setIronCount(10);
+		this.getPlayer().getInventory().setWoodCount(10);
+		this.getPlayer().getInventory().setWaterCount(10);
 
 		boolean weaponCraftMenu = true;
 		while (weaponCraftMenu) {
-
-			System.out.println("1 -  ----- Items to Create :                 ");
+			
+			System.out.println("1 - Goblin Key(ID:1) ----- Items to Create :                 ");
 			System.out.println("2 -  ----- Items to Create :                 ");
 			System.out.println("3 -  ----- Items to Create :                 ");
 			System.out.println("4 - Exit");
 			System.out.print("Select : ");
 			int selectCase = PlayerScanner.intScanner();
-//TODO:MENÜDE SAYIYI GİRDİKTEN SONRA DOĞRU TOOL YOK DİYOR AMA GENE DE GİRİYOR. GİRMESİNİ ENGELLEYEREK MENÜYÜ TEKRAR DÖNDÜRMESİNİ İSTİYORUM. 
 			while (selectCase < 0 && selectCase > 4) {
 				System.out.println(" you entered invalid number, please enter again ! ");
 				selectCase = PlayerScanner.intScanner();
 			}
-			if (this.getPlayer().getInventory().getTool().getId() < 3 ) {
-				System.out.println("You don't have true tool to create");
-			}
+//			if (this.getPlayer().getInventory().getTool().getId() < 3 ) {
+//			}
 			switch (selectCase) {
 			case 1:
-				generalCraftingTableGoblinBlackSmith.craftGoblinKey();
-				break;
+				if (this.getPlayer().getInventory().getTool().getId() < 3) {
+					System.out.println("You don't have true tool to create");
+					break;
+				}else {
+					generalCraftingTableGoblinBlackSmith.craftGoblinKey();
+					break;
+				}	
 			case 2:
-
-				break;
+				if (this.getPlayer().getInventory().getTool().getId() < 3) {
+					System.out.println("You don't have true tool to create");
+					break;
+				}else {
+					//TODO:
+					break;
+				}
 			case 3:
-
-				break;
+				if (this.getPlayer().getInventory().getTool().getId() < 3) {
+					System.out.println("You don't have true tool to create");
+					break;
+				}else {
+					//TODO:
+					break;
+				}
 			case 4:
 				System.out.println("You leave from General Craft Table");
 				weaponCraftMenu = false;

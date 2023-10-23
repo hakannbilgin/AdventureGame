@@ -181,7 +181,7 @@ public class BlackSmith extends NormalLoc {
 				weaponCraftingTable.craftElfsFirstSword();
 				break;
 			case 4:
-				if (this.getPlayer().getInventory().getTool().getId() != 3) {
+				if (this.getPlayer().getInventory().getTool().getId() < 3) {
 					System.out.println("You need true tool to craft this item");
 				} else if (this.getPlayer().getInventory().getTool().getUseCount() <= 0) {
 					System.out.println("Your tool is broken, craft new tool");

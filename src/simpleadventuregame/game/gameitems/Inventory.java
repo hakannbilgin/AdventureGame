@@ -8,6 +8,7 @@ import simpleadventuregame.items.Item;
 import simpleadventuregame.items.Loot.Award;
 import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.armors.OldClothes;
+import simpleadventuregame.items.tools.SteelHammer;
 import simpleadventuregame.items.tools.Tool;
 import simpleadventuregame.items.tools.UselessStick;
 import simpleadventuregame.items.weapons.Fist;
@@ -17,10 +18,11 @@ public class Inventory {
 
 	private List<Award> battleLocAwardsInInventory = new ArrayList<>();
 	private List<Item> boxAwardsInInventory = new ArrayList<>();
-	private HashMap<String, Tool> toolBox  = new HashMap<String, Tool>(); //TODO
+	private HashMap<String, Tool> toolBox  = new HashMap<String, Tool>(); //TODO : ToolBox içinde bir çok tool tutması için ayarla.Seçim yaptırt.
 	private AwardCounter awardCounter;
 	private ElixirChest elixirChest;
 	private BoxChest boxChest;
+	private KeyChest keyChest;
 	private Weapon weapon;
 	private Armor armor;
 	private Tool tool;
@@ -42,7 +44,8 @@ public class Inventory {
 		this.armor = new OldClothes();
 		this.elixirChest = new ElixirChest();
 		this.boxChest = new BoxChest();
-		this.tool= new UselessStick();
+		this.keyChest= new KeyChest();
+		this.tool= new SteelHammer();
 	}
 
 	public void addBattleLocAwardItem(Award award) {
@@ -283,6 +286,10 @@ public class Inventory {
 
 	public void setBoxAwardsInInventory(List<Item> boxAwardsInInventory) {
 		this.boxAwardsInInventory = boxAwardsInInventory;
+	}	
+	
+	public KeyChest getKeyChest() {
+		return keyChest;
 	}
 
 	public HashMap<String, Tool> getToolBox() {
@@ -293,7 +300,9 @@ public class Inventory {
 		this.toolBox = toolBox;
 	}
 	
-	
+//	public void setKeyChest(KeyChest keyChest) {
+//		this.keyChest = keyChest;
+//	}
 
 //	public void setAwardCounter(AwardCounter awardCounter) {
 //		this.awardCounter = awardCounter;

@@ -19,7 +19,7 @@ public abstract class Tool extends Item {
 	}
 
 //	TODO: ADD MORE MOTHOD TO USE TOOLS	
-	public abstract void use();
+	public abstract boolean use();
 	
 //	public abstract void repair();
 	

@@ -28,9 +28,9 @@ public class ElixirChest {
 		return totalElixirCount;
 	}
 
-	public void setTotalElixirCount(int totalElixirCount) {
-		this.totalElixirCount = totalElixirCount;
-	}
+//	public void setTotalElixirCount(int totalElixirCount) {
+//		this.totalElixirCount = totalElixirCount;
+//	}
 
 	public int getBlockElixirCount() {
 		return blockElixirCount;
