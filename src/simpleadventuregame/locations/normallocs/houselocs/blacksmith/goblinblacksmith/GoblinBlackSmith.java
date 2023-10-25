@@ -4,13 +4,13 @@ import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.locations.normallocs.NormalLoc;
 import simpleadventuregame.utils.PlayerScanner;
 
-public class GoblinBlackSmith extends NormalLoc{
-	
+public class GoblinBlackSmith extends NormalLoc {
+
 	private GeneralCraftingTableGoblinBlackSmith generalCraftingTableGoblinBlackSmith;
 
-	public GoblinBlackSmith( Player player) {
+	public GoblinBlackSmith(Player player) {
 		super(21, player, "Goblin BlackSmith");
-		
+
 	}
 
 	@Override
@@ -36,10 +36,10 @@ public class GoblinBlackSmith extends NormalLoc{
 				generalCraftingInGoblinBlackSmith();
 				break;
 			case 2:
-		
+
 				break;
 			case 3:
-				
+
 				break;
 			case 4:
 
@@ -59,13 +59,13 @@ public class GoblinBlackSmith extends NormalLoc{
 
 		generalCraftingTableGoblinBlackSmith = new GeneralCraftingTableGoblinBlackSmith(getPlayer());
 		System.out.println("You are at General Craft Table");
-		this.getPlayer().getInventory().setIronCount(10);
-		this.getPlayer().getInventory().setWoodCount(10);
-		this.getPlayer().getInventory().setWaterCount(10);
+//		this.getPlayer().getInventory().setIronCount(10);
+//		this.getPlayer().getInventory().setWoodCount(10);
+//		this.getPlayer().getInventory().setWaterCount(10);
 
-		boolean weaponCraftMenu = true;
-		while (weaponCraftMenu) {
-			
+		boolean generalCraftMenu = true;
+		while (generalCraftMenu) {
+
 			System.out.println("1 - Goblin Key(ID:1) ----- Items to Create :                 ");
 			System.out.println("2 -  ----- Items to Create :                 ");
 			System.out.println("3 -  ----- Items to Create :                 ");
@@ -76,42 +76,45 @@ public class GoblinBlackSmith extends NormalLoc{
 				System.out.println(" you entered invalid number, please enter again ! ");
 				selectCase = PlayerScanner.intScanner();
 			}
-//			if (this.getPlayer().getInventory().getTool().getId() < 3 ) {
-//			}
-			switch (selectCase) {
-			case 1:
-				if (this.getPlayer().getInventory().getTool().getId() < 3) {
-					System.out.println("You don't have true tool to create");
-					break;
-				}else {
-					generalCraftingTableGoblinBlackSmith.craftGoblinKey();
-					break;
-				}	
-			case 2:
-				if (this.getPlayer().getInventory().getTool().getId() < 3) {
-					System.out.println("You don't have true tool to create");
-					break;
-				}else {
-					//TODO:
-					break;
-				}
-			case 3:
-				if (this.getPlayer().getInventory().getTool().getId() < 3) {
-					System.out.println("You don't have true tool to create");
-					break;
-				}else {
-					//TODO:
-					break;
-				}
-			case 4:
-				System.out.println("You leave from General Craft Table");
-				weaponCraftMenu = false;
-				break;
+			if (this.getPlayer().getInventory().getTool().getId() < 3) {
 
+				switch (selectCase) {
+				case 1:
+					if (this.getPlayer().getInventory().getTool().getId() < 3) {
+						System.out.println("You don't have true tool to create");
+						break;
+					} else {
+						generalCraftingTableGoblinBlackSmith.craftGoblinKey();
+						break;
+					}
+				case 2:
+					if (this.getPlayer().getInventory().getTool().getId() < 3) {
+						System.out.println("You don't have true tool to create");
+						break;
+					} else {
+						// TODO:
+						break;
+					}
+				case 3:
+					if (this.getPlayer().getInventory().getTool().getId() < 3) {
+						System.out.println("You don't have true tool to create");
+						break;
+					} else {
+						// TODO:
+						break;
+					}
+				case 4:
+					System.out.println("You leave from General Craft Table");
+					generalCraftMenu = false;
+					break;
+
+				}
+			}else {
+				System.out.println("You don't have true tool to create");
 			}
 		}
 		return true;
+
 	}
 
-	
 }

@@ -70,8 +70,8 @@ public class BlackSmith extends NormalLoc {
 		generalCraftingTable = new GeneralCraftingTable(getPlayer());
 		System.out.println("You are at General Craft Table");
 
-		boolean weaponCraftMenu = true;
-		while (weaponCraftMenu) {
+		boolean generalCraftMenu = true;
+		while (generalCraftMenu) {
 
 			System.out.println("1 -  ----- Items to Create :                 ");
 			System.out.println("2 -  ----- Items to Create :                 ");
@@ -96,7 +96,7 @@ public class BlackSmith extends NormalLoc {
 				break;
 			case 4:
 				System.out.println("You leave from General Craft Table");
-				weaponCraftMenu = false;
+				generalCraftMenu = false;
 				break;
 
 			}
@@ -109,8 +109,8 @@ public class BlackSmith extends NormalLoc {
 		toolCraftingTable = new ToolCraftingTable(getPlayer());
 		System.out.println("You are at Tool Craft Table");
 
-		boolean weaponCraftMenu = true;
-		while (weaponCraftMenu) {
+		boolean toolCraftMenu = true;
+		while (toolCraftMenu) {
 
 			System.out.println(
 					"1 -Craft Wood Hammer   ----- Items to Create :                 Iron   : 0   Wood :  4  Water: 1  (Use Count : 5) Non-Repariable");
@@ -138,7 +138,7 @@ public class BlackSmith extends NormalLoc {
 				break;
 			case 4:
 				System.out.println("You leave from Tool Craft Table");
-				weaponCraftMenu = false;
+				toolCraftMenu = false;
 				break;
 
 			}
@@ -206,8 +206,8 @@ public class BlackSmith extends NormalLoc {
 		System.out.println("You are at Armor Craft Table");
 		armorCraftingTable = new ArmorCraftingTable(getPlayer());
 
-		boolean weaponCraftMenu = true;
-		while (weaponCraftMenu) {
+		boolean armorCraftMenu = true;
+		while (armorCraftMenu) {
 
 			System.out.println(
 					"1 - Craft Wood Armor           Dodge:2             ---- Items to Create : Iron : 0  Wood: 4  Water:  1 ");
@@ -235,7 +235,7 @@ public class BlackSmith extends NormalLoc {
 				break;
 			case 4:
 				System.out.println("You leave from Armor Craft Table");
-				weaponCraftMenu = false;
+				armorCraftMenu = false;
 				break;
 
 			}

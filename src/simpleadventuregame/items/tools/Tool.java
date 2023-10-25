@@ -27,6 +27,8 @@ public abstract class Tool extends Item {
 		if (repairable) {
 			this.setUseCount(this.getDefaultUseCount());
 			System.out.println("Your tool repaired.");
+		}else {
+			System.out.println("Your tool is not repairable");
 		}
 		
 		

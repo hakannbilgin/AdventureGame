@@ -7,7 +7,6 @@ import simpleadventuregame.items.Loot.Award;
 import simpleadventuregame.items.Loot.boxes.ElfKingBox;
 import simpleadventuregame.items.Loot.boxes.GoblinKingBox;
 import simpleadventuregame.items.armors.Armor;
-import simpleadventuregame.items.armors.BossArmors.TrollArmor;
 import simpleadventuregame.items.weapons.Weapon;
 import simpleadventuregame.locations.normallocs.NormalLoc;
 import simpleadventuregame.utils.PlayerScanner;
