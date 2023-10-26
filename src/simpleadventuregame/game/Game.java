@@ -163,7 +163,7 @@ public class Game {
 						break;
 					case 4:
 						location = new UpgradeAndRepairHouse(player);
-
+						break;
 					case 5:
 						location = new BeginnerBattleArea(player);
 						break;

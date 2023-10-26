@@ -1,10 +1,12 @@
-package simpleadventuregame.items.tools;
+package simpleadventuregame.items.tools.craftTools;
 
-public class SteelHammer extends Tool {
+import simpleadventuregame.items.tools.Tool;
 
-	public SteelHammer() {
-		super("Steel Hammer", 3, 5,5, false);
+public class WoodHammer extends Tool {
 
+	public WoodHammer() {
+		super("Wood Armor", 1, 5 ,5, false);
+		
 	}
 
 	@Override
@@ -20,16 +22,14 @@ public class SteelHammer extends Tool {
 				return true;
 				
 			}
-		}else {
-			return false;
 		}
+		return false;
 		
-
 	}
 
 //	@Override
 //	public void repair() {
-//		
+//		// TODO Auto-generated method stub
 //		
 //	}
 

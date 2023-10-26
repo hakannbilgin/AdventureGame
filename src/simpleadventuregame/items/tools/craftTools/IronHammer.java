@@ -1,10 +1,12 @@
-package simpleadventuregame.items.tools;
+package simpleadventuregame.items.tools.craftTools;
 
-public class WoodHammer extends Tool {
+import simpleadventuregame.items.tools.Tool;
 
-	public WoodHammer() {
-		super("Wood Armor", 1, 5 ,5, false);
-		
+public class IronHammer extends Tool{
+
+	public IronHammer( ) {
+		super("Iron Hammer", 2, 5,5, false);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -14,9 +16,8 @@ public class WoodHammer extends Tool {
 			if (this.getUseCount() != 0) {
 				System.out.println("You used " + this.getName() + " and " + this.getUseCount() + " use left.");
 				return true;
-
 			} else {
-				System.out.println("Your tool is broken. You can't use it anymore.  Craft new one or repair it");
+				System.out.println("Your tool is broken. You can't use it anymore.  Craft new one");
 				return true;
 				
 			}

@@ -1,4 +1,6 @@
-package simpleadventuregame.items.tools;
+package simpleadventuregame.items.tools.craftTools;
+
+import simpleadventuregame.items.tools.Tool;
 
 public class UselessStick extends Tool {
 

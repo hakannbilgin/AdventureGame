@@ -2,9 +2,9 @@ package simpleadventuregame.locations.normallocs.houselocs.blacksmith.normalBlac
 
 import simpleadventuregame.game.gameitems.Inventory;
 import simpleadventuregame.game.gameitems.Player;
-import simpleadventuregame.items.tools.IronHammer;
-import simpleadventuregame.items.tools.SteelHammer;
-import simpleadventuregame.items.tools.WoodHammer;
+import simpleadventuregame.items.tools.craftTools.IronHammer;
+import simpleadventuregame.items.tools.craftTools.SteelHammer;
+import simpleadventuregame.items.tools.craftTools.WoodHammer;
 
 public class ToolCraftingTable {
 	Player player;

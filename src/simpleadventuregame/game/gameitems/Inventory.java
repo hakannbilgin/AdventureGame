@@ -8,9 +8,9 @@ import simpleadventuregame.items.Item;
 import simpleadventuregame.items.Loot.Award;
 import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.armors.OldClothes;
-import simpleadventuregame.items.tools.SteelHammer;
 import simpleadventuregame.items.tools.Tool;
-import simpleadventuregame.items.tools.UselessStick;
+import simpleadventuregame.items.tools.craftTools.SteelHammer;
+import simpleadventuregame.items.tools.craftTools.UselessStick;
 import simpleadventuregame.items.weapons.Fist;
 import simpleadventuregame.items.weapons.Weapon;
 
