@@ -5,7 +5,7 @@ import simpleadventuregame.items.Loot.Award;
 public class ToolParts extends Award{
 
 	public ToolParts() {
-		super(15, "Tool Parts");
+		super(15, "Tool Parts",false);
 		// TODO Auto-generated constructor stub
 	}
 

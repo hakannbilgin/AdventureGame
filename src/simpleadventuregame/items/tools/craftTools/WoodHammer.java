@@ -5,7 +5,7 @@ import simpleadventuregame.items.tools.Tool;
 public class WoodHammer extends Tool {
 
 	public WoodHammer() {
-		super("Wood Armor", 1, 5 ,5, false);
+		super("Wood Armor", 1, 5 ,5, false,false);
 		
 	}
 

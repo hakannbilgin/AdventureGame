@@ -5,7 +5,7 @@ import simpleadventuregame.items.armors.Armor;
 public class BlueSpiritArmor extends Armor {
 
 	public BlueSpiritArmor() {
-		super("Blue Spirit Armor", 9, 10, 110);
+		super("Blue Spirit Armor", 9, 10, 110,true);
 		// TODO Auto-generated constructor stub
 	}
 

@@ -10,8 +10,8 @@ public abstract class GiftBox extends Award{
 	private ArrayList<Item> boxAward = new ArrayList<Item>();
 	
 
-	public GiftBox(int id, String name) {
-		super(id, name);
+	public GiftBox(int id, String name,boolean upgradeable) {
+		super(id, name,upgradeable);
 		
 	}
 

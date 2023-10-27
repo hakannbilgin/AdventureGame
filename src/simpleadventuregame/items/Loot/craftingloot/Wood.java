@@ -7,7 +7,7 @@ public class Wood extends Award {
 	private int woodChange;
 
 	public Wood() {
-		super(3, "Wood");
+		super(3, "Wood",false);
 
 	}
 

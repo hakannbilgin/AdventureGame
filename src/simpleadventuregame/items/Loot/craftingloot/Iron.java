@@ -5,7 +5,7 @@ import simpleadventuregame.items.Loot.Award;
 public class Iron extends Award{
 
 	public Iron() {
-		super(4, "Iron");
+		super(4, "Iron",false);
 	
 	}
 

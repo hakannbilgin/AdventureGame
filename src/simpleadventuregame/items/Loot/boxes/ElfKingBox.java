@@ -1,10 +1,6 @@
 package simpleadventuregame.items.Loot.boxes;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
-
 import simpleadventuregame.items.Item;
 import simpleadventuregame.items.Loot.craftingloot.DarkStone;
 import simpleadventuregame.items.Loot.craftingloot.Diamond;
@@ -21,7 +17,7 @@ public class ElfKingBox extends GiftBox {
 	
 
 	public ElfKingBox() {
-		super(10, "Troll Box");
+		super(10, "Troll Box",false);
 
 	}
 

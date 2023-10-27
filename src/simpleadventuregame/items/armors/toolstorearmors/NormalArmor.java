@@ -5,7 +5,7 @@ import simpleadventuregame.items.armors.Armor;
 public class NormalArmor extends Armor {
 
 	public NormalArmor() {
-		super("NormalArmor", 2, 4, 40);
+		super("NormalArmor", 2, 4, 40,false);
 		// TODO Auto-generated constructor stub
 	}
 

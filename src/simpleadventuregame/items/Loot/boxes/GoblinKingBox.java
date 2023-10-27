@@ -3,23 +3,18 @@ package simpleadventuregame.items.Loot.boxes;
 import java.util.ArrayList;
 
 import simpleadventuregame.items.Item;
-import simpleadventuregame.items.Loot.craftingloot.DarkStone;
 import simpleadventuregame.items.Loot.craftingloot.Diamond;
 import simpleadventuregame.items.Loot.craftingloot.ElfStone;
 import simpleadventuregame.items.Loot.craftingloot.Emerald;
-import simpleadventuregame.items.Loot.craftingloot.Food;
 import simpleadventuregame.items.Loot.craftingloot.KeyParts;
-import simpleadventuregame.items.Loot.craftingloot.Iron;
 import simpleadventuregame.items.Loot.craftingloot.Steel;
 import simpleadventuregame.items.Loot.craftingloot.Water;
-import simpleadventuregame.items.Loot.craftingloot.Wood;
-import simpleadventuregame.items.armors.BossArmors.TrollArmor;
 import simpleadventuregame.items.weapons.bossweapons.GoblinSword;
 
 public class GoblinKingBox extends GiftBox{
 
 	public GoblinKingBox() {
-		super(16, "GoblinKing Box");
+		super(16, "GoblinKing Box",false);
 		// TODO Auto-generated constructor stub
 	}
 	

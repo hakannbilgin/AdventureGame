@@ -5,7 +5,7 @@ import simpleadventuregame.items.tools.Tool;
 public class SteelHammer extends Tool {
 
 	public SteelHammer() {
-		super("Steel Hammer", 3, 5,5, false);
+		super("Steel Hammer", 3, 5,5, false,true);
 
 	}
 

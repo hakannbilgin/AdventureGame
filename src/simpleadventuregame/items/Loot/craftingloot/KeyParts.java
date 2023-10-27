@@ -5,7 +5,7 @@ import simpleadventuregame.items.Loot.Award;
 public class KeyParts extends Award {
 
 	public KeyParts() {
-		super(9, "Key Parts");
+		super(9, "Key Parts",false);
 		// TODO Auto-generated constructor stub
 	}
 

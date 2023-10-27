@@ -5,7 +5,7 @@ import simpleadventuregame.items.Loot.Award;
 public class Emerald extends Award {
 
 	public Emerald() {
-		super(8, "Emerald");
+		super(8, "Emerald",false);
 		// TODO Auto-generated constructor stub
 	}
 

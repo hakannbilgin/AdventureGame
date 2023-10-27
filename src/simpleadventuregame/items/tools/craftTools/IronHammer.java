@@ -5,7 +5,7 @@ import simpleadventuregame.items.tools.Tool;
 public class IronHammer extends Tool{
 
 	public IronHammer( ) {
-		super("Iron Hammer", 2, 5,5, false);
+		super("Iron Hammer", 2, 5,5, false,false);
 		// TODO Auto-generated constructor stub
 	}
 

@@ -6,8 +6,8 @@ public abstract class Elixir extends Award {
 
 	private int price;
 	
-	public Elixir(int id, String name, int price) {
-		super(id, name);
+	public Elixir(int id, String name, int price ,boolean upgradeable) {
+		super(id, name,upgradeable);
 		this.price = price;
 		
 	}

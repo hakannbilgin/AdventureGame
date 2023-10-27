@@ -5,7 +5,7 @@ import simpleadventuregame.items.Loot.Award;
 public class ElfStone extends Award {
 
 	public ElfStone() {
-		super(7, "Elf Stone");
+		super(7, "Elf Stone",false);
 		
 	}
 

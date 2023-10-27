@@ -9,8 +9,8 @@ public abstract class Tool extends Item {
 	private boolean repairable;
 	//TODO:ADD TOOL LEVEL
 
-	public Tool(String name, int id, int useCount ,int defaultUseCount,  boolean repairable, boolean updateable) {
-		super(name,id);
+	public Tool(String name, int id, int useCount ,int defaultUseCount,  boolean repairable, boolean upgradeable) {
+		super(name,id,upgradeable);
 //		this.setName(name);
 //		this.setId(id);
 		this.useCount = useCount;

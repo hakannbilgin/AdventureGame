@@ -6,7 +6,7 @@ public class UselessStick extends Tool {
 
 	public UselessStick() {
 
-		super("Useless Stick", -2 , 999,999, false);
+		super("Useless Stick", -2 , 999,999, false,false);
 
 	}
 

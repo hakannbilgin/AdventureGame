@@ -5,7 +5,7 @@ import simpleadventuregame.items.Loot.Award;
 public class Water extends Award {
 
 	public Water() {
-		super(2, "Water");
+		super(2, "Water",false);
 
 	}
 

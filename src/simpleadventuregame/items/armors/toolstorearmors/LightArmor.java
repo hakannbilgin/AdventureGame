@@ -5,7 +5,7 @@ import simpleadventuregame.items.armors.Armor;
 public class LightArmor extends Armor {
 
 	public LightArmor() {
-		super("LightArmor", 1, 2, 30);
+		super("LightArmor", 1, 2, 30,false);
 		// TODO Auto-generated constructor stub
 	}
 

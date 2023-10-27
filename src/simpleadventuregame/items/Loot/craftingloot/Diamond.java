@@ -5,7 +5,7 @@ import simpleadventuregame.items.Loot.Award;
 public class Diamond extends Award {
 
 	public Diamond() {
-		super(6, "Diomand");
+		super(6, "Diomand",false);
 		// TODO Auto-generated constructor stub
 	}
 

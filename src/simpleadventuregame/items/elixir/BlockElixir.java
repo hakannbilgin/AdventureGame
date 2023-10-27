@@ -3,7 +3,7 @@ package simpleadventuregame.items.elixir;
 public class BlockElixir extends Elixir{
 
 	public BlockElixir() {
-		super(13, "Block Elixir", 15);
+		super(13, "Block Elixir", 15, false);
 		// TODO Auto-generated constructor stub
 	}
 
