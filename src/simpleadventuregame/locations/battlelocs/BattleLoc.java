@@ -6,10 +6,6 @@ import simpleadventuregame.game.gameitems.Inventory;
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.items.Loot.Award;
 import simpleadventuregame.locations.Location;
-import simpleadventuregame.locations.battlelocs.darkforests.ForestArea;
-import simpleadventuregame.locations.normallocs.houselocs.SafeHouse;
-import simpleadventuregame.locations.normallocs.houselocs.blacksmith.normalBlackSmith.BlackSmith;
-import simpleadventuregame.locations.normallocs.storelocs.ToolStore;
 import simpleadventuregame.monsters.Monster;
 import simpleadventuregame.utils.PlayerScanner;
 
@@ -100,7 +96,7 @@ public abstract class BattleLoc extends Location {
 			if (!blockElixirUse) {
 				System.out.println(this.getMonster().getName() + " hit you");
 				int monsterDamage = this.getMonster().getDamage()
-						- this.getPlayer().getInventory().getArmor().getDamageDodge();
+						- this.getPlayer().getInventory().getArmor().getDefense();
 				if (monsterDamage < 0) {
 					monsterDamage = 0;
 				}
@@ -220,7 +216,7 @@ public abstract class BattleLoc extends Location {
 
 		System.out.println("Player Informations \n ------------------------");
 		System.out.printf(infoPlayerFormat, this.getInventory().getWeapon().getName(),
-				this.getInventory().getArmor().getName(), this.getInventory().getArmor().getDamageDodge(),
+				this.getInventory().getArmor().getName(), this.getInventory().getArmor().getDefense(),
 				this.getPlayer().getTotalDamage(), this.getPlayer().getHealth(), this.getPlayer().getMoney());
 
 	}

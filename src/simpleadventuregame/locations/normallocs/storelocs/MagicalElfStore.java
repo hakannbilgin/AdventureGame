@@ -4,15 +4,12 @@ import simpleadventuregame.game.gameitems.Inventory;
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.elixir.Elixir;
-import simpleadventuregame.items.elixir.HealthElixir;
-import simpleadventuregame.items.elixir.MedicalElixir;
 import simpleadventuregame.items.weapons.Weapon;
 import simpleadventuregame.locations.normallocs.NormalLoc;
 import simpleadventuregame.utils.PlayerScanner;
 
 public class MagicalElfStore extends NormalLoc {
-//	private HealthElixir healthElixir;
-//	private MedicalElixir medicalElixir;
+
 	
 	private String equipmentWeaponFormat = " Equipment :  [%-7s] [%d] [Damage:  %-1d] [Money: %2d] \n";
 	private String equipmentArmorFormat = " Equipment :  [%-7s] [%d] [DamageDodge:  %-1d] [Money: %2d] \n";
@@ -198,7 +195,7 @@ public class MagicalElfStore extends NormalLoc {
 
 		for (Armor armors : armorList) {
 
-			System.out.printf(equipmentArmorFormat, armors.getName(), armors.getId(), armors.getDamageDodge(),
+			System.out.printf(equipmentArmorFormat, armors.getName(), armors.getId(), armors.getDefense(),
 					armors.getPrice());
 
 		}

@@ -147,7 +147,7 @@ public class UglyGoblinStore extends NormalLoc{
 
 		for (Armor armors : armorList) {
 
-			System.out.printf(equipmentArmorFormat, armors.getName(), armors.getId(), armors.getDamageDodge(),
+			System.out.printf(equipmentArmorFormat, armors.getName(), armors.getId(), armors.getDefense(),
 					armors.getPrice());
 
 		}

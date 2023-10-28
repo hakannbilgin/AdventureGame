@@ -14,10 +14,10 @@ public abstract class Weapon extends Item{
 	private int damage;
 	private int price;
 
-	public Weapon(String name, int id, int damage, int price) {
+	public Weapon(String name, int id, int damage, int price, boolean upgradeable) {
 //		this.setName(name);
 //		this.setId(id);
-		super(name, id);
+		super(name, id,upgradeable);
 		this.damage = damage;
 		this.price = price;
 	}

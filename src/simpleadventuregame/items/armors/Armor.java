@@ -12,15 +12,15 @@ public abstract class Armor extends Item{
 
 //	private String name;
 //	private int id;
-	private int damageDodge;
+	private int defense;
 	private int price;
 	
 	
-	public Armor(String name, int id, int damageDodge, int price, boolean upgradeable) {
+	public Armor(String name, int id, int defense, int price, boolean upgradeable) {
 		super(name, id, upgradeable);
 //		this.setName(name);
 //		this.setId(id);
-		this.damageDodge = damageDodge;
+		this.defense = defense;
 		this.price = price;
 	}
 	
@@ -99,15 +99,22 @@ public abstract class Armor extends Item{
 //	public void setId(int id) {
 //		this.id = id;
 //	}
-	public int getDamageDodge() {
-		return damageDodge;
-	}
-	public void setDamageDodge(int damageDodge) {
-		this.damageDodge = damageDodge;
-	}
+	
+	
+	
 	public int getPrice() {
 		return price;
 	}
+	public int getDefense() {
+		return defense;
+	}
+
+
+	public void setDefense(int defense) {
+		this.defense = defense;
+	}
+
+
 	public void setPrice(int price) {
 		this.price = price;
 	}
