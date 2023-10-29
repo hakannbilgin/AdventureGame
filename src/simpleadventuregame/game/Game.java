@@ -13,7 +13,7 @@ import simpleadventuregame.locations.battlelocs.goblinland.GoblinLandArea;
 import simpleadventuregame.locations.normallocs.houselocs.SafeHouse;
 import simpleadventuregame.locations.normallocs.houselocs.blacksmith.normalBlackSmith.BlackSmith;
 import simpleadventuregame.locations.normallocs.houselocs.upgradeandrepairhouse.UpgradeAndRepairHouse;
-import simpleadventuregame.locations.normallocs.storelocs.ToolStore;
+import simpleadventuregame.locations.normallocs.storelocs.GeneralStore;
 import simpleadventuregame.utils.PlayerScanner;
 
 public class Game {
@@ -156,7 +156,7 @@ public class Game {
 						location = new SafeHouse(player);
 						break;
 					case 2:
-						location = new ToolStore(player);
+						location = new GeneralStore(player);
 						break;
 					case 3:
 						location = new BlackSmith(player);

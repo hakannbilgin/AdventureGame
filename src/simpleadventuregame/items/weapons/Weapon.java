@@ -22,7 +22,7 @@ public abstract class Weapon extends Item{
 		this.price = price;
 	}
 
-	public static Weapon[] weaponsInToolStore() {
+	public static Weapon[] weaponsInGeneralStore() {
 
 		Weapon[] wList = { new ShortSword(), new LongSword(), new IronPala(), new DarkSword()};
 		return wList;
@@ -31,7 +31,7 @@ public abstract class Weapon extends Item{
 
 	public static Weapon getWeaponInToolStoreById(int id) {
 
-		for (Weapon w : Weapon.weaponsInToolStore()) {
+		for (Weapon w : Weapon.weaponsInGeneralStore()) {
 			if (w.getId() == id) {
 				return w;
 			}
@@ -50,7 +50,7 @@ public abstract class Weapon extends Item{
 
 	public static Weapon getWeaponInMagicalStoreById(int id) {
 
-		for (Weapon w : Weapon.weaponsInToolStore()) {
+		for (Weapon w : Weapon.weaponsInGeneralStore()) {
 			if (w.getId() == id) {
 				return w;
 			}
@@ -70,7 +70,7 @@ public abstract class Weapon extends Item{
 
 	public static Weapon getWeaponInGoblinStoreById(int id) {
 
-		for (Weapon w : Weapon.weaponsInToolStore()) {
+		for (Weapon w : Weapon.weaponsInGoblinStore()) {
 			if (w.getId() == id) {
 				return w;
 			}

@@ -25,16 +25,16 @@ public abstract class Armor extends Item{
 	}
 	
 	
-	public static Armor[] armorsInToolStore() {
+	public static Armor[] armorsInGeneralStore() {
 
 		Armor[] aList = { new LightArmor(), new NormalArmor(), new ShinyArmor() , new MagicalArmor() };
 		return aList;
 
 	}
 	
-	public static Armor getArmorInToolStoreById(int id) {
+	public static Armor getArmorInGeneralStoreById(int id) {
 
-		for (Armor a : Armor.armorsInToolStore()) {
+		for (Armor a : Armor.armorsInGeneralStore()) {
 			if (a.getId() == id) {
 				return a;
 			}
