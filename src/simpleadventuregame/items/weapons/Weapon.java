@@ -29,7 +29,7 @@ public abstract class Weapon extends Item{
 
 	}
 
-	public static Weapon getWeaponInToolStoreById(int id) {
+	public static Weapon getWeaponInGeneralStoreById(int id) {
 
 		for (Weapon w : Weapon.weaponsInGeneralStore()) {
 			if (w.getId() == id) {

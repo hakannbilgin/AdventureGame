@@ -5,14 +5,13 @@ import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.elixir.Elixir;
 import simpleadventuregame.items.weapons.Weapon;
-import simpleadventuregame.locations.normallocs.NormalLoc;
 import simpleadventuregame.utils.PlayerScanner;
 
-public class MagicalElfStore extends NormalLoc {
+public class MagicalElfStore extends StoreLoc {
 
 	
-	private String equipmentWeaponFormat = " Equipment :  [%-7s] [%d] [Damage:  %-1d] [Money: %2d] \n";
-	private String equipmentArmorFormat = " Equipment :  [%-7s] [%d] [DamageDodge:  %-1d] [Money: %2d] \n";
+//	private String equipmentWeaponFormat = " Equipment :  [%-7s] [%d] [Damage:  %-1d] [Money: %2d] \n";
+//	private String equipmentArmorFormat = " Equipment :  [%-7s] [%d] [DamageDodge:  %-1d] [Money: %2d] \n";
 
 	public MagicalElfStore(Player player) {
 		super(13, player, "Aurae's Magical Elf Store");
@@ -104,7 +103,7 @@ public class MagicalElfStore extends NormalLoc {
 
 	public void selectWeaponInMagicalElfStore() {
 
-		printWeaponInMagicalElfStore();
+		this.printWeaponInStore(this.getId());
 
 		System.out.println("Please enter '0' to exit");
 
@@ -138,35 +137,23 @@ public class MagicalElfStore extends NormalLoc {
 
 	}
 	
-	public void printWeaponInMagicalElfStore() {
-
-		System.out.println("----- Magical Elf Store Weapons-----");
-
-		Weapon[] weaponlist = Weapon.weaponsInMagicalElfStore();
-
-		for (Weapon weapons : weaponlist) {
-
-			System.out.printf(equipmentWeaponFormat, weapons.getName(), weapons.getId(), weapons.getDamage(),
-					weapons.getPrice());
-		}
-	}
 	
 	public void selectArmorInMagicalElfStore() {
 
-		printArmorInMagicalElfStore();
+		this.printArmorInStore(this.getId());
 
 		System.out.println("Please enter '0' to exit");
 
 		System.out.println("Please enter the id of the armor you have selected : ");
 		int selectedArmorId = PlayerScanner.intScanner();
 
-		while (selectedArmorId < 1 && selectedArmorId > Armor.armorsInMagicalElfStore().length) {
+		while (selectedArmorId < 1 && selectedArmorId > Armor.armorsInStore(this.getId()).length) {
 			System.out.println(" you entered invalid number, please enter again ! ");
 			selectedArmorId = PlayerScanner.intScanner();
 
 		}
 		if (selectedArmorId != 0) {
-			Armor selectedArmor = Armor.getArmorInMagcalElfStoreById(selectedArmorId);
+			Armor selectedArmor = Armor.getArmorInStoreById(selectedArmorId,this.getId());
 
 			if (selectedArmor != null) {
 				if (selectedArmor.getPrice() > this.getPlayer().getMoney()) {
@@ -187,26 +174,38 @@ public class MagicalElfStore extends NormalLoc {
 
 	}
 	
-	public void printArmorInMagicalElfStore() {
-
-		System.out.println("----- Magical Elf Store Armors-----");
-
-		Armor[] armorList = Armor.armorsInMagicalElfStore();
-
-		for (Armor armors : armorList) {
-
-			System.out.printf(equipmentArmorFormat, armors.getName(), armors.getId(), armors.getDefense(),
-					armors.getPrice());
-
-		}
-	}
-	
-	
 	public Inventory getInventory() {
 
 		return this.getPlayer().getInventory();
 	}
 	
+//	public void printWeaponInMagicalElfStore() {
+//
+//		System.out.println("----- Magical Elf Store Weapons-----");
+//
+//		Weapon[] weaponlist = Weapon.weaponsInMagicalElfStore();
+//
+//		for (Weapon weapons : weaponlist) {
+//
+//			System.out.printf(getEquipmentWeaponFormat(), weapons.getName(), weapons.getId(), weapons.getDamage(),
+//					weapons.getPrice());
+//		}
+//	}
+//	
+//	public void printArmorInMagicalElfStore() {
+//
+//		System.out.println("----- Magical Elf Store Armors-----");
+//
+//		Armor[] armorList = Armor.armorsInMagicalElfStore();
+//
+//		for (Armor armors : armorList) {
+//
+//			System.out.printf(getEquipmentArmorFormat(), armors.getName(), armors.getId(), armors.getDefense(),
+//					armors.getPrice());
+//
+//		}
+//	}
+//	
 //	public void selectElixirInElfStore() {
 //
 //		boolean elixirtMenu = true;

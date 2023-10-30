@@ -3,18 +3,17 @@ package simpleadventuregame.locations.normallocs.storelocs;
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.weapons.Weapon;
-import simpleadventuregame.locations.normallocs.NormalLoc;
 import simpleadventuregame.utils.PlayerScanner;
 
-public class GeneralStore extends NormalLoc {
+public class GeneralStore extends StoreLoc {
 
 //	private Weapon weapon = null;
 
-	private String equipmentWeaponFormat = " Equipment :  [%-7s] [%d] [Damage:  %-1d] [Money: %2d] \n";
-	private String equipmentArmorFormat = " Equipment :  [%-7s] [%d] [DamageDodge:  %-1d] [Money: %2d] \n";
+//	private String equipmentWeaponFormat = " Equipment :  [%-7s] [%d] [Damage:  %-1d] [Money: %2d] \n";
+//	private String equipmentArmorFormat = " Equipment :  [%-7s] [%d] [DamageDodge:  %-1d] [Money: %2d] \n";
 
 	public GeneralStore(Player player) {
-		super(2, player, " GeneralStore");
+		super(2, player, " General Store");
 
 	}
 
@@ -56,7 +55,7 @@ public class GeneralStore extends NormalLoc {
 
 	public void selectWeaponInToolStore() {
 
-		printWeaponInToolStore();
+		this.printWeaponInStore(this.getId());
 
 		System.out.println("Please enter '0' to exit");
 
@@ -69,7 +68,7 @@ public class GeneralStore extends NormalLoc {
 
 		}
 		if (selectWeaponId != 0) {
-			Weapon selectedWeapon = Weapon.getWeaponInToolStoreById(selectWeaponId);
+			Weapon selectedWeapon = Weapon.getWeaponInGeneralStoreById(selectWeaponId);
 
 			if (selectedWeapon != null) {
 				if (selectedWeapon.getPrice() > this.getPlayer().getMoney()) {
@@ -92,20 +91,20 @@ public class GeneralStore extends NormalLoc {
 
 	public void selectArmorInToolStore() {
 
-		printArmorInToolStore();
+		this.printArmorInStore(this.getId());
 
 		System.out.println("Please enter '0' to exit");
 
 		System.out.println("Please enter the id of the armor you have selected : ");
 		int selectedArmorId = PlayerScanner.intScanner();
 
-		while (selectedArmorId < 1 && selectedArmorId > Armor.armorsInGeneralStore().length) {
+		while (selectedArmorId < 1 && selectedArmorId > Armor.armorsInStore(this.getId()).length) {
 			System.out.println(" you entered invalid number, please enter again ! ");
 			selectedArmorId = PlayerScanner.intScanner();
 
 		}
 		if (selectedArmorId != 0) {
-			Armor selectedArmor = Armor.getArmorInGeneralStoreById(selectedArmorId);
+			Armor selectedArmor = Armor.getArmorInStoreById(selectedArmorId,this.getId());
 
 			if (selectedArmor != null) {
 				if (selectedArmor.getPrice() > this.getPlayer().getMoney()) {
@@ -126,30 +125,30 @@ public class GeneralStore extends NormalLoc {
 
 	}
 
-	public void printWeaponInToolStore() {
+//	public void printWeaponInToolStore() {
+//
+//		System.out.println("-----Weapons-----");
+//
+//		Weapon[] weaponlist = Weapon.weaponsInGeneralStore();
+//
+//		for (Weapon weapons : weaponlist) {
+//
+//			System.out.printf(getEquipmentWeaponFormat(), weapons.getName(), weapons.getId(), weapons.getDamage(),
+//					weapons.getPrice());
+//		}
+//	}
 
-		System.out.println("-----Weapons-----");
-
-		Weapon[] weaponlist = Weapon.weaponsInGeneralStore();
-
-		for (Weapon weapons : weaponlist) {
-
-			System.out.printf(equipmentWeaponFormat, weapons.getName(), weapons.getId(), weapons.getDamage(),
-					weapons.getPrice());
-		}
-	}
-
-	public void printArmorInToolStore() {
-
-		System.out.println("-----Armor-----");
-
-		Armor[] armorList = Armor.armorsInGeneralStore();
-
-		for (Armor armors : armorList) {
-
-			System.out.printf(equipmentArmorFormat, armors.getName(), armors.getId(), armors.getDefense(),
-					armors.getPrice());
-
-		}
-	}
+//	public void printArmorInToolStore() {
+//
+//		System.out.println("-----Armor-----");
+//
+//		Armor[] armorList = Armor.armorsInGeneralStore();
+//
+//		for (Armor armors : armorList) {
+//
+//			System.out.printf(getEquipmentArmorFormat(), armors.getName(), armors.getId(), armors.getDefense(),
+//					armors.getPrice());
+//
+//		}
+//	}
 }

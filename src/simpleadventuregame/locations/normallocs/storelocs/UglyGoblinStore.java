@@ -4,12 +4,11 @@ import simpleadventuregame.game.gameitems.Inventory;
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.weapons.Weapon;
-import simpleadventuregame.locations.normallocs.NormalLoc;
 import simpleadventuregame.utils.PlayerScanner;
 
-public class UglyGoblinStore extends NormalLoc{
-	private String equipmentWeaponFormat = " Equipment :  [%-7s] [%d] [Damage:  %-1d] [Money: %2d] \n";
-	private String equipmentArmorFormat = " Equipment :  [%-7s] [%d] [DamageDodge:  %-1d] [Money: %2d] \n";
+public class UglyGoblinStore extends StoreLoc{
+//	private String equipmentWeaponFormat = " Equipment :  [%-7s] [%d] [Damage:  %-1d] [Money: %2d] \n";
+//	private String equipmentArmorFormat = " Equipment :  [%-7s] [%d] [DamageDodge:  %-1d] [Money: %2d] \n";
 
 	public UglyGoblinStore(Player player) {
 		super(20, player, "Ugly Goblin Store");
@@ -56,7 +55,7 @@ public class UglyGoblinStore extends NormalLoc{
 	
 	public void selectWeaponInGoblinStore() {
 
-		printWeaponInGoblinStore();
+		this.printWeaponInStore(this.getId());
 
 		System.out.println("Please enter '0' to exit");
 
@@ -90,35 +89,23 @@ public class UglyGoblinStore extends NormalLoc{
 
 	}
 	
-	public void printWeaponInGoblinStore() {
 
-		System.out.println("----- Ugly Goblin Store Weapons-----");
-
-		Weapon[] weaponlist = Weapon.weaponsInGoblinStore();
-
-		for (Weapon weapons : weaponlist) {
-
-			System.out.printf(equipmentWeaponFormat, weapons.getName(), weapons.getId(), weapons.getDamage(),
-					weapons.getPrice());
-		}
-	}
-	
 	public void selectArmorInGoblinStore() {
 
-		printArmorInGoblinStore();
+		this.printArmorInStore(this.getId());
 
 		System.out.println("Please enter '0' to exit");
 
 		System.out.println("Please enter the id of the armor you have selected : ");
 		int selectedArmorId = PlayerScanner.intScanner();
 
-		while (selectedArmorId < 1 && selectedArmorId > Armor.armorsInGoblinStore().length) {
+		while (selectedArmorId < 1 && selectedArmorId > Armor.armorsInStore(this.getId()).length) {
 			System.out.println(" you entered invalid number, please enter again ! ");
 			selectedArmorId = PlayerScanner.intScanner();
 
 		}
 		if (selectedArmorId != 0) {
-			Armor selectedArmor = Armor.getArmorInGoblinStoreById(selectedArmorId);
+			Armor selectedArmor = Armor.getArmorInStoreById(selectedArmorId,this.getId());
 
 			if (selectedArmor != null) {
 				if (selectedArmor.getPrice() > this.getPlayer().getMoney()) {
@@ -139,25 +126,41 @@ public class UglyGoblinStore extends NormalLoc{
 
 	}
 	
-	public void printArmorInGoblinStore() {
-
-		System.out.println("----- Ugly Goblin Store Armors-----");
-
-		Armor[] armorList = Armor.armorsInGoblinStore();
-
-		for (Armor armors : armorList) {
-
-			System.out.printf(equipmentArmorFormat, armors.getName(), armors.getId(), armors.getDefense(),
-					armors.getPrice());
-
-		}
-	}
-	
-	
 	public Inventory getInventory() {
 
 		return this.getPlayer().getInventory();
 	}
+	
+//	public void printWeaponInGoblinStore() {
+//
+//		System.out.println("----- Ugly Goblin Store Weapons-----");
+//
+//		Weapon[] weaponlist = Weapon.weaponsInGoblinStore();
+//
+//		for (Weapon weapons : weaponlist) {
+//
+//			System.out.printf(getEquipmentWeaponFormat(), weapons.getName(), weapons.getId(), weapons.getDamage(),
+//					weapons.getPrice());
+//		}
+//	}
+	
+	
+//	public void printArmorInGoblinStore() {
+//
+//		System.out.println("----- Ugly Goblin Store Armors-----");
+//
+//		Armor[] armorList = Armor.armorsInGoblinStore();
+//
+//		for (Armor armors : armorList) {
+//
+//			System.out.printf(getEquipmentArmorFormat(), armors.getName(), armors.getId(), armors.getDefense(),
+//					armors.getPrice());
+//
+//		}
+//	}
+//	
+	
+
 	
 
 }
