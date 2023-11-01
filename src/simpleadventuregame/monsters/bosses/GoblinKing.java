@@ -7,7 +7,7 @@ import simpleadventuregame.monsters.Monster;
 public class GoblinKing extends Monster{
 
 	public GoblinKing() {
-		super(13, "Goblin King", new GoblinKingBox(), new Steel(), 26, 26, 35, 7, 3);
+		super(13, "Goblin King", new GoblinKingBox(), new Steel(), 26, 26, 35, 11, 3);
 		// TODO Auto-generated constructor stub
 	}
 

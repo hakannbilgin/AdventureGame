@@ -1,6 +1,5 @@
 package simpleadventuregame.locations.normallocs.storelocs;
 
-import simpleadventuregame.game.gameitems.Inventory;
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.elixir.Elixir;
@@ -174,10 +173,10 @@ public class MagicalElfStore extends StoreLoc {
 
 	}
 	
-	public Inventory getInventory() {
-
-		return this.getPlayer().getInventory();
-	}
+//	public Inventory getInventory() {
+//
+//		return this.getPlayer().getInventory();
+//	}
 	
 //	public void printWeaponInMagicalElfStore() {
 //

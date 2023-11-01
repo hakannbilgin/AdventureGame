@@ -1,6 +1,5 @@
 package simpleadventuregame.locations.normallocs.storelocs;
 
-import simpleadventuregame.game.gameitems.Inventory;
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.weapons.Weapon;
@@ -126,10 +125,10 @@ public class UglyGoblinStore extends StoreLoc{
 
 	}
 	
-	public Inventory getInventory() {
-
-		return this.getPlayer().getInventory();
-	}
+//	public Inventory getInventory() {
+//
+//		return this.getPlayer().getInventory();
+//	}
 	
 //	public void printWeaponInGoblinStore() {
 //

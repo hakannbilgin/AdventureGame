@@ -34,6 +34,8 @@ public class PlayerLevel extends Level {
 				levelUp();
 				return true;
 
+			}else {
+				System.out.println("You are at the Highest Level");
 			}
 		}
 		return false;
@@ -45,9 +47,10 @@ public class PlayerLevel extends Level {
 
 		this.setCurrentLevel(getCurrentLevel() + 1);
 		this.setCurrentExperience(getCurrentExperience() - 50);
+		this.setMaxLevelExperience(getMaxLevelExperience() + 25);
 		System.out.println("Level Up! Now Your Level is :--  " + this.getCurrentLevel() + " -- ");
 
 	}
 
-
+	
 }

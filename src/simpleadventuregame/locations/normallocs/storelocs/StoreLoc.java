@@ -1,7 +1,6 @@
 package simpleadventuregame.locations.normallocs.storelocs;
 
-import java.util.Iterator;
-
+import simpleadventuregame.game.gameitems.Inventory;
 import simpleadventuregame.game.gameitems.Player;
 import simpleadventuregame.items.armors.Armor;
 import simpleadventuregame.items.weapons.Weapon;
@@ -99,5 +98,8 @@ public abstract class StoreLoc extends Location {
 
 	}
 
+	public Inventory getInventory() {
 
+		return this.getPlayer().getInventory();
+	}
 }

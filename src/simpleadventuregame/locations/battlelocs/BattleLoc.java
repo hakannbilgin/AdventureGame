@@ -14,7 +14,7 @@ public abstract class BattleLoc extends Location {
 	private String infoPlayerFormat = " Your current info : Your weapon: [%-7s] Your Armor : [%-7s] [Dodge:  %-1d] [Damage:  %-1d] [Health:  %-1d] [Money: %2d] \n";
 	private String infoMonsterFormat = " Monster info : [Damage:  %-1d] [Health:  %-1d] [Award: %2d] \n";
 	private Monster monster;
-	private boolean blockElixirUse=false;
+	private boolean blockElixirUse = false;
 //	private Award award;
 	private int maxMonsterCount;
 
@@ -29,8 +29,9 @@ public abstract class BattleLoc extends Location {
 	public boolean onLocation() {
 		int monsterNumber = RandomMonsterCount();
 		System.out.println("Now you are in " + this.getName());
-		System.out
-				.println("Bheave yourself there are "+ monsterNumber + "  (" +  this.getMonster().getMonsterLevel().getCurrentLevel()+".Lvl) "+ this.getMonster().getName() + "'s here.");
+		System.out.println("Behave yourself there are " + monsterNumber + "  ("
+				+ this.getMonster().getMonsterLevel().getCurrentLevel() + ".Lvl) " + this.getMonster().getName()
+				+ "'s here.");
 		System.out.println("<F>ight or <R>un ");
 		char selectCase = PlayerScanner.StringToFirstcharScanner();
 
@@ -39,7 +40,7 @@ public abstract class BattleLoc extends Location {
 			return true;
 		} else {
 			System.out.println("You run from the battle and you lost 2 experience point");
-			this.getPlayer().getPlayerLevel().loseExperience(5);
+			this.getPlayer().getPlayerLevel().loseExperience(2);
 		}
 
 		if (this.getPlayer().getHealth() <= 0 || this.getPlayer().getSatiety() == 0
@@ -53,15 +54,23 @@ public abstract class BattleLoc extends Location {
 
 	}
 
+	public int RandomMonsterCount() {
+		Random random = new Random();
+		return random.nextInt(this.getMaxMonsterCount()) + 1;
+
+	}
+
 	public boolean combat(int monsterNumber) {
 
 		for (int i = 1; i <= monsterNumber; i++) {
-			if (this.getInventory().getElixirChest().getTotalElixirCount() > 0) {
-				this.useElixirInCombat();
-			}
+
 			this.getMonster().setHealth(this.getMonster().getDefaultHealth());
 			playerStats();
 			monsterStats(i);
+
+			if (this.getInventory().getElixirChest().getTotalElixirCount() > 0) {
+				this.useElixirInCombat();
+			}
 
 			while (this.getPlayer().getHealth() > 0 && this.getMonster().getHealth() > 0) {
 				System.out.println("Hit or Run");
@@ -75,7 +84,7 @@ public abstract class BattleLoc extends Location {
 			}
 
 			if (this.getMonster().getHealth() < this.getPlayer().getHealth()) {
-				
+
 				this.afterBattle();
 
 			} else {
@@ -86,51 +95,38 @@ public abstract class BattleLoc extends Location {
 		return true;
 
 	}
-	
-	
-	public void hitInCombat() {
-		System.out.println("You hit " + getMonster().getName());
-		this.getMonster().setHealth(this.monster.getHealth() - this.getPlayer().getTotalDamage());
-		afterHitInfo();
-		if (this.getMonster().getHealth() > 0) {
-			if (!blockElixirUse) {
-				System.out.println(this.getMonster().getName() + " hit you");
-				int monsterDamage = this.getMonster().getDamage()
-						- this.getPlayer().getInventory().getArmor().getDefense();
-				if (monsterDamage < 0) {
-					monsterDamage = 0;
-				}
-				this.getPlayer().setHealth(this.getPlayer().getHealth() - monsterDamage);
-			}else {
-				System.out.println("You used block Elixir monster couldn't hit you.");
-			}
-			
-//			System.out.println(this.getMonster().getName() + " hit you");
-//			int monsterDamage = this.getMonster().getDamage()
-//					- this.getPlayer().getInventory().getArmor().getDamageDodge();
-//			if (monsterDamage < 0) {
-//				monsterDamage = 0;
-//			}
-//			this.getPlayer().setHealth(this.getPlayer().getHealth() - monsterDamage);
-			afterHitInfo();
+
+	public void playerStats() {
+
+		System.out.println("Player Informations \n ------------------------");
+		System.out.printf(infoPlayerFormat, this.getInventory().getWeapon().getName(),
+				this.getInventory().getArmor().getName(), this.getInventory().getArmor().getDefense(),
+				this.getPlayer().getTotalDamage(), this.getPlayer().getHealth(), this.getPlayer().getMoney());
+
 	}
+
+	public void monsterStats(int i) {
+
+		System.out.println(i + ". " + this.getMonster().getName() + " Informations \n ------------------------");
+		System.out.printf(infoMonsterFormat, this.getMonster().getDamage(), this.getMonster().getHealth(),
+				this.getMonster().getAwardMoney());
+
 	}
 
 	public void useElixirInCombat() {
 
 		this.getPlayer().printElixirChestInfo();
-		int selectLocation;
+		int selectElixir;
 		boolean elixirMenu = true;
 		while (elixirMenu) {
-			System.out.println("Do you want to use any elixir? /n ---(1) Health Elixir (2)Medical Elixir (3) Block Elixir (4) -No-");
+			System.out.println(
+					"Do you want to use any elixir? /n ---(1) Health Elixir (2)Medical Elixir (3) Block Elixir (4) -No-");
 			if (PlayerScanner.hasnextIntScanner()) {
-				selectLocation = PlayerScanner.intScanner();
+				selectElixir = PlayerScanner.intScanner();
 
-				if (selectLocation >= 0 && selectLocation <= 4) {
-					switch (selectLocation) {
-					case 0:
-						System.out.println("Exiting the program.");
-						return;
+				if (selectElixir >= 0 && selectElixir <= 4) {
+					switch (selectElixir) {
+
 					case 1:
 						if (this.getInventory().getElixirChest().getHealthElixirCount() > 0) {
 							this.getPlayer().setHealth(this.getPlayer().getDefaultHealth() + 5);
@@ -155,10 +151,10 @@ public abstract class BattleLoc extends Location {
 						break;
 					case 3:
 						if (this.getInventory().getElixirChest().getBlockElixirCount() > 0) {
-							
+
 							this.getInventory().getElixirChest().setBlockElixirCount(
 									this.getInventory().getElixirChest().getBlockElixirCount() - 1);
-							blockElixirUse=true;
+							blockElixirUse = true;
 						} else {
 							System.out.println("You don't have any Block Elixir");
 						}
@@ -179,31 +175,30 @@ public abstract class BattleLoc extends Location {
 
 	}
 
-	public void afterBattle() {
-		System.out.println("You killed the enemy");
-		if (this.getPlayer().getPlayerLevel().getCurrentLevel()<3) {
-			this.getPlayer().getPlayerLevel().gainExperience(this.getMonster().getAwardExperience());
-			if (this.getPlayer().getPlayerLevel().checkLevelUp()) {
-				this.playerLevelUpAward();
+	public void hitInCombat() {
+		System.out.println("You hit " + getMonster().getName());
+		this.getMonster().setHealth(this.monster.getHealth() - this.getPlayer().getTotalDamage());
+		afterHitInfo();
+		if (this.getMonster().getHealth() > 0) {
+			if (!blockElixirUse) {
+				this.hit();
+			} else {
+				System.out.println("You used block Elixir monster couldn't hit you.");
 			}
-			this.getMonster().getMonsterLevel().gainExperience(this.getMonster().getBattleExperience());
-			if (this.getMonster().getMonsterLevel().checkLevelUp()) {
-				this.monsterLevelUpChanges();
-			}
-			System.out.println("Your current exp is: " + this.getPlayer().getPlayerLevel().getCurrentExperience() + "/50");
-			this.getPlayer().setThirstLevel(this.getPlayer().getThirstLevel() + 1);
-			this.getPlayer().setSatiety(this.getPlayer().getSatiety() - 1);
-			// TODO IF THIRST LEVEL GETS OVER 20 ADD SOME CONSEQUENCES
-
-//			collectAward2(this.getMonster().getAward().getId());
-			collectAwardNew(this.getMonster().getAward());
-		}else {
-			System.out.println("");
+			afterHitInfo();
 		}
-		
-		
 	}
-	
+
+	public void hit() {
+		System.out.println(this.getMonster().getName() + " hit you");
+		int monsterDamage = this.getMonster().getDamage() - this.getPlayer().getInventory().getArmor().getDefense();
+		if (monsterDamage < 0) {
+			monsterDamage = 0;
+		}
+		this.getPlayer().setHealth(this.getPlayer().getHealth() - monsterDamage);
+
+	}
+
 	public void afterHitInfo() {
 		System.out.println("---------------------");
 		System.out.println("Your Health : " + this.getPlayer().getHealth());
@@ -212,30 +207,37 @@ public abstract class BattleLoc extends Location {
 
 	}
 
-	public void playerStats() {
+	public void afterBattle() {
+		System.out.println("You killed the enemy");
+		if (this.getPlayer().getPlayerLevel().getCurrentLevel() < 20) {
+			
+			this.afterBattleCollectExp();
+			
+			this.getPlayer().setThirstLevel(this.getPlayer().getThirstLevel() + 1);
+			this.getPlayer().setSatiety(this.getPlayer().getSatiety() - 1);
 
-		System.out.println("Player Informations \n ------------------------");
-		System.out.printf(infoPlayerFormat, this.getInventory().getWeapon().getName(),
-				this.getInventory().getArmor().getName(), this.getInventory().getArmor().getDefense(),
-				this.getPlayer().getTotalDamage(), this.getPlayer().getHealth(), this.getPlayer().getMoney());
-
-	}
-
-	public void monsterStats(int i) {
-
-		System.out.println(i + ". " + this.getMonster().getName() + " Informations \n ------------------------");
-		System.out.printf(infoMonsterFormat, this.getMonster().getDamage(), this.getMonster().getHealth(),
-				this.getMonster().getAwardMoney());
-
-	}
-
-	public int RandomMonsterCount() {
-		Random random = new Random();
-		return random.nextInt(this.getMaxMonsterCount()) + 1;
+			collectAward(this.getMonster().getAward());
+		} else {
+			System.out.println("");
+		}
 
 	}
 
-	private void collectAwardNew(Award award) {
+	public void afterBattleCollectExp() {
+		this.getPlayer().getPlayerLevel().gainExperience(this.getMonster().getAwardExperience());
+		if (this.getPlayer().getPlayerLevel().checkLevelUp()) {
+			this.playerLevelUpAward();
+		}
+		this.getMonster().getMonsterLevel().gainExperience(this.getMonster().getBattleExperience());
+		if (this.getMonster().getMonsterLevel().checkLevelUp()) {
+			this.monsterLevelUpChanges();
+		}
+		System.out.println(
+				"Your current exp is: " + this.getPlayer().getPlayerLevel().getCurrentExperience() + "/50");
+		
+	}
+
+	public void collectAward(Award award) {
 		System.out.println("You earned " + this.getMonster().getAwardMoney() + " money");
 
 		this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getMonster().getAwardMoney());
@@ -247,11 +249,11 @@ public abstract class BattleLoc extends Location {
 					+ this.getInventory().getawardItemsInInventoryById(this.getMonster().getAward().getId()));
 		}
 		if (this.getMonster().getExtraAward() != null) {
-			this.collectExtraAwardNew(getId());
+			this.collectExtraAward(getId());
 		}
 	}
 
-	public void collectExtraAwardNew(int locationId) {
+	public void collectExtraAward(int locationId) {
 
 		if (this.getMonster().extraAwardWihtLocation1(locationId)) {
 			System.out.println("You earned extra award ---" + this.getMonster().getExtraAward().getName());
@@ -263,95 +265,6 @@ public abstract class BattleLoc extends Location {
 
 	}
 
-//	public void collectAward2(int awardId) {
-//		System.out.println("You earned " + this.getMonster().getAwardMoney() + " money");
-//
-//		this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getMonster().getAwardMoney());
-//		System.out.println("Your current Money " + this.getPlayer().getMoney());
-//
-//		switch (awardId) {
-//		case 1:
-//			this.getInventory().setFoodCount(this.getInventory().getFoodCount() + 1);
-//			System.out.println("You earned Food. Your Current Food Count is " + this.getInventory().getFoodCount());
-//			break;
-//		case 2:
-//			this.getInventory().setWaterCount(this.getInventory().getWaterCount() + 1);
-//			System.out.println("You earned Water. Your Current Water Count is " + this.getInventory().getWaterCount());
-//			break;
-//		case 3:
-//			this.getInventory().setWoodCount(this.getInventory().getWoodCount() + 1);
-//			System.out.println("You earned Wood. Your Current Wood Count is " + this.getInventory().getWoodCount());
-//			break;
-//		case 4:
-//			this.getInventory().setIronCount(this.getInventory().getIronCount() + 1);
-//			System.out.println("You earned Iron. Your Current Iron Count is " + this.getInventory().getIronCount());
-//			break;
-//		case 5:
-//			if (this.getMonster().getAward().isChange(this.getId())) {
-//				this.getInventory().setDarkStone(this.getInventory().getDarkStone() + 1);
-//				System.out.println(
-//						"You earned Dark Stone.Your Current Dark Stone Count is " + this.getInventory().getDarkStone());
-//			}
-//			break;
-//		case 6:
-//			if (this.getMonster().getAward().isChange(this.getId())) {
-//				this.getInventory().setDiamondCount(this.getInventory().getDiamondCount() + 1);
-//				System.out.println(
-//						"You earned Diamond.Your Current Diamond Count is " + this.getInventory().getDiamondCount());
-//			}
-//			break;
-//		case 7:
-//			if (this.getMonster().getAward().isChange(this.getId())) {
-//				this.getInventory().setElfStoneCount(this.getInventory().getElfStoneCount() + 1);
-//				System.out.println("You earned Elf Stone.Your Current Elf Stone Count is "
-//						+ this.getInventory().getElfStoneCount());
-//			}
-//			break;
-//		case 9:
-//			if (this.getMonster().getAward().isChange(this.getId())) {
-//				this.getInventory().setGoblinKeyCount(this.getInventory().getGoblinKeyCount() + 1);
-//				System.out.println("You earned Goblin Key.Your Current Goblin Key Count is "
-//						+ this.getInventory().getGoblinKeyCount());
-//			}
-//			break;
-//		case 10:
-//			if (this.getMonster().getAward().isChange(this.getId())) {
-//				this.getInventory().getBoxChest()
-//						.setElfKingBoxCount(this.getInventory().getBoxChest().getElfKingBoxCount() + 1);
-//				System.out.println("You earned Gift Box- Elf King's Box.Your Current Gift Box- Elf King's Box Count is "
-//						+ this.getInventory().getBoxChest().getElfKingBoxCount());
-//			}
-//			break;
-//		}
-//
-//		this.collectExtraAward(getId());
-//	}
-
-//	public void collectExtraAward(int locationId) {
-//
-//		switch (locationId) {
-//		case 8:
-//			if (this.getMonster().extraAwardWihtLocation(getId()) != null) {
-//				this.getInventory().setWaterCount(this.getInventory().getWaterCount() + 1);
-//				System.out.println("You earned extra award --- Water");
-//				System.out.println("Your current Water count is: " + this.getInventory().getWaterCount());
-//			}
-//			break;
-//		case 9:
-//
-//			if (this.getMonster().extraAwardWihtLocation(getId()) != null) {
-//				this.getInventory().setFoodCount(this.getInventory().getFoodCount() + 1);
-//				System.out.println("You earned extra award --- Food");
-//				System.out.println("Your current food count is: " + this.getInventory().getFoodCount());
-//			}
-//			break;
-//
-//		default:
-//			break;
-//		}
-//
-//	}
-
 	public void playerLevelUpAward() {
 		System.out.println("Your health is increased from " + this.getPlayer().getDefaultHealth() + " to "
 				+ (this.getPlayer().getDefaultHealth() + 2));
@@ -359,12 +272,12 @@ public abstract class BattleLoc extends Location {
 		this.getPlayer().setHealth(this.getPlayer().getDefaultHealth());
 
 	}
-	
+
 	public void monsterLevelUpChanges() {
-		
+
 		this.getMonster().setDefaultHealth(this.getMonster().getDefaultHealth() + 2);
 		this.getMonster().setHealth(this.getMonster().getDefaultHealth());
-		
+
 	}
 
 	public Monster getMonster() {
@@ -387,4 +300,123 @@ public abstract class BattleLoc extends Location {
 
 		return this.getPlayer().getInventory();
 	}
+
+//	public void collectAward2(int awardId) {
+//	System.out.println("You earned " + this.getMonster().getAwardMoney() + " money");
+//
+//	this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getMonster().getAwardMoney());
+//	System.out.println("Your current Money " + this.getPlayer().getMoney());
+//
+//	switch (awardId) {
+//	case 1:
+//		this.getInventory().setFoodCount(this.getInventory().getFoodCount() + 1);
+//		System.out.println("You earned Food. Your Current Food Count is " + this.getInventory().getFoodCount());
+//		break;
+//	case 2:
+//		this.getInventory().setWaterCount(this.getInventory().getWaterCount() + 1);
+//		System.out.println("You earned Water. Your Current Water Count is " + this.getInventory().getWaterCount());
+//		break;
+//	case 3:
+//		this.getInventory().setWoodCount(this.getInventory().getWoodCount() + 1);
+//		System.out.println("You earned Wood. Your Current Wood Count is " + this.getInventory().getWoodCount());
+//		break;
+//	case 4:
+//		this.getInventory().setIronCount(this.getInventory().getIronCount() + 1);
+//		System.out.println("You earned Iron. Your Current Iron Count is " + this.getInventory().getIronCount());
+//		break;
+//	case 5:
+//		if (this.getMonster().getAward().isChange(this.getId())) {
+//			this.getInventory().setDarkStone(this.getInventory().getDarkStone() + 1);
+//			System.out.println(
+//					"You earned Dark Stone.Your Current Dark Stone Count is " + this.getInventory().getDarkStone());
+//		}
+//		break;
+//	case 6:
+//		if (this.getMonster().getAward().isChange(this.getId())) {
+//			this.getInventory().setDiamondCount(this.getInventory().getDiamondCount() + 1);
+//			System.out.println(
+//					"You earned Diamond.Your Current Diamond Count is " + this.getInventory().getDiamondCount());
+//		}
+//		break;
+//	case 7:
+//		if (this.getMonster().getAward().isChange(this.getId())) {
+//			this.getInventory().setElfStoneCount(this.getInventory().getElfStoneCount() + 1);
+//			System.out.println("You earned Elf Stone.Your Current Elf Stone Count is "
+//					+ this.getInventory().getElfStoneCount());
+//		}
+//		break;
+//	case 9:
+//		if (this.getMonster().getAward().isChange(this.getId())) {
+//			this.getInventory().setGoblinKeyCount(this.getInventory().getGoblinKeyCount() + 1);
+//			System.out.println("You earned Goblin Key.Your Current Goblin Key Count is "
+//					+ this.getInventory().getGoblinKeyCount());
+//		}
+//		break;
+//	case 10:
+//		if (this.getMonster().getAward().isChange(this.getId())) {
+//			this.getInventory().getBoxChest()
+//					.setElfKingBoxCount(this.getInventory().getBoxChest().getElfKingBoxCount() + 1);
+//			System.out.println("You earned Gift Box- Elf King's Box.Your Current Gift Box- Elf King's Box Count is "
+//					+ this.getInventory().getBoxChest().getElfKingBoxCount());
+//		}
+//		break;
+//	}
+//
+//	this.collectExtraAward(getId());
+//}
+
+//public void collectExtraAward(int locationId) {
+//
+//	switch (locationId) {
+//	case 8:
+//		if (this.getMonster().extraAwardWihtLocation(getId()) != null) {
+//			this.getInventory().setWaterCount(this.getInventory().getWaterCount() + 1);
+//			System.out.println("You earned extra award --- Water");
+//			System.out.println("Your current Water count is: " + this.getInventory().getWaterCount());
+//		}
+//		break;
+//	case 9:
+//
+//		if (this.getMonster().extraAwardWihtLocation(getId()) != null) {
+//			this.getInventory().setFoodCount(this.getInventory().getFoodCount() + 1);
+//			System.out.println("You earned extra award --- Food");
+//			System.out.println("Your current food count is: " + this.getInventory().getFoodCount());
+//		}
+//		break;
+//
+//	default:
+//		break;
+//	}
+//
+//}
+
+//	public void hitInCombat() {
+//		System.out.println("You hit " + getMonster().getName());
+//		this.getMonster().setHealth(this.monster.getHealth() - this.getPlayer().getTotalDamage());
+//		afterHitInfo();
+//		if (this.getMonster().getHealth() > 0) {
+//			if (!blockElixirUse) {
+//				this.hit();
+//				System.out.println(this.getMonster().getName() + " hit you");
+//				int monsterDamage = this.getMonster().getDamage()
+//						- this.getPlayer().getInventory().getArmor().getDefense();
+//				if (monsterDamage < 0) {
+//					monsterDamage = 0;
+//				}
+//				this.getPlayer().setHealth(this.getPlayer().getHealth() - monsterDamage);
+//			} else {
+//				System.out.println("You used block Elixir monster couldn't hit you.");
+//			}
+//
+//			System.out.println(this.getMonster().getName() + " hit you");
+//			int monsterDamage = this.getMonster().getDamage()
+//					- this.getPlayer().getInventory().getArmor().getDamageDodge();
+//			if (monsterDamage < 0) {
+//				monsterDamage = 0;
+//			}
+//			this.getPlayer().setHealth(this.getPlayer().getHealth() - monsterDamage);
+//			afterHitInfo();
+//		}
+//	}
+
 }

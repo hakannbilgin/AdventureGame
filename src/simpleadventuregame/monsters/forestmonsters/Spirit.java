@@ -8,7 +8,7 @@ public class Spirit extends Monster {
 
 	
 	public Spirit() {
-		super(6, "Spirit", new Diamond(),new Food(), 14, 18, 17,3,5);
+		super(6, "Spirit", new Diamond(),new Food(), 14, 18, 17,4,5);
 		
 	}
 	

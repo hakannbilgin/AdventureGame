@@ -7,7 +7,7 @@ import simpleadventuregame.monsters.Monster;
 public class MountainGoblin extends Monster {
 
 	public MountainGoblin() {
-		super(11, "Mountain Goblin", new Steel(), new Food(), 18, 18, 17, 5, 4);
+		super(11, "Mountain Goblin", new Steel(), new Food(), 18, 18, 17, 6, 4);
 		// TODO Auto-generated constructor stub
 	}
 
